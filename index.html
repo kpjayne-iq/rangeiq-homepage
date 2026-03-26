@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RangeIQ Poker — Interactive Poker Decision Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg-main:#0B0F14;--bg-surface:#111821;--bg-elevated:#151E28;--bg-alt-1:#0D131A;--bg-alt-2:#101721;--border:#243140;--border-subtle:rgba(255,255,255,0.06);--text-primary:#E7ECEF;--text-secondary:#A8B4BF;--text-muted:#6F7D8A;--gold:#D9B95B;--gold-hover:#E3C56B;--gold-dim:#B6923F;--blue:#5F88C6;--green:#38B67A;--font-display:'DM Serif Display',Georgia,serif;--font-body:'Inter',-apple-system,sans-serif;--container:1240px;--section-pad:120px;--pad:32px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg-main);color:var(--text-secondary);line-height:1.75;font-size:17px;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none;transition:all 180ms ease}
+a:hover{text-decoration:underline}
+.h1{font-family:var(--font-display);font-size:52px;font-weight:400;line-height:1.1;letter-spacing:-0.02em;color:var(--text-primary)}
+.h2{font-family:var(--font-display);font-size:42px;font-weight:400;line-height:1.15;letter-spacing:-0.015em;color:var(--text-primary)}
+.h3{font-family:var(--font-body);font-size:22px;font-weight:600;line-height:1.25;color:var(--text-primary)}
+.body-large{font-size:20px;font-weight:400;line-height:1.6;color:var(--text-secondary)}
+.eyebrow{font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold)}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--pad)}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 24px;background:var(--gold);color:var(--bg-main);font-family:var(--font-body);font-size:16px;font-weight:600;border:none;border-radius:12px;cursor:pointer;transition:all 180ms ease;box-shadow:0 10px 24px rgba(217,185,91,0.16);text-decoration:none;white-space:nowrap}
+.btn-primary:hover{background:var(--gold-hover);transform:translateY(-1px);box-shadow:0 14px 32px rgba(217,185,91,0.22);text-decoration:none}
+.btn-secondary{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 22px;background:transparent;color:var(--text-primary);font-family:var(--font-body);font-size:16px;font-weight:500;border:1px solid #2A394A;border-radius:12px;cursor:pointer;transition:all 180ms ease;text-decoration:none;white-space:nowrap}
+.btn-secondary:hover{background:rgba(255,255,255,0.03);border-color:#3A4B5E;text-decoration:none}
+.card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:20px;padding:28px;box-shadow:0 14px 36px rgba(0,0,0,0.18);transition:all 220ms ease}
+.card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.1);box-shadow:0 18px 44px rgba(0,0,0,0.24)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;height:84px;display:flex;align-items:center;z-index:1000;transition:all 300ms ease}
+.nav.scrolled{background:rgba(11,15,20,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{max-width:var(--container);margin:0 auto;padding:0 var(--pad);width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-body);font-size:20px;font-weight:700;color:var(--text-primary);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo:hover{text-decoration:none}
+.logo-grid{width:28px;height:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.logo-grid span{border-radius:2px;background:var(--gold)}
+.logo-grid span:nth-child(4),.logo-grid span:nth-child(5),.logo-grid span:nth-child(7){background:rgba(255,255,255,0.15)}
+.logo-grid span:nth-child(8),.logo-grid span:nth-child(9){background:rgba(255,255,255,0.08)}
+.logo-iq{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:15px;font-weight:500;color:var(--text-secondary);text-decoration:none}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-cta{display:flex;align-items:center;gap:16px}
+.nav-cta .sign-in{font-size:15px;font-weight:500;color:var(--text-secondary);text-decoration:none}
+.nav-cta .sign-in:hover{color:var(--text-primary)}
+.nav-cta .btn-primary{height:44px;font-size:14px;padding:0 20px}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.mobile-toggle span{display:block;width:22px;height:2px;background:var(--text-primary);margin:5px 0;border-radius:1px}
+
+/* HERO */
+.hero{background:var(--bg-main);padding-top:84px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:5%;right:-10%;width:900px;height:900px;background:radial-gradient(circle,rgba(15,28,50,0.6) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:20%;right:20%;width:500px;height:500px;background:radial-gradient(circle,rgba(217,185,91,0.035) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:var(--container);margin:0 auto;padding:80px var(--pad) 40px;position:relative;z-index:1;text-align:center}
+.hero-eyebrow{margin-bottom:20px}
+.hero-headline{margin-bottom:20px;max-width:780px;margin-left:auto;margin-right:auto}
+.hero-sub{font-size:20px;line-height:1.6;color:var(--text-secondary);margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-ctas{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px}
+.hero-trust{font-size:14px;color:var(--text-muted);display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:56px}
+
+.hero-screenshot-wrapper{position:relative;max-width:1060px;margin:0 auto}
+.hero-screenshot-glow{position:absolute;inset:-80px;background:radial-gradient(ellipse at center,rgba(95,136,198,0.07) 0%,transparent 65%);pointer-events:none}
+.hero-screenshot-frame{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 50px 100px rgba(0,0,0,0.45),0 0 0 1px rgba(255,255,255,0.05);border:1px solid var(--border-subtle)}
+.hero-titlebar{height:40px;background:rgba(0,0,0,0.4);display:flex;align-items:center;padding:0 16px;gap:8px;border-bottom:1px solid var(--border-subtle)}
+.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.hero-titlebar-url{font-size:12px;color:var(--text-muted);margin-left:auto;margin-right:auto;opacity:0.6}
+.hero-screenshot-frame img{display:block;width:100%}
+
+/* FEATURES */
+.section-features{background:var(--bg-alt-1);padding:var(--section-pad) 0}
+.section-intro{text-align:center;max-width:680px;margin:0 auto 64px}
+.section-intro .eyebrow{margin-bottom:16px}
+.section-intro .h2{margin-bottom:20px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{padding:32px}
+.feature-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:rgba(217,185,91,0.08);border:1px solid rgba(217,185,91,0.12)}
+.feature-icon svg{width:24px;height:24px}
+.feature-card .h3{margin-bottom:12px}
+.feature-card p{font-size:15px;line-height:1.65;color:var(--text-secondary)}
+
+/* HOW IT WORKS */
+.section-how{background:var(--bg-main);padding:var(--section-pad) 0}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px}
+.how-step{text-align:center;padding:0 12px}
+.how-number{font-family:var(--font-display);font-size:56px;color:rgba(217,185,91,0.12);line-height:1;margin-bottom:20px}
+.how-step .h3{margin-bottom:12px}
+.how-step p{font-size:15px;line-height:1.65}
+
+/* STATS */
+.section-stats{background:var(--bg-alt-2);padding:80px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-item{text-align:center;padding:24px 16px}
+.stat-value{font-family:var(--font-display);font-size:48px;color:var(--text-primary);line-height:1.1;margin-bottom:6px}
+.stat-value .accent{color:var(--gold)}
+.stat-label{font-size:14px;color:var(--text-muted)}
+
+/* FAQ */
+.section-faq{background:var(--bg-main);padding:var(--section-pad) 0}
+.faq-list{max-width:800px;margin:64px auto 0;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:18px;overflow:hidden}
+.faq-question{width:100%;padding:24px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;font-family:var(--font-body);font-size:18px;font-weight:600;color:var(--text-primary);transition:color 180ms ease}
+.faq-question:hover{color:var(--gold)}
+.faq-chevron{flex-shrink:0;width:20px;height:20px;transition:transform 300ms ease}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 400ms ease}
+.faq-item.open .faq-answer{max-height:400px}
+.faq-answer-inner{padding:0 24px 24px;font-size:16px;line-height:1.7;color:var(--text-secondary)}
+
+/* CTA + EMAIL CAPTURE */
+.section-cta{background:var(--bg-alt-1);padding:var(--section-pad) 0}
+.cta-panel{background:linear-gradient(180deg,#121B24 0%,#0F161D 100%);border:1px solid var(--border-subtle);border-radius:28px;padding:72px;text-align:center;position:relative;overflow:hidden}
+.cta-panel::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(217,185,91,0.06) 0%,transparent 70%);pointer-events:none}
+.cta-panel .h2{font-size:48px;margin-bottom:16px;position:relative}
+.cta-panel .body-large{max-width:540px;margin:0 auto 32px;position:relative}
+.cta-buttons{display:flex;justify-content:center;gap:16px;position:relative;margin-bottom:48px}
+.email-divider{position:relative;max-width:480px;margin:0 auto 24px;display:flex;align-items:center;gap:16px}
+.email-divider::before,.email-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.08)}
+.email-divider span{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;white-space:nowrap}
+.email-capture{position:relative;max-width:480px;margin:0 auto}
+.email-capture-form{display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:border-color 200ms ease}
+.email-capture-form:focus-within{border-color:var(--gold)}
+.email-capture-input{flex:1;height:48px;padding:0 16px;background:var(--bg-main);border:none;outline:none;font-family:var(--font-body);font-size:15px;color:var(--text-primary)}
+.email-capture-input::placeholder{color:var(--text-muted)}
+.email-capture-btn{height:48px;padding:0 20px;background:var(--gold);color:var(--bg-main);font-family:var(--font-body);font-size:14px;font-weight:600;border:none;cursor:pointer;transition:background 180ms ease;white-space:nowrap}
+.email-capture-btn:hover{background:var(--gold-hover)}
+.email-capture-note{font-size:12px;color:var(--text-muted);margin-top:8px}
+.email-success{display:none;font-size:14px;color:var(--green);margin-top:12px;font-weight:500}
+
+/* FOOTER */
+.footer{background:var(--bg-main);border-top:1px solid var(--border-subtle);padding:48px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.footer-left{display:flex;flex-direction:column;gap:6px}
+.footer-brand{font-size:16px;font-weight:600;color:var(--text-primary)}
+.footer-sub{font-size:13px;color:var(--text-muted)}
+.footer-links{display:flex;gap:28px;list-style:none}
+.footer-links a{font-size:14px;color:var(--text-muted);text-decoration:none}
+.footer-links a:hover{color:var(--text-secondary)}
+
+.animate-in{opacity:0;transform:translateY(20px);transition:opacity 600ms ease,transform 600ms ease}
+.animate-in.visible{opacity:1;transform:translateY(0)}
+.animate-in:nth-child(2){transition-delay:80ms}
+.animate-in:nth-child(3){transition-delay:160ms}
+.animate-in:nth-child(4){transition-delay:240ms}
+.animate-in:nth-child(5){transition-delay:320ms}
+.animate-in:nth-child(6){transition-delay:400ms}
+
+@media(max-width:1024px){.h1{font-size:48px}.h2{font-size:36px}:root{--section-pad:88px;--pad:24px}.features-grid{grid-template-columns:repeat(2,1fr)}.stats-grid{grid-template-columns:repeat(2,1fr)}.cta-panel{padding:56px 40px}}
+@media(max-width:768px){.h1{font-size:34px}.h2{font-size:30px}.h3{font-size:20px}.cta-panel .h2{font-size:36px}:root{--section-pad:72px;--pad:20px}.nav-links{display:none}.nav-cta .sign-in{display:none}.mobile-toggle{display:block}.hero-ctas{flex-direction:column;align-items:stretch}.hero-ctas .btn-primary,.hero-ctas .btn-secondary{width:100%;justify-content:center}.features-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr;gap:40px}.stats-grid{grid-template-columns:1fr 1fr}.cta-panel{padding:40px 24px}.cta-buttons{flex-direction:column;align-items:stretch}.cta-buttons .btn-primary,.cta-buttons .btn-secondary{width:100%;justify-content:center}.email-capture-form{flex-direction:column}.footer-inner{flex-direction:column;gap:24px;text-align:center}}
+@media(max-width:480px){.stats-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      Range<span class="logo-iq">IQ</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://app.rangeiqpoker.com" class="sign-in">Sign In</a>
+      <a href="https://app.rangeiqpoker.com" class="btn-primary">Start Training</a>
+    </div>
+    <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow hero-eyebrow">Interactive Poker Decision Training</div>
+    <h1 class="h1 hero-headline">Train the way strong poker players think — not what they play.</h1>
+    <p class="hero-sub">RangeIQ builds your decision architecture — hand by hand, street by street — so you stop guessing and start exploiting every player type at the table.</p>
+    <div class="hero-ctas">
+      <a href="https://app.rangeiqpoker.com" class="btn-primary">Start Training Free</a>
+      <a href="#how" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="hero-trust">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L10.12 5.3L15 6.01L11.5 9.41L12.24 14.27L8 12.07L3.76 14.27L4.5 9.41L1 6.01L5.88 5.3L8 1Z" fill="#D9B95B"/></svg>
+      No credit card required &middot; Train instantly in your browser
+    </div>
+    <div class="hero-screenshot-wrapper">
+      <div class="hero-screenshot-glow"></div>
+      <div class="hero-screenshot-frame">
+        <div class="hero-titlebar">
+          <span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span>
+          <span class="hero-titlebar-url">app.rangeiqpoker.com</span>
+        </div>
+        <img src="app-screenshot.png" alt="RangeIQ Poker — Open Raise to $20 vs Calling Station with 85% Confidence, full range grid and exploit reasoning" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-features" id="features">
+  <div class="container">
+    <div class="section-intro">
+      <div class="eyebrow">Core Capabilities</div>
+      <h2 class="h2">Built for how real poker decisions are made.</h2>
+      <p class="body-large">Six training engines designed to build your decision architecture — not just test your answers.</p>
+    </div>
+    <div class="features-grid">
+      <div class="card feature-card animate-in">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B95B" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3 class="h3">Think in Ranges</h3>
+        <p>Stop putting opponents on one hand. Build, visualize, and test ranges against real boards and real decisions.</p>
+      </div>
+      <div class="card feature-card animate-in">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B95B" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="12" cy="8" r="1" fill="#D9B95B" stroke="none"/></svg></div>
+        <h3 class="h3">Exploit Player Types</h3>
+        <p>Train against real player profiles — from nits to calling stations — and learn the adjustments that actually make money.</p>
+      </div>
+      <div class="card feature-card animate-in">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B95B" stroke-width="1.5"><path d="M4 18V6"/><path d="M12 18V10"/><path d="M20 18V4"/><circle cx="4" cy="6" r="1.5" fill="#D9B95B" stroke="none"/><circle cx="12" cy="10" r="1.5" fill="#D9B95B" stroke="none"/><circle cx="20" cy="4" r="1.5" fill="#D9B95B" stroke="none"/></svg></div>
+        <h3 class="h3">Train Street by Street</h3>
+        <p>Isolate flop, turn, and river decisions so you can fix the spots where your leaks cost the most.</p>
+      </div>
+      <div class="card feature-card animate-in">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B95B" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3 class="h3">Daily Drills</h3>
+        <p>Short, focused training sessions designed to build consistency over time. Just five minutes a day compounds into a real edge.</p>
+      </div>
+      <div class="card feature-card animate-in">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B95B" stroke-width="1.5"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M7.05 7.05l2.12 2.12M14.83 14.83l2.12 2.12"/><path d="M7.05 16.95l2.12-2.12M14.83 9.17l2.12-2.12"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3 class="h3">Reasoning Engine</h3>
+        <p>Every recommendation is backed by a clear logic chain — so you understand why it works, not just what to do.</p>
+      </div>
+      <div class="card feature-card animate-in">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B95B" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4"/><path d="M15 3h4a2 2 0 012 2v4"/><path d="M9 21H5a2 2 0 01-2-2v-4"/><path d="M15 21h4a2 2 0 002-2v-4"/><path d="M9 9h6v6H9z"/></svg></div>
+        <h3 class="h3">Decision Consistency</h3>
+        <p>Track whether you're making the same decision in the same spot — and uncover the patterns where your logic starts to drift.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-how" id="how">
+  <div class="container">
+    <div class="section-intro">
+      <div class="eyebrow">How It Works</div>
+      <h2 class="h2">Turn every hand into a structured edge — in three steps.</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-step animate-in"><div class="how-number">01</div><h3 class="h3">Set the Scenario</h3><p>Enter your hand, position, board texture, villain type, and game size. Full situational context in seconds.</p></div>
+      <div class="how-step animate-in"><div class="how-number">02</div><h3 class="h3">Get the Analysis</h3><p>RangeIQ evaluates range interactions, board dynamics, and villain tendencies — then delivers a clear, exploit-driven recommendation with exact bet sizing.</p></div>
+      <div class="how-step animate-in"><div class="how-number">03</div><h3 class="h3">Build the Pattern</h3><p>Repeat across sessions. Track your consistency, surface your leaks, and train the decision pathways that produce long-run edge.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section-stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item animate-in"><div class="stat-value">1,326</div><div class="stat-label">Starting Hand Combinations</div></div>
+      <div class="stat-item animate-in"><div class="stat-value"><span class="accent">6</span></div><div class="stat-label">Training Engines</div></div>
+      <div class="stat-item animate-in"><div class="stat-value">5<span style="font-size:28px;color:var(--text-muted);">min</span></div><div class="stat-label">Daily Drill Sessions</div></div>
+      <div class="stat-item animate-in"><div class="stat-value">1M<span class="accent">+</span></div><div class="stat-label">Possible Scenarios</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-faq" id="faq">
+  <div class="container">
+    <div class="section-intro">
+      <div class="eyebrow">Questions</div>
+      <h2 class="h2">Common questions, direct answers.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question">What skill level is RangeIQ designed for?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is built for players who have moved beyond the basics and want to develop real decision-making skill. Whether you're a serious recreational player or grinding low-to-mid stakes, the system meets you where you are and scales with your game.</div></div></div>
+      <div class="faq-item"><button class="faq-question">How is this different from a GTO solver?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Solvers show the mathematically optimal play in a vacuum. RangeIQ is built for real poker — training you to make better decisions against real player types, real tendencies, and real mistakes. It's not just about finding the "correct" answer. It's about building the reasoning habits that create edge at the table.</div></div></div>
+      <div class="faq-item"><button class="faq-question">Do I need to install anything?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No. RangeIQ runs entirely in your browser — no downloads, no plugins, and no setup required. Just open the app, enter a spot, and start training immediately.</div></div></div>
+      <div class="faq-item"><button class="faq-question">What formats and table sizes does RangeIQ cover?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is built for No-Limit Hold'em cash games and tournaments. The position system covers all major strategic seats — from UTG through BB — and adapts naturally across different table sizes, from short-handed to full-ring.</div></div></div>
+      <div class="faq-item"><button class="faq-question">Is my training data saved?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Your drill history, decision consistency data, and progress metrics are stored locally in your browser. Your training activity stays on your device — it isn't collected or shared.</div></div></div>
+      <div class="faq-item"><button class="faq-question">What's the connection to Between the Cards?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is the interactive training platform built by the team behind Between the Cards. BTC delivers the strategic frameworks through content — RangeIQ lets you apply and train them hands-on. Same philosophy, different medium.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + EMAIL CAPTURE -->
+<section class="section-cta">
+  <div class="container">
+    <div class="cta-panel">
+      <h2 class="h2">Stop studying theory.<br>Start training decisions.</h2>
+      <p class="body-large">RangeIQ builds the decision architecture that separates disciplined players from the rest of the table.</p>
+      <div class="cta-buttons">
+        <a href="https://app.rangeiqpoker.com" class="btn-primary">Start Training Free</a>
+        <a href="#features" class="btn-secondary">Explore Features</a>
+      </div>
+      <div class="email-divider"><span>or get weekly poker training tips</span></div>
+      <div class="email-capture">
+        <form class="email-capture-form" id="emailForm" onsubmit="return handleEmail(event)">
+          <input type="email" class="email-capture-input" placeholder="your@email.com" required id="emailInput" />
+          <button type="submit" class="email-capture-btn">Subscribe</button>
+        </form>
+        <div class="email-capture-note">Free weekly tips. No spam. Unsubscribe anytime.</div>
+        <div class="email-success" id="emailSuccess">You're in. Watch for your first tip this week.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">RangeIQ Poker</div>
+        <div class="footer-sub">A Between the Cards product &middot; &copy; 2026</div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="mailto:support@rangeiqpoker.com">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+document.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40));
+
+// FAQ
+document.querySelectorAll('.faq-question').forEach(b=>{b.addEventListener('click',()=>{const i=b.parentElement,o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(e=>e.classList.remove('open'));if(!o)i.classList.add('open');});});
+
+// Scroll animations
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.animate-in').forEach(el=>obs.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(l=>{l.addEventListener('click',e=>{const t=document.querySelector(l.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+
+// Email capture
+function handleEmail(e){
+  e.preventDefault();
+  const email=document.getElementById('emailInput').value;
+  // For now, mailto fallback — replace with Mailchimp/Buttondown endpoint later
+  const form=document.getElementById('emailForm');
+  const success=document.getElementById('emailSuccess');
+  form.style.display='none';
+  document.querySelector('.email-capture-note').style.display='none';
+  success.style.display='block';
+  // Send email notification
+  fetch('mailto:support@rangeiqpoker.com?subject=Newsletter+Signup&body='+encodeURIComponent(email)).catch(()=>{});
+  return false;
+}
+</script>
+</body>
+</html>
