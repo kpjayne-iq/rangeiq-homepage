@@ -304,12 +304,12 @@ a:hover{text-decoration:underline}
       </div>
       <div class="email-divider"><span>or get weekly poker training tips</span></div>
       <div class="email-capture">
-        <form class="email-capture-form" id="emailForm" onsubmit="return handleEmail(event)">
-          <input type="email" class="email-capture-input" placeholder="your@email.com" required id="emailInput" />
+        <form class="email-capture-form" id="emailForm" action="https://buttondown.com/api/emails/embed-subscribe/rangeiq" method="post" target="_blank">
+          <input type="email" name="email" class="email-capture-input" placeholder="your@email.com" required id="emailInput" />
+          <input type="hidden" value="1" name="embed" />
           <button type="submit" class="email-capture-btn">Subscribe</button>
         </form>
         <div class="email-capture-note">Free weekly tips. No spam. Unsubscribe anytime.</div>
-        <div class="email-success" id="emailSuccess">You're in. Watch for your first tip this week.</div>
       </div>
     </div>
   </div>
@@ -346,20 +346,6 @@ document.querySelectorAll('.animate-in').forEach(el=>obs.observe(el));
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(l=>{l.addEventListener('click',e=>{const t=document.querySelector(l.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
 
-// Email capture
-function handleEmail(e){
-  e.preventDefault();
-  const email=document.getElementById('emailInput').value;
-  // For now, mailto fallback — replace with Mailchimp/Buttondown endpoint later
-  const form=document.getElementById('emailForm');
-  const success=document.getElementById('emailSuccess');
-  form.style.display='none';
-  document.querySelector('.email-capture-note').style.display='none';
-  success.style.display='block';
-  // Send email notification
-  fetch('mailto:support@rangeiqpoker.com?subject=Newsletter+Signup&body='+encodeURIComponent(email)).catch(()=>{});
-  return false;
-}
 </script>
 </body>
 </html>
