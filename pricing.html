@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | RangeIQ Poker</title>
+  <meta name="description" content="RangeIQ Poker pricing — free tier and Full IQ subscription. Train smarter, exploit every spot.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --card: #111827;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 32px 100px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--bg);
+    }
+
+    .brand-name {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .brand-name span { color: var(--gold); }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 56px;
+      line-height: 1.05;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    h1 .gold { color: var(--gold); }
+
+    .subtitle {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Trial banner */
+    .trial-banner {
+      max-width: 720px;
+      margin: 36px auto 0;
+      padding: 16px 24px;
+      background: rgba(16,185,129,0.06);
+      border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* Pricing Grid */
+    .pricing {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .plan {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px;
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .plan.pro {
+      border: 1.5px solid var(--border-hi);
+      background: linear-gradient(180deg, rgba(230,197,102,0.04) 0%, var(--card) 100%);
+      position: relative;
+    }
+
+    .plan.pro::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dim) 100%);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .plan-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .plan-label.free { color: var(--muted); }
+    .plan-label.pro { color: var(--gold); }
+
+    .plan-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 30px;
+      color: var(--text);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .plan-tagline {
+      font-size: 14px;
+      color: var(--faint);
+      margin-bottom: 28px;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .price-amount {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 64px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .price.pro .price-amount { color: var(--gold); }
+
+    .price-period {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .price-alt {
+      font-size: 13px;
+      color: var(--faint);
+      margin-bottom: 32px;
+    }
+
+    .price-alt strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px;
+    }
+
+    .features li {
+      padding: 11px 0;
+      padding-left: 28px;
+      position: relative;
+      font-size: 14px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plan.pro .features li {
+      color: var(--text);
+    }
+
+    .features li:last-child { border-bottom: none; }
+
+    .features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .plan.pro .features li::before {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .plan.pro .features li::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 19px;
+      width: 6px;
+      height: 4px;
+      border-left: 1.5px solid var(--bg);
+      border-bottom: 1.5px solid var(--bg);
+      transform: rotate(-45deg);
+    }
+
+    .features li.bold {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cta {
+      display: block;
+      width: 100%;
+      padding: 16px 0;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cta-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .cta-secondary:hover {
+      background: #2A3542;
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 32px rgba(230,197,102,0.35);
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 36px;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .faq-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-q {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px;
+      color: var(--faint);
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 760px) {
+      .container { padding: 40px 20px 80px; }
+      h1 { font-size: 38px; }
+      .pricing { grid-template-columns: 1fr; gap: 16px; }
+      .plan { padding: 32px 28px; }
+      .price-amount { font-size: 52px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">R</div>
+        <div class="brand-name">Range<span>IQ</span> Poker</div>
+      </div>
+      <div class="eyebrow">Pricing</div>
+      <h1>Train smarter. <span class="gold">Exploit every spot.</span></h1>
+      <p class="subtitle">Start free. Upgrade when you're ready to unlock the full engine — all 9 opponent types, unlimited analysis, full vault.</p>
+      <div class="trial-banner">Free through June 1, 2026 — your card won't be charged until then.</div>
+    </header>
+
+    <div class="pricing">
+      <!-- FREE PLAN -->
+      <div class="plan">
+        <div class="plan-label free">Free Tier</div>
+        <h2 class="plan-title">Get in the hand</h2>
+        <p class="plan-tagline">Try the engine. No credit card required.</p>
+
+        <div class="price">
+          <span class="price-amount">$0</span>
+          <span class="price-period">/forever</span>
+        </div>
+        <p class="price-alt">No card required to start</p>
+
+        <ul class="features">
+          <li>Unlimited preflop analysis</li>
+          <li>2 postflop spots per day</li>
+          <li>4 opponent types</li>
+          <li>1 daily drill</li>
+          <li>3 saved hands in vault</li>
+          <li>Full reasoning bullets</li>
+        </ul>
+
+        <a href="https://app.rangeiqpoker.com" class="cta cta-secondary">Start free</a>
+      </div>
+
+      <!-- PRO PLAN -->
+      <div class="plan pro">
+        <div class="plan-label pro">Full IQ &middot; Pro</div>
+        <h2 class="plan-title">Unlock the real edge</h2>
+        <p class="plan-tagline">Everything. No limits. Built for serious players.</p>
+
+        <div class="price pro">
+          <span class="price-amount">$14.99</span>
+          <span class="price-period">/month</span>
+        </div>
+        <p class="price-alt">or <strong>$119/year</strong> &middot; save 34%</p>
+
+        <ul class="features">
+          <li class="bold">Everything in Free, plus:</li>
+          <li>Unlimited postflop analysis</li>
+          <li>All 9 opponent types</li>
+          <li>Unlimited daily drills</li>
+          <li>Unlimited Study Vault</li>
+          <li>Full Range Storyline insights</li>
+          <li>Priority support</li>
+        </ul>
+
+        <a href="https://app.rangeiqpoker.com" class="cta cta-primary">Unlock Full IQ</a>
+      </div>
+    </div>
+
+    <div class="faq">
+      <h2 class="faq-title">Common questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Is RangeIQ a gambling product?</div>
+        <p class="faq-a">No. RangeIQ is a strategy training and decision-support tool. No real money is wagered, no card games are played, and no betting is facilitated. It's an educational SaaS product, similar to chess training software or sports analytics platforms.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel anytime?</div>
+        <p class="faq-a">Yes. You can cancel your subscription at any time from your account settings. You'll keep access to Pro features until the end of your current billing period.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What payment methods do you accept?</div>
+        <p class="faq-a">All major credit and debit cards through our secure payment processor. Subscriptions are billed in USD.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do you offer refunds?</div>
+        <p class="faq-a">All sales are final. If you believe you've been charged in error, contact us at support@rangeiqpoker.com within 14 days and we'll review your request in good faith. See our <a href="terms.html" style="color:var(--gold);">Terms of Service</a> for full details.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What happens after the free trial period ends on June 1?</div>
+        <p class="faq-a">If you sign up before June 1, you'll have full access during the launch period at no charge. Your subscription begins billing on June 1, 2026 at the rate you selected. You can cancel before then if you change your mind.</p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 IQ Digital Holdings. All rights reserved.<br>
+      <a href="/">Home</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a>
+    </footer>
+  </div>
+</body>
+</html>
