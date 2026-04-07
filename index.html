@@ -134,9 +134,9 @@ a:hover{text-decoration:underline}
 .footer-left{display:flex;flex-direction:column;gap:6px}
 .footer-brand{font-size:16px;font-weight:600;color:var(--text-primary)}
 .footer-sub{font-size:13px;color:var(--text-muted)}
-.footer-links{display:flex;gap:28px;list-style:none}
+.footer-links{display:flex;gap:28px;list-style:none;flex-wrap:wrap;justify-content:flex-end}
 .footer-links a{font-size:14px;color:var(--text-muted);text-decoration:none}
-.footer-links a:hover{color:var(--text-secondary)}
+.footer-links a:hover{color:var(--gold)}
 
 .animate-in{opacity:0;transform:translateY(20px);transition:opacity 600ms ease,transform 600ms ease}
 .animate-in.visible{opacity:1;transform:translateY(0)}
@@ -147,7 +147,7 @@ a:hover{text-decoration:underline}
 .animate-in:nth-child(6){transition-delay:400ms}
 
 @media(max-width:1024px){.h1{font-size:48px}.h2{font-size:36px}:root{--section-pad:88px;--pad:24px}.features-grid{grid-template-columns:repeat(2,1fr)}.stats-grid{grid-template-columns:repeat(2,1fr)}.cta-panel{padding:56px 40px}}
-@media(max-width:768px){.h1{font-size:34px}.h2{font-size:30px}.h3{font-size:20px}.cta-panel .h2{font-size:36px}:root{--section-pad:72px;--pad:20px}.nav-links{display:none}.nav-cta .sign-in{display:none}.mobile-toggle{display:block}.hero-ctas{flex-direction:column;align-items:stretch}.hero-ctas .btn-primary,.hero-ctas .btn-secondary{width:100%;justify-content:center}.features-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr;gap:40px}.stats-grid{grid-template-columns:1fr 1fr}.cta-panel{padding:40px 24px}.cta-buttons{flex-direction:column;align-items:stretch}.cta-buttons .btn-primary,.cta-buttons .btn-secondary{width:100%;justify-content:center}.email-capture-form{flex-direction:column}.footer-inner{flex-direction:column;gap:24px;text-align:center}}
+@media(max-width:768px){.h1{font-size:34px}.h2{font-size:30px}.h3{font-size:20px}.cta-panel .h2{font-size:36px}:root{--section-pad:72px;--pad:20px}.nav-links{display:none}.nav-cta .sign-in{display:none}.mobile-toggle{display:block}.hero-ctas{flex-direction:column;align-items:stretch}.hero-ctas .btn-primary,.hero-ctas .btn-secondary{width:100%;justify-content:center}.features-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr;gap:40px}.stats-grid{grid-template-columns:1fr 1fr}.cta-panel{padding:40px 24px}.cta-buttons{flex-direction:column;align-items:stretch}.cta-buttons .btn-primary,.cta-buttons .btn-secondary{width:100%;justify-content:center}.email-capture-form{flex-direction:column}.footer-inner{flex-direction:column;gap:24px;text-align:center}.footer-links{justify-content:center}}
 @media(max-width:480px){.stats-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -163,6 +163,7 @@ a:hover{text-decoration:underline}
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
       <li><a href="#how">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-cta">
@@ -321,10 +322,12 @@ a:hover{text-decoration:underline}
     <div class="footer-inner">
       <div class="footer-left">
         <div class="footer-brand">RangeIQ Poker</div>
-        <div class="footer-sub">A Between the Cards product &middot; &copy; 2026</div>
+        <div class="footer-sub">A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings</div>
       </div>
       <ul class="footer-links">
-        <li><a href="#features">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="mailto:support@rangeiqpoker.com">Contact</a></li>
       </ul>
