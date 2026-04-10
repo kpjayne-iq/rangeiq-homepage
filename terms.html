@@ -8,195 +8,40 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0B0F14;
-      --card: #111827;
-      --surface: #1F2937;
-      --border: rgba(255,255,255,0.08);
-      --text: #E5E7EB;
-      --muted: #9CA3AF;
-      --faint: #6B7280;
-      --gold: #E6C566;
-      --gold-dim: #8A7438;
+      --bg: #0B0F14; --card: #111827; --surface: #1F2937;
+      --border: rgba(255,255,255,0.08); --text: #E5E7EB;
+      --muted: #9CA3AF; --faint: #6B7280;
+      --gold: #E6C566; --gold-dim: #8A7438;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 60px 32px 100px;
-    }
-
-    /* Header */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 32px;
-      margin-bottom: 48px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
-    .brand-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'DM Serif Display', serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--bg);
-    }
-
-    .brand-name {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--text);
-      text-transform: uppercase;
-    }
-
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; counter-reset: section; }
+    .container { max-width: 820px; margin: 0 auto; padding: 60px 32px 100px; }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 48px; }
+    .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .brand-mark { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 16px; font-weight: 700; color: var(--bg); }
+    .brand-name { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; color: var(--text); text-transform: uppercase; }
     .brand-name span { color: var(--gold); }
-
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 48px;
-      line-height: 1.1;
-      color: var(--text);
-      font-weight: 400;
-      margin-bottom: 16px;
-    }
-
-    .meta {
-      font-size: 13px;
-      color: var(--faint);
-    }
-
+    .eyebrow { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 48px; line-height: 1.1; color: var(--text); font-weight: 400; margin-bottom: 16px; }
+    .meta { font-size: 13px; color: var(--faint); }
     .meta strong { color: var(--muted); font-weight: 600; }
-
-    /* Sections */
-    section {
-      margin-bottom: 44px;
-    }
-
-    h2 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 24px;
-      color: var(--text);
-      font-weight: 400;
-      margin-bottom: 16px;
-      padding-top: 8px;
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-
-    h2::before {
-      content: counter(section, decimal-leading-zero);
-      counter-increment: section;
-      font-size: 13px;
-      font-family: 'Inter', sans-serif;
-      color: var(--gold);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-    }
-
-    body { counter-reset: section; }
-
-    p {
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
+    section { margin-bottom: 44px; }
+    h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; color: var(--text); font-weight: 400; margin-bottom: 16px; padding-top: 8px; display: flex; align-items: baseline; gap: 12px; }
+    h2::before { content: counter(section, decimal-leading-zero); counter-increment: section; font-size: 13px; font-family: 'Inter', sans-serif; color: var(--gold); font-weight: 700; letter-spacing: 0.12em; }
+    h3 { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text); font-weight: 700; margin: 18px 0 8px; letter-spacing: 0.02em; }
+    p { color: var(--muted); margin-bottom: 14px; }
     p:last-child { margin-bottom: 0; }
-
     p strong { color: var(--text); font-weight: 600; }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0;
-    }
-
-    li {
-      color: var(--muted);
-      padding-left: 22px;
-      position: relative;
-      margin-bottom: 8px;
-    }
-
-    li::before {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 11px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    /* Highlighted callout */
-    .callout {
-      background: rgba(230,197,102,0.04);
-      border: 1px solid rgba(230,197,102,0.2);
-      border-radius: 10px;
-      padding: 20px 22px;
-      margin: 20px 0;
-    }
-
+    ul { list-style: none; padding: 0; margin: 12px 0; }
+    li { color: var(--muted); padding-left: 22px; position: relative; margin-bottom: 8px; }
+    li::before { content: ''; position: absolute; left: 4px; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .callout { background: rgba(230,197,102,0.04); border: 1px solid rgba(230,197,102,0.2); border-radius: 10px; padding: 20px 22px; margin: 20px 0; }
     .callout p { color: var(--text); margin: 0; }
-
-    /* Footer */
-    footer {
-      margin-top: 80px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-size: 12px;
-      color: var(--faint);
-    }
-
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
+    footer { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--faint); }
+    footer a { color: var(--gold); text-decoration: none; margin: 0 8px; }
     footer a:hover { text-decoration: underline; }
-
-    @media (max-width: 640px) {
-      .container { padding: 40px 20px 80px; }
-      h1 { font-size: 36px; }
-      h2 { font-size: 20px; }
-    }
+    @media (max-width: 640px) { .container { padding: 40px 20px 80px; } h1 { font-size: 36px; } h2 { font-size: 20px; } }
   </style>
 </head>
 <body>
@@ -208,119 +53,131 @@
       </div>
       <div class="eyebrow">Legal</div>
       <h1>Terms of Service</h1>
-      <p class="meta"><strong>Last updated:</strong> April 7, 2026</p>
+      <p class="meta"><strong>Effective Date:</strong> April 10, 2026 &middot; <strong>Last Updated:</strong> April 10, 2026</p>
     </header>
 
     <section>
-      <h2>Acceptance of Terms</h2>
-      <p>These Terms of Service ("Terms") govern your access to and use of RangeIQ Poker ("RangeIQ", "the Service", "we", "us", or "our"), a web-based poker strategy training and decision-support tool operated by IQ Digital Holdings. By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Service.</p>
-      <p>You must be at least 18 years old to use the Service. By using the Service, you represent and warrant that you meet this age requirement.</p>
+      <h2>Eligibility</h2>
+      <p>These Terms of Service ("Terms") govern your access to and use of RangeIQ ("RangeIQ," "the Service," "we," "us," or "our"), operated by <strong>IQ Digital Holdings LLC</strong>, a Nevada limited liability company. By accessing or using RangeIQ, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+      <p>You must be at least <strong>18 years of age</strong> to create an account or use RangeIQ. By using the Service, you represent and warrant that you are 18 or older. RangeIQ is not directed at children under 13, and we do not knowingly collect information from anyone under 18.</p>
     </section>
 
     <section>
-      <h2>Description of Service</h2>
-      <p>RangeIQ is an educational software-as-a-service ("SaaS") product that provides poker strategy training, hand analysis, decision recommendations, and practice drills. The Service is designed to help users improve their poker decision-making through structured training and analysis tools.</p>
+      <h2>Nature of the Service; Not Gambling</h2>
+      <p>RangeIQ is an educational strategy tool and software product designed to help users analyze poker situations and improve their decision-making.</p>
       <div class="callout">
-        <p><strong>Important:</strong> RangeIQ is an educational and training tool only. The Service does not facilitate, host, or process any form of real-money gambling, betting, or wagering. No actual card games are played within the Service. No money is wagered, deposited, or transferred between users through the Service. RangeIQ functions similarly to chess training software, sports analytics platforms, or other strategy education tools.</p>
+        <p><strong>RangeIQ does not facilitate, enable, host, or process any form of real-money gambling, wagering, or betting.</strong> All analysis, recommendations, and content provided by the Service are for informational and educational purposes only.</p>
       </div>
+      <p>You represent and warrant that any poker activity you engage in outside of RangeIQ is legal in your jurisdiction. You are solely responsible for complying with all applicable laws regarding poker, gambling, and gaming in your location. IQ Digital Holdings LLC assumes no responsibility for your compliance with such laws.</p>
     </section>
 
     <section>
-      <h2>Account Registration</h2>
-      <p>Certain features of the Service may require you to create an account. When you create an account, you agree to provide accurate, current, and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
-      <p>You agree to notify us immediately of any unauthorized access to or use of your account. We are not liable for any loss or damage arising from your failure to comply with these obligations.</p>
+      <h2>Accounts</h2>
+      <p>To access paid features, you must create an account. You agree to provide accurate information, keep your credentials secure, and notify us immediately of any unauthorized access. You are responsible for all activity under your account. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
     </section>
 
     <section>
-      <h2>Subscriptions and Billing</h2>
-      <p>RangeIQ offers both free and paid subscription tiers. Paid subscriptions ("Pro" or "Full IQ") are billed on a recurring basis at the rates published on our website, currently:</p>
-      <ul>
-        <li>Monthly subscription: $14.99 USD per month</li>
-        <li>Annual subscription: $119.00 USD per year</li>
-      </ul>
-      <p>Subscriptions automatically renew at the end of each billing cycle unless canceled before the renewal date. You authorize us to charge your designated payment method for all applicable fees. Prices may change with reasonable advance notice; any changes will not affect the current billing period of an active subscription.</p>
-      <p>You may cancel your subscription at any time through your account settings or by contacting support. Upon cancellation, you will retain access to paid features through the end of your current billing period. We do not provide refunds for partial billing periods.</p>
-    </section>
-
-    <section>
-      <h2>Refund Policy</h2>
-      <p>All sales are final. We do not offer refunds for subscription fees already paid, except where required by applicable law. If you believe you have been charged in error, please contact us at <strong>support@rangeiqpoker.com</strong> within 14 days of the charge and we will review your request in good faith.</p>
+      <h2>Subscriptions, Billing, and Refunds</h2>
+      <h3>Plans</h3>
+      <p>RangeIQ offers a free tier and paid subscription plans. Current pricing is displayed at rangeiqpoker.com/pricing. We reserve the right to change pricing with reasonable notice; existing subscribers will not be affected mid-cycle.</p>
+      <h3>Billing</h3>
+      <p>Paid subscriptions are billed in advance on a recurring basis (monthly or annually) through our payment processor, Paddle. By subscribing, you authorize recurring charges to your payment method until you cancel.</p>
+      <h3>Cancellation</h3>
+      <p>You may cancel your subscription at any time through the Paddle customer portal linked in your account. Upon cancellation, you will retain access to paid features until the end of your current billing period, after which your account will revert to the free tier. No partial refunds are issued for unused portions of a billing period, except as described below.</p>
+      <h3>Refund Policy</h3>
+      <p>We offer a <strong>7-day money-back guarantee</strong> on all new paid subscriptions (monthly and annual). If you are unsatisfied with RangeIQ, you may request a full refund within 7 days of your initial paid charge by emailing <strong>support@rangeiqpoker.com</strong>. Refunds for renewals, second subscriptions, or requests made after 7 days are at our sole discretion.</p>
+      <h3>Failed Payments</h3>
+      <p>If a payment fails, we will attempt to retry the charge according to Paddle's standard dunning schedule. If payment cannot be collected, your subscription will be suspended and your account will revert to the free tier until payment is resolved.</p>
     </section>
 
     <section>
       <h2>Acceptable Use</h2>
-      <p>You agree to use the Service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+      <p>You agree not to:</p>
       <ul>
-        <li>Use the Service to engage in any unlawful activity</li>
-        <li>Attempt to gain unauthorized access to the Service, other user accounts, or our systems</li>
-        <li>Reverse engineer, decompile, or attempt to extract the source code of the Service</li>
-        <li>Resell, redistribute, or commercially exploit the Service without our written permission</li>
-        <li>Use automated systems, bots, or scrapers to access the Service</li>
-        <li>Interfere with or disrupt the Service or the servers and networks connected to it</li>
-        <li>Share your account credentials with others or use another person's account</li>
+        <li>Use RangeIQ for any unlawful purpose or in violation of any applicable law</li>
+        <li>Reverse engineer, decompile, scrape, or extract the underlying engine, algorithms, or training data</li>
+        <li>Resell, redistribute, or commercially exploit RangeIQ or its outputs without written permission</li>
+        <li>Share your account credentials with others or allow multiple people to use a single account</li>
+        <li>Use automated tools, bots, or scripts to interact with the Service</li>
+        <li>Attempt to interfere with, disrupt, or gain unauthorized access to the Service or its infrastructure</li>
+        <li>Use RangeIQ to harass, defraud, or harm other users or third parties</li>
       </ul>
+      <p>Violation of this section may result in immediate account termination without refund.</p>
     </section>
 
     <section>
       <h2>Intellectual Property</h2>
-      <p>The Service, including all content, features, software, design, text, graphics, and underlying technology, is owned by IQ Digital Holdings and is protected by copyright, trademark, and other intellectual property laws. We grant you a limited, non-exclusive, non-transferable, revocable license to access and use the Service for your personal, non-commercial use, subject to these Terms.</p>
-      <p>You may not copy, modify, distribute, sell, or lease any part of the Service or its content without our prior written consent.</p>
+      <p>All content, software, algorithms, engine logic, opponent models, branding, and materials provided by RangeIQ are the exclusive property of IQ Digital Holdings LLC and are protected by copyright, trademark, and other intellectual property laws. You are granted a limited, non-exclusive, non-transferable license to access and use RangeIQ for personal, non-commercial purposes in accordance with these Terms. No other rights are granted.</p>
     </section>
 
     <section>
       <h2>User Content</h2>
-      <p>The Service may allow you to save hands, notes, or other content ("User Content") within your account. You retain all rights to your User Content. By using the Service, you grant us a limited license to store, display, and process your User Content solely for the purpose of providing the Service to you.</p>
-      <p>You are responsible for your User Content and must ensure it does not violate any law or third-party rights.</p>
+      <p>You retain ownership of any hand histories, notes, or data you input into RangeIQ. By using the Service, you grant IQ Digital Holdings LLC a limited license to process, analyze, and store your inputs solely for the purpose of providing the Service to you. We do not claim ownership of your personal poker data.</p>
     </section>
 
     <section>
-      <h2>Disclaimer of Warranties</h2>
-      <p>The Service is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, secure, or free from viruses or other harmful components.</p>
-      <p>RangeIQ provides educational recommendations and analysis based on input data and statistical models. These recommendations are for educational purposes only and do not guarantee any particular outcome in poker games or any other context. You acknowledge that poker involves chance and that no software can guarantee winning results.</p>
+      <h2>Disclaimers</h2>
+      <p>RANGEIQ IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR THAT THE SERVICE WILL BE UNINTERRUPTED OR ERROR-FREE.</p>
+      <p>RangeIQ's recommendations are based on mathematical models and heuristic analysis. <strong>We make no guarantee of any financial, competitive, or personal outcome</strong> from using the Service. Poker involves risk and variance; no software can eliminate losses or guarantee wins. Use RangeIQ as one tool among many, not as a substitute for your own judgment.</p>
     </section>
 
     <section>
       <h2>Limitation of Liability</h2>
-      <p>To the maximum extent permitted by law, IQ Digital Holdings, its officers, directors, employees, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, arising out of or in connection with your use of the Service.</p>
-      <p>Our total liability to you for any claim arising from or related to the Service shall not exceed the amount you paid us for the Service in the twelve (12) months preceding the claim.</p>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, IQ DIGITAL HOLDINGS LLC, ITS OFFICERS, MEMBERS, EMPLOYEES, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR POKER WINNINGS, ARISING OUT OF OR RELATED TO YOUR USE OF RANGEIQ.</p>
+      <p>OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID TO RANGEIQ IN THE TWELVE MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED DOLLARS ($100).</p>
     </section>
 
     <section>
       <h2>Indemnification</h2>
-      <p>You agree to indemnify, defend, and hold harmless IQ Digital Holdings and its affiliates from any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in connection with your use of the Service, your violation of these Terms, or your violation of any rights of another party.</p>
+      <p>You agree to indemnify, defend, and hold harmless IQ Digital Holdings LLC and its officers, members, and affiliates from any claims, damages, losses, or expenses (including reasonable attorneys' fees) arising out of your use of RangeIQ, your violation of these Terms, or your violation of any law or third-party right.</p>
     </section>
 
     <section>
       <h2>Termination</h2>
-      <p>We may suspend or terminate your access to the Service at any time, with or without notice, for any reason, including but not limited to a breach of these Terms. Upon termination, your right to use the Service will immediately cease, and any provisions of these Terms that by their nature should survive termination will remain in effect.</p>
-      <p>You may terminate your account at any time by canceling your subscription and discontinuing use of the Service.</p>
+      <p>We may suspend or terminate your access to RangeIQ at any time, with or without cause, with or without notice. Upon termination, your right to use the Service ceases immediately. Sections 5 through 13 survive termination.</p>
+    </section>
+
+    <section>
+      <h2>Dispute Resolution; Binding Arbitration; Class Action Waiver</h2>
+      <div class="callout">
+        <p><strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS.</strong></p>
+      </div>
+      <h3>Binding Arbitration</h3>
+      <p>Any dispute, claim, or controversy arising out of or relating to these Terms or the Service shall be resolved by <strong>binding individual arbitration</strong> administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules. The arbitration shall be seated in <strong>Clark County, Nevada</strong>, and conducted in English. Judgment on the arbitrator's award may be entered in any court of competent jurisdiction.</p>
+      <h3>Class Action Waiver</h3>
+      <p><strong>YOU AND IQ DIGITAL HOLDINGS LLC AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN AN INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, COLLECTIVE, OR REPRESENTATIVE ACTION.</strong> The arbitrator may not consolidate more than one person's claims and may not preside over any form of representative or class proceeding.</p>
+      <h3>Carve-Outs</h3>
+      <p>Notwithstanding the arbitration requirement, either party may: (a) bring an individual action in small claims court; and (b) seek injunctive or equitable relief in a court of competent jurisdiction to protect intellectual property rights.</p>
+      <h3>Opt-Out</h3>
+      <p>You may opt out of this arbitration agreement by sending written notice to <strong>support@rangeiqpoker.com</strong> within 30 days of first accepting these Terms. Your notice must include your name, account email, and a clear statement that you wish to opt out of arbitration.</p>
+    </section>
+
+    <section>
+      <h2>Governing Law and Venue</h2>
+      <p>These Terms are governed by the laws of the <strong>State of Nevada</strong>, without regard to its conflict of laws principles. Subject to the arbitration provisions above, any action not subject to arbitration shall be brought exclusively in the state or federal courts located in <strong>Clark County, Nevada</strong>, and you consent to personal jurisdiction in those courts.</p>
     </section>
 
     <section>
       <h2>Changes to These Terms</h2>
-      <p>We may update these Terms from time to time. We will notify you of material changes by posting the updated Terms on our website and updating the "Last updated" date. Your continued use of the Service after changes become effective constitutes your acceptance of the revised Terms.</p>
+      <p>We may update these Terms from time to time. Material changes will be posted at rangeiqpoker.com/terms with an updated "Last Updated" date. Continued use of RangeIQ after changes take effect constitutes acceptance of the updated Terms.</p>
     </section>
 
     <section>
-      <h2>Governing Law</h2>
-      <p>These Terms are governed by and construed in accordance with the laws of the Commonwealth of Virginia, United States, without regard to its conflict of law provisions. Any disputes arising under or in connection with these Terms shall be resolved exclusively in the state or federal courts located in Virginia.</p>
-    </section>
-
-    <section>
-      <h2>Contact Information</h2>
-      <p>If you have any questions about these Terms or the Service, please contact us at:</p>
+      <h2>Contact</h2>
+      <p>Questions about these Terms? Contact us:</p>
       <div class="callout">
         <p>
-          <strong>IQ Digital Holdings</strong><br>
-          RangeIQ Poker<br>
+          <strong>IQ Digital Holdings LLC</strong><br>
           Email: <strong>support@rangeiqpoker.com</strong><br>
           Website: <strong>rangeiqpoker.com</strong>
         </p>
       </div>
+      <p style="margin-top:20px;font-size:13px;color:var(--faint);"><em>These Terms constitute the entire agreement between you and IQ Digital Holdings LLC regarding RangeIQ and supersede any prior agreements.</em></p>
     </section>
 
     <footer>
-      &copy; 2026 IQ Digital Holdings. All rights reserved. &middot; <a href="/">RangeIQ Poker</a> &middot; <a href="/privacy.html">Privacy Policy</a>
+      &copy; 2026 IQ Digital Holdings LLC. All rights reserved.<br>
+      <a href="/">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="pricing.html">Pricing</a>
     </footer>
   </div>
 </body>
