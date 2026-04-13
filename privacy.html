@@ -172,6 +172,42 @@
 
     .callout p { color: var(--text); margin: 0; }
 
+    .processor-table {
+      margin: 16px 0;
+    }
+
+    .processor-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .processor-row:last-child { border-bottom: none; }
+
+    .processor-name {
+      color: var(--text);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .processor-desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .processor-desc a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .processor-desc a:hover { text-decoration: underline; }
+
+    a.inline {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    a.inline:hover { text-decoration: underline; }
+
     footer {
       margin-top: 80px;
       padding-top: 32px;
@@ -205,150 +241,249 @@
       </div>
       <div class="eyebrow">Legal</div>
       <h1>Privacy Policy</h1>
-      <p class="meta"><strong>Last updated:</strong> April 7, 2026</p>
+      <p class="meta"><strong>Last updated:</strong> April 13, 2026</p>
     </header>
 
     <section>
       <h2>Introduction</h2>
-      <p>This Privacy Policy describes how RangeIQ Poker ("RangeIQ", "we", "us", or "our"), operated by IQ Digital Holdings, collects, uses, and protects your information when you use our website (rangeiqpoker.com) and web application (app.rangeiqpoker.com), collectively the "Service".</p>
-      <p>By using the Service, you agree to the collection and use of information in accordance with this Privacy Policy. We are committed to protecting your personal information and your right to privacy.</p>
+      <p>This Privacy Policy describes how RangeIQ Poker ("RangeIQ", "we", "us", or "our"), operated by IQ Digital Holdings LLC, a Nevada limited liability company, collects, uses, stores, and protects your information when you use our marketing website (rangeiqpoker.com) and web application (app.rangeiqpoker.com), collectively the "Service".</p>
+      <p>By creating an account or otherwise using the Service, you agree to the practices described in this Privacy Policy. We are committed to protecting your personal information and your right to privacy, and to being transparent about what we collect and why.</p>
     </section>
 
     <section>
       <h2>Information We Collect</h2>
-      <p>We collect information in the following ways:</p>
 
-      <p><strong>Information you provide directly:</strong></p>
+      <p><strong>Account information.</strong> When you create an account, we collect:</p>
       <ul>
-        <li>Email address (when you subscribe to our newsletter or create an account)</li>
-        <li>Name (when you create an account or contact us)</li>
-        <li>Payment information (processed securely by our third-party payment processor; we do not store full card numbers)</li>
-        <li>Communications you send to us (such as support requests)</li>
+        <li>Your email address (required)</li>
+        <li>An encrypted password hash (we never store your plaintext password)</li>
+        <li>If you sign in with Google: your name, email address, and Google account identifier (we do not receive your Google password)</li>
+        <li>Your account creation date and last sign-in timestamp</li>
       </ul>
 
-      <p><strong>Information collected automatically:</strong></p>
+      <p><strong>Subscription and billing information.</strong> If you subscribe to a paid plan:</p>
       <ul>
-        <li>Usage data (pages visited, features used, session duration)</li>
-        <li>Device information (browser type, operating system, screen resolution)</li>
-        <li>IP address and approximate location</li>
-        <li>Cookies and similar tracking technologies</li>
+        <li>Subscription status, plan type, billing period, and renewal dates</li>
+        <li>Payment method metadata (card type, last four digits, expiration) &mdash; we do not store full card numbers; these are handled by our payment processor</li>
+        <li>Billing address and country (collected by our payment processor for tax compliance)</li>
+        <li>Transaction history including dates, amounts, currencies, and applicable taxes</li>
       </ul>
 
-      <p><strong>Information stored locally on your device:</strong></p>
+      <p><strong>Promotional grant information.</strong> If you redeem a comp or promotional access code:</p>
       <ul>
-        <li>Hand history and saved spots in your Study Vault (stored in browser localStorage)</li>
-        <li>User preferences and settings</li>
-        <li>Drill progress and statistics</li>
+        <li>The redemption code used, the date of redemption, and the duration of access granted</li>
+        <li>Notes associated with the grant (such as the source of the promotion)</li>
       </ul>
 
-      <div class="callout">
-        <p><strong>Local-first by design:</strong> RangeIQ stores most user data directly in your browser's localStorage, not on our servers. This means your hand history, vault entries, and drill progress remain on your device unless you explicitly create an account in a future version of the Service.</p>
-      </div>
+      <p><strong>Usage data.</strong> When you use the Service:</p>
+      <ul>
+        <li>Pages visited, features used, buttons clicked, and session duration</li>
+        <li>Hand histories, saved spots, drill responses, and Study Vault entries you create within the app</li>
+        <li>Affiliate referral identifiers, if you arrived via an affiliate link</li>
+        <li>Error logs and crash reports (including browser console output) used to diagnose issues</li>
+      </ul>
+
+      <p><strong>Device and connection information.</strong> Automatically collected when you visit the Service:</p>
+      <ul>
+        <li>IP address and approximate location (derived from IP, typically at the city level)</li>
+        <li>Browser type and version, operating system, and device type</li>
+        <li>Referring URL and the time and date of your visit</li>
+      </ul>
+
+      <p><strong>Communications.</strong> Any messages, support requests, or feedback you send to us, including the content of those messages and your contact information.</p>
     </section>
 
     <section>
       <h2>How We Use Your Information</h2>
-      <p>We use the information we collect to:</p>
+      <p>We use the information described above to:</p>
       <ul>
-        <li>Provide, operate, and maintain the Service</li>
-        <li>Process subscription payments and manage billing</li>
-        <li>Send transactional emails (such as receipts and account notifications)</li>
-        <li>Send marketing communications (only if you have opted in)</li>
+        <li>Provide, operate, secure, and improve the Service</li>
+        <li>Authenticate you and maintain your active session</li>
+        <li>Process subscription payments, manage billing, and apply applicable taxes</li>
+        <li>Apply, validate, and enforce promotional grants and comp codes</li>
+        <li>Send transactional emails such as receipts, password resets, magic-link sign-in codes, comp expiration warnings, and account notifications</li>
+        <li>Send marketing communications (only if you have explicitly opted in by subscribing to our newsletter; you can unsubscribe at any time)</li>
         <li>Respond to your support inquiries and feedback</li>
-        <li>Improve the Service through analytics and usage data</li>
-        <li>Detect, prevent, and address fraud or security issues</li>
-        <li>Comply with legal obligations</li>
+        <li>Track affiliate referrals and pay affiliate commissions</li>
+        <li>Detect, prevent, investigate, and address fraud, security incidents, and abuse</li>
+        <li>Comply with legal obligations, respond to lawful requests, and enforce our Terms of Service</li>
       </ul>
     </section>
 
     <section>
-      <h2>Cookies and Tracking</h2>
-      <p>We use cookies and similar tracking technologies to improve your experience and analyze how the Service is used. The types of cookies we use include:</p>
+      <h2>Cookies and Tracking Technologies</h2>
+      <p>We use a small number of cookies and similar technologies. We do not use cookies for cross-site behavioral advertising.</p>
+
+      <p><strong>Essential cookies.</strong> Required for the Service to function. These include:</p>
       <ul>
-        <li><strong>Essential cookies:</strong> Required for the Service to function properly</li>
-        <li><strong>Analytics cookies:</strong> Help us understand how visitors interact with the Service (Vercel Analytics)</li>
-        <li><strong>Affiliate tracking cookies:</strong> Used to attribute referrals from our affiliate partners (90-day duration)</li>
+        <li><strong>Authentication cookies</strong> set by Supabase, which keep you signed in across pages and sessions</li>
+        <li><strong>Session and security cookies</strong> used to prevent cross-site request forgery and similar attacks</li>
       </ul>
-      <p>You can control or disable cookies through your browser settings. Disabling certain cookies may affect the functionality of the Service.</p>
+
+      <p><strong>Analytics.</strong> We use Vercel Analytics to understand aggregate usage patterns. Vercel Analytics is designed to be privacy-friendly and does not use cookies for cross-site tracking.</p>
+
+      <p><strong>Affiliate attribution.</strong> If you arrive at the Service via an affiliate link, our affiliate partner Tolt sets a first-party cookie (typical duration: 90 days) to attribute any subsequent subscription to that affiliate. Disabling this cookie has no effect on your ability to use the Service; it only affects affiliate attribution.</p>
+
+      <p>You can disable or delete cookies through your browser settings. If you disable essential cookies, parts of the Service may stop working, including your ability to remain signed in.</p>
+
+      <p>We currently do not display a cookie consent banner. If you are located in the European Economic Area or the United Kingdom and wish to withdraw consent for non-essential cookies, you may do so by clearing cookies in your browser, by configuring your browser to block them, or by contacting us at <a href="mailto:privacy@rangeiqpoker.com" class="inline">privacy@rangeiqpoker.com</a>.</p>
     </section>
 
     <section>
-      <h2>Third-Party Services</h2>
-      <p>We use the following third-party services to operate the Service. Each service has its own privacy practices, and we encourage you to review them:</p>
-      <ul>
-        <li><strong>Vercel:</strong> Hosting and analytics</li>
-        <li><strong>Buttondown:</strong> Email newsletter management</li>
-        <li><strong>Payment processor:</strong> Secure subscription billing (Stripe, Paddle, or similar)</li>
-        <li><strong>Google Fonts:</strong> Web fonts delivery</li>
-      </ul>
-      <p>These services may collect and process information as necessary to provide their functions to us. We do not sell, rent, or trade your personal information to third parties.</p>
+      <h2>Third-Party Services and Sub-Processors</h2>
+      <p>We use the following third-party service providers ("sub-processors") to operate the Service. Each provider has its own privacy practices; we encourage you to review them:</p>
+
+      <div class="processor-table">
+        <div class="processor-row">
+          <div class="processor-name">Supabase</div>
+          <div class="processor-desc">Authentication, user profile storage, subscription state, and redemption code records. Hosted in the United States. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Paddle.com Market Limited</div>
+          <div class="processor-desc">Merchant of Record for all subscription billing. Paddle collects and processes payment information, calculates and remits applicable sales taxes, and handles invoicing. We do not receive or store your full card number. <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Tolt</div>
+          <div class="processor-desc">Affiliate referral tracking and commission management. Tolt receives transaction metadata to attribute affiliate referrals. <a href="https://tolt.io/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Resend</div>
+          <div class="processor-desc">Transactional email delivery, including password resets, magic-link sign-in codes, and account notifications. <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Google (Sign in with Google)</div>
+          <div class="processor-desc">Optional federated sign-in. If you choose to sign in with Google, Google provides us with your name, email address, and Google account identifier. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Vercel</div>
+          <div class="processor-desc">Application hosting, content delivery, and privacy-friendly analytics. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Buttondown</div>
+          <div class="processor-desc">Email newsletter management for users who opt in. <a href="https://buttondown.com/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Google Fonts</div>
+          <div class="processor-desc">Web font delivery for typography on rangeiqpoker.com.</div>
+        </div>
+      </div>
+
+      <p>We do not sell, rent, or trade your personal information to third parties. Sub-processors are bound by data-processing agreements that limit their use of your information to the purposes for which we engage them.</p>
     </section>
 
     <section>
       <h2>Data Sharing and Disclosure</h2>
-      <p>We do not sell your personal information. We may share your information in the following limited circumstances:</p>
+      <p>We do not sell your personal information. We share your information only in these limited circumstances:</p>
       <ul>
-        <li>With service providers who help us operate the Service (under confidentiality obligations)</li>
-        <li>To comply with legal obligations, court orders, or government requests</li>
-        <li>To protect our rights, property, or safety, or that of our users</li>
-        <li>In connection with a merger, acquisition, or sale of assets (with notice to affected users)</li>
+        <li><strong>With sub-processors</strong> as described in the previous section, under contractual confidentiality and data-protection obligations</li>
+        <li><strong>With affiliates</strong> who referred your subscription, limited to commission-attribution metadata (we do not share your full account details with affiliates)</li>
+        <li><strong>To comply with legal obligations</strong>, valid court orders, subpoenas, or government requests, or to defend against legal claims</li>
+        <li><strong>To protect rights and safety</strong>, including investigating suspected fraud, abuse, or violations of our Terms of Service, and to protect the safety of our users or the public</li>
+        <li><strong>In connection with a corporate transaction</strong>, such as a merger, acquisition, financing, or sale of assets. In such an event, we will provide notice to affected users by email at least 30 days in advance of any change in how their information is controlled, where reasonably practicable</li>
       </ul>
     </section>
 
     <section>
       <h2>Data Security</h2>
-      <p>We implement reasonable technical and organizational measures to protect your information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
-      <p>Payment information is processed by our third-party payment processor and is never stored on our servers in full.</p>
+      <p>We implement reasonable technical and organizational measures to protect your information against unauthorized access, disclosure, alteration, or destruction. These measures include:</p>
+      <ul>
+        <li>Encryption in transit (HTTPS / TLS) for all communications between your device and the Service</li>
+        <li>Encryption at rest for stored data within Supabase</li>
+        <li>Hashed and salted password storage; we never store plaintext passwords</li>
+        <li>Restricted internal access to user data on a need-to-know basis</li>
+        <li>Payment card data handled exclusively by Paddle, a PCI-DSS-compliant payment processor; full card numbers never reach our servers</li>
+      </ul>
+      <p>No method of transmission over the internet or electronic storage is 100% secure. While we work to protect your information, we cannot guarantee absolute security.</p>
     </section>
 
     <section>
       <h2>Data Retention</h2>
-      <p>We retain personal information only as long as necessary to provide the Service and fulfill the purposes outlined in this Privacy Policy. Subscription and billing records are retained for as long as required by applicable tax and accounting laws. You may request deletion of your account and associated data at any time by contacting us.</p>
+      <p>We retain personal information only as long as necessary for the purposes described in this Privacy Policy or as required by applicable law:</p>
+      <ul>
+        <li><strong>Active accounts:</strong> retained until you request deletion</li>
+        <li><strong>Deleted accounts:</strong> personal information is purged from our active systems within 90 days of the deletion request, except where retention is required by law (such as billing records) or where information has been anonymized</li>
+        <li><strong>Billing and transaction records:</strong> retained for at least 7 years to comply with applicable tax, accounting, and regulatory requirements</li>
+        <li><strong>Support communications:</strong> retained for up to 3 years from the date of the last communication, then deleted</li>
+        <li><strong>Server logs and analytics:</strong> retained for up to 12 months in identifiable form, then aggregated or deleted</li>
+        <li><strong>Affiliate attribution cookies:</strong> retained for 90 days from initial visit, after which attribution expires</li>
+      </ul>
     </section>
 
     <section>
-      <h2>Your Rights</h2>
+      <h2>Your Rights and Choices</h2>
       <p>Depending on your location, you may have the following rights regarding your personal information:</p>
       <ul>
-        <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
-        <li><strong>Correction:</strong> Request that we correct inaccurate information</li>
-        <li><strong>Deletion:</strong> Request that we delete your personal information</li>
-        <li><strong>Opt-out:</strong> Unsubscribe from marketing emails at any time using the link in any marketing email</li>
-        <li><strong>Portability:</strong> Request your data in a portable format</li>
+        <li><strong>Access:</strong> request a copy of the personal information we hold about you</li>
+        <li><strong>Correction:</strong> request that we correct inaccurate or incomplete information</li>
+        <li><strong>Deletion:</strong> request that we delete your personal information, subject to legal retention requirements</li>
+        <li><strong>Portability:</strong> request your data in a structured, commonly used, machine-readable format</li>
+        <li><strong>Restriction or objection:</strong> request that we restrict or stop certain processing of your information</li>
+        <li><strong>Opt out of marketing:</strong> unsubscribe from marketing emails at any time using the link in any marketing email, or by contacting us</li>
+        <li><strong>Withdraw consent:</strong> where we rely on your consent to process your information, withdraw that consent at any time without affecting the lawfulness of processing before withdrawal</li>
       </ul>
-      <p>To exercise these rights, contact us at <strong>support@rangeiqpoker.com</strong>.</p>
+      <p>To exercise any of these rights, contact us at <a href="mailto:privacy@rangeiqpoker.com" class="inline">privacy@rangeiqpoker.com</a>. We will respond within the timeframes required by applicable law (typically 30 days). We may need to verify your identity before fulfilling your request.</p>
+    </section>
+
+    <section>
+      <h2>California Residents (CCPA / CPRA)</h2>
+      <p>If you are a California resident, the California Consumer Privacy Act and California Privacy Rights Act provide you with specific rights regarding your personal information, including the rights described above. In addition:</p>
+      <ul>
+        <li><strong>Right to know:</strong> request disclosure of the categories and specific pieces of personal information we have collected about you, the sources, the purposes for collection, and the categories of third parties with whom we share it</li>
+        <li><strong>Right to opt out of sale or sharing:</strong> we do not sell or share your personal information for cross-context behavioral advertising. There is nothing to opt out of</li>
+        <li><strong>Right to non-discrimination:</strong> we will not discriminate against you for exercising any of your CCPA/CPRA rights</li>
+        <li><strong>Right to limit use of sensitive personal information:</strong> we do not use sensitive personal information for purposes that would trigger this right</li>
+      </ul>
+      <p>To exercise any CCPA/CPRA right, contact us at <a href="mailto:privacy@rangeiqpoker.com" class="inline">privacy@rangeiqpoker.com</a>. You may also designate an authorized agent to act on your behalf, subject to verification.</p>
+    </section>
+
+    <section>
+      <h2>European Economic Area, United Kingdom, and Switzerland (GDPR / UK GDPR)</h2>
+      <p>If you are located in the European Economic Area, the United Kingdom, or Switzerland, the General Data Protection Regulation (or its UK or Swiss equivalent) applies to our processing of your personal information.</p>
+      <p><strong>Data controller.</strong> IQ Digital Holdings LLC is the data controller for personal information collected through the Service.</p>
+      <p><strong>Legal bases for processing.</strong> We process your personal information on the following legal bases:</p>
+      <ul>
+        <li><strong>Performance of a contract:</strong> to provide the Service you have requested and to manage your account and subscription</li>
+        <li><strong>Legitimate interests:</strong> to operate, secure, and improve the Service, prevent fraud, and communicate with you about your account &mdash; provided these interests are not overridden by your rights</li>
+        <li><strong>Consent:</strong> for marketing communications and any non-essential cookies (where applicable)</li>
+        <li><strong>Legal obligation:</strong> to comply with tax, accounting, and other legal requirements</li>
+      </ul>
+      <p><strong>International transfers.</strong> Your personal information is transferred to and processed in the United States. Where we transfer personal information from the EEA, UK, or Switzerland to the United States, we rely on appropriate safeguards such as Standard Contractual Clauses or equivalent mechanisms required by applicable law.</p>
+      <p><strong>Right to lodge a complaint.</strong> You have the right to lodge a complaint with your local data protection authority. We would, however, appreciate the opportunity to address your concerns before you contact a regulator &mdash; please write to us at <a href="mailto:privacy@rangeiqpoker.com" class="inline">privacy@rangeiqpoker.com</a>.</p>
     </section>
 
     <section>
       <h2>Children's Privacy</h2>
-      <p>The Service is not intended for individuals under the age of 18. We do not knowingly collect personal information from children under 18. If you become aware that a child has provided us with personal information, please contact us and we will take steps to remove that information.</p>
+      <p>The Service is not intended for, and is not directed to, individuals under the age of 18. We require all account holders to be at least 18 years old, both because the subject matter of poker strategy is intended for adults and because many jurisdictions restrict poker-related content to adults.</p>
+      <p>We do not knowingly collect personal information from individuals under 18. If you are a parent or guardian and believe your child has provided us with personal information, please contact us at <a href="mailto:privacy@rangeiqpoker.com" class="inline">privacy@rangeiqpoker.com</a> and we will take steps to delete that information promptly.</p>
     </section>
 
     <section>
       <h2>International Users</h2>
-      <p>The Service is operated from the United States. If you access the Service from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States, where data protection laws may differ from those in your jurisdiction.</p>
+      <p>The Service is operated from the United States. Regardless of your location, when you use the Service your information may be transferred to, stored, and processed in the United States and other jurisdictions where our sub-processors operate. Data protection laws in those jurisdictions may differ from those in your country of residence. By using the Service, you consent to such transfers, subject to applicable safeguards.</p>
     </section>
 
     <section>
       <h2>Changes to This Privacy Policy</h2>
-      <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on our website and updating the "Last updated" date. Your continued use of the Service after such changes constitutes acceptance of the updated policy.</p>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, our services, or applicable law. When we make material changes, we will notify you by updating the "Last updated" date at the top of this policy and, where appropriate, by sending you an email or displaying a notice within the Service.</p>
+      <p>Your continued use of the Service after a revised Privacy Policy takes effect constitutes your acceptance of the changes.</p>
     </section>
 
     <section>
       <h2>Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+      <p>If you have any questions about this Privacy Policy, our data practices, or to exercise any of your rights described above, please contact us:</p>
       <div class="callout">
         <p>
-          <strong>IQ Digital Holdings</strong><br>
+          <strong>IQ Digital Holdings LLC</strong><br>
           RangeIQ Poker<br>
-          Email: <strong>support@rangeiqpoker.com</strong><br>
+          Privacy and data rights: <strong><a href="mailto:privacy@rangeiqpoker.com" class="inline">privacy@rangeiqpoker.com</a></strong><br>
+          General support: <strong><a href="mailto:support@rangeiqpoker.com" class="inline">support@rangeiqpoker.com</a></strong><br>
           Website: <strong>rangeiqpoker.com</strong>
         </p>
       </div>
     </section>
 
     <footer>
-      &copy; 2026 IQ Digital Holdings. All rights reserved.<br>
+      &copy; 2026 IQ Digital Holdings LLC. All rights reserved.<br>
       <a href="/">Home</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="pricing.html">Pricing</a>
     </footer>
   </div>
