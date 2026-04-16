@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RangeIQ vs GTO Wizard | Complete Your GTO Study with Real-Opponent Exploitation</title>
+  <meta name="description" content="GTO Wizard teaches balanced theory. RangeIQ helps you exploit the player actually across the table. A supplement to your GTO study, not a replacement.">
+  <meta property="og:title" content="RangeIQ vs GTO Wizard">
+  <meta property="og:description" content="GTO teaches theory. RangeIQ closes the loop with opponent-specific exploitation.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* Layout primitives */
+    .section {
+      padding: 88px 32px;
+    }
+    .section.alt {
+      background: var(--bg-alt);
+    }
+    .container-sm { max-width: 720px; margin: 0 auto; }
+    .container-md { max-width: 960px; margin: 0 auto; }
+    .container-lg { max-width: 1100px; margin: 0 auto; }
+
+    /* Brand / header bar */
+    .site-header {
+      padding: 28px 32px; text-align: center;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 7px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif; font-size: 18px; font-weight: 700; color: var(--bg);
+    }
+    .brand-name { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .brand-name span { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      padding: 56px 32px 100px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 56px; line-height: 1.08; color: var(--text);
+      font-weight: 400; letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    h1 .line { display: block; }
+    h1 .gold { color: var(--gold); }
+
+    .hero-sub {
+      font-size: 18px; color: var(--muted); line-height: 1.6;
+      margin-bottom: 36px; max-width: 520px;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 600; }
+
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); background: rgba(230,197,102,0.04); }
+
+    /* Mock decision card */
+    .decision-card {
+      background: linear-gradient(180deg, var(--card) 0%, var(--card-muted) 100%);
+      border: 1.5px solid var(--border-hi); border-radius: 16px;
+      padding: 28px 28px; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .decision-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dim) 100%);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .dc-label {
+      font-size: 10px; font-weight: 700; color: var(--gold);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .dc-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 11px 0; border-bottom: 1px solid var(--border);
+    }
+    .dc-row:last-of-type { border-bottom: none; }
+    .dc-key { font-size: 13px; color: var(--muted); }
+    .dc-val { font-size: 13px; color: var(--text); font-weight: 600; }
+
+    .dc-action {
+      margin: 20px 0;
+      padding: 18px 20px;
+      background: rgba(230,197,102,0.08);
+      border: 1px solid rgba(230,197,102,0.28);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .dc-action-label {
+      font-size: 10px; font-weight: 700; color: var(--gold);
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .dc-action-value {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 34px; color: var(--gold); font-weight: 400; line-height: 1.1;
+    }
+
+    .dc-reason {
+      margin-top: 14px;
+    }
+    .dc-reason-label {
+      font-size: 10px; font-weight: 700; color: var(--muted);
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .dc-reason ul { list-style: none; padding: 0; }
+    .dc-reason li {
+      font-size: 13px; color: var(--text); line-height: 1.55;
+      padding: 5px 0 5px 18px; position: relative;
+    }
+    .dc-reason li::before {
+      content: ''; position: absolute; left: 0; top: 11px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .dc-confidence {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 0 0; margin-top: 14px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--muted);
+    }
+    .dc-confidence .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 8px rgba(16,185,129,0.5);
+    }
+    .dc-confidence strong { color: var(--green); font-weight: 600; }
+
+    /* Section headings */
+    h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 40px; line-height: 1.15; color: var(--text);
+      font-weight: 400; letter-spacing: -0.01em; margin-bottom: 20px;
+      text-align: center;
+    }
+    h2 .gold { color: var(--gold); }
+    h2.left { text-align: left; }
+
+    .section-lead {
+      font-size: 17px; color: var(--muted); line-height: 1.65;
+      text-align: center; max-width: 640px; margin: 0 auto 40px;
+    }
+    .section-lead.left { text-align: left; margin: 0 0 28px; }
+
+    /* Problem section */
+    .problem-list { list-style: none; padding: 0; max-width: 640px; margin: 0 auto; }
+    .problem-list li {
+      padding: 16px 0 16px 36px; position: relative;
+      font-size: 16px; color: var(--text); line-height: 1.6;
+      border-bottom: 1px solid var(--border);
+    }
+    .problem-list li:last-child { border-bottom: none; }
+    .problem-list li::before {
+      content: ''; position: absolute; left: 0; top: 20px;
+      width: 20px; height: 20px;
+      background: rgba(230,197,102,0.15);
+      border: 1px solid rgba(230,197,102,0.5);
+      border-radius: 4px;
+    }
+    .problem-list li::after {
+      content: '\2715'; position: absolute; left: 5px; top: 18px;
+      font-size: 11px; color: var(--gold); font-weight: 700;
+    }
+
+    /* Bridge / comparison section */
+    .bridge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden;
+    }
+    .compare-table thead th {
+      padding: 16px 20px; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      text-align: left; border-bottom: 1px solid var(--border);
+    }
+    .compare-table thead th:first-child { color: var(--muted); }
+    .compare-table thead th:last-child { color: var(--gold); }
+    .compare-table tbody td {
+      padding: 16px 20px; font-size: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+    .compare-table td:first-child { color: var(--muted); }
+    .compare-table td:last-child { color: var(--text); font-weight: 600; }
+
+    /* AHA moment */
+    .aha-block {
+      max-width: 760px; margin: 0 auto; text-align: center;
+    }
+    .aha-examples {
+      margin: 36px auto;
+      max-width: 560px;
+    }
+    .aha-row {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+      padding: 18px 28px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    .aha-row-label {
+      font-size: 15px; color: var(--muted);
+    }
+    .aha-row-label strong { color: var(--text); font-weight: 700; }
+    .aha-row-value {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 26px; color: var(--gold); font-weight: 400; line-height: 1;
+    }
+    .aha-closer {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 26px; color: var(--text); font-weight: 400;
+      margin-top: 28px; letter-spacing: -0.01em;
+    }
+    .aha-closer .gold { color: var(--gold); }
+
+    /* How It Works steps */
+    .how-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      margin-bottom: 48px;
+    }
+    .how-step {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 32px 28px;
+    }
+    .how-num {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 42px; color: var(--gold); line-height: 1; margin-bottom: 14px;
+    }
+    .how-label {
+      font-size: 10px; font-weight: 700; color: var(--gold);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .how-text { font-size: 15px; color: var(--text); line-height: 1.55; font-weight: 500; }
+
+    .how-cta-wrap { text-align: center; }
+
+    /* Free hook band */
+    .free-hook {
+      max-width: 760px; margin: 0 auto; text-align: center;
+    }
+    .free-bullets { list-style: none; padding: 0; margin: 32px auto; max-width: 480px; }
+    .free-bullets li {
+      padding: 12px 0 12px 32px; position: relative;
+      font-size: 16px; color: var(--text); text-align: left;
+    }
+    .free-bullets li::before {
+      content: ''; position: absolute; left: 0; top: 17px;
+      width: 16px; height: 16px; border-radius: 50%; background: var(--gold);
+    }
+    .free-bullets li::after {
+      content: ''; position: absolute; left: 5px; top: 21px;
+      width: 6px; height: 4px;
+      border-left: 1.5px solid var(--bg); border-bottom: 1.5px solid var(--bg);
+      transform: rotate(-45deg);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .quote-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px 26px; position: relative;
+    }
+    .quote-mark {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 48px; color: var(--gold); line-height: 0.8; margin-bottom: 12px;
+    }
+    .quote-text {
+      font-size: 15px; color: var(--text); line-height: 1.65; font-style: italic;
+    }
+    .quote-attribution {
+      margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--faint); letter-spacing: 0.04em;
+    }
+
+    /* Final close */
+    .final-close {
+      text-align: center; max-width: 680px; margin: 0 auto;
+    }
+    .final-close h2 { font-size: 48px; }
+    .final-close p { font-size: 17px; color: var(--muted); margin: 0 auto 32px; max-width: 540px; }
+
+    /* Footer tagline */
+    .footer-tagline {
+      text-align: center; padding: 40px 32px;
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 22px; color: var(--muted); line-height: 1.5; font-weight: 400;
+    }
+    .footer-tagline .gold { color: var(--gold); }
+
+    /* Footer */
+    footer {
+      padding: 32px 32px 48px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px; color: var(--faint);
+    }
+    footer strong { color: var(--text); font-weight: 700; letter-spacing: 0.02em; }
+    footer a { color: var(--gold); text-decoration: none; margin: 0 8px; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Honest disclosure band */
+    .disclosure {
+      max-width: 760px; margin: 0 auto; padding: 24px 32px;
+      background: var(--card-muted); border: 1px solid var(--border);
+      border-radius: 10px; font-size: 12px; color: var(--faint); line-height: 1.6;
+      text-align: center;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .hero-grid, .bridge-grid { grid-template-columns: 1fr; gap: 40px; }
+      .how-grid { grid-template-columns: 1fr; }
+      .testimonials { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .section { padding: 64px 20px; }
+      .hero { padding: 40px 20px 72px; }
+      h1 { font-size: 38px; }
+      h2 { font-size: 30px; }
+      .final-close h2 { font-size: 34px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .btn { padding: 14px 24px; }
+      .aha-row { padding: 14px 18px; gap: 10px; flex-wrap: wrap; }
+      .aha-row-value { font-size: 22px; }
+      .decision-card { padding: 22px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <a href="/" class="brand">
+      <div class="brand-mark">R</div>
+      <div class="brand-name">Range<span>IQ</span> Poker</div>
+    </a>
+  </header>
+
+  <!-- SECTION 1 - HERO -->
+  <section class="hero">
+    <div class="container-lg">
+      <div class="hero-grid">
+
+        <div>
+          <h1>
+            <span class="line">GTO Shows You Perfect Play.</span>
+            <span class="line">RangeIQ Shows You <span class="gold">How to Exploit.</span></span>
+          </h1>
+          <p class="hero-sub">Built for real opponents, not theory. <strong>Turn solver knowledge into real-money decisions</strong> &mdash; instantly, at the table, against the actual player in front of you.</p>
+          <div class="hero-ctas">
+            <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Run Your First Spot Free</a>
+            <a href="#how" class="btn btn-secondary">See How It Works</a>
+          </div>
+        </div>
+
+        <!-- Decision Card Mock -->
+        <div class="decision-card" role="figure" aria-label="Example RangeIQ decision output">
+          <div class="dc-label">Live Spot &middot; Flop Decision</div>
+
+          <div class="dc-row">
+            <span class="dc-key">Hero holds</span>
+            <span class="dc-val">A&#9830; K&#9827;</span>
+          </div>
+          <div class="dc-row">
+            <span class="dc-key">Position</span>
+            <span class="dc-val">BTN vs BB</span>
+          </div>
+          <div class="dc-row">
+            <span class="dc-key">Board</span>
+            <span class="dc-val">K&#9824; 7&#9830; 3&#9827;</span>
+          </div>
+          <div class="dc-row">
+            <span class="dc-key">Pot / Stack</span>
+            <span class="dc-val">$34 / $380</span>
+          </div>
+          <div class="dc-row">
+            <span class="dc-key">Opponent type</span>
+            <span class="dc-val" style="color:var(--gold);">Calling Station</span>
+          </div>
+
+          <div class="dc-action">
+            <div class="dc-action-label">Recommended Action</div>
+            <div class="dc-action-value">Bet $26</div>
+          </div>
+
+          <div class="dc-reason">
+            <div class="dc-reason-label">Reasoning</div>
+            <ul>
+              <li>Top pair top kicker with strong kicker advantage on dry board</li>
+              <li>Station folds too rarely &mdash; value bet larger than GTO baseline</li>
+              <li>Rising pot size before turn maximizes EV against wide calling range</li>
+            </ul>
+          </div>
+
+          <div class="dc-confidence">
+            <span class="dot"></span>
+            <span><strong>High confidence</strong> &middot; engine consistency 94%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 - THE PROBLEM -->
+  <section class="section alt">
+    <div class="container-sm">
+      <h2>You Studied <span class="gold">GTO.</span> So Why Is It So Hard to Apply?</h2>
+      <p class="section-lead">Theory is necessary. It just isn't sufficient. The distance between what you know and what you do at the table is where most losses happen.</p>
+
+      <ul class="problem-list">
+        <li>Solver outputs don't match the opponents you actually play</li>
+        <li>You don't have time to run sims mid-session at a live table</li>
+        <li>Every spot feels slightly different from the ones you studied</li>
+        <li>You know the theory &mdash; but still second-guess the decision in real time</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 3 - THE BRIDGE / POSITIONING -->
+  <section class="section">
+    <div class="container-lg">
+      <div class="bridge-grid">
+
+        <div>
+          <h2 class="left">RangeIQ Doesn't Replace GTO. It <span class="gold">Completes</span> It.</h2>
+          <p class="section-lead left">GTO tools teach balanced play in a vacuum &mdash; the equilibrium against a perfect opponent. But most hands aren't played against perfect opponents. RangeIQ trains you to exploit the specific player actually sitting across the felt.</p>
+          <p class="section-lead left" style="margin-top:0;">Study with GTO. Decide with RangeIQ.</p>
+        </div>
+
+        <div>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>GTO Wizard</th>
+                <th>RangeIQ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Balanced ranges</td>
+                <td>Opponent-specific decisions</td>
+              </tr>
+              <tr>
+                <td>Percent-of-pot sizing</td>
+                <td>Exact dollar bets</td>
+              </tr>
+              <tr>
+                <td>Theory-first</td>
+                <td>Execution-first</td>
+              </tr>
+              <tr>
+                <td>Study tool</td>
+                <td>In-game decision engine</td>
+              </tr>
+              <tr>
+                <td>Pre-session preparation</td>
+                <td>At-the-table application</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 - THE AHA MOMENT -->
+  <section class="section alt">
+    <div class="container-lg">
+      <div class="aha-block">
+        <h2>Same Hand. Same Spot. <span class="gold">Different Opponent. Different Answer.</span></h2>
+        <p class="section-lead">GTO gives you one answer for the hand. RangeIQ gives you the answer for <em>this</em> hand against <em>this</em> player.</p>
+
+        <div class="aha-examples">
+          <div class="aha-row">
+            <div class="aha-row-label">vs <strong>Calling Station</strong></div>
+            <div class="aha-row-value">Bet $26</div>
+          </div>
+          <div class="aha-row">
+            <div class="aha-row-label">vs <strong>Nit</strong></div>
+            <div class="aha-row-value">Bet $17</div>
+          </div>
+          <div class="aha-row">
+            <div class="aha-row-label">vs <strong>Maniac</strong></div>
+            <div class="aha-row-value">Check</div>
+          </div>
+        </div>
+
+        <p class="aha-closer">That difference is <span class="gold">your edge.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 - HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="container-lg">
+      <h2>How It <span class="gold">Works.</span></h2>
+      <p class="section-lead">Three inputs. One answer. No manual calculations.</p>
+
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">1</div>
+          <div class="how-label">Input</div>
+          <p class="how-text">Enter your hand, position, stack, and board texture.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">2</div>
+          <div class="how-label">Classify</div>
+          <p class="how-text">Select the opponent type facing you &mdash; nine archetypes covering every live table you'll see.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">3</div>
+          <div class="how-label">Decide</div>
+          <p class="how-text">Get an exact dollar action plus the reasoning chain. Ready in under five seconds.</p>
+        </div>
+      </div>
+
+      <div class="how-cta-wrap">
+        <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try It Now &mdash; No Signup Required</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 - FREE HOOK -->
+  <section class="section alt">
+    <div class="container-md">
+      <div class="free-hook">
+        <h2>Start Free. <span class="gold">No Friction.</span></h2>
+        <p class="section-lead">Open the app. Run the hand. See the answer. No credit card, no trial timer, no paywall on preflop.</p>
+        <ul class="free-bullets">
+          <li>Unlimited preflop analysis</li>
+          <li>Full reasoning chain included</li>
+          <li>No signup required to try your first spot</li>
+          <li>Every opponent archetype available free during the launch window</li>
+        </ul>
+        <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Run Your First Spot Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 - SOCIAL PROOF -->
+  <section class="section">
+    <div class="container-lg">
+      <h2>Built for Real <span class="gold">Poker Players.</span></h2>
+      <p class="section-lead">Early reactions from players and students testing the engine.</p>
+
+      <div class="testimonials">
+        <div class="quote-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote-text">This is the first tool that actually makes sense mid-session. I stopped second-guessing.</p>
+          <div class="quote-attribution">Live $2/$5 regular</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote-text">Finally something built for live poker. Solvers always felt one step removed from my actual table.</p>
+          <div class="quote-attribution">Cash game grinder</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote-text">I studied GTO for months. This is what made it click against opponents who don't play balanced.</p>
+          <div class="quote-attribution">GTO Wizard user</div>
+        </div>
+      </div>
+
+      <div class="disclosure" style="margin-top:48px;">
+        Beta feedback from early testers. Real user quotes replace these as the user base grows.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8 - FINAL CLOSE -->
+  <section class="section alt">
+    <div class="container-lg">
+      <div class="final-close">
+        <h2>Stop Guessing. <span class="gold">Start Exploiting.</span></h2>
+        <p>GTO study without execution is theory. RangeIQ is where theory meets the table.</p>
+        <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Run Your First Spot Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER TAGLINE -->
+  <div class="footer-tagline">
+    GTO shows you how poker works.<br>
+    <span class="gold">RangeIQ shows you how to win.</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+    <div style="margin-top:14px; font-size:10px; color:var(--faint); letter-spacing:0.02em; max-width:560px; margin-left:auto; margin-right:auto; line-height:1.5;">
+      RangeIQ and GTO Wizard are independent products. This page presents RangeIQ as a supplement to GTO-based study, not an affiliated or competing product. GTO Wizard is a trademark of its owner.
+    </div>
+  </footer>
+
+</body>
+</html>
