@@ -377,4 +377,13 @@ document.querySelectorAll('.faq-question').forEach(b=>{b.addEventListener('click
 
 // Scroll animations
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.ani
+document.querySelectorAll('.animated').forEach(el=>obs.observe(el));
+
+// Mobile menu toggle
+const mobileToggle=document.querySelector('.mobile-toggle');
+const navLinks=document.querySelector('.nav-links');
+if(mobileToggle&&navLinks){mobileToggle.addEventListener('click',()=>{navLinks.classList.toggle('open');mobileToggle.classList.toggle('open');});}
+</script>
+</body>
+</html>
+

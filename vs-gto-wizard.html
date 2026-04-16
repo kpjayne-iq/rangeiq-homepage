@@ -56,11 +56,13 @@
       padding: 28px 32px; text-align: center;
     }
     .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-mark {
-      width: 32px; height: 32px; border-radius: 7px;
+    .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .logo-grid span { border-radius: 2px; background: rgba(255,255,255,0.3); }
+    .logo-grid span:nth-child(3) {
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'DM Serif Display', serif; font-size: 18px; font-weight: 700; color: var(--bg);
     }
     .brand-name { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
     .brand-name span { color: var(--gold); }
@@ -397,7 +399,7 @@
   <!-- SITE HEADER -->
   <header class="site-header">
     <a href="/" class="brand">
-      <div class="brand-mark">R</div>
+      <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
       <div class="brand-name">Range<span>IQ</span> Poker</div>
     </a>
   </header>
