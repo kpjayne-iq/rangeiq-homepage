@@ -82,16 +82,23 @@
     }
 
     .rate-display {
-      display: flex; align-items: baseline; gap: 12px;
+      display: flex; align-items: baseline; gap: 16px;
       margin-bottom: 36px; padding-bottom: 32px; border-bottom: 1px solid var(--border);
+    }
+    .rate-stack {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+    }
+    .rate-prefix {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 700; color: var(--gold);
+      letter-spacing: 0.12em; text-transform: uppercase; line-height: 1;
     }
     .rate-amount {
       font-family: 'DM Serif Display', Georgia, serif;
       font-size: 72px; font-weight: 400; color: var(--gold); line-height: 1;
     }
-    .rate-label { font-size: 16px; color: var(--muted); font-weight: 500; }
+    .rate-label { font-size: 16px; color: var(--muted); font-weight: 500; align-self: flex-end; padding-bottom: 6px; }
     .rate-label strong { color: var(--text); font-weight: 600; }
-    .rate-label .up-to { font-size: 13px; color: var(--gold); letter-spacing: 0.04em; margin-right: 4px; font-weight: 600; }
 
     .features { list-style: none; padding: 0; margin: 0; }
     .features li {
@@ -252,8 +259,11 @@
 
     <div class="info-card">
       <div class="rate-display">
-        <span class="rate-amount">50%</span>
-        <span class="rate-label"><span class="up-to">UP TO</span><strong>recurring commission</strong><br>specific rate set during onboarding</span>
+        <div class="rate-stack">
+          <div class="rate-prefix">Up to</div>
+          <div class="rate-amount">50%</div>
+        </div>
+        <span class="rate-label"><strong>recurring commission</strong><br>specific rate set during onboarding</span>
       </div>
 
       <ul class="features">
