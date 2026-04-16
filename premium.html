@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Partner Program | RangeIQ Poker</title>
+  <meta name="description" content="Premium Partner Program for established poker creators. Up to 50% recurring commission, custom promo codes, direct founder access. Application required.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --card: #111827;
+      --card-muted: #0F1620;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+      --red: #EF4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 60px 32px 100px; }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      margin-bottom: 32px; transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* Brand header */
+    .brand-header { text-align: center; margin-bottom: 48px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 7px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif; font-size: 18px; font-weight: 700; color: var(--bg);
+    }
+    .brand-name { font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .brand-name span { color: var(--gold); }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 56px; }
+    .eyebrow {
+      font-size: 11px; font-weight: 700; color: var(--gold);
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 18px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 52px; line-height: 1.05; color: var(--text);
+      font-weight: 400; margin-bottom: 20px; letter-spacing: -0.02em;
+    }
+    h1 .gold { color: var(--gold); }
+    .hero-sub { font-size: 17px; color: var(--muted); max-width: 600px; margin: 0 auto; }
+
+    /* Info card */
+    .info-card {
+      background: linear-gradient(180deg, rgba(230,197,102,0.05) 0%, var(--card) 100%);
+      border: 1.5px solid var(--border-hi); border-radius: 18px;
+      padding: 44px 44px; margin-bottom: 48px; position: relative;
+    }
+    .info-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dim) 100%);
+      border-radius: 18px 18px 0 0;
+    }
+
+    .rate-display {
+      display: flex; align-items: baseline; gap: 12px;
+      margin-bottom: 36px; padding-bottom: 32px; border-bottom: 1px solid var(--border);
+    }
+    .rate-amount {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 72px; font-weight: 400; color: var(--gold); line-height: 1;
+    }
+    .rate-label { font-size: 16px; color: var(--muted); font-weight: 500; }
+    .rate-label strong { color: var(--text); font-weight: 600; }
+    .rate-label .up-to { font-size: 13px; color: var(--gold); letter-spacing: 0.04em; margin-right: 4px; font-weight: 600; }
+
+    .features { list-style: none; padding: 0; margin: 0; }
+    .features li {
+      padding: 14px 0 14px 32px; position: relative;
+      font-size: 15px; color: var(--text); border-bottom: 1px solid var(--border);
+    }
+    .features li:last-child { border-bottom: none; }
+    .features li strong { display: block; font-weight: 600; margin-bottom: 2px; }
+    .features li .desc { font-size: 13px; color: var(--muted); font-weight: 400; }
+    .features li::before {
+      content: ''; position: absolute; left: 0; top: 19px;
+      width: 16px; height: 16px; border-radius: 50%; background: var(--gold);
+    }
+    .features li::after {
+      content: ''; position: absolute; left: 5px; top: 23px;
+      width: 6px; height: 4px;
+      border-left: 1.5px solid var(--bg); border-bottom: 1.5px solid var(--bg);
+      transform: rotate(-45deg);
+    }
+
+    /* Qualification section */
+    .qualify {
+      background: var(--card-muted); border: 1px solid var(--border);
+      border-radius: 12px; padding: 32px 36px; margin-bottom: 48px;
+    }
+    .qualify-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 24px; color: var(--text); margin-bottom: 12px; font-weight: 400;
+    }
+    .qualify p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 14px; }
+    .qualify p:last-child { margin-bottom: 0; }
+    .qualify strong { color: var(--text); font-weight: 600; }
+    .qualify ul { list-style: none; padding: 0; margin: 16px 0; }
+    .qualify ul li {
+      padding: 8px 0 8px 20px; position: relative;
+      font-size: 14px; color: var(--text);
+    }
+    .qualify ul li::before {
+      content: '\2022'; position: absolute; left: 0; top: 8px;
+      color: var(--gold); font-weight: 700;
+    }
+
+    /* Application form */
+    .application {
+      background: var(--card); border: 1.5px solid var(--border-hi);
+      border-radius: 18px; padding: 48px 44px; margin-bottom: 48px; position: relative;
+    }
+    .application::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dim) 100%);
+      border-radius: 18px 18px 0 0;
+    }
+
+    .app-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px; color: var(--text); margin-bottom: 12px;
+      font-weight: 400; text-align: center; letter-spacing: -0.01em;
+    }
+    .app-sub { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 36px; }
+
+    .form-row { margin-bottom: 18px; }
+    .form-label {
+      display: block; font-size: 13px; font-weight: 600; color: var(--text);
+      margin-bottom: 6px; letter-spacing: 0.02em;
+    }
+    .form-label .req { color: var(--gold); margin-left: 4px; }
+    .form-input, .form-textarea {
+      width: 100%; padding: 12px 14px; background: var(--bg);
+      border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-size: 14px; font-family: 'Inter', sans-serif;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .form-input:focus, .form-textarea:focus {
+      outline: none; border-color: var(--gold); background: #0F1620;
+    }
+    .form-textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
+    .form-hint { font-size: 11px; color: var(--faint); margin-top: 4px; }
+
+    .form-submit {
+      width: 100%; margin-top: 12px; padding: 16px 0;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); border: none; border-radius: 10px;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+      cursor: pointer; transition: transform 0.15s, box-shadow 0.2s;
+      font-family: 'Inter', sans-serif; box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .form-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .form-status {
+      margin-top: 16px; padding: 14px 16px; border-radius: 8px;
+      font-size: 13px; text-align: center; display: none;
+    }
+    .form-status.success {
+      display: block; background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.25); color: var(--green);
+    }
+    .form-status.error {
+      display: block; background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.25); color: var(--red);
+    }
+
+    /* Alternative CTA - open program */
+    .alt-cta {
+      text-align: center; padding: 24px 32px;
+      background: var(--card-muted); border: 1px solid var(--border);
+      border-radius: 12px; margin-bottom: 48px;
+    }
+    .alt-cta p { font-size: 14px; color: var(--muted); margin-bottom: 12px; }
+    .alt-cta p strong { color: var(--text); }
+    .alt-cta a {
+      display: inline-block; padding: 10px 24px; border-radius: 8px;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+      text-decoration: none; transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .alt-cta a:hover { border-color: var(--gold); color: var(--gold); background: rgba(230,197,102,0.04); }
+
+    /* Footer */
+    footer {
+      margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border);
+      text-align: center; font-size: 12px; color: var(--faint);
+    }
+    footer strong { color: var(--text); font-weight: 700; letter-spacing: 0.02em; }
+    footer a { color: var(--gold); text-decoration: none; margin: 0 8px; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 760px) {
+      .container { padding: 40px 20px 80px; }
+      h1 { font-size: 36px; }
+      .info-card, .application { padding: 32px 24px; }
+      .rate-amount { font-size: 56px; }
+      .app-title { font-size: 26px; }
+      .qualify { padding: 24px 20px; }
+      .alt-cta { padding: 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a href="/partners" class="back-link">&larr; Back to Partner Program</a>
+
+    <div class="brand-header">
+      <a href="/" style="text-decoration:none;color:inherit;">
+        <div class="brand">
+          <div class="brand-mark">R</div>
+          <div class="brand-name">Range<span>IQ</span> Poker</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="hero">
+      <div class="eyebrow">Premium Partner Program</div>
+      <h1>For <span class="gold">established</span> creators.</h1>
+      <p class="hero-sub">Higher commission rates, custom promo codes, and direct partnership support &mdash; for creators with real audiences and genuine reach.</p>
+    </div>
+
+    <div class="info-card">
+      <div class="rate-display">
+        <span class="rate-amount">50%</span>
+        <span class="rate-label"><span class="up-to">UP TO</span><strong>recurring commission</strong><br>specific rate set during onboarding</span>
+      </div>
+
+      <ul class="features">
+        <li>
+          <strong>Higher commission rates</strong>
+          <span class="desc">Up to 50% recurring &mdash; double the Standard tier. Rate is set based on audience size and content focus.</span>
+        </li>
+        <li>
+          <strong>Custom promo codes</strong>
+          <span class="desc">Your audience gets a discount or free trial extension; you get credit even when they type the code instead of clicking a link.</span>
+        </li>
+        <li>
+          <strong>Direct founder access</strong>
+          <span class="desc">Personal onboarding, direct line for questions, custom deal terms available.</span>
+        </li>
+        <li>
+          <strong>Priority support</strong>
+          <span class="desc">Faster responses, dedicated help with any technical or content questions.</span>
+        </li>
+        <li>
+          <strong>Early feature access</strong>
+          <span class="desc">Preview new features before public release. Your feedback shapes the roadmap.</span>
+        </li>
+        <li>
+          <strong>Custom deal terms</strong>
+          <span class="desc">Flat-fee sponsorships, co-marketing agreements, or hybrid structures available for top creators.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="qualify">
+      <h2 class="qualify-title">Who qualifies</h2>
+      <p>Premium is designed for creators whose audiences align with RangeIQ's player base &mdash; serious live and online cash players studying to improve their game. We approve partners whose reach and credibility translate into quality referrals, not just volume.</p>
+      <p>Good fits typically include:</p>
+      <ul>
+        <li>YouTube creators with established poker audiences (any size, if engaged)</li>
+        <li>Twitch streamers focused on cash games or strategy content</li>
+        <li>Podcasters covering poker strategy, theory, or the live circuit</li>
+        <li>Writers, coaches, and educators with newsletter subscribers or student bases</li>
+        <li>Working professionals in the poker industry (coaches, commentators, authors)</li>
+      </ul>
+      <p><strong>Not ready for Premium?</strong> The open <a href="/partners" style="color:var(--gold);text-decoration:none;">Partner Program</a> offers 25% recurring commission with no approval needed &mdash; a strong starting point for any creator building an audience.</p>
+    </div>
+
+    <div class="application" id="apply">
+      <h2 class="app-title">Premium Partner Application</h2>
+      <p class="app-sub">Tell us about your audience. Most applications receive a response within 48 hours.</p>
+
+      <form id="partner-form" novalidate>
+        <div class="form-row">
+          <label class="form-label" for="f-name">Your name<span class="req">*</span></label>
+          <input class="form-input" id="f-name" name="name" type="text" maxlength="100" required>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="f-email">Email<span class="req">*</span></label>
+          <input class="form-input" id="f-email" name="email" type="email" maxlength="254" required>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="f-channel">Channel or platform URL<span class="req">*</span></label>
+          <input class="form-input" id="f-channel" name="channelUrl" type="url" maxlength="500" placeholder="https://youtube.com/@yourchannel" required>
+          <p class="form-hint">YouTube, Twitch, Instagram, TikTok, podcast feed, or website. Multiple? Pick the primary one.</p>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="f-audience">Audience size<span class="req">*</span></label>
+          <input class="form-input" id="f-audience" name="audienceSize" type="text" maxlength="100" placeholder="e.g., 75K subscribers, 12K monthly listeners" required>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="f-focus">Content focus<span class="req">*</span></label>
+          <input class="form-input" id="f-focus" name="contentFocus" type="text" maxlength="200" placeholder="e.g., Live cash game vlogs, $1/$3 to $2/$5" required>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="f-pitch">Why RangeIQ for your audience?<span class="req">*</span></label>
+          <textarea class="form-textarea" id="f-pitch" name="pitch" minlength="20" maxlength="2000" placeholder="What about your audience makes RangeIQ a fit? What would your promotion look like?" required></textarea>
+          <p class="form-hint">20-2000 characters. Be specific.</p>
+        </div>
+
+        <button type="submit" class="form-submit" id="f-submit">Submit application</button>
+
+        <div class="form-status" id="f-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <div class="alt-cta">
+      <p><strong>Not ready to apply?</strong> Start with the open Partner Program today &mdash; you can always apply for Premium later.</p>
+      <a href="/partners">Back to Partner Program</a>
+    </div>
+
+    <footer>
+      <strong>RangeIQ Poker</strong><br>
+      A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings<br>
+      <a href="/">Home</a> &middot; <a href="/partners">Partner Program</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:partners@rangeiqpoker.com">partners@rangeiqpoker.com</a>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var form = document.getElementById('partner-form');
+      var status = document.getElementById('f-status');
+      var submit = document.getElementById('f-submit');
+      var API_URL = 'https://app.rangeiqpoker.com/api/partner-application';
+
+      function showStatus(message, kind) {
+        status.textContent = message;
+        status.className = 'form-status ' + kind;
+      }
+
+      function clearStatus() {
+        status.textContent = '';
+        status.className = 'form-status';
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearStatus();
+
+        var data = {
+          name: document.getElementById('f-name').value.trim(),
+          email: document.getElementById('f-email').value.trim(),
+          channelUrl: document.getElementById('f-channel').value.trim(),
+          audienceSize: document.getElementById('f-audience').value.trim(),
+          contentFocus: document.getElementById('f-focus').value.trim(),
+          pitch: document.getElementById('f-pitch').value.trim()
+        };
+
+        if (!data.name || !data.email || !data.channelUrl || !data.audienceSize || !data.contentFocus || !data.pitch) {
+          showStatus('Please complete all fields.', 'error');
+          return;
+        }
+        if (data.pitch.length < 20) {
+          showStatus('Please write a more detailed pitch (at least 20 characters).', 'error');
+          return;
+        }
+
+        submit.disabled = true;
+        submit.textContent = 'Submitting...';
+
+        fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+          .then(function (res) {
+            return res.json().then(function (body) { return { status: res.status, body: body }; });
+          })
+          .then(function (result) {
+            if (result.status === 200 && result.body && result.body.ok) {
+              showStatus("Application received. We'll review and respond within 48 hours.", 'success');
+              form.reset();
+            } else {
+              var msg = (result.body && result.body.error) || 'Submission failed. Please try again or email partners@rangeiqpoker.com.';
+              showStatus(msg, 'error');
+            }
+          })
+          .catch(function () {
+            showStatus('Network error. Please try again or email partners@rangeiqpoker.com.', 'error');
+          })
+          .then(function () {
+            submit.disabled = false;
+            submit.textContent = 'Submit application';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
