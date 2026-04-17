@@ -196,6 +196,7 @@ a:hover{text-decoration:underline}
       <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
     </ul>
     <div class="nav-cta">
       <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
@@ -382,7 +383,7 @@ document.querySelectorAll('.animated').forEach(el=>obs.observe(el));
 // Mobile menu toggle
 const mobileToggle=document.querySelector('.mobile-toggle');
 const navLinks=document.querySelector('.nav-links');
-if(mobileToggle&&navLinks){mobileToggle.addEventListener('click',()=>{navLinks.classList.toggle('open');mobileToggle.classList.toggle('open');});}
+if(mobileToggle&&navLinks){mobileToggle.addEventListener('click',()=>{navLinks.classList.toggle('open');mobileToggle.classList.toggle('open');});navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');mobileToggle.classList.remove('open');}));}
 </script>
 </body>
 </html>
