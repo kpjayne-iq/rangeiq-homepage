@@ -506,7 +506,6 @@
         <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
         <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
       </ul>
-      </ul>
       <div class="nav-cta">
         <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
         <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
@@ -615,6 +614,18 @@
       const nav = document.getElementById('nav');
       if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
     });
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
   </script>
 
 </body>
