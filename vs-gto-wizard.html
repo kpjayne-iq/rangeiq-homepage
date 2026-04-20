@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RangeIQ vs GTO Wizard | Complete Your GTO Study with Real-Opponent Exploitation</title>
-  <meta name="description" content="GTO Wizard teaches balanced theory. RangeIQ helps you exploit the player actually across the table. A supplement to your GTO study, not a replacement.">
+  <title>RangeIQ vs GTO Wizard | Exploit-Based Decisions in Exact Dollar Amounts</title>
+  <meta name="description" content="GTO Wizard teaches percentages. RangeIQ tells you dollars. Opponent-specific exploit decisions built for live cash play at $1/$3, $2/$5, $5/$10.">
   <meta property="og:title" content="RangeIQ vs GTO Wizard">
-  <meta property="og:description" content="GTO teaches theory. RangeIQ closes the loop with opponent-specific exploitation.">
+  <meta property="og:description" content="GTO teaches percentages. RangeIQ tells you dollars. Exploit decisions for live cash.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -371,14 +371,16 @@
       padding: 18px 28px;
       background: var(--card); border: 1px solid var(--border); border-radius: 10px;
       margin-bottom: 12px;
+      text-align: left;
     }
     .aha-row-label {
-      font-size: 15px; color: var(--muted);
+      font-size: 15px; color: var(--muted); line-height: 1.5;
     }
     .aha-row-label strong { color: var(--text); font-weight: 700; }
     .aha-row-value {
       font-family: 'DM Serif Display', Georgia, serif;
       font-size: 26px; color: var(--gold); font-weight: 400; line-height: 1;
+      white-space: nowrap;
     }
     .aha-closer {
       font-family: 'DM Serif Display', Georgia, serif;
@@ -386,6 +388,48 @@
       margin-top: 28px; letter-spacing: -0.01em;
     }
     .aha-closer .gold { color: var(--gold); }
+
+    /* Dollar contrast section (NEW) */
+    .dollar-contrast {
+      max-width: 760px; margin: 0 auto;
+    }
+    .dollar-contrast h2 { text-align: center; margin-bottom: 16px; }
+    .dollar-row-gto {
+      padding: 22px 28px;
+      background: var(--card-muted);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .dollar-row-iq {
+      padding: 22px 28px;
+      background: var(--card);
+      border: 1px solid var(--border-hi);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      display: flex; flex-direction: column; gap: 10px;
+      box-shadow: 0 8px 28px rgba(230,197,102,0.08);
+    }
+    .dollar-tag {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .dollar-tag.gto { color: var(--faint); }
+    .dollar-tag.iq { color: var(--gold); }
+    .dollar-quote {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 24px; line-height: 1.3; font-weight: 400;
+    }
+    .dollar-row-gto .dollar-quote { color: var(--muted); }
+    .dollar-row-iq .dollar-quote { color: var(--text); }
+    .dollar-row-iq .dollar-quote .gold { color: var(--gold); }
+    .dollar-hint {
+      font-size: 13px; color: var(--faint); font-style: italic;
+    }
+    .dollar-row-iq .dollar-hint {
+      color: var(--muted); font-style: normal;
+    }
 
     /* How It Works steps */
     .how-grid {
@@ -499,6 +543,8 @@
       .aha-row { padding: 14px 18px; gap: 10px; flex-wrap: wrap; }
       .aha-row-value { font-size: 22px; }
       .decision-card { padding: 22px 22px; }
+      .dollar-row-gto, .dollar-row-iq { padding: 18px 20px; }
+      .dollar-quote { font-size: 20px; }
     }
   </style>
 </head>
@@ -538,7 +584,7 @@
             <span class="line">GTO Shows You Perfect Play.</span>
             <span class="line">RangeIQ Shows You <span class="gold">How to Exploit.</span></span>
           </h1>
-          <p class="hero-sub">Built for real opponents, not theory. <strong>Turn solver knowledge into real-money decisions</strong> &mdash; instantly, at the table, against the actual player in front of you.</p>
+          <p class="hero-sub">Built for real opponents at real stakes. <strong>Every output in exact dollar amounts.</strong> No GTO percentages. No mid-hand math. Decisions you can actually use at the table.</p>
           <div class="hero-ctas">
             <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Run Your First Spot Free</a>
             <a href="#how" class="btn btn-secondary">See How It Works</a>
@@ -579,7 +625,7 @@
             <div class="dc-reason-label">Reasoning</div>
             <ul>
               <li>Top pair top kicker with strong kicker advantage on dry board</li>
-              <li>Station folds too rarely &mdash; value bet larger than GTO baseline</li>
+              <li>Station folds too rarely. Value bet larger than GTO baseline</li>
               <li>Rising pot size before turn maximizes EV against wide calling range</li>
             </ul>
           </div>
@@ -604,7 +650,7 @@
         <li>Solver outputs don't match the opponents you actually play</li>
         <li>You don't have time to run sims mid-session at a live table</li>
         <li>Every spot feels slightly different from the ones you studied</li>
-        <li>You know the theory &mdash; but still second-guess the decision in real time</li>
+        <li>You know the theory, but still second-guess the decision in real time</li>
       </ul>
     </div>
   </section>
@@ -616,7 +662,7 @@
 
         <div>
           <h2 class="left">RangeIQ Doesn't Replace GTO. It <span class="gold">Completes</span> It.</h2>
-          <p class="section-lead left">GTO tools teach balanced play in a vacuum &mdash; the equilibrium against a perfect opponent. But most hands aren't played against perfect opponents. RangeIQ trains you to exploit the specific player actually sitting across the felt.</p>
+          <p class="section-lead left">GTO tools teach balanced play in a vacuum, the equilibrium against a perfect opponent. But most hands aren't played against perfect opponents. RangeIQ trains you to exploit the specific player actually sitting across the felt.</p>
           <p class="section-lead left" style="margin-top:0;">Study with GTO. Decide with RangeIQ.</p>
         </div>
 
@@ -630,24 +676,24 @@
             </thead>
             <tbody>
               <tr>
-                <td>Balanced ranges</td>
-                <td>Opponent-specific decisions</td>
+                <td>"Bet 65% pot"</td>
+                <td>"Bet $55 into $95"</td>
               </tr>
               <tr>
-                <td>Percent-of-pot sizing</td>
-                <td>Exact dollar bets</td>
+                <td>Balanced ranges</td>
+                <td>Opponent-specific decisions</td>
               </tr>
               <tr>
                 <td>Theory-first</td>
                 <td>Execution-first</td>
               </tr>
               <tr>
-                <td>Study tool</td>
+                <td>Pre-session study tool</td>
                 <td>In-game decision engine</td>
               </tr>
               <tr>
-                <td>Pre-session preparation</td>
-                <td>At-the-table application</td>
+                <td>"Study this after your session"</td>
+                <td>"Use this during your session"</td>
               </tr>
             </tbody>
           </table>
@@ -657,8 +703,33 @@
     </div>
   </section>
 
-  <!-- SECTION 4 - THE AHA MOMENT -->
+  <!-- SECTION 3.5 - DOLLARS NOT PERCENTAGES (NEW) -->
   <section class="section alt">
+    <div class="container-lg">
+      <div class="dollar-contrast">
+        <h2>GTO Speaks in <span class="gold">Percentages.</span><br>Live Cash Is Played in <span class="gold">Dollars.</span></h2>
+        <p class="section-lead">Your $1/$3 session isn't run on percent-of-pot math. Nobody at the table is calculating 65% of $47 while the dealer waits. You bet in dollars. RangeIQ thinks in dollars.</p>
+
+        <div style="margin: 36px 0;">
+          <div class="dollar-row-gto">
+            <div class="dollar-tag gto">GTO Wizard says</div>
+            <div class="dollar-quote">"Bet 65% pot for thin value"</div>
+            <div class="dollar-hint">Now do the math. Mid-hand. While the dealer watches.</div>
+          </div>
+          <div class="dollar-row-iq">
+            <div class="dollar-tag iq">RangeIQ says</div>
+            <div class="dollar-quote">"Pot is $95. You have $200 behind. <span class="gold">Bet $55.</span>"</div>
+            <div class="dollar-hint">One number. Done. Keep playing.</div>
+          </div>
+        </div>
+
+        <p class="aha-closer">Exploit-based play is <span class="gold">concrete.</span> So is our math.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 - THE AHA MOMENT -->
+  <section class="section">
     <div class="container-lg">
       <div class="aha-block">
         <h2>Same Hand. Same Spot. <span class="gold">Different Opponent. Different Answer.</span></h2>
@@ -685,7 +756,7 @@
   </section>
 
   <!-- SECTION 5 - HOW IT WORKS -->
-  <section class="section" id="how">
+  <section class="section alt" id="how">
     <div class="container-lg">
       <h2>How It <span class="gold">Works.</span></h2>
       <p class="section-lead">Three inputs. One answer. No manual calculations.</p>
@@ -699,7 +770,7 @@
         <div class="how-step">
           <div class="how-num">2</div>
           <div class="how-label">Classify</div>
-          <p class="how-text">Select the opponent type facing you &mdash; nine archetypes covering every live table you'll see.</p>
+          <p class="how-text">Select the opponent type facing you. Nine archetypes covering every live table you'll see.</p>
         </div>
         <div class="how-step">
           <div class="how-num">3</div>
@@ -709,13 +780,13 @@
       </div>
 
       <div class="how-cta-wrap">
-        <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try It Now &mdash; No Signup Required</a>
+        <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try It Now, No Signup Required</a>
       </div>
     </div>
   </section>
 
   <!-- SECTION 6 - FREE HOOK -->
-  <section class="section alt">
+  <section class="section">
     <div class="container-md">
       <div class="free-hook">
         <h2>Start Free. <span class="gold">No Friction.</span></h2>
@@ -732,7 +803,7 @@
   </section>
 
   <!-- SECTION 7 - SOCIAL PROOF -->
-  <section class="section">
+  <section class="section alt">
     <div class="container-lg">
       <h2>Built for Real <span class="gold">Poker Players.</span></h2>
       <p class="section-lead">Early reactions from players and students testing the engine.</p>
@@ -758,7 +829,7 @@
   </section>
 
   <!-- SECTION 8 - FINAL CLOSE -->
-  <section class="section alt">
+  <section class="section">
     <div class="container-lg">
       <div class="final-close">
         <h2>Stop Guessing. <span class="gold">Start Exploiting.</span></h2>
@@ -771,7 +842,7 @@
   <!-- FOOTER TAGLINE -->
   <div class="footer-tagline">
     GTO shows you how poker works.<br>
-    <span class="gold">RangeIQ shows you how to win.</span>
+    <span class="gold">RangeIQ shows you what to bet.</span>
   </div>
 
   <!-- FOOTER -->
