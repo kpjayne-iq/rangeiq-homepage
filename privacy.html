@@ -303,6 +303,7 @@
       <p>We use the information described above to:</p>
       <ul>
         <li>Provide, operate, secure, and improve the Service</li>
+        <li>Generate IQ Reasoning explanations for engine recommendations using the limited hand-state data described in the Sub-Processors section</li>
         <li>Authenticate you and maintain your active session</li>
         <li>Process subscription payments, manage billing, and apply applicable taxes</li>
         <li>Apply, validate, and enforce promotional grants and comp codes</li>
@@ -358,6 +359,10 @@
         <div class="processor-row">
           <div class="processor-name">Google (Sign in with Google)</div>
           <div class="processor-desc">Optional federated sign-in. If you choose to sign in with Google, Google provides us with your name, email address, and Google account identifier. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Anthropic</div>
+          <div class="processor-desc">Powers the IQ Reasoning explanation layer. When you request a recommendation, the engine sends the resulting hand state and recommended action (cards, board, position, archetype, sizing, action) to Anthropic to generate a coaching explanation. We do not send your account email, name, payment information, or any persistent user identifier with these requests. Anthropic does not use API inputs or outputs to train its models. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
         </div>
         <div class="processor-row">
           <div class="processor-name">Vercel</div>
