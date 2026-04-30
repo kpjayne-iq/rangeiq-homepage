@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RangeIQ vs GTO Wizard | Exploit-Based Decisions in Exact Dollar Amounts</title>
-  <meta name="description" content="GTO Wizard teaches percentages. RangeIQ tells you dollars. Opponent-specific exploit decisions built for live cash play at $1/$3, $2/$5, $5/$10.">
-  <meta property="og:title" content="RangeIQ vs GTO Wizard">
-  <meta property="og:description" content="GTO teaches percentages. RangeIQ tells you dollars. Exploit decisions for live cash.">
+  <title>RangeIQ vs GTO Wizard | The Live Cash Exploit Engine</title>
+  <meta name="description" content="GTO teaches percentages. Generic tools guess. RangeIQ delivers exact-dollar exploit decisions for live cash play at $1/$3, $2/$5, $5/$10 — powered by IQ Reasoning.">
+  <meta property="og:title" content="RangeIQ vs GTO Wizard | The Live Cash Exploit Engine">
+  <meta property="og:description" content="GTO teaches percentages. Generic tools guess. RangeIQ delivers exact-dollar exploit decisions, powered by IQ Reasoning.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -417,6 +417,7 @@
     }
     .dollar-tag.gto { color: var(--faint); }
     .dollar-tag.iq { color: var(--gold); }
+    .dollar-tag.chat { color: var(--faint); }
     .dollar-quote {
       font-family: 'DM Serif Display', Georgia, serif;
       font-size: 24px; line-height: 1.3; font-weight: 400;
@@ -429,6 +430,92 @@
     }
     .dollar-row-iq .dollar-hint {
       color: var(--muted); font-style: normal;
+    }
+    .dollar-row-chat {
+      padding: 22px 28px;
+      background: var(--card-muted);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .dollar-row-chat .dollar-quote { color: var(--muted); }
+
+    /* 3-Way Compare Table (NEW) */
+    .threeway-wrap {
+      max-width: 1040px; margin: 0 auto;
+    }
+    .threeway {
+      width: 100%; border-collapse: separate; border-spacing: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .threeway thead th {
+      padding: 22px 18px;
+      font-size: 13px; font-weight: 700;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--card-muted);
+      vertical-align: middle;
+    }
+    .threeway thead th:first-child {
+      text-align: left;
+      color: var(--faint);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      width: 30%;
+    }
+    .threeway thead th.col-gto { color: var(--muted); }
+    .threeway thead th.col-chat { color: var(--muted); }
+    .threeway thead th.col-iq {
+      color: var(--gold);
+      background: rgba(230,197,102,0.06);
+      border-bottom: 1px solid var(--border-hi);
+    }
+    .threeway tbody td {
+      padding: 16px 18px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+      line-height: 1.45;
+    }
+    .threeway tbody tr:last-child td { border-bottom: none; }
+    .threeway tbody td:first-child {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .threeway tbody td.col-gto,
+    .threeway tbody td.col-chat {
+      color: var(--muted);
+      text-align: center;
+    }
+    .threeway tbody td.col-iq {
+      color: var(--text);
+      font-weight: 600;
+      text-align: center;
+      background: rgba(230,197,102,0.04);
+      border-left: 1px solid rgba(230,197,102,0.15);
+      border-right: 1px solid rgba(230,197,102,0.15);
+    }
+    .threeway tbody tr:last-child td.col-iq {
+      border-bottom: 1px solid rgba(230,197,102,0.15);
+    }
+    .threeway .mark-yes { color: var(--green); font-weight: 700; font-size: 16px; }
+    .threeway .mark-no { color: #6B7280; font-weight: 700; font-size: 16px; }
+    .threeway .mark-warn { color: #B58B2E; font-weight: 700; font-size: 16px; }
+    .threeway-note {
+      font-size: 13px; color: var(--faint);
+      text-align: center; margin-top: 18px; font-style: italic;
+    }
+    @media (max-width: 760px) {
+      .threeway thead th { padding: 14px 8px; font-size: 11px; }
+      .threeway tbody td { padding: 12px 8px; font-size: 12px; }
+      .threeway tbody td:first-child { font-size: 12px; }
+      .threeway thead th:first-child { width: 38%; }
     }
 
     /* How It Works steps */
@@ -716,6 +803,11 @@
             <div class="dollar-quote">"Bet 65% pot for thin value"</div>
             <div class="dollar-hint">Now do the math. Mid-hand. While the dealer watches.</div>
           </div>
+          <div class="dollar-row-chat">
+            <div class="dollar-tag chat">Generic chat tools say</div>
+            <div class="dollar-quote">"You should probably bet around 3-quarters pot here"</div>
+            <div class="dollar-hint">Probably. Around. Sounds plausible. Now what?</div>
+          </div>
           <div class="dollar-row-iq">
             <div class="dollar-tag iq">RangeIQ says</div>
             <div class="dollar-quote">"Pot is $95. You have $200 behind. <span class="gold">Bet $55.</span>"</div>
@@ -751,6 +843,79 @@
         </div>
 
         <p class="aha-closer">That difference is <span class="gold">your edge.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4.5 - 3-WAY COMPARISON (NEW) -->
+  <section class="section alt" id="compare">
+    <div class="container-lg">
+      <div class="threeway-wrap">
+        <h2>Three Tools. <span class="gold">One Built for Real Tables.</span></h2>
+        <p class="section-lead">Solvers, generic chat tools, and RangeIQ all promise to help your poker. Only one was built from the ground up for live cash exploit play.</p>
+
+        <table class="threeway">
+          <thead>
+            <tr>
+              <th>What it does</th>
+              <th class="col-gto">GTO Wizard</th>
+              <th class="col-chat">Generic Chat Tools</th>
+              <th class="col-iq">RangeIQ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Built for live cash $1/$3&ndash;$5/$10</td>
+              <td class="col-gto"><span class="mark-no">&times;</span></td>
+              <td class="col-chat"><span class="mark-warn">~</span></td>
+              <td class="col-iq"><span class="mark-yes">&check;</span></td>
+            </tr>
+            <tr>
+              <td>Sizing format</td>
+              <td class="col-gto">% of pot</td>
+              <td class="col-chat">"Around 3&ndash;4x"</td>
+              <td class="col-iq">Exact dollars</td>
+            </tr>
+            <tr>
+              <td>Different answer per opponent type</td>
+              <td class="col-gto"><span class="mark-no">&times;</span></td>
+              <td class="col-chat"><span class="mark-warn">~</span></td>
+              <td class="col-iq"><span class="mark-yes">&check;</span> 9 archetypes</td>
+            </tr>
+            <tr>
+              <td>Reasoning behind the answer</td>
+              <td class="col-gto">Solver charts</td>
+              <td class="col-chat">Plausible-sounding text</td>
+              <td class="col-iq">IQ Reasoning, locked to the math</td>
+            </tr>
+            <tr>
+              <td>Can contradict itself across sessions</td>
+              <td class="col-gto"><span class="mark-no">&times;</span> Deterministic</td>
+              <td class="col-chat"><span class="mark-warn">Frequently</span></td>
+              <td class="col-iq"><span class="mark-no">&times;</span> Deterministic</td>
+            </tr>
+            <tr>
+              <td>Hallucinates equity numbers</td>
+              <td class="col-gto"><span class="mark-no">&times;</span> Never</td>
+              <td class="col-chat"><span class="mark-warn">Often</span></td>
+              <td class="col-iq"><span class="mark-no">&times;</span> Blocked by design</td>
+            </tr>
+            <tr>
+              <td>Speed at the table</td>
+              <td class="col-gto">Manual chart lookup</td>
+              <td class="col-chat">30+ seconds typing</td>
+              <td class="col-iq">Under 5 seconds</td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td class="col-gto">$$$</td>
+              <td class="col-chat">Free / $20+/mo</td>
+              <td class="col-iq">$14.99/mo</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="threeway-note">Solvers are powerful. Chat tools are convenient. Neither was built for the spot you're actually in. RangeIQ was.</p>
       </div>
     </div>
   </section>
