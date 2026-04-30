@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RangeIQ Poker — Exploit-Based Poker Training & Decision Tool</title>
-<meta name="description" content="RangeIQ is a browser-based poker training tool that helps live cash game players exploit opponents, punish common mistakes, and make better decisions at the table. Train against 9 real player types. No downloads.">
+<meta name="description" content="RangeIQ is a browser-based poker training tool that helps live cash game players exploit opponents, punish common mistakes, and make better decisions at the table. Powered by IQ Reasoning — our proprietary coaching layer. Train against 9 real player types. No downloads.">
 <meta name="author" content="IQ Digital Holdings LLC">
 <meta name="robots" content="index, follow">
 
@@ -97,6 +97,28 @@ a:hover{text-decoration:underline}
 .hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.08)}
 .hero-titlebar-url{font-size:12px;color:var(--text-muted);margin-left:auto;margin-right:auto;opacity:0.6}
 .hero-screenshot-frame img{display:block;width:100%}
+
+/* IQ REASONING SPOTLIGHT */
+.section-iqreasoning{background:var(--bg-alt-1);padding:var(--section-pad) 0;position:relative;overflow:hidden}
+.section-iqreasoning::before{content:'';position:absolute;top:10%;left:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(217,185,91,0.04) 0%,transparent 65%);pointer-events:none}
+.iqr-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative}
+.iqr-copy .eyebrow{margin-bottom:16px}
+.iqr-copy .h2{margin-bottom:20px}
+.iqr-tagline{font-family:var(--font-display);font-size:24px;line-height:1.35;color:var(--gold);margin-bottom:24px;font-style:italic}
+.iqr-copy p{font-size:17px;line-height:1.7;color:var(--text-secondary);margin-bottom:20px}
+.iqr-bullets{list-style:none;padding:0;margin:24px 0 0}
+.iqr-bullets li{display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.6;color:var(--text-secondary);margin-bottom:14px}
+.iqr-bullets li svg{flex-shrink:0;margin-top:4px}
+.iqr-mock{background:#0F1620;border:1px solid var(--border-subtle);border-radius:18px;padding:28px;box-shadow:0 30px 70px rgba(0,0,0,0.3),0 0 0 1px rgba(217,185,91,0.04);position:relative}
+.iqr-mock-rec{font-family:var(--font-display);font-size:32px;color:#A78BFA;line-height:1.1;margin-bottom:8px}
+.iqr-mock-pill{display:inline-block;font-size:11px;font-weight:600;color:#A78BFA;background:rgba(167,139,250,0.12);padding:4px 10px;border-radius:6px;letter-spacing:0.04em;margin-bottom:16px}
+.iqr-mock-divider{height:1px;background:var(--border-subtle);margin:20px 0}
+.iqr-mock-label{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px}
+.iqr-mock-prose{font-size:14px;line-height:1.7;color:var(--text-primary);margin-bottom:14px}
+.iqr-mock-bullets{list-style:none;padding:0;margin:0}
+.iqr-mock-bullets li{font-size:13px;line-height:1.6;color:var(--text-secondary);padding-left:14px;position:relative;margin-bottom:6px}
+.iqr-mock-bullets li::before{content:'';position:absolute;left:0;top:9px;width:4px;height:4px;background:var(--gold);border-radius:50%}
+@media(max-width:1024px){.iqr-grid{grid-template-columns:1fr;gap:48px}.iqr-tagline{font-size:20px}}
 
 /* FEATURES */
 .section-features{background:var(--bg-alt-1);padding:var(--section-pad) 0}
@@ -192,6 +214,7 @@ a:hover{text-decoration:underline}
     </a>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
+      <li><a href="#iq-reasoning">IQ Reasoning</a></li>
       <li><a href="#how">How It Works</a></li>
       <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
       <li><a href="pricing.html">Pricing</a></li>
@@ -268,8 +291,8 @@ a:hover{text-decoration:underline}
       </div>
       <div class="card feature-card animate-in">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B95B" stroke-width="1.5"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M7.05 7.05l2.12 2.12M14.83 14.83l2.12 2.12"/><path d="M7.05 16.95l2.12-2.12M14.83 9.17l2.12-2.12"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3 class="h3">Reasoning Engine</h3>
-        <p>Every recommendation is backed by a clear logic chain — so you understand why it works, not just what to do.</p>
+        <h3 class="h3">IQ Reasoning</h3>
+        <p>RangeIQ's proprietary coaching layer turns every recommendation into plain-English exploit logic — built into the engine, not bolted on. The math locks the answer. IQ Reasoning explains it.</p>
       </div>
       <div class="card feature-card animate-in">
         <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9B95B" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4"/><path d="M15 3h4a2 2 0 012 2v4"/><path d="M9 21H5a2 2 0 01-2-2v-4"/><path d="M15 21h4a2 2 0 002-2v-4"/><path d="M9 9h6v6H9z"/></svg></div>
@@ -291,6 +314,39 @@ a:hover{text-decoration:underline}
       <div class="how-step animate-in"><div class="how-number">01</div><h3 class="h3">Set the Scenario</h3><p>Enter your hand, position, board texture, villain type, and game size. Full situational context in seconds.</p></div>
       <div class="how-step animate-in"><div class="how-number">02</div><h3 class="h3">Get the Analysis</h3><p>RangeIQ evaluates range interactions, board dynamics, and villain tendencies — then delivers a clear, exploit-driven recommendation with exact bet sizing.</p></div>
       <div class="how-step animate-in"><div class="how-number">03</div><h3 class="h3">Build the Pattern</h3><p>Repeat across sessions. Track your consistency, surface your leaks, and train the decision pathways that produce long-run edge.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- IQ REASONING SPOTLIGHT -->
+<section class="section-iqreasoning" id="iq-reasoning">
+  <div class="container">
+    <div class="iqr-grid">
+      <div class="iqr-copy">
+        <div class="eyebrow">Introducing IQ Reasoning</div>
+        <h2 class="h2">Coaching that's locked to the math.</h2>
+        <p class="iqr-tagline">"The engine locks the answer. IQ Reasoning explains it."</p>
+        <p>Most poker tools give you a recommendation and walk away. RangeIQ goes further. IQ Reasoning is our proprietary coaching layer — built directly into the engine — that translates every recommendation into plain-English exploit logic, hand by hand, spot by spot.</p>
+        <p>This isn't a generic explanation tool. It's RangeIQ technology, structurally locked so the coaching can never drift from the math.</p>
+        <ul class="iqr-bullets">
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#D9B95B" stroke-width="1.5"/><path d="M5.5 9L8 11.5L12.5 7" stroke="#D9B95B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Built into the engine, not bolted on</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#D9B95B" stroke-width="1.5"/><path d="M5.5 9L8 11.5L12.5 7" stroke="#D9B95B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Plain-English coaching on every spot, every street</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#D9B95B" stroke-width="1.5"/><path d="M5.5 9L8 11.5L12.5 7" stroke="#D9B95B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Exact dollar sizing &mdash; never percentages, never approximations</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#D9B95B" stroke-width="1.5"/><path d="M5.5 9L8 11.5L12.5 7" stroke="#D9B95B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Locked against contradicting the engine's recommendation</li>
+        </ul>
+      </div>
+      <div class="iqr-mock">
+        <div class="iqr-mock-rec">Open Raise to $21</div>
+        <span class="iqr-mock-pill">Open Raise &middot; 85% Confidence</span>
+        <div class="iqr-mock-divider"></div>
+        <div class="iqr-mock-label">IQ Reasoning</div>
+        <p class="iqr-mock-prose">Open raise to $21 from the button with pocket jacks &mdash; a premium hand that dominates the BB's checking range. This sizing isolates effectively and charges weaker holdings to call while extracting value from hands you're ahead of.</p>
+        <ul class="iqr-mock-bullets">
+          <li>You dominate the BB's limping range with a pocket pair</li>
+          <li>Larger sizing reduces multiway equity loss and charges drawing hands</li>
+          <li>Iso raising to extract maximum value from a weak opening</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -317,6 +373,7 @@ a:hover{text-decoration:underline}
     <div class="faq-list">
       <div class="faq-item"><button class="faq-question">What skill level is RangeIQ designed for?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is built for players who have moved beyond the basics and want to develop real decision-making skill. Whether you're a serious recreational player or grinding low-to-mid stakes, the system meets you where you are and scales with your game.</div></div></div>
       <div class="faq-item"><button class="faq-question">How is this different from a GTO solver?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Solvers show the mathematically optimal play in a vacuum. RangeIQ is built for real poker — training you to make better decisions against real player types, real tendencies, and real mistakes. It's not just about finding the "correct" answer. It's about building the reasoning habits that create edge at the table.</div></div></div>
+      <div class="faq-item"><button class="faq-question">What is IQ Reasoning?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">IQ Reasoning is RangeIQ's proprietary coaching layer. Every time the engine produces a recommendation, IQ Reasoning translates the math into plain-English exploit logic — explaining why the action works against this specific opponent, on this specific board, at this specific size. It's built directly into the engine, not bolted on, and it's structurally locked so the coaching can never drift from the recommendation.</div></div></div>
       <div class="faq-item"><button class="faq-question">I already use GTO Wizard. Is RangeIQ a replacement?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No &mdash; it's a complement. GTO Wizard teaches you balanced ranges and equilibrium theory. RangeIQ trains you to exploit the specific opponents actually sitting across from you. The two are stronger together: study with GTO, decide with RangeIQ. <a href="vs-gto-wizard.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);">See the full comparison &rarr;</a></div></div></div>
       <div class="faq-item"><button class="faq-question">Do I need to install anything?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No. RangeIQ runs entirely in your browser — no downloads, no plugins, and no setup required. Just open the app, enter a spot, and start training immediately.</div></div></div>
       <div class="faq-item"><button class="faq-question">What formats and table sizes does RangeIQ cover?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is built for No-Limit Hold'em cash games and tournaments. The position system covers all major strategic seats — from UTG through BB — and adapts naturally across different table sizes, from short-handed to full-ring.</div></div></div>
