@@ -27,6 +27,13 @@
     .brand-mark { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 16px; font-weight: 700; color: var(--bg); }
     .brand-name { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; color: var(--text); text-transform: uppercase; }
     .brand-name span { color: var(--gold); }
+    .nav-logo { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); text-decoration: none; margin-bottom: 24px; transition: opacity 180ms ease; }
+    .nav-logo:hover { opacity: 0.85; text-decoration: none; }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .logo-grid { width: 26px; height: 26px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .logo-grid span:nth-child(4), .logo-grid span:nth-child(5), .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .logo-grid span:nth-child(8), .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
     .eyebrow { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px; }
     h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 48px; line-height: 1.1; color: var(--text); font-weight: 400; margin-bottom: 16px; }
     .meta { font-size: 13px; color: var(--faint); }
@@ -52,10 +59,10 @@
 <body>
   <div class="container">
     <header>
-      <div class="brand">
-        <div class="brand-mark">R</div>
-        <div class="brand-name">Range<span>IQ</span> Poker</div>
-      </div>
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
       <div class="eyebrow">Legal</div>
       <h1>Terms of Service</h1>
       <p class="meta"><strong>Effective Date:</strong> April 13, 2026 &middot; <strong>Last Updated:</strong> April 13, 2026</p>
