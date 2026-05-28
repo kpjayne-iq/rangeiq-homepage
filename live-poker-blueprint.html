@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>The Live Poker Blueprint: Why Pure GTO Fails at $1/$2 and $2/$5 Tables | RangeIQ</title>
+  <meta name="description" content="GTO is the correct strategy against a perfect opponent. At live $1/$3 and $2/$5 tables, nobody plays perfectly. Learn where balanced play costs you real dollars and how exploit-based adjustments recapture that money.">
+  <meta property="og:title" content="The Live Poker Blueprint: Why Pure GTO Fails at $1/$2 and $2/$5 Tables">
+  <meta property="og:description" content="GTO assumes your opponent plays perfectly. At $1/$3, they don't. Three specific spots where balanced play costs you money — and what to do instead.">
+  <meta property="og:url" content="https://rangeiqpoker.com/live-poker-blueprint.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Live Poker Blueprint: Why Pure GTO Fails at $1/$2 and $2/$5 Tables">
+  <meta name="twitter:description" content="Three specific spots where GTO costs you money at live cash — and the exploit adjustments that recapture it.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/live-poker-blueprint.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Live Poker Blueprint: Why Pure GTO Fails at $1/$2 and $2/$5 Tables",
+    "description": "GTO is the correct strategy against a perfect opponent. At live low-stakes tables, nobody plays perfectly. Three specific spots where balanced play costs real dollars, with the exploit adjustments that recapture the money.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-05-28",
+    "url": "https://rangeiqpoker.com/live-poker-blueprint.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["is GTO useful for low stakes live poker", "low stakes live poker strategy", "exploiting nits", "crushing live cash games", "poker training for live cash games", "GTO vs exploit play", "live cash game adjustments", "why GTO fails live poker"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+
+    /* Stat cards for opponent profiles */
+    .opponent-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 24px 0 28px;
+    }
+    .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .stat-row .type-name {
+      font-weight: 700;
+      color: var(--gold);
+      min-width: 120px;
+    }
+    .stat-row .type-stats {
+      color: var(--muted);
+    }
+
+    /* Exploit callout boxes */
+    .exploit-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .exploit-box .exploit-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .exploit-box p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .exploit-box p:last-child { margin-bottom: 0; }
+    .exploit-box .action-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .exploit-box .action-label {
+      font-weight: 700;
+      min-width: 80px;
+    }
+    .exploit-box .action-label.gto { color: var(--faint); }
+    .exploit-box .action-label.exploit { color: var(--gold); }
+
+    /* Unordered list styling */
+    .article-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+    }
+    .article-body ul li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .exploit-box { padding: 18px; }
+      .stat-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>The Live Poker Blueprint: Why Pure GTO <span class="gold">Fails</span> at $1/$2 and $2/$5 Tables</h1>
+    <p class="subtitle">GTO is the correct strategy against an opponent who plays perfectly. At your local $1/$3, nobody plays perfectly. Here&rsquo;s where that costs you real money &mdash; and what to do instead.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; May 2026 &middot; 12 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>GTO is the correct strategy against an opponent who plays perfectly. At your local $1/$3, nobody plays perfectly. So why are you studying as if they do?</p>
+
+    <p>That&rsquo;s not a rhetorical jab &mdash; it&rsquo;s the whole problem in one question. The most common complaint from live cash players who&rsquo;ve put in serious solver study is that the work isn&rsquo;t translating. Their results haven&rsquo;t moved, or worse, they feel like they&rsquo;re playing tighter and more cautiously than they used to and somehow making <em>less</em> money. The instinct is to study harder. The honest answer is that the field you&rsquo;re playing in doesn&rsquo;t reward the strategy you&rsquo;re studying.</p>
+
+    <h2>What GTO Assumes</h2>
+
+    <p>Game-theory optimal play is built on a specific, beautiful mathematical idea called the Nash equilibrium. The setup is two players, both playing strategies so well-constructed that neither one can improve their expected value by deviating. If you change your strategy unilaterally, you lose money. If your opponent changes theirs unilaterally, they lose money. The equilibrium is a kind of strategic standoff where every adjustment is a mistake.</p>
+
+    <p>This is powerful theory. Against an opponent who actually plays at equilibrium, GTO is the only strategy that guarantees you can&rsquo;t be exploited. You can&rsquo;t out-bluff them, you can&rsquo;t get value out of nowhere, you can&rsquo;t be punished for an imbalance &mdash; because there are no imbalances. That&rsquo;s what &ldquo;unexploitable&rdquo; means.</p>
+
+    <p>But notice what equilibrium quietly <em>requires</em> of your opponent. It assumes they&rsquo;re noticing if you value bet too heavily. It assumes they&rsquo;re attacking your capped ranges. It assumes they&rsquo;re defending properly against small bets. It assumes they&rsquo;re bluffing at appropriate frequencies and check-raising your hypothetical weak ranges and adjusting in real time when your strategy drifts. Every &ldquo;balance&rdquo; in your study is a hedge against one of those assumptions being true.</p>
+
+    <p>The minute your opponent stops being that player &mdash; the minute they call too much, fold too much, bluff too often, or never bluff at all &mdash; the equilibrium logic stops fitting the actual game in front of you. You&rsquo;re still playing the unexploitable strategy. They&rsquo;ve stopped playing the unexploitable strategy. Now you&rsquo;re defending against attacks they aren&rsquo;t making and missing exploits they&rsquo;re handing you for free.</p>
+
+    <p>This is the part solver study tends to underemphasize. Equilibrium isn&rsquo;t a universal best response. It&rsquo;s the best response <em>to itself</em>. Against any other kind of opponent, there&rsquo;s a more profitable strategy available, and at a live cash table that &ldquo;any other kind of opponent&rdquo; is everyone you&rsquo;re playing against.</p>
+
+    <h2>The $1/$3 Reality</h2>
+
+    <p>Walk into a typical $1/$3 or $2/$5 live game and look around. The seat to your right is an older gentleman who&rsquo;s been at the table for two hours and has voluntarily entered maybe one pot in twenty. Across from him, a guy in a hoodie is three-betting every other hand and firing every flop. There are two players who limp in light, call any raise, and refuse to fold once they&rsquo;ve connected with any piece of the board. Somewhere there&rsquo;s a Loose Passive who plays nearly half his hands but rarely raises. And there might be one solid tight-aggressive regular at the table, often you.</p>
+
+    <p>The average VPIP across the table is somewhere between 35% and 45%. Compare that to the 22&ndash;28% range that a GTO heads-up solve assumes for both players. That&rsquo;s not a minor discrepancy &mdash; that&rsquo;s a different game. The pool you&rsquo;re studying for and the pool you&rsquo;re actually playing in have different population tendencies, different ranges, different fold frequencies, and different responses to your bet sizing.</p>
+
+    <p>The specific opponent types modeled in RangeIQ make the gap concrete:</p>
+
+    <div class="opponent-stats">
+      <div class="stat-row">
+        <span class="type-name">Calling Station</span>
+        <span class="type-stats">VPIP 62% &middot; Aggression 15% &middot; Folds flop 18% &middot; Folds turn 24% &middot; Bluffs 8%</span>
+      </div>
+      <div class="stat-row">
+        <span class="type-name">Nit</span>
+        <span class="type-stats">VPIP 12% &middot; Aggression 20% &middot; Folds flop 68% &middot; Folds turn 72% &middot; Bluffs 5%</span>
+      </div>
+      <div class="stat-row">
+        <span class="type-name">Loose Passive</span>
+        <span class="type-stats">VPIP 45% &middot; Aggression 18% &middot; Folds flop 32% &middot; Folds turn 42% &middot; Bluffs 6%</span>
+      </div>
+      <div class="stat-row">
+        <span class="type-name">Recreational</span>
+        <span class="type-stats">VPIP 48% &middot; Aggression 28% &middot; Folds flop 38% &middot; Folds turn 44% &middot; Bluffs 12%</span>
+      </div>
+      <div class="stat-row">
+        <span class="type-name">Maniac</span>
+        <span class="type-stats">VPIP 72% &middot; Aggression 92% &middot; Folds flop 15% &middot; Folds turn 18% &middot; Bluffs 62%</span>
+      </div>
+    </div>
+
+    <p>None of these players is even in the same conversation as the balanced equilibrium opponent your study material assumes. A Calling Station and a Nit are not the same player. A Maniac and a Loose Passive are not the same player. So why would a single fixed strategy be the most profitable answer to all of them?</p>
+
+    <p>And critically, none of them is capable of exploiting <em>you</em>. The Station isn&rsquo;t going to start check-raising you light. The Nit isn&rsquo;t going to start floating you wide. The Maniac isn&rsquo;t going to balance his bluffs. Your imbalances are safe. That last point is what changes the math. The question of <em>is GTO useful for low-stakes live poker</em> hinges on whether your opponents can actually punish a deviation &mdash; and at $1/$3 they almost never can. So the entire reason for being unexploitable in the first place &mdash; protection against an adversary who notices and adapts &mdash; doesn&rsquo;t apply.</p>
+
+    <h2>Where GTO Over-Protects</h2>
+
+    <p>The cleanest way to see this is to watch where a balanced strategy specifically costs you money. Three spots show up over and over again.</p>
+
+    <div class="exploit-box">
+      <div class="exploit-title">Checking back top pair against a Calling Station</div>
+      <p>You&rsquo;re on the button with top pair on a dry flop, the Station checks to you, and GTO wants you to check some of the time to protect your checking range against a hypothetical check-raise. The Station has never check-raised in his life and isn&rsquo;t planning to start. A balanced check leaves an entire street of value uncollected against a player who would have called any reasonable bet.</p>
+      <p>Worse, GTO often wants the bet, when it does come, sized small to keep the opponent&rsquo;s calling range honest. The Station&rsquo;s calling range is <em>inelastic</em> &mdash; it isn&rsquo;t sensitive to your sizing at all. They call $4, they call $8, they call $14. If the pot is $30 and you choose a cautious $15 because that fits a balanced strategy, you leave money behind against a player who would have called $22 with worse. Multiply that extra $7 across an entire session and the cost of &ldquo;staying balanced&rdquo; becomes very real.</p>
+    </div>
+
+    <div class="exploit-box">
+      <div class="exploit-title">Giving up with air against a Nit</div>
+      <p>Turn comes a brick, you missed your draw, you have no pair and no realistic equity if called. GTO checks back. Against a balanced opponent who&rsquo;ll continue with a wide enough range, that&rsquo;s correct &mdash; bluffing into a defended range is a money-loser. But the Nit folds 72% of the turn. A one-third-pot bet only needs to work about 25% of the time to break even and works almost three times that often against this player.</p>
+      <p>GTO&rsquo;s check is protecting you from a counter-attack the Nit cannot execute and surrendering pure profit in the process. This is the textbook case of exploiting nits &mdash; small pressure, immediate fold equity, almost no risk &mdash; and it&rsquo;s a play GTO refuses to make.</p>
+    </div>
+
+    <div class="exploit-box">
+      <div class="exploit-title">Betting into a Maniac with a medium-strong hand</div>
+      <p>You have top pair, decent kicker, and the Maniac has been firing every street unprompted. GTO wants you to bet for &ldquo;range protection&rdquo; and to deny equity. Against a balanced opponent that&rsquo;s correct. Against the Maniac, betting commits a catastrophic error:</p>
+      <div class="action-line"><span class="action-label gto">BET &rarr;</span> <span style="color:var(--muted);">Folds out the Maniac&rsquo;s 62% bluff range. He continues only with hands that beat you. You lose value.</span></div>
+      <div class="action-line"><span class="action-label exploit">CHECK &rarr;</span> <span style="color:var(--text);">Triggers his 60%+ bet-into-checks frequency. He barrels with trash. You profit.</span></div>
+      <p style="margin-top:12px;">You give up the most profitable thing in poker &mdash; a player who is going to <em>bet for you</em> if you simply do nothing. The exploit isn&rsquo;t aggression. It&rsquo;s stillness.</p>
+    </div>
+
+    <p>In every one of these cases, GTO isn&rsquo;t <em>wrong</em>. It&rsquo;s correct against the opponent it was designed for. It&rsquo;s just radically incomplete against the opponent you&rsquo;re actually facing. The defensive posture costs real dollars hand after hand against players who weren&rsquo;t going to attack you in the first place.</p>
+
+    <h2>The Exploit Alternative</h2>
+
+    <p>Exploit play isn&rsquo;t &ldquo;bad poker.&rdquo; It isn&rsquo;t reckless, it isn&rsquo;t a downgrade from &ldquo;real&rdquo; GTO study, and it isn&rsquo;t a beginner-level shortcut you graduate from once you get serious. It is <em>better poker against an imperfect field.</em> GTO asks: <em>what&rsquo;s the unexploitable strategy?</em> Exploit asks: <em>what&rsquo;s the most profitable strategy against this specific opponent&rsquo;s specific leak?</em> Those questions have different answers, and the second one is the right question for low-stakes live poker strategy because your opponents have leaks and you have information.</p>
+
+    <p>In practice, that means a small, reliable set of adjustments you make automatically based on who&rsquo;s across from you. If your opponent calls too much, you value bet bigger. If they fold too much, you bluff smaller and more often. If they bluff too much, you trap and let them fire. If they never bluff, you overfold against their value-heavy ranges. None of that is reckless. All of it is logical. Each line traces back to a specific, observable mistake in your opponent&rsquo;s game &mdash; and each line is unavailable to you if you&rsquo;re locked into a balanced default.</p>
+
+    <p>The operational challenge is that you need to know what the exploitative answer actually is for every common spot against every common opponent type, across all the players at the table, and you need it reliably enough that the right line is automatic when you&rsquo;re in the seat. That&rsquo;s where structured study between sessions comes in. RangeIQ is a browser-based exploit trainer built around exactly this gap. You select one of nine opponent types &mdash; Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, or Unknown/Mixed &mdash; enter the spot, and the deterministic engine returns the highest-EV action in exact dollars, with IQ Reasoning explaining in plain English why that line beats the balanced one against this player. The engine is locked math, not AI guessing; IQ Reasoning is the explanation layer on top of the locked result. Same inputs always produce the same output. It&rsquo;s a study tool used between sessions, not a real-time assistant &mdash; the work happens away from the felt, building the patterns you&rsquo;ll bring back to the table.</p>
+
+    <p>That&rsquo;s what poker training for live cash games looks like when it&rsquo;s built around the field you actually play in. Not unexploitable play against ghosts. Real exploits against the Station in seat four.</p>
+
+    <h2>When GTO Still Matters</h2>
+
+    <p>This isn&rsquo;t a case for throwing GTO out. It&rsquo;s the foundation. GTO provides the baseline map; exploitative play is the conscious decision to step off the map because you see a shortcut to a pile of cash. You need to know the unexploitable baseline before you can intelligently deviate from it &mdash; otherwise your &ldquo;exploit&rdquo; is just a guess. A bet that looks aggressive against a Nit might be standard against a balanced opponent; a check that looks weak against a Maniac is the same check GTO endorses in different spots for different reasons. Without the baseline, you don&rsquo;t actually know what you&rsquo;re deviating <em>from</em>, and you&rsquo;ll over-correct in some spots and under-correct in others. Study GTO to learn the structure of sound poker. Then study exploits to learn when and how much to leave it.</p>
+
+    <p>And for plenty of formats, GTO isn&rsquo;t just the foundation &mdash; it&rsquo;s the right strategy outright. Online cash above a certain stake, tournament play against tough fields, heads-up against a competent regular, any environment where your opponents are themselves studied and capable of punishing imbalance: GTO is what protects you. The argument isn&rsquo;t <em>GTO is bad</em>. It&rsquo;s <em>GTO is incomplete for live cash.</em> The fields are different. The opponents are different. The strategy that wins should be different too.</p>
+
+    <p>If you spend Friday night at $1/$3 and you&rsquo;ve been frustrated that solver study isn&rsquo;t moving your win rate, the missing piece probably isn&rsquo;t more solver work. It&rsquo;s a framework for the part of the game your solver was never built to address &mdash; the part where you sit down with seven imperfect humans and figure out, hand by hand, who&rsquo;s leaking money and how to be the one collecting it. That&rsquo;s crushing live cash games. And it&rsquo;s a different study problem than the one most poker tools were built for.</p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Stop Defending. Start <span style="color:var(--gold)">Exploiting.</span></h2>
+    <p>Pick the opponent. Enter the spot. See the exploit in exact dollars &mdash; with IQ Reasoning explaining why.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="crushing-three-player-types.html" style="color:var(--gold); text-decoration:none;">Read: Crushing Three Common Player Types &mdash; Step-by-Step Exploit Strategy &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="beyond-memorization.html" style="color:var(--gold); text-decoration:none;">Read: Beyond Memorization &mdash; How IQ Reasoning Builds Poker Intuition &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="demystifying-node-locking.html" style="color:var(--gold); text-decoration:none;">Read: Demystifying Node-Locking &mdash; Counter-Strategies Without Complex Solvers &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
