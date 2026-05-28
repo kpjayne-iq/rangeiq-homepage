@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>Crushing Three Common Player Types: Step-by-Step Exploit Strategy for Live Cash Games | RangeIQ</title>
+  <meta name="description" content="Step-by-step exploit strategy for the three most profitable player types at live cash games: the Calling Station, the Nit, and the Maniac. Real hand examples with IQ Reasoning showing the dollar difference between GTO and exploit play.">
+  <meta property="og:title" content="Crushing Three Common Player Types: Step-by-Step Exploit Strategy for Live Cash Games">
+  <meta property="og:description" content="The Calling Station calls too much. The Nit folds too much. The Maniac bets too much. Here's how to exploit each one for maximum profit at $1/$3, $2/$5, and $5/$10.">
+  <meta property="og:url" content="https://rangeiqpoker.com/crushing-three-player-types.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crushing Three Common Player Types: Step-by-Step Exploit Strategy">
+  <meta name="twitter:description" content="The Calling Station calls too much. The Nit folds too much. The Maniac bets too much. Step-by-step exploit math for each.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/crushing-three-player-types.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Crushing Three Common Player Types: Step-by-Step Exploit Strategy for Live Cash Games",
+    "description": "Step-by-step exploit strategy for the three most profitable player types at live cash games. Real hand examples comparing GTO lines vs exploit lines with full IQ Reasoning explanations.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-05-28",
+    "url": "https://rangeiqpoker.com/crushing-three-player-types.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["how to exploit calling station", "exploit nit poker strategy", "play against maniac poker", "live cash game strategy", "exploitative preflop ranges", "poker exploit tool", "counter poker maniac", "crushing live cash games", "node-locking simplified"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+
+    /* Engine profile cards */
+    .engine-profile {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 18px 0 24px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .engine-profile strong { color: var(--gold); }
+
+    /* Hand example cards */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .gto-contrast {
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .hand-example .gto-contrast strong { color: var(--text); }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+    .hand-example .takeaway {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .hand-example { padding: 20px; }
+      .hand-example .decision-line { font-size: 18px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>Crushing Three Common Player Types: Step-by-Step <span class="gold">Exploit Strategy</span> for Live Cash Games</h1>
+    <p class="subtitle">One calls too much, one folds too much, one bets too much. If you can spot them in the first orbit, you can stop guessing and start targeting the exact mistakes they make over and over.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; May 2026 &middot; 12 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>At every live cash table, the same three player types bleed the most money &mdash; and they do it predictably, hand after hand. That&rsquo;s the whole point of strong live cash game strategy: don&rsquo;t just ask what a hand is worth in theory, ask what it&rsquo;s worth against the person holding the cards.</p>
+
+    <h2>Why Exploiting Works</h2>
+
+    <p>Theory gives you a baseline, and that baseline matters &mdash; if you don&rsquo;t know what balanced poker looks like, your &ldquo;adjustments&rdquo; are just random guesses that feel smart and cost money. But live poker isn&rsquo;t played against theory. It&rsquo;s played against people.</p>
+
+    <p>At $1/$3, $2/$5, and $5/$10, most opponents aren&rsquo;t protecting ranges, defending at correct frequencies, or adjusting to your strategy. They&rsquo;re playing their habits. The Calling Station calls too much. The Nit folds too much. The Maniac bets too much. Those aren&rsquo;t small differences &mdash; they completely change the most profitable decision. When a player is wildly out of balance, playing a balanced strategy back at them leaves money on the table.</p>
+
+    <p>A balanced strategy tries to stay protected against every possible counterattack. An exploitative strategy asks a sharper question: what mistake is this opponent already making, and how do I punish it?</p>
+
+    <p>That&rsquo;s exactly what RangeIQ is built to train. It&rsquo;s a browser-based exploit trainer for live cash games &mdash; not a GTO solver. It uses a simplified node-locking engine and deterministic math to calculate the maximally profitable counter-strategy against specific opponent types, returning an exact dollar-sized recommendation rather than an abstract percentage, with IQ Reasoning explaining the decision in plain English on top of the locked engine output. Same inputs, same output, every time. It&rsquo;s a study tool you use between sessions to review spots and build the instincts you&rsquo;ll need next time you sit down.</p>
+
+    <p>The three biggest leaks you&rsquo;ll see are the Calling Station, the Nit, and the Maniac. Here&rsquo;s how to recognize each one and exactly how to play against them.</p>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PLAYER TYPE 1: CALLING STATION -->
+    <!-- ═══════════════════════════════════════ -->
+    <h2>Player Type 1: The Calling Station</h2>
+
+    <p>The Calling Station is the undisputed lifeblood of live cash games, because they pay everyone off. You spot them almost instantly: they limp too much, call too much, and hate folding once they&rsquo;ve connected with any piece of the board. They call with weak pairs, bad aces, and gutshots. They may not raise often, but they never seem to release a hand once money&rsquo;s in.</p>
+
+    <div class="engine-profile">
+      <strong>Engine profile:</strong> VPIP 62%, aggression 15%, fold flop 18%, fold turn 24%, bluff frequency 8%.
+    </div>
+
+    <p>The math tells the whole story. A 62% VPIP means they&rsquo;re playing nearly two-thirds of the hands they&rsquo;re dealt, and a 15% aggression rating with an 8% bluff frequency means that when they build a pot, they do it by calling &mdash; not betting. They fold the flop only 18% of the time and the turn just 24%. That combination creates a very clear exploit: <strong>how to exploit a Calling Station</strong> comes down to sizing up your value bets to the maximum and removing bluffs from your range entirely. You stop trying to make them fold. When you have value, you charge them.</p>
+
+    <h3>Hand 1 &mdash; Value Bet the Calling Station</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">RIVER &middot; $1/$3</span>
+        <span class="spot-info">A&diams; K&spades; on A&spades; K&hearts; 7&diams; 2&clubs; J&spades; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $30 pot &nbsp;|&nbsp; 60bb eff</span>
+      </div>
+      <div class="opponent-label">vs Calling Station</div>
+      <div class="gto-contrast">
+        <strong>The GTO Line:</strong> A balanced solver prioritizes protection and balance. Because a perfect opponent folds weak pairs to a big river bet, the solver bets smaller &mdash; around $15 into $30 &mdash; or even checks some percentage of the time to protect a checking range.
+      </div>
+      <div class="decision-line">RangeIQ: Bet $22 (75% pot) &mdash; High Confidence</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> You hold top two pair on a safe runout. Against a Calling Station, size up for maximum value. They call any pair, any ace, and any draw that missed. Every dollar of extra sizing is captured because this opponent does not fold to reasonable bets. A 75% pot bet extracts the most from their wide calling range. There is no reason to slow down &mdash; they are not capable of folding a hand they&rsquo;ve called three streets with.
+      </div>
+      <div class="takeaway">
+        <strong>The dollar difference:</strong> Betting $22 instead of a conservative $15 extracts an extra $7 of pure profit from this single river decision. You&rsquo;re not trying to look balanced against someone who isn&rsquo;t watching your balance. Over a long session, failing to make this adjustment costs hundreds in realized value.
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PLAYER TYPE 2: THE NIT -->
+    <!-- ═══════════════════════════════════════ -->
+    <h2>Player Type 2: The Nit</h2>
+
+    <p>The Nit is the exact opposite problem. They&rsquo;re terrified of losing chips and operate with an extreme scarcity mindset. They&rsquo;re easy to spot: they sit and fold hand after hand, only entering with premium cards, and they treat any aggression from an opponent as an existential threat. The important part isn&rsquo;t that they&rsquo;re patient &mdash; it&rsquo;s what they do when the flop or turn misses them.</p>
+
+    <div class="engine-profile">
+      <strong>Engine profile:</strong> VPIP 12%, aggression 20%, fold flop 68%, fold turn 72%, bluff frequency 5%.
+    </div>
+
+    <p>A 12% VPIP means they fold 88% of their starting hands before the flop. When they do see a flop, their fold frequencies are astronomical &mdash; 68% to a flop bet, 72% to a turn barrel &mdash; and their bluff frequency is a near-nonexistent 5%. To build an <strong>exploit Nit poker strategy</strong>, you have to realize their cards barely matter: it&rsquo;s their fear of risk you&rsquo;re attacking. The exploit is to bet small with air for immediate fold equity. And the flip side holds too &mdash; if a Nit ever raises you, fold anything short of the nuts, because they simply never bluff.</p>
+
+    <h3>Hand 2 &mdash; Barrel the Nit with Air</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">TURN &middot; $1/$3</span>
+        <span class="spot-info">Q&spades; J&spades; on A&hearts; K&spades; 7&diams; 2&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $22 pot &nbsp;|&nbsp; 80bb eff</span>
+      </div>
+      <div class="opponent-label">vs Nit</div>
+      <div class="gto-contrast">
+        <strong>The GTO Line:</strong> A solver looks at your raw equity against a continuing range and hits the brakes. You have no made hand, your equity is poor, and if you get raised you&rsquo;re folding. The balanced play is to check back and try to realize equity for free.
+      </div>
+      <div class="decision-line">RangeIQ: Bet $7 (33% pot) &mdash; 72% Confidence</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> You have a gutshot straight draw with two overcards and no made hand. Against a Nit, this is a pure fold-equity play. Nits fold flop and turn bets at an extremely high rate when they missed &mdash; 72% fold frequency on the turn. A small sizing of one-third pot risks very little while pressuring the Nit to release middle pairs, small pocket pairs, and missed draws. If called, you still have outs to the nut straight on the river.
+      </div>
+      <div class="takeaway">
+        <strong>The dollar difference:</strong> A $7 bet into a $22 pot only needs to work about 24% of the time to break even. The Nit folds 72% of the time on the turn. This bet doesn&rsquo;t just work &mdash; it prints. Checking back surrenders a pot they were completely willing to give you for a $7 entry fee.
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PLAYER TYPE 3: THE MANIAC -->
+    <!-- ═══════════════════════════════════════ -->
+    <h2>Player Type 3: The Maniac</h2>
+
+    <p>The Maniac is the table disruptor, and played correctly, the most profitable seat at the table. They play too many hands, bet constantly, raise when they should call, and fire multiple barrels with nothing but air. They treat every check as an open invitation to steal.</p>
+
+    <div class="engine-profile">
+      <strong>Engine profile:</strong> VPIP 72%, aggression 92%, fold flop 15%, fold turn 18%, bluff frequency 62%.
+    </div>
+
+    <p>A 72% VPIP with a staggering 92% aggression rating means they play almost everything and bet or raise almost every time. Their 62% bluff frequency means nearly two of every three bets they make are air. The instinct against this player is to fight fire with fire &mdash; bet bigger, raise lighter, put them in their place. That instinct is exactly backwards, and it&rsquo;s why most players lose money trying to <strong>play against Maniac poker</strong>. You can&rsquo;t bluff them, because they don&rsquo;t fold. So the entire exploit shifts to one concept: the trap.</p>
+
+    <h3>Hand 3 &mdash; Trap the Maniac</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">FLOP &middot; $1/$3</span>
+        <span class="spot-info">A&diams; 8&diams; on A&spades; Q&diams; 5&hearts; &nbsp;|&nbsp; BB vs BTN &nbsp;|&nbsp; $12 pot &nbsp;|&nbsp; 100bb eff</span>
+      </div>
+      <div class="opponent-label">vs Maniac</div>
+      <div class="gto-contrast">
+        <strong>The GTO Line:</strong> Textbook doctrine says lead out or check-raise. You have top pair on a coordinated board, so GTO wants you to bet &mdash; protect your hand, deny equity to king-high and jack-high floats, and start building the pot while you&rsquo;re ahead.
+      </div>
+      <div class="decision-line">RangeIQ: Check &mdash; 84% Confidence</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> You have top pair out of position against a Maniac. The trap line is correct here. Maniacs bet at 60%+ frequency when checked to &mdash; they cannot resist firing into perceived weakness. By checking, you let them build the pot with their wide bluffing range. If they bet, you call and re-evaluate the turn. Betting yourself only folds out their air and keeps in the hands that beat you.
+      </div>
+      <div class="takeaway">
+        <strong>The dollar difference:</strong> If you come out betting $8, the Maniac looks at his king-high bluff and folds &mdash; you win a tiny $12 pot. By checking, you trigger his programming. He fires $10, $15, even $20 into the pot with absolute garbage. Checking turns his 62% bluff frequency into an automated cash machine, letting you collect multiple streets of value from a hand that would have folded to a single bet.
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- THE PATTERN -->
+    <!-- ═══════════════════════════════════════ -->
+    <h2>The Pattern</h2>
+
+    <p>Three hands, three different boards, three opposite recommendations &mdash; and the underlying idea is identical. The Calling Station demands maximum value. The Nit invites relentless, cheap pressure. The Maniac begs to be trapped.</p>
+
+    <p>Against the Station, you abandon balance and size up. Against the Nit, you bet air you&rsquo;d normally fold. Against the Maniac, you check a hand GTO would bet. Every one of these exploits works for the same reason: it uses information a one-size-fits-all strategy refuses to incorporate &mdash; who your opponent actually is.</p>
+
+    <p>This applies before the flop too. Exploitative preflop ranges shift depending on whether the player behind you is a Nit, a Maniac, a Calling Station, or a Loose Passive &mdash; hands that are profitable opens or isolations against one type become marginal against another. The more accurately you read the opponent, the more precisely you adjust.</p>
+
+    <p>That&rsquo;s what RangeIQ trains. It models 9 distinct opponent types &mdash; Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, and Unknown/Mixed &mdash; and each one changes the output because each one makes different mistakes. The engine is built on deterministic math, not unpredictable AI guesswork: the exploit is hard-coded and locked down, and IQ Reasoning acts as the plain-English translator that explains the why. Same inputs, same output, every time &mdash; so you&rsquo;re building real, repeatable intuition. You toggle the opponent type, enter the spot, and see how the math shifts in seconds.</p>
+
+    <p>The easiest money in live poker doesn&rsquo;t come from outplaying perfect opponents. It comes from recognizing imperfect ones and making the right adjustment before they realize what&rsquo;s happening. Once you see those patterns, you stop asking &ldquo;what does theory do here?&rdquo; as your only question and start asking &ldquo;what does this player do wrong, and what line punishes it?&rdquo; That&rsquo;s the difference between playing cards and playing people.</p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Ready to Exploit <span style="color:var(--gold)">Your</span> Table?</h2>
+    <p>Pick the opponent. Enter the spot. Get the exploit in seconds &mdash; with IQ Reasoning explaining why.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 more hand examples in the Exploit Library &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
