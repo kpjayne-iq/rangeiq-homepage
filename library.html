@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>Exploit Library — 25 Real Hand Examples with IQ Reasoning | RangeIQ Poker</title>
+  <meta name="description" content="Browse 25 real poker hand examples with full IQ Reasoning explanations. See exactly how RangeIQ exploits Calling Stations, Nits, Maniacs, LAGs, TAGs, and more at live cash games.">
+  <meta property="og:title" content="Exploit Library — 25 Real Hand Examples with IQ Reasoning | RangeIQ Poker">
+  <meta property="og:description" content="Browse 25 real poker hand examples with full IQ Reasoning explanations. See exactly how RangeIQ exploits Calling Stations, Nits, Maniacs, LAGs, TAGs, and more at live cash games.">
+  <meta property="og:url" content="https://rangeiqpoker.com/library.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/library.html">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "RangeIQ Exploit Library — 25 Hand Examples with IQ Reasoning",
+    "description": "A collection of 25 real poker hand examples showing how RangeIQ exploits specific opponent types at live cash games. Each example includes the full spot setup, RangeIQ decision, and IQ Reasoning explanation.",
+    "url": "https://rangeiqpoker.com/library.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* ── Top Navigation ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      transition: all 300ms ease;
+      /* Interior page: always show scrolled background */
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--bg, #0a0f1a);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 16px 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a {
+        display: block;
+        padding: 14px 24px;
+        font-size: 17px;
+      }
+      .nav-cta { display: none; }
+      .nav-links.open + .nav-cta,
+      .mobile-cta-group {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: auto;
+        left: 0;
+        right: 0;
+      }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start {
+        display: block;
+        padding: 14px 24px;
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links.open .mobile-signin {
+        color: var(--text-secondary, rgba(255,255,255,0.7));
+      }
+      .nav-links.open .mobile-start {
+        color: var(--gold, #D9B95B);
+        font-weight: 600;
+      }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* ── Hero ── */
+    .lib-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    }
+    .lib-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 56px; line-height: 1.08; color: var(--text);
+      font-weight: 400; letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .lib-hero h1 .gold { color: var(--gold); }
+    .lib-hero .subtitle {
+      font-size: 19px; color: var(--muted); line-height: 1.6;
+      max-width: 600px; margin: 0 auto 14px;
+    }
+    .lib-hero .small-text {
+      font-size: 13px; color: var(--faint); max-width: 540px; margin: 0 auto;
+    }
+
+    /* ── Filter bar (static) ── */
+    .filter-bar {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 8px;
+      padding: 24px 32px 32px;
+      max-width: 800px; margin: 0 auto;
+    }
+    .filter-pill {
+      display: inline-block;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+      padding: 5px 14px; border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .filter-pill.active {
+      background: rgba(230,197,102,0.12);
+      border-color: rgba(230,197,102,0.35);
+      color: var(--gold);
+    }
+
+    /* ── Example Cards ── */
+    .examples-wrap {
+      max-width: 800px; margin: 0 auto;
+      padding: 0 32px 64px;
+    }
+    .type-group {
+      margin-bottom: 48px;
+    }
+    .type-heading {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 26px; color: var(--text); font-weight: 400;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .type-heading .gold { color: var(--gold); }
+
+    .example-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      border-left: 3px solid var(--gold);
+    }
+    .example-top {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+      margin-bottom: 10px;
+    }
+    .street-badge {
+      display: inline-block;
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+    .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .spot-line {
+      font-size: 14px; color: var(--muted); line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .spot-line .suit-red { color: #ef4444; }
+    .spot-line .suit-black { color: var(--text); }
+    .decision-line {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 20px; color: var(--gold); font-weight: 400;
+      margin-bottom: 14px;
+    }
+    .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px; line-height: 1.7;
+      color: var(--text);
+    }
+    .iq-reasoning strong {
+      color: var(--gold);
+    }
+
+    /* ── CTA Section ── */
+    .lib-cta {
+      text-align: center;
+      padding: 64px 32px 80px;
+      background: var(--bg-alt);
+    }
+    .lib-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 40px; line-height: 1.15; color: var(--text);
+      font-weight: 400; margin-bottom: 16px;
+    }
+    .lib-cta h2 .gold { color: var(--gold); }
+    .lib-cta p {
+      font-size: 17px; color: var(--muted); max-width: 520px;
+      margin: 0 auto 32px; line-height: 1.6;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 32px rgba(230,197,102,0.35);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px 32px 48px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px; color: var(--faint);
+    }
+    footer strong { color: var(--text); font-weight: 700; letter-spacing: 0.02em; }
+    footer a { color: var(--gold); text-decoration: none; margin: 0 8px; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Mobile ── */
+    @media (max-width: 760px) {
+      .lib-hero { padding: 48px 20px 36px; }
+      .lib-hero h1 { font-size: 36px; }
+      .lib-hero .subtitle { font-size: 16px; }
+      .filter-bar { padding: 16px 20px 24px; gap: 6px; }
+      .filter-pill { font-size: 11px; padding: 4px 10px; }
+      .examples-wrap { padding: 0 20px 48px; }
+      .type-heading { font-size: 22px; }
+      .example-card { padding: 18px; }
+      .decision-line { font-size: 18px; }
+      .spot-line { font-size: 13px; }
+      .iq-reasoning { font-size: 13px; padding: 12px 14px; }
+      .lib-cta { padding: 48px 20px 64px; }
+      .lib-cta h2 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="lib-hero">
+    <h1>Exploit <span class="gold">Library</span></h1>
+    <p class="subtitle">25 real hand examples. 9 opponent types. Full IQ Reasoning for every spot.</p>
+    <p class="small-text">Every example below is a real spot from RangeIQ's engine &mdash; the same analysis you get in the app.</p>
+  </section>
+
+  <!-- FILTER BAR (static visual) -->
+  <div class="filter-bar">
+    <span class="filter-pill active">All Types</span>
+    <span class="filter-pill">Calling Station</span>
+    <span class="filter-pill">Nit</span>
+    <span class="filter-pill">Maniac</span>
+    <span class="filter-pill">LAG</span>
+    <span class="filter-pill">TAG</span>
+    <span class="filter-pill">Loose Passive</span>
+    <span class="filter-pill">Young Aggro</span>
+    <span class="filter-pill">Recreational</span>
+    <span class="filter-pill">Unknown</span>
+  </div>
+
+  <!-- EXAMPLE CARDS -->
+  <div class="examples-wrap">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CALLING STATION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">Calling Station</span></h2>
+
+      <!-- #1 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Calling Station</span>
+        </div>
+        <div class="spot-line">A&diams; K&diams; on A&spades; 9&hearts; 3&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $9 pot</div>
+        <div class="decision-line">Bet $6 (66% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Top pair, top kicker on a dry, disconnected board. Against a Calling Station, size up for maximum value. Their wide calling range includes any pair, any ace, and gutshots they refuse to release. Every dollar of extra sizing is captured because this opponent does not fold to reasonable bets.
+        </div>
+      </article>
+
+      <!-- #2 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">TURN &middot; $1/$3</span>
+          <span class="opponent-label">vs Calling Station</span>
+        </div>
+        <div class="spot-line">A&hearts; K&spades; on K&hearts; 9&spades; 3&diams; 2&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $18 pot</div>
+        <div class="decision-line">Bet $12 (66% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Top pair top kicker on a safe turn runout. Calling stations call any pair, draw, or overcards &mdash; size up for maximum value extraction. The blank 2&clubs; changes nothing. Continue building the pot for a profitable river shove.
+        </div>
+      </article>
+
+      <!-- #3 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">RIVER &middot; $1/$3</span>
+          <span class="opponent-label">vs Calling Station</span>
+        </div>
+        <div class="spot-line">A&diams; K&spades; on A&spades; K&hearts; 7&diams; 2&clubs; J&spades; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $30 pot</div>
+        <div class="decision-line">Bet $22 (75% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Top two pair on a safe river. Against a Calling Station, this is pure value extraction. They call with any pair, any ace, any draw that bricked. A 75% pot bet maximizes what you collect. There is no reason to slow down &mdash; they are not capable of folding a hand they have called three streets with.
+        </div>
+      </article>
+
+      <!-- #4 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">RIVER &middot; $1/$3</span>
+          <span class="opponent-label">vs Calling Station</span>
+        </div>
+        <div class="spot-line">A&diams; Q&diams; on K&diams; J&spades; T&spades; 9&diams; 3&diams; &nbsp;|&nbsp; CO vs BB &nbsp;|&nbsp; $35 pot &nbsp;|&nbsp; 50bb eff</div>
+        <div class="decision-line">Bet $26 (75% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Nut flush plus nut straight on a completed board. Against a Calling Station, jam for maximum value. They call with worse flushes, straights, two pair, and even top pair. With the absolute nuts, every dollar of extra sizing is captured.
+        </div>
+      </article>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- NIT -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">Nit</span></h2>
+
+      <!-- #5 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Nit</span>
+        </div>
+        <div class="spot-line">Q&hearts; Q&diams; on K&hearts; 4&diams; 2&clubs; &nbsp;|&nbsp; CO vs BB &nbsp;|&nbsp; $7 pot</div>
+        <div class="decision-line">Bet $4 (50% pot) &mdash; Intermediate</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Strong overpair on a dry rainbow board. Nits fold dominated pairs and weak aces at high frequency. A medium bet extracts value from Kx hands while pressuring everything else to fold. Only AA or a slow-played set beats you here.
+        </div>
+      </article>
+
+      <!-- #6 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">TURN &middot; $1/$3</span>
+          <span class="opponent-label">vs Nit</span>
+        </div>
+        <div class="spot-line">Q&spades; J&spades; on A&hearts; K&spades; 7&diams; 2&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $22 pot</div>
+        <div class="decision-line">Bet $7 (33% pot) &mdash; Intermediate</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Gutshot straight draw with two overcards and no made hand. Against a Nit, this is a pure fold-equity play. Nits fold turn bets at a 72% rate when they missed. A small one-third pot sizing risks very little while pressuring the Nit to release middle pairs, small pocket pairs, and missed draws.
+        </div>
+      </article>
+
+      <!-- #7 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">RIVER &middot; $1/$3</span>
+          <span class="opponent-label">vs Nit</span>
+        </div>
+        <div class="spot-line">K&spades; K&hearts; on T&diams; T&hearts; 5&spades; 3&clubs; 2&diams; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $20 pot</div>
+        <div class="decision-line">Bet $7 (33% pot) &mdash; Advanced</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Kings full on a board with paired tens. Thin value bet to extract from Nit's tight continuing range. They fold most air, but any ten, any overpair, or a random full house calls. Small sizing keeps their calling range as wide as possible.
+        </div>
+      </article>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- MANIAC -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">Maniac</span></h2>
+
+      <!-- #8 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Maniac</span>
+        </div>
+        <div class="spot-line">A&diams; 8&diams; on A&spades; Q&diams; 5&hearts; &nbsp;|&nbsp; BB vs BTN &nbsp;|&nbsp; $12 pot</div>
+        <div class="decision-line">Check &mdash; Advanced</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Top pair out of position against a Maniac. The trap line is correct. Maniacs bet at 60%+ frequency when checked to &mdash; they cannot resist firing into perceived weakness. By checking, you let them build the pot with their wide bluffing range. Betting yourself only folds out their air.
+        </div>
+      </article>
+
+      <!-- #9 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Maniac</span>
+        </div>
+        <div class="spot-line">9&hearts; 9&diams; on A&hearts; A&diams; 9&spades; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $10 pot</div>
+        <div class="decision-line">Check &mdash; Advanced</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Full house on an ace-high paired board. Slow play is mandatory against a Maniac. They bluff at 62% frequency &mdash; any bet from you folds out the bluffs you're crushing. Check and let them fire. Call or raise the turn depending on sizing.
+        </div>
+      </article>
+
+      <!-- #10 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Maniac</span>
+        </div>
+        <div class="spot-line">A&spades; A&hearts; on 2&spades; 2&hearts; 7&diams; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $10 pot</div>
+        <div class="decision-line">Bet $3 (33% pot) &mdash; Intermediate</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Pocket aces on a paired low board. Bet small to keep the Maniac's bluffs in. They raise air frequently at this sizing &mdash; a small bet induces aggression that a larger bet would scare off. If they raise, call and trap on later streets.
+        </div>
+      </article>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LAG -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">LAG</span></h2>
+
+      <!-- #11 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs LAG</span>
+        </div>
+        <div class="spot-line">A&spades; K&spades; on Q&spades; J&hearts; T&diams; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $10 pot</div>
+        <div class="decision-line">Bet $8 (75% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Nut Broadway straight on a connected board. Bet big for value against a LAG's wide range. LAGs continue with bluffs and weak pairs &mdash; a large bet charges their wide drawing range. Two pair, sets, and combo draws all call.
+        </div>
+      </article>
+
+      <!-- #12 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">TURN &middot; $1/$3</span>
+          <span class="opponent-label">vs LAG</span>
+        </div>
+        <div class="spot-line">A&hearts; 5&hearts; on 8&hearts; 7&hearts; 6&spades; K&hearts; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $20 pot</div>
+        <div class="decision-line">Bet $15 (75% pot) &mdash; Intermediate</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Nut flush on a three-flush turn. Bet big for value against a LAG's wide range. LAGs continue with bluffs, straight draws, and worse flushes. Your nut flush has no reverse implied odds &mdash; build the pot now.
+        </div>
+      </article>
+
+      <!-- #13 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">RIVER &middot; $1/$3</span>
+          <span class="opponent-label">vs LAG</span>
+        </div>
+        <div class="spot-line">A&hearts; T&spades; on K&hearts; Q&diams; J&spades; 9&hearts; 4&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $28 pot</div>
+        <div class="decision-line">Bet $21 (75% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Nut Broadway straight on the river. Large value bet against a LAG's wide drawing range. They call with worse straights, two pair, and sets. LAGs also hero-call at high frequency, making maximum sizing correct.
+        </div>
+      </article>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TAG -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">TAG</span></h2>
+
+      <!-- #14 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs TAG</span>
+        </div>
+        <div class="spot-line">A&diams; T&clubs; on K&diams; Q&diams; J&diams; &nbsp;|&nbsp; BB vs CO &nbsp;|&nbsp; $11 pot</div>
+        <div class="decision-line">Check &mdash; Advanced</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Nut straight plus nut flush draw out of position. Check to let the TAG c-bet, then check-raise. TAGs c-bet at high frequency on Broadway boards. Your hand is disguised and massively ahead of their range. Trapping builds a much larger pot.
+        </div>
+      </article>
+
+      <!-- #15 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs TAG</span>
+        </div>
+        <div class="spot-line">T&hearts; 9&hearts; on K&spades; Q&hearts; J&diams; &nbsp;|&nbsp; CO vs BB &nbsp;|&nbsp; $12 pot</div>
+        <div class="decision-line">Bet $8 (66% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Flopped the nut straight. Bet for value against a TAG who can have two pair, sets, or strong draws. TAGs respect raises and fold marginal hands, so sizing up extracts maximum value from their continuing range.
+        </div>
+      </article>
+
+      <!-- #16 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">TURN &middot; $1/$3</span>
+          <span class="opponent-label">vs TAG</span>
+        </div>
+        <div class="spot-line">T&hearts; T&diams; on T&spades; 8&hearts; 6&diams; Q&spades; &nbsp;|&nbsp; BB vs BTN &nbsp;|&nbsp; $16 pot</div>
+        <div class="decision-line">Check &mdash; Intermediate</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Set of tens on a connected board. Check to induce the TAG to bet. TAGs c-bet turns at high frequency when checked to. Your set is well disguised &mdash; they expect you to lead with strong hands OOP. Let them build the pot.
+        </div>
+      </article>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LOOSE PASSIVE -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">Loose Passive</span></h2>
+
+      <!-- #17 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Loose Passive</span>
+        </div>
+        <div class="spot-line">A&diams; J&clubs; on A&hearts; 7&spades; 2&diams; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $10 pot</div>
+        <div class="decision-line">Bet $5 (50% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Top pair with jack kicker on a dry board. Loose passives call too wide and rarely punish. Bet for thin value &mdash; they call with any pair, any ace, any gutshot. Don't overbet; medium sizing keeps their wide calling range intact.
+        </div>
+      </article>
+
+      <!-- #18 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Loose Passive</span>
+        </div>
+        <div class="spot-line">Q&spades; Q&diams; on 8&diams; 6&clubs; 3&hearts; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $9 pot</div>
+        <div class="decision-line">Bet $5 (50% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Overpair on a dry rainbow board. Bet for value &mdash; loose passives call with any pair or draw, value bet wide. They won't fold bottom pair or a gutshot. Medium sizing extracts value without bloating the pot unnecessarily.
+        </div>
+      </article>
+
+      <!-- #19 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">RIVER &middot; $1/$3</span>
+          <span class="opponent-label">vs Loose Passive</span>
+        </div>
+        <div class="spot-line">T&hearts; 9&diams; on A&spades; K&diams; Q&clubs; J&hearts; 2&spades; &nbsp;|&nbsp; BTN vs SB &nbsp;|&nbsp; $30 pot &nbsp;|&nbsp; 40bb eff</div>
+        <div class="decision-line">Bet $22 (75% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Broadway straight on the river. Jam or overbet against a Loose Passive who calls with worse straights and two pair. Their wide preflop calling range means they have a lot of Jx, Qx, and Kx hands that pay off a large bet.
+        </div>
+      </article>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- YOUNG AGGRO -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">Young Aggro</span></h2>
+
+      <!-- #20 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Young Aggro</span>
+        </div>
+        <div class="spot-line">K&spades; K&diams; on 7&spades; 5&hearts; 2&clubs; &nbsp;|&nbsp; SB vs BTN &nbsp;|&nbsp; $9 pot</div>
+        <div class="decision-line">Check &mdash; Intermediate</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Overpair on a dry low board out of position. Young aggressives barrel constantly &mdash; check-call to bluff-catch. They will fire with any two cards on this texture. Leading out folds their bluffs and only gets action from better.
+        </div>
+      </article>
+
+      <!-- #21 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">PREFLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Young Aggro</span>
+        </div>
+        <div class="spot-line">A&clubs; Q&clubs; &nbsp;|&nbsp; CO vs BTN &nbsp;|&nbsp; $7 pot</div>
+        <div class="decision-line">3-Bet &mdash; Advanced</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> AQs facing a BTN open from a Young Aggro. 3-bet for value and isolation. Young aggros open wide and call 3-bets to outplay &mdash; your hand dominates their calling range. Building the pot preflop with position is correct.
+        </div>
+      </article>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- RECREATIONAL -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">Recreational</span></h2>
+
+      <!-- #22 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Recreational</span>
+        </div>
+        <div class="spot-line">A&diams; K&diams; on A&spades; 9&hearts; 3&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $9 pot</div>
+        <div class="decision-line">Bet $6 (66% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> TPTK on a dry board versus a wide recreational range. Recreationals call too wide on most boards &mdash; bet for value with strong holdings. Their unpredictable range includes any ace, any pair, and random gutshots. Size up to build the pot.
+        </div>
+      </article>
+
+      <!-- #23 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">RIVER &middot; $1/$3</span>
+          <span class="opponent-label">vs Recreational</span>
+        </div>
+        <div class="spot-line">T&spades; T&clubs; on 9&spades; 8&hearts; 7&diams; 6&clubs; 2&spades; &nbsp;|&nbsp; CO vs BB &nbsp;|&nbsp; $22 pot</div>
+        <div class="decision-line">Bet $15 (66% pot) &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> T-high straight on the river. Value bet against a recreational's wide range. They call with worse straights, two pair, and even top pair. Recreationals are unpredictable but rarely fold when they've connected with the board.
+        </div>
+      </article>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- UNKNOWN / MIXED -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="type-group">
+      <h2 class="type-heading">vs <span class="gold">Unknown</span></h2>
+
+      <!-- #24 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">FLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Unknown</span>
+        </div>
+        <div class="spot-line">A&clubs; K&spades; on 8&spades; 8&diams; 3&hearts; &nbsp;|&nbsp; CO vs BB &nbsp;|&nbsp; $7 pot</div>
+        <div class="decision-line">Bet $2 (33% pot) &mdash; Advanced</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> AK on a paired dry board. Range advantage allows a small probe against an unknown opponent. Population baseline calls wide on this texture &mdash; a small bet gets information while risking little. If raised, you can fold cheaply.
+        </div>
+      </article>
+
+      <!-- #25 -->
+      <article class="example-card">
+        <div class="example-top">
+          <span class="street-badge">PREFLOP &middot; $1/$3</span>
+          <span class="opponent-label">vs Unknown</span>
+        </div>
+        <div class="spot-line">9&diams; 7&diams; &nbsp;|&nbsp; BB vs BTN &nbsp;|&nbsp; $6 pot</div>
+        <div class="decision-line">Call &mdash; Beginner</div>
+        <div class="iq-reasoning">
+          <strong>IQ Reasoning:</strong> Suited connectors in the BB facing a BTN open. Population baseline dictates a defend here &mdash; 97s has sufficient equity and implied odds against an unknown range. Standard BB defense, nothing fancy.
+        </div>
+      </article>
+    </div>
+
+  </div>
+
+  <!-- CTA SECTION -->
+  <section class="lib-cta">
+    <h2>Ready to Run Your <span class="gold">Own Spots?</span></h2>
+    <p>Set up any hand. Pick the opponent. Get the exploit in seconds.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
