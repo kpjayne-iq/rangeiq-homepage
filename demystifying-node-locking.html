@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>Demystifying Node-Locking: How to Train Counter-Strategies Without Complex Solvers | RangeIQ</title>
+  <meta name="description" content="Node-locking is the most powerful concept in modern poker study. Learn what it actually is, why traditional solvers make it hard, and how RangeIQ's simplified approach lets you train counter-strategies in seconds.">
+  <meta property="og:title" content="Demystifying Node-Locking: How to Train Counter-Strategies Without Complex Solvers">
+  <meta property="og:description" content="Pin down what your opponent does wrong, then calculate exactly how to punish it. Node-locking explained from first principles, with a simplified path that skips the solver complexity.">
+  <meta property="og:url" content="https://rangeiqpoker.com/demystifying-node-locking.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demystifying Node-Locking: Train Counter-Strategies Without Complex Solvers">
+  <meta name="twitter:description" content="Node-locking explained from first principles. The traditional 5-step solver workflow vs a simplified one-click approach for live cash players.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/demystifying-node-locking.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Demystifying Node-Locking: How to Train Counter-Strategies Without Complex Solvers",
+    "description": "Node-locking explained from first principles. What it is, why traditional solvers make it complex, and how a simplified browser-based approach lets live cash players train counter-strategies in seconds.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-05-28",
+    "url": "https://rangeiqpoker.com/demystifying-node-locking.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["node-lock poker", "how to node-lock poker solver", "exploit trainer", "browser-based solver", "exploit calling station", "simplified node-locking", "poker training for live cash games", "counter-strategy poker", "PioSolver alternative"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+
+    /* Steps list */
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 24px;
+    }
+    .steps-list li {
+      position: relative;
+      padding: 12px 0 12px 40px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .steps-list li:last-child { border-bottom: none; }
+    .steps-list li::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 0; top: 12px;
+      width: 28px; height: 28px;
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 13px; font-weight: 700;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Comparison box */
+    .approach-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .approach-box .label {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .approach-box .label.traditional { color: var(--muted); }
+    .approach-box .label.simplified { color: var(--gold); }
+    .approach-box p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .approach-box .result {
+      margin-top: 14px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--gold);
+    }
+    .approach-box .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-top: 14px;
+    }
+    .approach-box .iq-reasoning strong { color: var(--gold); }
+
+    /* Spot line */
+    .spot-callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .spot-callout strong { color: var(--gold); }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .approach-box { padding: 20px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>Demystifying <span class="gold">Node-Locking</span>: How to Train Counter-Strategies Without Complex Solvers</h1>
+    <p class="subtitle">Pin down what your opponent does wrong, then calculate exactly how to punish it &mdash; without ever opening a conventional solver.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; May 2026 &middot; 10 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>Node-locking is the most powerful concept in modern poker study, and also the most underused. The idea itself is simple &mdash; pin down what your opponent does wrong, then calculate exactly how to punish it &mdash; but traditional solvers wrap that simple idea in game trees, frequency editing, and a learning curve steep enough to scare most players off before they ever reach the actual lesson.</p>
+
+    <!-- ═══════════════════════════════════════ -->
+    <h2>What Node-Locking Actually Is</h2>
+
+    <p>Start with the word itself. In a poker solver, a &ldquo;node&rdquo; is just a single decision point in a hand &mdash; a specific spot where someone has to act. The flop checks to you on the button: that&rsquo;s a node. Your opponent faces a turn bet: that&rsquo;s another node. The entire hand is a branching tree of these decision points, and a solver&rsquo;s normal job is to find the equilibrium &mdash; the strategy where both players play perfectly and neither can be exploited.</p>
+
+    <p>&ldquo;Node-locking&rdquo; breaks that symmetry on purpose. Instead of letting the solver assume both players are flawless, you walk up to one node and <em>lock</em> one player&rsquo;s behavior in place. You tell the solver, in effect, &ldquo;this player always does X here&rdquo; &mdash; for example, &ldquo;this player calls 80% of the time instead of the equilibrium 45%&rdquo; &mdash; and then you ask it to calculate your best possible response to that fixed behavior.</p>
+
+    <p>The cleanest way to think about it: you&rsquo;re freezing your opponent&rsquo;s mistake so it can&rsquo;t move, then solving for the perfect counter to that exact mistake. Equilibrium poker asks, &ldquo;what&rsquo;s the unexploitable play against a perfect opponent?&rdquo; Node-locking asks a far more practical question: &ldquo;my opponent isn&rsquo;t perfect &mdash; they do this specific thing too often &mdash; so what&rsquo;s the single most profitable way to attack it?&rdquo;</p>
+
+    <!-- ═══════════════════════════════════════ -->
+    <h2>Why It Matters for Live Players</h2>
+
+    <p>Here&rsquo;s why this concept matters more in a live cardroom than almost anywhere else: live opponents have fixed, repeatable leaks, and node-locking is the only framework built specifically to exploit them.</p>
+
+    <p>Game-theory-optimal play is designed around the assumption that your opponent can punish any imbalance in your strategy. That assumption is reasonable against a studied online regular. It&rsquo;s almost entirely false at a live $1/$3 or $2/$5 table, where the player calling every flop will keep calling every flop, the player who only continues with premium hands will keep folding everything else, and the player firing three barrels with air tonight was doing the same thing last week. These aren&rsquo;t random deviations &mdash; they&rsquo;re stable, structural tendencies you can set your watch by.</p>
+
+    <p>GTO deliberately ignores that information, because against a perfect opponent the information is worthless. Node-locking does the opposite: it treats your opponent&rsquo;s known tendency as the central input and builds the entire counter-strategy around it. That&rsquo;s the theoretical foundation for why exploitative play wins money in live games. Every profitable live adjustment you&rsquo;ve ever made was an informal version of node-locking. Doing it deliberately just makes it precise.</p>
+
+    <!-- ═══════════════════════════════════════ -->
+    <h2>The Traditional Approach</h2>
+
+    <p>So how do you node-lock a poker solver the conventional way? In a tool like PioSolver or the advanced tier of a platform like GTO Wizard, the process runs roughly five steps:</p>
+
+    <ol class="steps-list">
+      <li data-step="1"><strong>Load the game tree</strong> &mdash; the positions, stack depths, board, ranges, and every branch of betting that could follow on each street. This alone can be computationally heavy.</li>
+      <li data-step="2"><strong>Navigate to the specific node</strong> you care about. Game trees are large, and finding the exact decision point means clicking down through streets and actions.</li>
+      <li data-step="3"><strong>Manually edit the frequencies</strong> at that node to model your opponent&rsquo;s leak. If you&rsquo;re studying a Calling Station, you might override the equilibrium calling frequency of 45% and lock it to 80%.</li>
+      <li data-step="4"><strong>Re-solve the tree.</strong> The solver recalculates the maximally exploitative response given the behavior you locked in &mdash; a step that can take real time depending on complexity.</li>
+      <li data-step="5"><strong>Interpret the output,</strong> which is spread across multiple bet sizes and branches, usually expressed in mixed frequencies and percentages.</li>
+    </ol>
+
+    <p>None of this is a knock on the tools. This workflow is genuinely powerful, and for studying deep game-tree theory there&rsquo;s nothing better. But it&rsquo;s slow, it demands fluency with solver interfaces and tree structure, and its accuracy depends entirely on your ability to model the opponent&rsquo;s leaks correctly across many nodes. It&rsquo;s a serious tool for people willing to put in serious time.</p>
+
+    <!-- ═══════════════════════════════════════ -->
+    <h2>The Simplified Approach</h2>
+
+    <p>The insight behind a simplified exploit trainer is that most live players don&rsquo;t need to explore an entire game tree. They need one good answer: the highest-EV play in this spot against this opponent. So instead of making you build and lock the model yourself, the model is built in advance.</p>
+
+    <p>RangeIQ pre-models the tendencies of 9 common opponent types &mdash; Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, and Unknown/Mixed. Each one carries a full behavioral profile inside the engine: VPIP, aggression, fold-to-bet frequencies on each street, and bluff frequency. When you select &ldquo;Calling Station,&rdquo; the engine already knows that this opponent plays a 62% VPIP, folds to a flop bet only 18% of the time, folds to a turn bet 24% of the time, and bluffs just 8% of the time. The five-step lock-and-solve process has effectively already happened &mdash; selecting the opponent applies a pre-built node-lock across the whole tree.</p>
+
+    <p>That&rsquo;s node-locking simplified. You don&rsquo;t configure nodes; you pick the opponent and enter the spot. Here&rsquo;s the contrast on a single hand:</p>
+
+    <div class="spot-callout">
+      <strong>The spot:</strong> A&diams;K&diams; on A&spades;9&hearts;3&clubs;, button vs. big blind, $1/$3, $9 pot, against a Calling Station.
+    </div>
+
+    <div class="approach-box">
+      <div class="label traditional">Traditional path</div>
+      <p>Load the game tree &rarr; navigate to this flop node &rarr; unlock the big blind&rsquo;s range and manually lock their calling frequency to keep all pairs, all aces, and gutshots &rarr; re-solve &rarr; read the output across each bet size &rarr; conclude that a two-thirds-pot bet maximizes EV. Done carefully, that&rsquo;s about twenty minutes of work.</p>
+    </div>
+
+    <div class="approach-box">
+      <div class="label simplified">Simplified path</div>
+      <p>Select &ldquo;Calling Station&rdquo; &rarr; enter the cards and pot &rarr; get the answer. Total time: under five seconds.</p>
+      <div class="result">Bet $6 (66% pot) &mdash; 91% Confidence</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> Top pair, top kicker on a dry, disconnected board. Against a Calling Station, size up for maximum value. Their wide calling range includes any pair, any ace, and gutshots they refuse to release. Every dollar of extra sizing is captured because this opponent does not fold to reasonable bets.
+      </div>
+    </div>
+
+    <p>The answer is the same. The path to it is radically different. And it&rsquo;s worth being clear about what&rsquo;s happening under the hood: the recommendation comes from deterministic math, not an AI making a judgment call. The same inputs always produce the same output &mdash; there&rsquo;s no variance in the engine itself. The AI lives exclusively in IQ Reasoning, a separate explanation layer that translates the locked math into readable English. It tells you <em>why</em> the number is what it is, but it can&rsquo;t override or contradict the underlying calculation.</p>
+
+    <p>Notice the output is in dollars, not percentages. Live players think in dollars &mdash; the pot is $9, the bet is $6 &mdash; and a recommendation you can act on without translating a frequency chart is a recommendation that actually changes how you play.</p>
+
+    <p>The trade-off is real and worth naming. You don&rsquo;t get a full tree to wander through, and you don&rsquo;t get to test a hundred custom frequency tweaks or see how your strategy shifts across forty different river cards. You get one answer for one spot against one opponent type. For a live player reviewing hands between sessions, that&rsquo;s exactly the right level of detail &mdash; and exactly the part of the traditional workflow that was eating twenty minutes per spot.</p>
+
+    <!-- ═══════════════════════════════════════ -->
+    <h2>When to Use Which</h2>
+
+    <p>Neither approach is universally better; they serve different study goals.</p>
+
+    <p>A traditional solver is the right tool when your work is depth: you want to understand how an exploit propagates across multiple streets, study how equilibrium ranges interact across hundreds of board textures, test exotic locked frequencies, or prepare for high-stakes online play against opponents who will themselves adjust. When you need full control over every assumption in the model, the time these programs demand is time well spent.</p>
+
+    <p>A simplified, browser-based solver is the right tool when your goal is practical live cash improvement: you finished a session tonight and want to review the three or four spots that actually mattered &mdash; the river you might have underbet against the station, the turn you gave up on against the nit, the flop where trapping the maniac may have beaten betting. You want a fast, accurate, opponent-specific answer in dollars, with the reasoning spelled out. That&rsquo;s what poker training for live cash games looks like when it&rsquo;s built around how live players really study: in short windows, between sessions, on real opponents rather than abstract trees.</p>
+
+    <p>The deeper point is that the real value of node-locking was never the software &mdash; it&rsquo;s the mindset. You stop treating poker as one fixed answer and start asking better questions. What does this opponent do too often? What don&rsquo;t they do enough? Once you can name the leak, the adjustment follows: size up against the Calling Station, apply small pressure to the Nit, trap the Maniac, isolate the Loose Passive, and stay near baseline against the Unknown/Mixed player until you have a read.</p>
+
+    <p>Node-locking was never the complicated part. The interfaces were. Strip those away and you&rsquo;re left with the most useful question in poker &mdash; what does this opponent do wrong, and what&rsquo;s the perfect way to punish it &mdash; answered in seconds.</p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>See Node-Locking <span style="color:var(--gold)">in Action</span></h2>
+    <p>Pick any opponent type. Enter any spot. Get the exploit in seconds &mdash; with IQ Reasoning explaining why.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="crushing-three-player-types.html" style="color:var(--gold); text-decoration:none;">Read: Crushing Three Common Player Types &mdash; Step-by-Step Exploit Strategy &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
