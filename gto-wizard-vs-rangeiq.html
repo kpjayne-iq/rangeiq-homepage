@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>GTO Wizard vs RangeIQ: Why Unexploitable Play Leaves Money on the Table in Live Poker</title>
+  <meta name="description" content="A detailed comparison of GTO Wizard and RangeIQ for live cash game players. GTO protects you from mistakes. RangeIQ exploits your opponents' mistakes for maximum profit at $1/$3, $2/$5, and $5/$10.">
+  <meta property="og:title" content="GTO Wizard vs RangeIQ: Why Unexploitable Play Leaves Money on the Table in Live Poker">
+  <meta property="og:description" content="GTO protects you from strong opponents. RangeIQ exploits weak ones. A side-by-side comparison with real hand examples showing the dollar difference.">
+  <meta property="og:url" content="https://rangeiqpoker.com/gto-wizard-vs-rangeiq.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GTO Wizard vs RangeIQ: Why Unexploitable Play Leaves Money on the Table">
+  <meta name="twitter:description" content="GTO protects you from strong opponents. RangeIQ exploits weak ones. Real hand examples show the dollar difference.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/gto-wizard-vs-rangeiq.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GTO Wizard vs RangeIQ: Why Unexploitable Play Leaves Money on the Table in Live Poker",
+    "description": "A detailed comparison of GTO Wizard and RangeIQ for live cash game players. Includes side-by-side hand examples showing how exploit-based play outperforms GTO balance against Calling Stations, Maniacs, and Nits.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-05-28",
+    "url": "https://rangeiqpoker.com/gto-wizard-vs-rangeiq.html",
+    "about": [
+      {
+        "@type": "WebApplication",
+        "name": "RangeIQ Poker",
+        "url": "https://app.rangeiqpoker.com",
+        "applicationCategory": "GameApplication",
+        "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "GTO Wizard",
+        "url": "https://gtowizard.com",
+        "applicationCategory": "GameApplication"
+      }
+    ],
+    "keywords": ["GTO Wizard alternative", "exploit solver for live poker", "node-locking simplified", "poker training for live cash games", "exploit calling station", "exploit nit", "exploit maniac"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+
+    /* Comparison table */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0 32px;
+      font-size: 14px;
+    }
+    .compare-table th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--faint);
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table th:nth-child(2) { color: var(--muted); }
+    .compare-table th:nth-child(3) { color: var(--gold); }
+    .compare-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--muted);
+      vertical-align: top;
+    }
+    .compare-table td:first-child { color: var(--text); font-weight: 500; }
+    .compare-table td:nth-child(3) { color: var(--gold); font-weight: 500; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    @media (max-width: 600px) {
+      .compare-table { font-size: 12px; }
+      .compare-table th, .compare-table td { padding: 10px 8px; }
+    }
+
+    /* Hand example cards */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .gto-contrast {
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .hand-example .gto-contrast strong { color: var(--text); }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+    .hand-example .takeaway {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>GTO Wizard vs RangeIQ: Why Unexploitable Play Leaves <span class="gold">Money on the Table</span> in Live Poker</h1>
+    <p class="subtitle">Game-theory optimal poker was built to make you unbeatable. But at your local cardroom, "unbeatable" and "maximally profitable" are not the same thing.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; May 2026 &middot; 8 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>GTO protects you from opponents who never make mistakes &mdash; and at your local $1/$3 and $2/$5 tables, almost everyone makes mistakes constantly. Playing perfectly balanced poker against players who fold too much, call too much, or bluff too often means you're declining free money out of theoretical purity.</p>
+
+    <h2>The GTO Problem at Live Tables</h2>
+
+    <p>GTO is a defensive masterpiece. It calculates a strategy so balanced that no opponent &mdash; no matter how sharp &mdash; can exploit you. That's exactly what you want when you're grinding online tournaments against thinking players who study solvers themselves and pounce on any imbalance in your game. Against that field, unexploitable play is survival, and GTO Wizard is one of the best tools on the planet for building it.</p>
+
+    <p>But GTO carries a hidden assumption: it treats your opponent as a perfect adversary who will instantly punish any deviation. At a live cash table, that assumption collapses. The retiree two seats over isn't capable of exploiting you &mdash; he's a Nit who folds everything but the top of his range. The kid in the hoodie is a Young Aggro who fires three barrels with air. The guy splashing chips is a Maniac who can't check behind to save his life. And the friendly regular calling every flop is a Calling Station who treats "fold" as a foreign word.</p>
+
+    <p>GTO gives all of them the same answer, because GTO doesn't care who's sitting across from you. It plays the board, not the person. That's a feature against tough opponents and a liability against weak ones. When your opponent has a glaring, repeatable leak, balance isn't protecting you from anything &mdash; it's just leaving the exploit unclaimed. The entire edge in live cash comes from identifying those leaks and attacking them relentlessly, and that's a different problem than the one GTO was built to solve.</p>
+
+    <p>GTO Wizard does offer node-locking &mdash; a way to alter an opponent's assumed strategy and find a counter &mdash; but it lives on an advanced, more expensive tier and takes a complex, multi-step configuration to set up. For a live player who just wants to review a tough spot between sessions, navigating a full solver tree to model one opponent's leak is slow. This is where an exploit solver for live poker does what a GTO trainer structurally cannot, and does it in seconds: produce a different, opponent-specific answer for each player type at the table.</p>
+
+    <h2>Comparison Table</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>GTO Wizard</th>
+          <th>RangeIQ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Built for live cash $1/$3&ndash;$5/$10</td>
+          <td>No (built for online/MTT)</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Sizing format</td>
+          <td>% of pot</td>
+          <td>Exact dollars</td>
+        </tr>
+        <tr>
+          <td>Different answer per opponent type</td>
+          <td>No (one GTO answer)</td>
+          <td>Yes &mdash; 9 archetypes</td>
+        </tr>
+        <tr>
+          <td>Reasoning</td>
+          <td>Solver charts and frequencies</td>
+          <td>IQ Reasoning&trade; in plain English</td>
+        </tr>
+        <tr>
+          <td>Node-locking</td>
+          <td>Complex, advanced tier ($69+/mo)</td>
+          <td>Simplified, one-click</td>
+        </tr>
+        <tr>
+          <td>Speed of analysis</td>
+          <td>Manual chart lookup</td>
+          <td>Under 5 seconds</td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td>$49&ndash;$99+/month</td>
+          <td>$14.99/month (free tier available)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>GTO Wizard is the leading GTO trainer for a reason &mdash; its pre-solved strategy trees are deep, accurate, and genuinely excellent for the online and tournament players it serves. RangeIQ isn't trying to be a better solver. It's a browser-based, simplified node-locking engine, built by IQ Digital Holdings LLC, that calculates the maximally profitable counter-strategy against a specific human archetype &mdash; without making you configure a multi-step solve. Node-locking simplified means you pick the opponent, enter the spot, and get an exact-dollar recommendation in seconds.</p>
+
+    <h2>Three Side-by-Side Hand Examples</h2>
+
+    <p>The clearest way to understand the difference is to watch the two approaches diverge on identical spots.</p>
+
+    <!-- Example 1: Calling Station -->
+    <h3>Example 1 &mdash; Exploit the Calling Station</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">FLOP &middot; $1/$3</span>
+        <span class="spot-info">A&diams; K&diams; on A&diams; 9&hearts; 3&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $9 pot</span>
+      </div>
+      <div class="opponent-label">vs Calling Station</div>
+
+      <div class="gto-contrast">
+        <strong>GTO approach:</strong> A GTO solver would mix here &mdash; sometimes checking, sometimes betting small around a third of pot &mdash; to protect its checking range and stay unexploitable. That makes sense against a player who could punish a one-dimensional strategy. Your Calling Station can't.
+      </div>
+
+      <div class="decision-line">RangeIQ: Bet $6 (66% pot) &mdash; 91% Confidence</div>
+
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> You hold top pair, top kicker on a dry, disconnected board. Against a Calling Station, size up for maximum value. Their wide calling range includes any pair, any ace, and gutshots they refuse to release. Every dollar of extra sizing is captured because this opponent does not fold to reasonable bets. Bet two-thirds pot to build the pot now and set up a profitable turn barrel.
+      </div>
+
+      <p class="takeaway">The practical difference is pure dollars. The Calling Station isn't deciding whether to call based on your range &mdash; they're deciding based on their own cards, and the answer is almost always "call." So betting $6 instead of a GTO-approved $3 nearly doubles what you collect in this spot without changing how often they fold. Over a session, the gap between sizing up against a station and meekly checking back top pair is real money walking off the table.</p>
+    </div>
+
+    <!-- Example 2: Maniac -->
+    <h3>Example 2 &mdash; Trap the Maniac</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">FLOP &middot; $1/$3</span>
+        <span class="spot-info">A&diams; 8&diams; on A&spades; Q&diams; 5&hearts; &nbsp;|&nbsp; BB vs BTN &nbsp;|&nbsp; $12 pot</span>
+      </div>
+      <div class="opponent-label">vs Maniac</div>
+
+      <div class="gto-contrast">
+        <strong>GTO approach:</strong> GTO would bet here. You have top pair out of position, you want to build the pot and deny equity, and against a balanced opponent that's correct. But the Maniac inverts the logic entirely.
+      </div>
+
+      <div class="decision-line">RangeIQ: Check &mdash; 84% Confidence</div>
+
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> You have top pair out of position against a Maniac. The trap line is correct here. Maniacs bet at 60%+ frequency when checked to &mdash; they cannot resist firing into perceived weakness. By checking, you let them build the pot with their wide bluffing range. If they bet, you call and re-evaluate the turn. Betting yourself only folds out their air and keeps in the hands that beat you.
+      </div>
+
+      <p class="takeaway">This is the cleanest illustration of why exploit beats balance. When you bet into a Maniac, you fold out exactly the hands you're crushing &mdash; his bluffs &mdash; and get called only by hands that have you beat. Checking hands him the rope. He bets your hand for you, with worse, far more often than a balanced opponent ever would. To exploit a Maniac, you stop protecting against hypothetical balance and let his own aggression become your profit center. GTO's "correct" bet literally costs you money against this player type.</p>
+    </div>
+
+    <!-- Example 3: Nit -->
+    <h3>Example 3 &mdash; Barrel the Nit</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">TURN &middot; $1/$3</span>
+        <span class="spot-info">Q&spades; J&spades; on A&hearts; K&spades; 7&diams; 2&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $22 pot</span>
+      </div>
+      <div class="opponent-label">vs Nit</div>
+
+      <div class="gto-contrast">
+        <strong>GTO approach:</strong> You have a gutshot and two overcards &mdash; no made hand. GTO would most likely check and give up, since your equity against a continuing range is poor and the balanced line is to surrender. Against most opponents, fine. Against a Nit, it's a missed exploit.
+      </div>
+
+      <div class="decision-line">RangeIQ: Bet $7 (33% pot) &mdash; 72% Confidence</div>
+
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> You have a gutshot straight draw with two overcards and no made hand. Against a Nit, this is a pure fold-equity play. Nits fold flop and turn bets at an extremely high rate when they missed. A small sizing of one-third pot risks very little while pressuring the Nit to release middle pairs, small pocket pairs, and missed draws. If called, you still have outs to the nut straight on the river.
+      </div>
+
+      <p class="takeaway">The math is simple. A $7 bet into a $22 pot only needs to work a little over a quarter of the time to break even &mdash; and against a Nit who reflexively mucks middle pairs and missed draws to pressure, it works far more often than that. To exploit a Nit, you aren't betting your cards; you're betting their aversion to risk. GTO's check surrenders that profit because GTO doesn't know &mdash; and structurally can't account for &mdash; that this specific opponent overfolds. The whole point of an exploit is information GTO refuses to use.</p>
+    </div>
+
+    <p>Notice what runs through all three: same boards, same hands, opposite recommendations depending entirely on who you're facing. That's the dividing line between unexploitable and maximally profitable.</p>
+
+    <h2>Why Exact Dollars Matter</h2>
+
+    <p>GTO tools speak in percentages, mixed frequencies, and color-coded grids. That's the right language for studying theory, but it isn't how most live players experience a hand. You don't remember the spot as "33% pot at 45% frequency." You remember that the pot was $22, the bet was $7, and the river shove was $280.</p>
+
+    <p>RangeIQ gives recommendations in exact dollars because live cash decisions happen in real chips. "Bet $7" is concrete &mdash; there's nothing to translate at the table. Studying in the same units you actually play in is how the right sizing stops being a calculation and starts being instinct.</p>
+
+    <h2>IQ Reasoning and Why It Can't Lie to You</h2>
+
+    <p>RangeIQ's recommendations aren't generated by a chatbot. The engine is deterministic math &mdash; it takes the hand state, position, pot, stacks, and opponent archetype and produces a locked recommendation, and the same inputs always produce the same output. Review the same spot twice and you get the same answer, unlike a general AI assistant that might phrase things differently on a Tuesday.</p>
+
+    <p>IQ Reasoning&trade; is the explanation layer that sits on top of that locked output and translates the math into plain English. It's tied to the underlying calculation, so it can't hallucinate or contradict the engine. You get the number first, then a clear reason why &mdash; never a guess dressed up as advice.</p>
+
+    <p>One important note: RangeIQ is not a real-time assistant. It is a study and training tool you use between sessions &mdash; drop in the tough spots you faced, choose the opponent profile, get the analysis in seconds, and build the tactical intuition to crush those same players next time you sit down.</p>
+
+    <h2>Who Should Use Which</h2>
+
+    <p>Be honest with yourself about the game you actually play.</p>
+
+    <p>If you grind online tournaments or face strong, studying regulars who will exploit any imbalance in your play, GTO Wizard is the right tool. Its solved strategy trees are excellent, and unexploitable play is genuinely what that environment demands. You can't afford an exploitative style against opponents sharp enough to notice the pattern and turn it back on you.</p>
+
+    <p>If your poker home is the local cardroom &mdash; $1/$3, $2/$5, or $5/$10 &mdash; you're sitting across from Nits, Stations, Maniacs, Loose Passives, and Recreationals whose leaks are wide open and repeatable. The question you face every session isn't "What is the unexploitable play here?" It's "What makes the most money against this specific opponent?" That's the question RangeIQ is built to answer, across its 9 archetypes: Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, and Unknown/Mixed.</p>
+
+    <p>These aren't enemies &mdash; they're complementary. A serious player learns the unexploitable baseline from one and opponent-specific exploitation from the other, using theory as the foundation and deviating profitably the moment the table gives a reason. But if live cash is your game and you've been searching for a GTO Wizard alternative that speaks your language &mdash; exact dollar sizings, named opponents, plain-English reasoning, and node-locking simplified into one click &mdash; that's the gap RangeIQ was built to fill.</p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Ready to Exploit <span style="color:var(--gold)">Your</span> Table?</h2>
+    <p>Set up any spot. Pick the opponent. Get the highest-EV decision in seconds &mdash; with the reasoning to understand why.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+    <div style="margin-top:14px; font-size:10px; color:var(--faint); letter-spacing:0.02em; max-width:560px; margin-left:auto; margin-right:auto; line-height:1.5;">
+      RangeIQ and GTO Wizard are independent products. This article presents a comparison for educational purposes. GTO Wizard is a trademark of its owner.
+    </div>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
