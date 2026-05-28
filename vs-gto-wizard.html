@@ -23,6 +23,31 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
   <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/vs-gto-wizard.html">
+
+  <!-- Structured Data: Comparison Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "RangeIQ vs GTO Wizard — The Live Cash Exploit Engine",
+    "description": "A detailed comparison of RangeIQ and GTO Wizard for live cash game poker players. RangeIQ is a simplified node-locking engine that delivers exact-dollar exploit decisions against specific opponent archetypes.",
+    "url": "https://rangeiqpoker.com/vs-gto-wizard.html",
+    "about": {
+      "@type": "WebApplication",
+      "@id": "https://rangeiqpoker.com/#app"
+    },
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "GTO Wizard",
+        "url": "https://gtowizard.com",
+        "applicationCategory": "GameApplication"
+      }
+    ]
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -746,9 +771,9 @@
 
       <ul class="problem-list">
         <li>Solver outputs don't match the opponents you actually play</li>
-        <li>You don't have time to run sims mid-session at a live table</li>
+        <li>You don't have time to run sims between hands at a live table</li>
         <li>Every spot feels slightly different from the ones you studied</li>
-        <li>You know the theory, but still second-guess the decision in real time</li>
+        <li>You know the theory, but still second-guess the decision under pressure</li>
       </ul>
     </div>
   </section>
@@ -787,11 +812,11 @@
               </tr>
               <tr>
                 <td>Pre-session study tool</td>
-                <td>In-game decision engine</td>
+                <td>Instant exploit decision engine</td>
               </tr>
               <tr>
                 <td>"Study this after your session"</td>
-                <td>"Use this during your session"</td>
+                <td>"Review any spot in under 5 seconds"</td>
               </tr>
             </tbody>
           </table>
@@ -855,6 +880,56 @@
 
         <p class="aha-closer">That difference is <span class="gold">your edge.</span></p>
       </div>
+
+      <!-- Static IQ Reasoning Examples (crawlable by AI bots) -->
+      <div style="margin-top:64px">
+        <h3 style="font-family:'DM Serif Display',serif;font-size:28px;text-align:center;margin-bottom:8px">IQ Reasoning in Action</h3>
+        <p style="text-align:center;color:var(--muted);margin-bottom:32px;font-size:15px">The engine locks the answer. IQ Reasoning explains <em>why</em> it works against this specific opponent.</p>
+
+        <div style="display:grid;gap:20px;max-width:900px;margin:0 auto">
+
+          <!-- Example 1: Value Bet vs Calling Station -->
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+              <span style="background:rgba(230,197,102,0.15);color:var(--gold);font-size:12px;font-weight:700;padding:4px 10px;border-radius:6px">FLOP &middot; $1/$3</span>
+              <span style="font-size:14px;color:var(--muted)">A&diams; K&diams; on A&diams; 9&hearts; 3&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $9 pot</span>
+            </div>
+            <div style="font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px">vs Calling Station</div>
+            <div style="font-family:'DM Serif Display',serif;font-size:24px;color:var(--gold);margin-bottom:12px">Bet $6 (66% pot) &mdash; 91% Confidence</div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:16px;font-size:14px;line-height:1.7;color:var(--text)">
+              <strong style="color:var(--gold)">IQ Reasoning:</strong> You hold top pair, top kicker on a dry, disconnected board. Against a Calling Station, size up for maximum value. Their wide calling range includes any pair, any ace, and gutshots they refuse to release. Every dollar of extra sizing is captured because this opponent does not fold to reasonable bets. Bet two-thirds pot to build the pot now and set up a profitable turn barrel.
+            </div>
+          </div>
+
+          <!-- Example 2: Trap vs Maniac -->
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+              <span style="background:rgba(230,197,102,0.15);color:var(--gold);font-size:12px;font-weight:700;padding:4px 10px;border-radius:6px">FLOP &middot; $1/$3</span>
+              <span style="font-size:14px;color:var(--muted)">A&diams; 8&diams; on A&spades; Q&diams; 5&hearts; &nbsp;|&nbsp; BB vs BTN &nbsp;|&nbsp; $12 pot</span>
+            </div>
+            <div style="font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px">vs Maniac</div>
+            <div style="font-family:'DM Serif Display',serif;font-size:24px;color:var(--gold);margin-bottom:12px">Check &mdash; 84% Confidence</div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:16px;font-size:14px;line-height:1.7;color:var(--text)">
+              <strong style="color:var(--gold)">IQ Reasoning:</strong> You have top pair out of position against a Maniac. The trap line is correct here. Maniacs bet at 60%+ frequency when checked to &mdash; they cannot resist firing into perceived weakness. By checking, you let them build the pot with their wide bluffing range. If they bet, you call and re-evaluate the turn. Betting yourself only folds out their air and keeps in the hands that beat you.
+            </div>
+          </div>
+
+          <!-- Example 3: Fold Equity Barrel vs Nit -->
+          <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+              <span style="background:rgba(230,197,102,0.15);color:var(--gold);font-size:12px;font-weight:700;padding:4px 10px;border-radius:6px">TURN &middot; $1/$3</span>
+              <span style="font-size:14px;color:var(--muted)">Q&spades; J&spades; on A&hearts; K&spades; 7&diams; 2&clubs; &nbsp;|&nbsp; BTN vs BB &nbsp;|&nbsp; $22 pot</span>
+            </div>
+            <div style="font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px">vs Nit</div>
+            <div style="font-family:'DM Serif Display',serif;font-size:24px;color:var(--gold);margin-bottom:12px">Bet $7 (33% pot) &mdash; 72% Confidence</div>
+            <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:16px;font-size:14px;line-height:1.7;color:var(--text)">
+              <strong style="color:var(--gold)">IQ Reasoning:</strong> You have a gutshot straight draw with two overcards and no made hand. Against a Nit, this is a pure fold-equity play. Nits fold flop and turn bets at an extremely high rate when they missed. A small sizing of one-third pot risks very little while pressuring the Nit to release middle pairs, small pocket pairs, and missed draws. If called, you still have outs to the nut straight on the river.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -912,10 +987,16 @@
               <td class="col-iq"><span class="mark-no">&times;</span> Blocked by design</td>
             </tr>
             <tr>
-              <td>Speed at the table</td>
+              <td>Speed of analysis</td>
               <td class="col-gto">Manual chart lookup</td>
               <td class="col-chat">30+ seconds typing</td>
               <td class="col-iq">Under 5 seconds</td>
+            </tr>
+            <tr>
+              <td>Node-locking complexity</td>
+              <td class="col-gto">Complex, advanced tier</td>
+              <td class="col-chat">N/A</td>
+              <td class="col-iq">Simplified, one-click</td>
             </tr>
             <tr>
               <td>Price</td>
@@ -987,7 +1068,7 @@
       <div class="testimonials">
         <div class="quote-card">
           <div class="quote-mark">&ldquo;</div>
-          <p class="quote-text">This is the first tool that actually makes sense mid-session. I stopped second-guessing.</p>
+          <p class="quote-text">This is the first tool that actually makes sense for session review. I stopped second-guessing.</p>
           <div class="quote-attribution">Live $2/$5 regular</div>
         </div>
         <div class="quote-card">
