@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>Beyond Memorization: How IQ Reasoning Builds Exploitative Poker Intuition | RangeIQ</title>
+  <meta name="description" content="Memorizing solver outputs fails at live tables. IQ Reasoning explains every decision in plain English so the logic sticks — building durable poker intuition instead of brittle recall. Three annotated hand examples inside.">
+  <meta property="og:title" content="Beyond Memorization: How IQ Reasoning Builds Exploitative Poker Intuition">
+  <meta property="og:description" content="Solver charts tell you what to do. IQ Reasoning explains why — so you stop memorizing frequencies and start building poker intuition that works under pressure.">
+  <meta property="og:url" content="https://rangeiqpoker.com/beyond-memorization.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Beyond Memorization: How IQ Reasoning Builds Exploitative Poker Intuition">
+  <meta name="twitter:description" content="Solver charts tell you what to do. IQ Reasoning explains why — building poker intuition that works under pressure.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/beyond-memorization.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Beyond Memorization: How IQ Reasoning Builds Exploitative Poker Intuition",
+    "description": "Memorizing solver outputs fails at live tables. IQ Reasoning explains every poker decision in plain English, locked to the engine math, building durable intuition instead of brittle recall.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-05-28",
+    "url": "https://rangeiqpoker.com/beyond-memorization.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["learn exploitative poker strategy", "poker strategy explained", "range study tools", "poker training plain English", "IQ Reasoning poker", "poker training for live cash games", "exploitative poker intuition", "human poker dynamics"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+
+    /* Pipeline diagram */
+    .pipeline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .pipeline-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .pipeline-step.highlight {
+      border-color: var(--border-hi);
+      color: var(--gold);
+    }
+    .pipeline-arrow {
+      font-size: 18px;
+      color: var(--faint);
+    }
+
+    /* Hand example cards */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .hand-example { padding: 20px; }
+      .hand-example .decision-line { font-size: 18px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+      .pipeline { flex-direction: column; }
+      .pipeline-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>Beyond Memorization: How <span class="gold">IQ Reasoning</span> Builds Exploitative Poker Intuition</h1>
+    <p class="subtitle">Solver charts tell you what to do. IQ Reasoning explains why &mdash; so you stop memorizing frequencies and start building poker intuition that works under pressure at live cash tables.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; May 2026 &middot; 10 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>You&rsquo;ve put in the hours. You&rsquo;ve studied solver outputs, flipped through range charts, and tried to commit the right frequencies to memory. Then you sit down at a live $1/$3 table, the action gets to you with top pair on a wet board, the kid in seat four bets into you, and your mind goes blank. The grid you stared at last Tuesday is nowhere to be found. You make the decision on feel, and you&rsquo;re not sure if it was right.</p>
+
+    <p>This article is about why that gap exists &mdash; between study and table performance &mdash; and a different way to close it. Memorization isn&rsquo;t the answer. Internalized logic is. The right tool for live cash players isn&rsquo;t one that gives you more frequencies to remember; it&rsquo;s one that explains every decision so clearly that the <em>reason</em> sticks long after the specific number fades.</p>
+
+    <h2>The Memorization Problem</h2>
+
+    <p>Conventional solver study runs on a particular shape. You generate or look up an output, you see a grid of hands color-coded by frequency, and you try to absorb the pattern: this hand bets 80% at 33% pot, that hand checks 60%, this combo three-bets 25% as a bluff. The information is precise, dense, and overwhelming &mdash; which is exactly the problem. Three things go wrong between the chart and the casino.</p>
+
+    <p><strong>No reasoning chain.</strong> A solver chart tells you <em>what</em> an unexploitable machine would do, but it detaches that action from any human rationale. Without a clear <em>because</em>, the data doesn&rsquo;t convert into durable memory. The exact spot you studied almost never appears at the table; the slightly different spot does, and a chart entry won&rsquo;t translate to a situation that isn&rsquo;t pixel-identical to the one you reviewed.</p>
+
+    <p><strong>Frequencies dissolve under pressure.</strong> You can&rsquo;t recall mixed strategies in seconds. A spot that wants you to bet 60% of the time at one sizing and check 40% with the same hand is asking your brain to do something it isn&rsquo;t built for in the middle of a live hand. You&rsquo;re going to second-guess yourself &mdash; <em>was this the 33% spot or the 66% spot?</em> &mdash; and the hesitation costs money even when you eventually land on the right action.</p>
+
+    <p><strong>The context gap.</strong> Range study tools that lean on frequencies and percentages are usually built around an unexploitable balanced strategy. But the players folding too much, calling too much, and bluffing too often at your local cardroom aren&rsquo;t balanced, and the chart doesn&rsquo;t tell you how to deviate. So even when you do remember the line, you&rsquo;re remembering the line for the wrong opponent.</p>
+
+    <p>The result is a familiar frustration: you put in real study hours, you understand the theory in the abstract, and your live results still aren&rsquo;t catching up. That isn&rsquo;t a willpower problem or a talent problem &mdash; it&rsquo;s a <em>tool</em> problem. Memorization-based learning produces brittle recall. Pattern-based learning produces durable instinct. The faster way to learn exploitative poker strategy is to study spots where the logic is explained every single time, until the logic itself becomes the thing you reach for under pressure.</p>
+
+    <h2>What IQ Reasoning Is</h2>
+
+    <p>IQ Reasoning is the explanation layer built directly into RangeIQ, and understanding it is easiest if you see the two-layer system underneath. The whole pipeline is three steps:</p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">1. You enter a spot<br><span style="font-weight:400;font-size:12px;color:var(--faint);">cards, board, position, pot, opponent type</span></div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">2. Deterministic Engine<br><span style="font-weight:400;font-size:12px;color:var(--faint);">locked math calculation</span></div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step highlight">3. IQ Reasoning Layer<br><span style="font-weight:400;font-size:12px;color:var(--faint);">plain-English translation</span></div>
+    </div>
+
+    <p>The first layer is the engine. When you enter the spot, the deterministic engine calculates the highest-EV action. This part is locked math. There&rsquo;s no AI making a judgment call, no model trying to &ldquo;decide&rdquo; what looks right &mdash; the same inputs always produce the same output, every time. Ask the same question on a Tuesday and a Saturday and you get back the same recommendation, in the same exact dollar amount, with the same confidence. That stability matters because it&rsquo;s what makes the lessons stick.</p>
+
+    <p>The second layer is IQ Reasoning. It receives the locked engine result &mdash; <em>Bet $6, 91% confidence</em> &mdash; and generates a plain-English explanation of why that action is correct against this specific opponent type, on this specific board, at this specific sizing. It&rsquo;s structurally bound to what the engine produced. It cannot recommend a different action than the one the engine chose. It cannot invent equity numbers, manufacture frequencies, or quietly drift toward a more interesting answer. It cannot hallucinate, contradict the engine, or change its mind across sessions, because what it&rsquo;s explaining doesn&rsquo;t change.</p>
+
+    <p>That second point is worth pausing on. A general-purpose chatbot answering poker questions can give you slightly different reasoning every time you ask, sometimes confidently wrong, sometimes drifting toward whatever sounds most plausible in the moment. IQ Reasoning can&rsquo;t do that. The engine has already decided what the answer is; IQ Reasoning&rsquo;s only job is to translate the decision into language a human can absorb. The output is poker training in plain English &mdash; the math first, the reasoning second, locked together so the logic and the number can&rsquo;t drift apart.</p>
+
+    <h2>Three Annotated Examples</h2>
+
+    <p>The clearest way to understand why this matters is to read the reasoning for a few specific spots and notice what it&rsquo;s actually doing on each one.</p>
+
+    <h3>Example 1 &mdash; Value sizing against a Calling Station</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">FLOP</span>
+        <span class="spot-info">A&diams;K&diams; on A&diams;9&hearts;3&clubs; &middot; BTN vs BB &middot; $1/$3 &middot; $9 pot</span>
+      </div>
+      <div class="opponent-label">Opponent: Calling Station</div>
+      <div class="decision-line">Bet $6 (66% pot)</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> &ldquo;You hold top pair, top kicker on a dry, disconnected board. Against a Calling Station, size up for maximum value. Their wide calling range includes any pair, any ace, and gutshots they refuse to release. Every dollar of extra sizing is captured because this opponent does not fold to reasonable bets. Bet two-thirds pot to build the pot now and set up a profitable turn barrel.&rdquo;
+      </div>
+    </div>
+
+    <p>Look at how much that paragraph teaches in four sentences. It names the opponent type explicitly so you anchor the lesson to a player you&rsquo;ll see at the table. It identifies the specific leak being exploited &mdash; calling too wide, folding too rarely. It reads the board (&ldquo;dry, disconnected&rdquo;) and ties that texture to the sizing decision. It justifies <em>why</em> 66% rather than a smaller, more &ldquo;balanced&rdquo; sizing. And it gestures one street ahead, telling you the bet is building toward a profitable turn.</p>
+
+    <p>A traditional solver chart might tell you to bet small here to avoid folding out weak hands; IQ Reasoning isolates the real lesson, which is that this opponent doesn&rsquo;t <em>scale</em> their calling to your bet size. They&rsquo;re inelastic. When the opponent&rsquo;s price sensitivity is broken, your sizing decision changes. That&rsquo;s the difference between a chart entry and poker strategy explained: the chart says <em>bet $6</em>; IQ Reasoning tells you the five things that made $6 the right number, so the next time you see top pair on a dry board against a sticky caller, you don&rsquo;t need the chart at all.</p>
+
+    <h3>Example 2 &mdash; Fold equity against a Nit</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">TURN</span>
+        <span class="spot-info">Q&spades;J&spades; on A&hearts;K&spades;7&diams;2&clubs; &middot; BTN vs BB &middot; $1/$3 &middot; $22 pot</span>
+      </div>
+      <div class="opponent-label">Opponent: Nit</div>
+      <div class="decision-line">Bet $7 (33% pot)</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> &ldquo;You have a gutshot straight draw with two overcards and no made hand. Against a Nit, this is a pure fold-equity play. Nits fold flop and turn bets at an extremely high rate when they missed. A small sizing of one-third pot risks very little while pressuring the Nit to release middle pairs, small pocket pairs, and missed draws. If called, you still have outs to the nut straight on the river.&rdquo;
+      </div>
+    </div>
+
+    <p>The teaching here is different from the first example, and that&rsquo;s exactly what makes it useful. Same family of player profiling, same structure &mdash; <em>what hand you have, what the opponent does, what sizing fits, what the next street looks like</em> &mdash; but now applied to a <em>bluff</em> rather than a value bet, on a scary high-card board rather than a dry low one, with a small sizing rather than a big one. A standard chart looking at this hand sees terrible raw equity and says check back. The explanation layer corrects that assumption by pointing out the Nit&rsquo;s massive over-folding tendency, which turns a weak drawing hand into a high-margin bluff.</p>
+
+    <p>By the time you&rsquo;ve read both examples, you&rsquo;ve started learning a <em>system</em> of thinking: identify the hand, identify the opponent, identify the leak, choose the sizing that punishes it, and plan the next street. That&rsquo;s intuition under construction.</p>
+
+    <h3>Example 3 &mdash; Trap line against a Maniac</h3>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">FLOP</span>
+        <span class="spot-info">A&diams;8&diams; on A&spades;Q&diams;5&hearts; &middot; BB vs BTN &middot; $1/$3 &middot; $12 pot</span>
+      </div>
+      <div class="opponent-label">Opponent: Maniac</div>
+      <div class="decision-line">Check</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> &ldquo;You have top pair out of position against a Maniac. The trap line is correct here. Maniacs bet at 60%+ frequency when checked to &mdash; they cannot resist firing into perceived weakness. By checking, you let them build the pot with their wide bluffing range. If they bet, you call and re-evaluate the turn. Betting yourself only folds out their air and keeps in the hands that beat you.&rdquo;
+      </div>
+    </div>
+
+    <p>This is the example that proves IQ Reasoning isn&rsquo;t just dressing up a number. The engine&rsquo;s decision here &mdash; check with top pair out of position &mdash; is the kind of recommendation that <em>looks</em> wrong against everything a balanced strategy would teach you. Most solver lines bet here. Without the reasoning, you&rsquo;d see &ldquo;check&rdquo; and either ignore it or fail to learn from it. With the reasoning, you understand precisely why the standard line loses money against this particular leak: by checking, you intentionally weaponize the Maniac&rsquo;s compulsive aggression, turning their need to bluff into your primary source of profit.</p>
+
+    <p>You walk away with a transferable rule: <em>betting into a high-frequency bluffer folds out exactly the hands you beat.</em> That rule applies to every Maniac you face for the rest of your career, on every board, at every stake. One spot, one durable lesson.</p>
+
+    <h2>Why This Builds Intuition</h2>
+
+    <p>Memorization stacks loose facts. Explanation stacks rules. After fifty spots reviewed with IQ Reasoning, you stop thinking in numbers and start thinking in patterns. <em>Calling Station on dry board = size up for value. Nit on scary board = small bet prints fold equity. Maniac in position = check and let them hang themselves. Loose Passive facing a raise = isolate and bet for thin value. Unknown opponent = stay near baseline until information arrives.</em> You didn&rsquo;t memorize any of that. You internalized it, because the same logic showed up across many spots in language you could actually hold onto.</p>
+
+    <p>The shift is concrete enough to put side by side. Memorization, at the table, sounds like: <em>&ldquo;In this exact spot, was it bet $6 or check?&rdquo;</em> Intuition sounds like: <em>&ldquo;This is a Calling Station. The board is dry. My hand is strong. They call too much. I should size up.&rdquo;</em> Memorization says: <em>&ldquo;What did the solver say here?&rdquo;</em> Intuition says: <em>&ldquo;What is this opponent doing wrong, and how do I exploit it?&rdquo;</em> The second version arrives faster, generalizes better, and survives the slight differences between the spot you studied and the spot you actually faced.</p>
+
+    <p>That&rsquo;s what intuition is, properly defined. It isn&rsquo;t magic or experience-by-osmosis. It&rsquo;s a library of explained patterns recalled faster than conscious thought. The reason live decisions feel impossible under pressure is that you&rsquo;re trying to retrieve answers; the reason they feel easy for strong live players is that they&rsquo;re retrieving <em>rules</em>. Rules are smaller, more flexible, and survive translation to spots you&rsquo;ve never specifically studied. And they sit in language live players actually think in at the table &mdash; <em>will this player fold, will they call worse, will they bluff if I check, will this sizing get paid</em> &mdash; not in abstract frequencies you&rsquo;d have to translate first.</p>
+
+    <p>RangeIQ is a study and training tool &mdash; not a real-time assistant. It can&rsquo;t be used during a live hand, and that&rsquo;s a feature, not a limitation. The work happens between sessions, where it should: you bring in the three or four spots that actually mattered from tonight&rsquo;s session, you pick the opponent type, you read the recommendation in exact dollars, and you read the reasoning until the logic feels obvious. Then you close the laptop and go play. The next time the spot shows up &mdash; or one close enough to it &mdash; you&rsquo;ll find the rule waiting in the place you used to keep the frantic search for a frequency.</p>
+
+    <p>That&rsquo;s the methodology. Not &ldquo;remember this chart.&rdquo; <em>Understand why, until you don&rsquo;t have to remember anything.</em></p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Build <span style="color:var(--gold)">Intuition</span>, Not Flash Cards</h2>
+    <p>Pick the opponent. Enter the spot. Read the reasoning. Repeat until the logic is yours.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="crushing-three-player-types.html" style="color:var(--gold); text-decoration:none;">Read: Crushing Three Common Player Types &mdash; Step-by-Step Exploit Strategy &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="demystifying-node-locking.html" style="color:var(--gold); text-decoration:none;">Read: Demystifying Node-Locking &mdash; Counter-Strategies Without Complex Solvers &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
