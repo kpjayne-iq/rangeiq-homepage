@@ -408,7 +408,7 @@
   <!-- ARTICLE BODY -->
   <article class="article-body">
 
-    <p>Node-locking is the most powerful concept in modern poker study, and also the most underused. The idea itself is simple &mdash; pin down what your opponent does wrong, then calculate exactly how to punish it &mdash; but traditional solvers wrap that simple idea in game trees, frequency editing, and a learning curve steep enough to scare most players off before they ever reach the actual lesson.</p>
+    <p>Node-locking is the most powerful concept in modern poker study, and also the most underused. The idea itself is simple &mdash; pin down what your opponent does wrong, then calculate exactly how to punish it. But there&rsquo;s a deeper problem than complexity: traditional node-locking asks you to model one mistake at one decision point. For most $1/$3 and $2/$5 players, that solves the wrong problem entirely.</p>
 
     <!-- ═══════════════════════════════════════ -->
     <h2>What Node-Locking Actually Is</h2>
@@ -441,12 +441,31 @@
       <li data-step="5"><strong>Interpret the output,</strong> which is spread across multiple bet sizes and branches, usually expressed in mixed frequencies and percentages.</li>
     </ol>
 
-    <p>None of this is a knock on the tools. This workflow is genuinely powerful, and for studying deep game-tree theory there&rsquo;s nothing better. But it&rsquo;s slow, it demands fluency with solver interfaces and tree structure, and its accuracy depends entirely on your ability to model the opponent&rsquo;s leaks correctly across many nodes. It&rsquo;s a serious tool for people willing to put in serious time.</p>
+    <p>None of this is a knock on the tools. This workflow is genuinely powerful, and for studying deep game-tree theory there&rsquo;s nothing better. But its accuracy depends entirely on your ability to model the opponent&rsquo;s leaks correctly &mdash; and that&rsquo;s where the real limitation lives.</p>
+
+    <!-- ═══════════════════════════════════════ -->
+    <h2>The Real Challenge Isn&rsquo;t Modeling One Mistake</h2>
+
+    <p>Traditional node-locking treats a leak as a one-off frequency deviation at a single decision point: &ldquo;this player calls 80% instead of 45% on this flop.&rdquo; Then you re-solve around that single locked node.</p>
+
+    <p>But real opponents don&rsquo;t make one mistake. A Nit doesn&rsquo;t just fold too much on one flop &mdash; they fold too much everywhere, every session, against every bet. A Calling Station doesn&rsquo;t over-call at one node &mdash; they over-call on every street, in every pot, until they run out of money. A Maniac doesn&rsquo;t over-bluff one river &mdash; they barrel relentlessly through entire hands.</p>
+
+    <p>These players exhibit <em>patterns</em>, not isolated decision-point deviations. And the real challenge in exploitative poker was never &ldquo;how do I model this one frequency?&rdquo; It was always &ldquo;how do I model an entire player?&rdquo;</p>
+
+    <p>That reframes what the tool should be asking. A solver asks:</p>
+
+    <p style="padding-left:24px;border-left:2px solid var(--faint);color:var(--muted);font-style:italic;margin:20px 0">&ldquo;What happens if Villain folds 45% instead of 35%?&rdquo;</p>
+
+    <p>RangeIQ asks:</p>
+
+    <p style="padding-left:24px;border-left:2px solid var(--gold);color:var(--gold);font-style:italic;margin:20px 0">&ldquo;Is Villain a Nit, a Calling Station, a TAG, or a Maniac?&rdquo;</p>
+
+    <p>For most live players, the second question is far more valuable &mdash; because that&rsquo;s how real opponents actually present themselves at the table. You don&rsquo;t sit down and think &ldquo;this player&rsquo;s flop fold frequency is 12 points above equilibrium.&rdquo; You think &ldquo;this guy calls everything.&rdquo; A tool built around that reality skips the abstraction layer entirely.</p>
 
     <!-- ═══════════════════════════════════════ -->
     <h2>The Simplified Approach</h2>
 
-    <p>The insight behind a simplified exploit trainer is that most live players don&rsquo;t need to explore an entire game tree. They need one good answer: the highest-EV play in this spot against this opponent. So instead of making you build and lock the model yourself, the model is built in advance.</p>
+    <p>The insight behind RangeIQ is that the right unit of modeling isn&rsquo;t a single node &mdash; it&rsquo;s the opponent. Instead of locking one frequency at one decision point, you select a complete behavioral profile and the engine locks the entire tree at once.</p>
 
     <p>RangeIQ pre-models the tendencies of 9 common opponent types &mdash; Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, and Unknown/Mixed. Each one carries a full behavioral profile inside the engine: VPIP, aggression, fold-to-bet frequencies on each street, and bluff frequency. When you select &ldquo;Calling Station,&rdquo; the engine already knows that this opponent plays a 62% VPIP, folds to a flop bet only 18% of the time, folds to a turn bet 24% of the time, and bluffs just 8% of the time. The five-step lock-and-solve process has effectively already happened &mdash; selecting the opponent applies a pre-built node-lock across the whole tree.</p>
 
