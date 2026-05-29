@@ -231,6 +231,13 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--border);
       color: var(--muted);
+      cursor: pointer;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+    .filter-pill:hover:not(.active) {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+      color: var(--text);
     }
     .filter-pill.active {
       background: rgba(230,197,102,0.12);
@@ -405,16 +412,16 @@
 
   <!-- FILTER BAR (static visual) -->
   <div class="filter-bar">
-    <span class="filter-pill active">All Types</span>
-    <span class="filter-pill">Calling Station</span>
-    <span class="filter-pill">Nit</span>
-    <span class="filter-pill">Maniac</span>
-    <span class="filter-pill">LAG</span>
-    <span class="filter-pill">TAG</span>
-    <span class="filter-pill">Loose Passive</span>
-    <span class="filter-pill">Young Aggro</span>
-    <span class="filter-pill">Recreational</span>
-    <span class="filter-pill">Unknown</span>
+    <span class="filter-pill active" data-filter="all">All Types</span>
+    <span class="filter-pill" data-filter="Calling Station">Calling Station</span>
+    <span class="filter-pill" data-filter="Nit">Nit</span>
+    <span class="filter-pill" data-filter="Maniac">Maniac</span>
+    <span class="filter-pill" data-filter="LAG">LAG</span>
+    <span class="filter-pill" data-filter="TAG">TAG</span>
+    <span class="filter-pill" data-filter="Loose Passive">Loose Passive</span>
+    <span class="filter-pill" data-filter="Young Aggro">Young Aggro</span>
+    <span class="filter-pill" data-filter="Recreational">Recreational</span>
+    <span class="filter-pill" data-filter="Unknown">Unknown</span>
   </div>
 
   <!-- EXAMPLE CARDS -->
@@ -423,7 +430,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- CALLING STATION -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="Calling Station">
       <h2 class="type-heading">vs <span class="gold">Calling Station</span></h2>
 
       <!-- #1 -->
@@ -482,7 +489,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- NIT -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="Nit">
       <h2 class="type-heading">vs <span class="gold">Nit</span></h2>
 
       <!-- #5 -->
@@ -528,7 +535,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- MANIAC -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="Maniac">
       <h2 class="type-heading">vs <span class="gold">Maniac</span></h2>
 
       <!-- #8 -->
@@ -574,7 +581,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- LAG -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="LAG">
       <h2 class="type-heading">vs <span class="gold">LAG</span></h2>
 
       <!-- #11 -->
@@ -620,7 +627,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- TAG -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="TAG">
       <h2 class="type-heading">vs <span class="gold">TAG</span></h2>
 
       <!-- #14 -->
@@ -666,7 +673,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- LOOSE PASSIVE -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="Loose Passive">
       <h2 class="type-heading">vs <span class="gold">Loose Passive</span></h2>
 
       <!-- #17 -->
@@ -712,7 +719,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- YOUNG AGGRO -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="Young Aggro">
       <h2 class="type-heading">vs <span class="gold">Young Aggro</span></h2>
 
       <!-- #20 -->
@@ -745,7 +752,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- RECREATIONAL -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="Recreational">
       <h2 class="type-heading">vs <span class="gold">Recreational</span></h2>
 
       <!-- #22 -->
@@ -778,7 +785,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- UNKNOWN / MIXED -->
     <!-- ═══════════════════════════════════════════ -->
-    <div class="type-group">
+    <div class="type-group" data-type="Unknown">
       <h2 class="type-heading">vs <span class="gold">Unknown</span></h2>
 
       <!-- #24 -->
@@ -840,6 +847,24 @@
         mobileToggle.classList.remove('open');
       }));
     }
+
+    // Filter pills — show/hide type-group sections
+    const pills = document.querySelectorAll('.filter-pill');
+    const groups = document.querySelectorAll('.type-group');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const filter = pill.getAttribute('data-filter');
+        groups.forEach(g => {
+          if (!filter || filter === 'all') {
+            g.style.display = '';
+          } else {
+            g.style.display = g.getAttribute('data-type') === filter ? '' : 'none';
+          }
+        });
+      });
+    });
   </script>
 
 </body>
