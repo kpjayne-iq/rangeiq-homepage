@@ -532,36 +532,33 @@ if (!sitemap.includes(url)) {
   console.log("  · Already in sitemap.xml");
 }
 
-// ── Update resources.html ───────────────────────────────────────
-const resourcesPath = path.join(ROOT, "resources.html");
-const resources = fs.readFileSync(resourcesPath, "utf8");
+// ── Update strategy.html ────────────────────────────────────────
+const strategyPath = path.join(ROOT, "strategy.html");
+const strategy = fs.readFileSync(strategyPath, "utf8");
 
-// Insert before the "Also See" section
-const cardHtml = `
-    <a href="${filename}" class="article-card">
-      <span class="article-tag">TODO: Tag</span>
+// Accept optional tag and summary from args or use placeholders
+const tag = process.argv[3] || "TODO";
+const summary = process.argv[4] || "TODO: Write a 1-2 sentence summary.";
+
+const cardHtml = `    <a href="${filename}" class="strat-card" data-tag="${tag}">
+      <span class="strat-tag">${tag}</span>
       <h2>${title}</h2>
-      <p>TODO: Write a 1-2 sentence summary for the resources page card.</p>
-      <span class="read-link">Read the article &rarr;</span>
+      <p>${summary}</p>
+      <span class="read-link">Read &rarr;</span>
     </a>
+
 `;
 
-const insertMarker = "<!-- ALSO SEE -->";
-if (resources.includes(insertMarker) && !resources.includes(filename)) {
-  // Find the closing </div> before ALSO SEE
-  const markerIdx = resources.indexOf(insertMarker);
-  const closeDivIdx = resources.lastIndexOf("</div>", markerIdx);
-  const updated =
-    resources.slice(0, closeDivIdx) +
-    cardHtml +
-    "\n  " +
-    resources.slice(closeDivIdx);
-  fs.writeFileSync(resourcesPath, updated, "utf8");
-  console.log("  ✓ Added card to resources.html");
-} else if (resources.includes(filename)) {
-  console.log("  · Already in resources.html");
+// Insert before the empty-state div
+const insertMarker = '<div class="empty-state"';
+if (strategy.includes(insertMarker) && !strategy.includes(filename)) {
+  const updated = strategy.replace(insertMarker, cardHtml + "    " + insertMarker);
+  fs.writeFileSync(strategyPath, updated, "utf8");
+  console.log("  ✓ Added card to strategy.html");
+} else if (strategy.includes(filename)) {
+  console.log("  · Already in strategy.html");
 } else {
-  console.log("  · Could not find insert marker in resources.html — add manually");
+  console.log("  · Could not find insert marker in strategy.html — add manually");
 }
 
 // ── Print next steps ────────────────────────────────────────────
@@ -570,8 +567,7 @@ console.log(`
   1. Open ${filename} and replace all TODO: placeholders
   2. Fill in meta description, OG tags, and JSON-LD keywords
   3. Write the article body (aim for 400-600 words)
-  4. Update the article-tag and summary in resources.html
-  5. git add ${filename} sitemap.xml resources.html
-  6. git commit -m "content: ${slug}"
-  7. git push origin main
+  4. git add ${filename} sitemap.xml strategy.html
+  5. git commit -m "content: ${slug}"
+  6. git push origin main
 `);

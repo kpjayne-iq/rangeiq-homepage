@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>Poker Strategy Q&A — Exploitative Adjustments for Live Cash Games | RangeIQ</title>
+  <meta name="description" content="Short, actionable poker strategy answers for live $1/$2, $1/$3, $2/$5, and $5/$10 cash games. Each article covers one question — sizing, reads, opponent types, preflop decisions — with IQ Reasoning examples.">
+  <meta property="og:title" content="Poker Strategy Q&A — Exploitative Adjustments for Live Cash Games">
+  <meta property="og:description" content="Focused strategy answers for live cash players. One question, one answer, one exploit — with the math explained.">
+  <meta property="og:url" content="https://rangeiqpoker.com/strategy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Poker Strategy Q&A — Live Cash Game Adjustments">
+  <meta name="twitter:description" content="One question, one answer, one exploit. Focused strategy for live cash players.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/strategy.html">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Poker Strategy Q&A",
+    "description": "Short, actionable poker strategy answers for live cash games. Each article covers one question with exploitative adjustments and IQ Reasoning examples.",
+    "url": "https://rangeiqpoker.com/strategy.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Hero */
+    .strat-hero {
+      padding: 64px 32px 32px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .strat-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 52px; line-height: 1.08; color: var(--text);
+      font-weight: 400; letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .strat-hero h1 .gold { color: var(--gold); }
+    .strat-hero .subtitle {
+      font-size: 18px; color: var(--muted); line-height: 1.6;
+      max-width: 600px; margin: 0 auto;
+    }
+    .strat-hero .count {
+      margin-top: 14px;
+      font-size: 13px; color: var(--faint);
+    }
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 8px;
+      padding: 24px 32px 32px;
+      max-width: 800px; margin: 0 auto;
+    }
+    .filter-pill {
+      display: inline-block;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+      padding: 5px 14px; border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+    .filter-pill:hover:not(.active) {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+      color: var(--text);
+    }
+    .filter-pill.active {
+      background: rgba(230,197,102,0.12);
+      border-color: rgba(230,197,102,0.35);
+      color: var(--gold);
+    }
+
+    /* Article grid */
+    .articles-grid {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 32px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .strat-card {
+      display: flex; flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      text-decoration: none;
+      transition: border-color 220ms ease, transform 220ms ease;
+    }
+    .strat-card:hover {
+      border-color: var(--border-hi);
+      transform: translateY(-2px);
+    }
+    .strat-tag {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold); background: rgba(230,197,102,0.12);
+      padding: 3px 8px; border-radius: 5px;
+      margin-bottom: 10px;
+      align-self: flex-start;
+    }
+    .strat-card h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 19px; line-height: 1.25; color: var(--text);
+      font-weight: 400; margin-bottom: 8px;
+    }
+    .strat-card p {
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+    .strat-card .read-link {
+      font-size: 13px; font-weight: 600; color: var(--gold);
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--faint);
+      font-size: 15px;
+      display: none;
+    }
+
+    /* Also see */
+    .also-see {
+      max-width: 640px; margin: 0 auto;
+      padding: 0 32px 64px;
+      text-align: center;
+    }
+    .also-see h3 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 24px; color: var(--text); font-weight: 400;
+      margin-bottom: 10px;
+    }
+    .also-see .gold { color: var(--gold); }
+    .also-see p {
+      font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 14px;
+    }
+    .also-see a {
+      font-size: 14px; font-weight: 600; color: var(--gold); text-decoration: none;
+    }
+    .also-see a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .strat-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .strat-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px; color: var(--text); font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .strat-cta p {
+      font-size: 16px; color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 700px) {
+      .strat-hero { padding: 48px 20px 24px; }
+      .strat-hero h1 { font-size: 36px; }
+      .articles-grid { grid-template-columns: 1fr; padding: 0 20px 48px; }
+      .strat-card h2 { font-size: 17px; }
+      .strat-cta { padding: 48px 20px; }
+      .strat-cta h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="strategy.html" class="active">Strategy</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="strat-hero">
+    <h1>Strategy <span class="gold">Q&A</span></h1>
+    <p class="subtitle">One question. One answer. One exploit. Short, focused strategy articles for live cash players &mdash; each one backed by RangeIQ&rsquo;s engine math.</p>
+    <p class="count" id="article-count"></p>
+  </header>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <span class="filter-pill active" data-filter="all">All</span>
+    <span class="filter-pill" data-filter="Sizing">Sizing</span>
+    <span class="filter-pill" data-filter="Opponent Types">Opponent Types</span>
+    <span class="filter-pill" data-filter="Preflop">Preflop</span>
+    <span class="filter-pill" data-filter="Concepts">Concepts</span>
+    <span class="filter-pill" data-filter="Live Reads">Live Reads</span>
+  </div>
+
+  <!-- ARTICLE GRID -->
+  <!-- New articles are inserted here by scripts/new-post.js -->
+  <div class="articles-grid" id="articles-grid">
+
+    <div class="empty-state" id="empty-state">No articles match this filter.</div>
+
+  </div>
+
+  <!-- ALSO SEE -->
+  <div class="also-see">
+    <h3>Deep <span class="gold">Dives</span></h3>
+    <p>Looking for longer reads? The Resources page has in-depth articles on node-locking, IQ Reasoning, GTO vs exploit play, and more.</p>
+    <a href="resources.html">Browse Strategy Resources &rarr;</a>
+    <br><br>
+    <a href="library.html">Browse the Exploit Library (25 hand examples) &rarr;</a>
+  </div>
+
+  <!-- CTA -->
+  <section class="strat-cta">
+    <h2>Try the <span style="color:var(--gold)">Engine</span> Yourself</h2>
+    <p>Pick any opponent type. Enter any spot. Get the exploit in seconds &mdash; with IQ Reasoning explaining why.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+
+    // Filter pills
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.strat-card');
+    const emptyState = document.getElementById('empty-state');
+
+    function updateCount() {
+      const visible = document.querySelectorAll('.strat-card:not([style*="display: none"])').length;
+      const total = cards.length;
+      const el = document.getElementById('article-count');
+      if (el && total > 0) el.textContent = visible + ' of ' + total + ' articles';
+    }
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const filter = pill.getAttribute('data-filter');
+        let visibleCount = 0;
+        cards.forEach(c => {
+          if (!filter || filter === 'all' || c.getAttribute('data-tag') === filter) {
+            c.style.display = '';
+            visibleCount++;
+          } else {
+            c.style.display = 'none';
+          }
+        });
+        emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        updateCount();
+      });
+    });
+
+    updateCount();
+  </script>
+
+</body>
+</html>
