@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>How to Size Bets Against a Calling Station | RangeIQ</title>
+  <meta name="description" content="Learn how to size bets against a Calling Station in live cash games. Go bigger for value, eliminate bluffs, and exploit their inelastic calling range.">
+  <meta property="og:title" content="How to Size Bets Against a Calling Station">
+  <meta property="og:description" content="Against a Calling Station, your bet size is the primary exploit lever. Learn to size correctly every time.">
+  <meta property="og:url" content="https://rangeiqpoker.com/how-to-size-bets-against-a-calling-station.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Size Bets Against a Calling Station">
+  <meta name="twitter:description" content="Calling stations are the easiest players to exploit — if your sizing is right. Learn when to go big, when to stop bluffing, and how to maximize every value hand."  >
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/how-to-size-bets-against-a-calling-station.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Size Bets Against a Calling Station",
+    "description": "Learn how to size bets against a Calling Station in live cash games. Go bigger for value, eliminate bluffs, and exploit their inelastic calling range.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-05-31",
+    "url": "https://rangeiqpoker.com/how-to-size-bets-against-a-calling-station.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["bet sizing calling station", "poker sizing strategy", "exploit calling station live poker", "calling station poker", "value bet sizing", "live cash game strategy", "bet size exploit"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+    .article-body ul, .article-body ol {
+      margin: 0 0 18px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body li { margin-bottom: 6px; }
+
+    /* Hand example card (optional — use for IQ Reasoning examples) */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+
+    /* Callout box (optional — use for key takeaways or spot descriptions) */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .hand-example { padding: 20px; }
+      .hand-example .decision-line { font-size: 18px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>How to Size Bets Against a Calling Station</h1>
+    <p class="subtitle">Against a Calling Station, your bet size is the primary exploit lever &mdash; defaulting to half-pot leaves significant value on the table every session.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; May 2026 &middot; 5 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>The question is not whether a <em>Calling Station</em> will call your bet &mdash; they will. The question is how much to charge them. Most $1/$3 regulars default to half-pot bets out of habit, not calculation, and against a player who calls two-thirds pot just as readily, that habit costs real money every session. Sizing bets correctly against a Calling Station is one of the highest-leverage adjustments available in live cash games.</p>
+
+    <h2>Why Standard Sizing Undercharges the Calling Station</h2>
+
+    <p>A <em>Calling Station</em> has one defining characteristic: their call frequency does not meaningfully change with bet size. When you bet $14 into a $28 pot, they call. When you bet $21, they also call. This is not a theoretical abstraction &mdash; it is a live-read pattern you can observe within 20 minutes at any $1/$3 table. Watch for the player who calls bets without looking at the sizing, calls on boards that obviously missed them, and checks back weakly when they miss on the river.</p>
+
+    <p>Standard sizing recommendations (33&ndash;50% pot on the flop) exist to balance ranges and keep opponents roughly indifferent between calling and folding. Against a Calling Station, that logic breaks down because they are never making that comparison. Their decision is driven by hand strength perception: <em>I have top pair, I call.</em> Pot odds never enter the picture.</p>
+
+    <p>The correct adjustment is to stop optimizing for range balance and start optimizing for extraction. That means sizing up consistently on all three streets whenever you hold a strong made hand.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">FLOP</span>
+        <span class="spot-info">A&hearts;K&diams; on A&spades;9&hearts;3&clubs; &middot; BTN vs BB &middot; $1/$3 &middot; $26 pot</span>
+      </div>
+      <div class="opponent-label">vs Calling Station</div>
+      <div class="decision-line">Bet $21 &mdash; 89% Confidence</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> Calling Station range is wide and capped by the preflop flat &mdash; AA and KK would almost always 3-bet, so the hands that beat you are a tiny fraction of their range. On this dry board with no flush draw and no connected broadway cards, fold equity is near zero regardless of bet size. The engine sets sizing at 80% pot ($21) to capture maximum EV from the calling range. A half-pot bet of $13 surrenders roughly $5 in expected value per street against a player whose calling frequency is effectively inelastic to size. There is no bluffing adjustment needed in this spot: charge more, charge every street.
+      </div>
+    </div>
+
+    <h2>The Right Sizes by Street</h2>
+
+    <p>On the flop with a strong made hand, target <strong>70&ndash;80% pot</strong> against a known Calling Station. A dry board like A&spades;9&hearts;3&clubs; is ideal because there are almost no draws they can float with that will improve to beat you by the river, and the hands already ahead of you (sets, two pair from suited connectors) represent a tiny fraction of their wide preflop calling range.</p>
+
+    <p>On the turn, maintain pressure at <strong>75&ndash;90% pot</strong> if they called the flop. The Calling Station who called your flop bet with a pair of nines is not folding to a $35 turn bet on a blank card. If you slow down to a $15 bet, you signal weakness and invite another call on a card that changed nothing about your relative strength. Keep charging.</p>
+
+    <p>On the river, go largest: <strong>80&ndash;100% pot</strong> with your best hands. The instinct to downsize on the river is common and costly. A Calling Station will call a pot-sized river bet with two pair, with bottom pair, sometimes with ace-high on a dry board. Their river calling range is wider than most regulars expect after watching a few hands. When you have the nuts or near-nuts, give them the opportunity to pay full price.</p>
+
+    <div class="callout">
+      <strong>The sizing rule:</strong> If your read is Calling Station, add 25&ndash;30% to whatever your default bet would be on each street. Then hold that size through the hand &mdash; don't telegraph strength by suddenly going large only on the river.
+    </div>
+
+    <h2>Eliminate Bluffs Entirely</h2>
+
+    <p>The flip side of sizing up for value is eliminating bluffs completely. Bluffing a <em>Calling Station</em> is not a sizing error &mdash; it is a hand-selection error. If you are firing a backdoor draw or bottom pair on the flop because "they can't know I'm bluffing," that bet is -EV regardless of how you size it. They will call, and you will miss. The chips you lose on failed bluffs directly offset the extra value you extract from going bigger with strong hands.</p>
+
+    <p>The correct adjustment: check back your air and weak semi-bluffs more often, and redirect all aggression toward strong made hands and draws with significant equity (15+ outs). Against a <em>Calling Station</em>, the question on every street should be "do I want to be called here?" If the answer is no, do not bet.</p>
+
+    <p>After your next session, pull up RangeIQ between sessions and load the Calling Station opponent type for two or three key spots from your night. The engine will show the optimal sizing for each street, and IQ Reasoning will display exactly how much expected value a smaller bet surrenders against this opponent type's calling range &mdash; putting a concrete number on an adjustment most players make by feel alone.</p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>See the Numbers on Your <span style="color:var(--gold)">Value Spots</span></h2>
+    <p>Load a Calling Station in RangeIQ, enter any hand you played, and see the optimal bet size with IQ Reasoning explaining every dollar.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">See all RangeIQ resources &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
