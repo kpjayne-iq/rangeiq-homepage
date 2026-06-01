@@ -299,6 +299,15 @@ a:hover{text-decoration:underline}
 .faq-item.open .faq-answer{max-height:400px}
 .faq-answer-inner{padding:0 24px 24px;font-size:16px;line-height:1.7;color:var(--text-secondary)}
 
+/* TESTIMONIALS */
+.section-testimonials{background:var(--bg-alt-2);padding:var(--section-pad) 0}
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:64px}
+.testimonial-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:18px;padding:32px}
+.testimonial-quote{font-size:16px;line-height:1.7;color:var(--text-secondary);margin-bottom:20px;font-style:italic}
+.testimonial-highlight{color:var(--gold);font-style:normal;font-weight:600}
+.testimonial-author{font-size:13px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em}
+@media(max-width:768px){.testimonials-grid{grid-template-columns:1fr}}
+
 /* CTA + EMAIL CAPTURE */
 .section-cta{background:var(--bg-alt-1);padding:var(--section-pad) 0}
 .cta-panel{background:linear-gradient(180deg,#121B24 0%,#0F161D 100%);border:1px solid var(--border-subtle);border-radius:28px;padding:72px;text-align:center;position:relative;overflow:hidden}
@@ -546,6 +555,34 @@ a:hover{text-decoration:underline}
       <div class="faq-item"><button class="faq-question">What formats and table sizes does RangeIQ cover?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is built for No-Limit Hold'em cash games and tournaments. The position system covers all major strategic seats — from UTG through BB — and adapts naturally across different table sizes, from short-handed to full-ring.</div></div></div>
       <div class="faq-item"><button class="faq-question">Is my training data saved?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Your drill history, decision consistency data, and progress metrics are stored locally in your browser. Your training activity stays on your device — it isn't collected or shared.</div></div></div>
       <div class="faq-item"><button class="faq-question">What's the connection to Between the Cards?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is the interactive training platform built by the team behind Between the Cards. BTC delivers the strategic frameworks through content — RangeIQ lets you apply and train them hands-on. Same philosophy, different medium.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-testimonials">
+  <div class="container">
+    <div class="section-intro">
+      <div class="eyebrow">Players</div>
+      <h2 class="h2">What live players are saying.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"I've tried some of the solver stuff and honestly it just never clicked for me. RangeIQ makes a lot more sense for the games I play. Being able to look at a hand based on the type of player I was against has been really helpful. <span class="testimonial-highlight">It's made me think more about the player and less about trying to find some perfect textbook answer.</span>"</div>
+        <div class="testimonial-author">Live $1/$3 player</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"My biggest leak has always been making calls when I pretty much know I'm beat. RangeIQ has helped me slow down and be more honest about who I'm playing against. <span class="testimonial-highlight">A big bet from a loose aggressive player is not the same thing as a big bet from the guy who hasn't played a hand in an hour.</span>"</div>
+        <div class="testimonial-author">$1/$3 regular</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"I probably play live once or twice a month, mostly $1/$2, and I just wanted something simple that could help me make better decisions. RangeIQ has been easy to use. <span class="testimonial-highlight">The explanations are straightforward and not full of poker jargon.</span> I feel like I'm making fewer dumb mistakes."</div>
+        <div class="testimonial-author">Recreational $1/$2 player</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"A lot of poker software seems designed for people playing online against solid regulars. That's not the game I'm in. RangeIQ gets you thinking about adjustments: value betting bigger against someone who calls too much, choosing a sizing that makes sense in real dollars. <span class="testimonial-highlight">As a study tool for live poker, it's probably the most practical one I've used.</span>"</div>
+        <div class="testimonial-author">Live $2/$5 player</div>
+      </div>
     </div>
   </div>
 </section>
