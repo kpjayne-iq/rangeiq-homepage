@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  gtag('config', 'G-WVG2PWLN8F');
+  </script>
+
+  <title>5 Player Types at Every $1/$3 Poker Table | RangeIQ</title>
+  <meta name="description" content="Calling stations, nits, TAGs, loose-passive players, and LAGs — learn the quick exploit for each player type at your live $1/$3 table.">
+  <meta name="keywords" content="poker player types, live poker opponent types, $1/$3 player types, exploit poker player types, poker archetypes">
+  <meta property="og:title" content="5 Player Types at Every $1/$3 Poker Table">
+  <meta property="og:description" content="Calling stations, nits, TAGs, loose-passive players, and LAGs — learn the quick exploit for each player type at your live $1/$3 table.">
+  <meta property="og:url" content="https://rangeiqpoker.com/five-player-types-live-poker.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="5 Player Types at Every $1/$3 Poker Table">
+  <meta name="twitter:description" content="Calling stations, nits, TAGs, loose-passive players, and LAGs — learn the quick exploit for each player type at your live $1/$3 table.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/five-player-types-live-poker.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "5 Player Types at Every $1/$3 Poker Table",
+    "description": "Calling stations, nits, TAGs, loose-passive players, and LAGs — learn the quick exploit for each player type at your live $1/$3 table.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-06-01",
+    "url": "https://rangeiqpoker.com/five-player-types-live-poker.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["poker player types", "live poker opponent types", "$1/$3 player types", "exploit poker player types", "poker archetypes"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 20px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+    .article-body ul, .article-body ol {
+      margin: 0 0 18px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body li { margin-bottom: 6px; }
+
+    /* Hand example card */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+
+    /* Callout box */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .hand-example { padding: 20px; }
+      .hand-example .decision-line { font-size: 18px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0blshjqav");
+</script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1><span class="gold">Five Player Types</span> You Face Every Night in $1/$3 Poker</h1>
+    <p class="subtitle">Calling stations, nits, TAGs, loose-passive players, and LAGs &mdash; learn the quick exploit for each player type at your live table.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; June 2026 &middot; 8 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>Walk into any $1/$3 poker game in America and you'll see the same cast of characters. The faces change, the seat positions rotate, but the player types repeat themselves with remarkable consistency. Once you learn to identify them, you can start exploiting them &mdash; and that's where the money is.</p>
+
+    <p>Here are the five player types you'll face most often, what makes them tick, and the core adjustment that extracts the most value from each one.</p>
+
+    <h2>1. The Calling Station</h2>
+
+    <p><strong>How to spot them:</strong> They play 40%+ of hands preflop. They call your raises but rarely raise themselves. After the flop, they call on every street with marginal holdings. You'll rarely see them fold after investing money in a pot.</p>
+
+    <p><strong>Their leak:</strong> They call too much with too many weak hands.</p>
+
+    <p><strong>Your adjustment:</strong> Bet bigger for value, extend your value range to include hands like second pair and top pair with a weak kicker, and never bluff. A calling station who calls your $45 bet on the turn with bottom pair is giving you money. Take it.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">RIVER</span>
+        <span class="spot-info">A&hearts; 9&hearts; on A&clubs; 7&diams; 2&spades; 5&clubs; K&hearts; &middot; $1/$3 &middot; $80 pot</span>
+      </div>
+      <div class="opponent-label">vs Calling Station</div>
+      <div class="decision-line">Bet $50 &mdash; Thin Value With Top Pair</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> Against a thinking player, top pair with a nine kicker might be a check on the river. Against a calling station, bet $50 into the $80 pot. They're calling with K-7, pocket threes, and sometimes worse. Your hand is ahead of their calling range &mdash; charge them.
+      </div>
+    </div>
+
+    <p><em>Deep dive: <a href="/exploit-calling-stations-live-poker.html">How to Exploit Calling Stations in Live $1/$3 Poker</a></em></p>
+
+    <h2>2. The Nit</h2>
+
+    <p><strong>How to spot them:</strong> They play 8% to 12% of hands. They fold round after round, sometimes for an hour at a time. When they raise, the table groans because everyone knows it's aces or kings.</p>
+
+    <p><strong>Their leak:</strong> They fold too much, making their blinds easy to steal.</p>
+
+    <p><strong>Your adjustment:</strong> Steal their blinds aggressively from late position. When they raise or re-raise, fold everything except your absolute best hands. Their three-bet range is so narrow that even ace-queen is often a fold.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">PREFLOP</span>
+        <span class="spot-info">J&spades; J&clubs; on BTN vs Nit UTG open &middot; $1/$3</span>
+      </div>
+      <div class="opponent-label">vs Nit</div>
+      <div class="decision-line">Flat Call &mdash; Don't Build a Pot You'll Lose</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> A nit opens to $12 from under the gun. Most players would three-bet here, but against this specific player &mdash; who has only raised twice in the last hour &mdash; flatting or even folding is more profitable than building a big pot where you're likely dominated.
+      </div>
+    </div>
+
+    <p><em>Deep dive: <a href="/play-against-nits-live-poker.html">How to Play Against Nits in Live Cash Games</a></em></p>
+
+    <h2>3. The TAG (Tight-Aggressive)</h2>
+
+    <p><strong>How to spot them:</strong> They play 18% to 25% of hands and play them aggressively. They raise preflop, c-bet the flop, and take down a lot of pots without showdown. They're usually the "best" player at the table, or at least they think they are.</p>
+
+    <p><strong>Their leak:</strong> They're predictable in their aggression. They c-bet too often on some board textures and give up too easily when called.</p>
+
+    <p><strong>Your adjustment:</strong> Float their c-bets with position and take the pot away on the turn when they check. Don't get into big pots without strong hands &mdash; TAGs are capable of value betting and bluffing, which makes them harder to read. Pick your spots carefully.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">TURN</span>
+        <span class="spot-info">8&spades; 7&spades; on K&hearts; 5&clubs; 3&diams; 9&diams; &middot; BTN vs MP &middot; $1/$3 &middot; $58 pot</span>
+      </div>
+      <div class="opponent-label">vs TAG</div>
+      <div class="decision-line">Bet $30 &mdash; Float and Take It Away</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> The TAG raised preflop and c-bet the flop automatically, but they didn't have a king. You called the flop with position. Now the TAG checks the turn &mdash; their c-bet was automatic, not value. A $30 bet takes down the pot. The float worked perfectly.
+      </div>
+    </div>
+
+    <h2>4. The Loose-Passive Player</h2>
+
+    <p><strong>How to spot them:</strong> They play 35% to 45% of hands but rarely raise. They limp preflop, call raises, and check-call postflop. They're pleasant, usually having fun, and not particularly focused on winning.</p>
+
+    <p><strong>Their leak:</strong> They play too many hands passively, meaning they pay too much to draw and don't extract enough value when they hit.</p>
+
+    <p><strong>Your adjustment:</strong> Raise their limps with a wide range, bet for value on every street when you connect, and believe them when they suddenly bet or raise. A loose-passive player who wakes up with a big bet has the nuts.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">RIVER</span>
+        <span class="spot-info">K&spades; Q&clubs; on K&diams; 6&spades; 2&hearts; 8&clubs; 4&diams; &middot; $1/$3 &middot; $130 pot</span>
+      </div>
+      <div class="opponent-label">vs Loose Passive</div>
+      <div class="decision-line">Bet $75 &mdash; Three Streets of Pure Value</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> The loose-passive player limped, called your preflop raise, and check-called two streets. The river is a blank. Bet $75. They're calling with K-5, pocket threes, and sometimes worse. Three streets of value against a hand that should never have been in the pot.
+      </div>
+    </div>
+
+    <p><em>Deep dive: <a href="/loose-passive-value-betting.html">Value Betting Loose-Passive Players in Live Poker</a></em></p>
+
+    <h2>5. The LAG (Loose-Aggressive)</h2>
+
+    <p><strong>How to spot them:</strong> They play 30% to 40% of hands and play them aggressively. They raise a lot preflop, three-bet light, and put pressure on you postflop with big bets and raises. They're the player who makes the game feel chaotic.</p>
+
+    <p><strong>Their leak:</strong> They bluff too often. Their aggression is profitable against passive players, but they overdo it against anyone who's willing to call down.</p>
+
+    <p><strong>Your adjustment:</strong> Tighten up preflop against their opens, but call down lighter than normal postflop. Let them bluff into you. Don't try to out-aggress them &mdash; that's playing their game. Instead, trap with strong hands and let them hang themselves with their own bluffs.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">RIVER</span>
+        <span class="spot-info">A&clubs; Q&clubs; on Q&hearts; 8&diams; 4&spades; 2&clubs; 7&diams; &middot; $1/$3 &middot; $230 pot</span>
+      </div>
+      <div class="opponent-label">vs LAG</div>
+      <div class="decision-line">Call $180 &mdash; Let Them Bluff Into You</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> The LAG three-bet preflop, barrel-fired the flop and turn, and now shoves the river. Against a nit, this is a clear fold. Against a LAG, this is a call. They're doing this with missed draws, random bluffs, and occasionally a worse queen. You win a massive pot when they show 10&spades; 9&spades; for a total airball.
+      </div>
+    </div>
+
+    <h2>Putting It All Together</h2>
+
+    <p>The real skill isn't identifying these player types &mdash; after a few orbits, most experienced players can do that. The real skill is adjusting your strategy <em>in real time</em> for each opponent.</p>
+
+    <p>This means you might play the same hand &mdash; say, ace-jack suited &mdash; completely differently depending on who you're up against:</p>
+
+    <ul>
+      <li><strong>Against a calling station:</strong> Raise, bet three streets for value on any ace or jack-high board.</li>
+      <li><strong>Against a nit:</strong> If they raised first, fold preflop. If you're opening into their blind, raise and c-bet once.</li>
+      <li><strong>Against a TAG:</strong> Raise, call their c-bet, and decide on the turn based on their action.</li>
+      <li><strong>Against a loose-passive player:</strong> Raise bigger to isolate, bet for value aggressively.</li>
+      <li><strong>Against a LAG:</strong> Call preflop, plan to call down with top pair or better.</li>
+    </ul>
+
+    <p>The gap between knowing these adjustments and executing them automatically is where most players leave money on the table.</p>
+
+    <h2>Train Against Every Archetype</h2>
+
+    <p>RangeIQ Poker offers nine opponent archetypes &mdash; including all five described above &mdash; and gives you exact dollar sizing recommendations for every street. You pick the opponent type, set up the hand, and see what the exploit engine recommends. The IQ Reasoning feature explains the logic behind each decision in plain English, helping you internalize the adjustments until they become second nature.</p>
+
+    <p>Free to try, no credit card required. Pick the archetype that gives you the most trouble and run a hand to see how you should adjust.</p>
+
+    <p><em>Related reading: <a href="/exploit-calling-stations-live-poker.html">How to Exploit Calling Stations</a> &middot; <a href="/play-against-nits-live-poker.html">How to Play Against Nits</a> &middot; <a href="/loose-passive-value-betting.html">Value Betting Loose-Passive Players</a> &middot; <a href="/strategy">Strategy Guide</a> &middot; <a href="/live-1-3-poker-tool.html">Live $1/$3 Poker Tool</a></em></p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Pick Your Opponent, <span style="color:var(--gold)">Run a Hand</span></h2>
+    <p>Choose from nine opponent archetypes in RangeIQ and see the exact dollar sizing for every street, with IQ Reasoning explaining every decision.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Choose Your Opponent Type &rarr;</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">See all RangeIQ resources &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
