@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+    gtag('config', 'G-WVG2PWLN8F');
+  </script>
+
+  <title>GTO Wizard Alternative for Live Poker | RangeIQ</title>
+  <meta name="description" content="RangeIQ is the exploit-based alternative to GTO solvers. Built for live $1/$3 players, not online grinders. 9 opponent types, dollar sizing.">
+  <meta property="og:title" content="GTO Wizard Alternative for Live Poker | RangeIQ">
+  <meta property="og:description" content="RangeIQ is the exploit-based alternative to GTO solvers. Built for live $1/$3 players, not online grinders. 9 opponent types, dollar sizing.">
+  <meta property="og:url" content="https://rangeiqpoker.com/gto-wizard-alternative-live-poker.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta property="og:site_name" content="RangeIQ Poker">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GTO Wizard Alternative for Live Poker | RangeIQ">
+  <meta name="twitter:description" content="RangeIQ is the exploit-based alternative to GTO solvers. Built for live $1/$3 players, not online grinders.">
+  <meta name="twitter:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/gto-wizard-alternative-live-poker.html">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "GTO Wizard Alternative for Live Poker",
+        "description": "RangeIQ is the exploit-based alternative to GTO solvers. Built for live $1/$3 players, not online grinders.",
+        "url": "https://rangeiqpoker.com/gto-wizard-alternative-live-poker.html",
+        "publisher": {
+          "@type": "Organization",
+          "name": "RangeIQ Poker",
+          "url": "https://rangeiqpoker.com"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is exploitative play just guessing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Exploitative play is mathematically grounded — it adjusts optimal frequencies based on known opponent tendencies. If a player folds to river bets 70% of the time, the maximally profitable adjustment is to bluff more rivers. That is not guessing; it is applied math against a known deviation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I develop bad habits if I do not study GTO?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RangeIQ's recommendations are grounded in sound fundamentals. The engine does not recommend plays that are exploitable by competent opponents — it recommends adjustments against opponents who are themselves unbalanced. Studying exploitative play against weak opponents does not make you weaker against strong ones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "I already have a solver subscription. Do I need both?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "That depends on your game. If you play mixed stakes (some online, some live), keeping your solver for online study and adding RangeIQ for live session review could make sense. If you play exclusively live $1/$3 or $2/$5, RangeIQ alone covers your study needs at a fraction of the cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can RangeIQ help me at $5/$10 and above?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RangeIQ supports stakes up to $5/$10. At higher stakes where opponents are more balanced, GTO-based study becomes more relevant. RangeIQ is strongest where your opponents have the most exploitable tendencies — which is $1/$2 through $5/$5 at most live rooms."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 20px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 32px 64px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .hero .eyebrow {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.1;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 .gold { color: var(--gold); }
+    .hero .subtitle {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Section common */
+    .section { padding: 80px 32px; }
+    .section-alt { background: var(--bg-alt); }
+    .section-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(26px, 4vw, 38px);
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .section-lead {
+      font-size: 17px; color: var(--muted); text-align: center;
+      max-width: 680px; margin: 0 auto 48px; line-height: 1.7;
+    }
+
+    /* Prose block for longer text */
+    .prose {
+      max-width: 720px; margin: 0 auto;
+    }
+    .prose p {
+      font-size: 16px; line-height: 1.75; color: var(--text); margin-bottom: 18px;
+    }
+    .prose strong { color: var(--text); font-weight: 600; }
+    .prose ul {
+      margin: 0 0 18px 24px; font-size: 16px; line-height: 1.75;
+    }
+    .prose li { margin-bottom: 6px; color: var(--text); }
+
+    /* Comparison table */
+    .comparison-wrapper {
+      max-width: 860px; margin: 0 auto; overflow-x: auto;
+    }
+    .comparison-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--card);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .comparison-table th {
+      padding: 16px 20px;
+      font-size: 14px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--gold);
+      text-align: left;
+      background: rgba(230,197,102,0.06);
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table td {
+      padding: 14px 20px;
+      font-size: 15px; color: var(--text);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .comparison-table td:first-child {
+      font-weight: 600; color: var(--muted);
+    }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table .highlight-col {
+      background: rgba(230,197,102,0.04);
+    }
+
+    /* Feature cards */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .feature-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .feature-item h3 {
+      font-size: 16px; font-weight: 700; color: var(--gold); margin-bottom: 8px;
+    }
+    .feature-item p {
+      font-size: 15px; line-height: 1.65; color: var(--muted);
+    }
+
+    /* Testimonial */
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial-quote {
+      font-size: 16px; line-height: 1.7; color: var(--muted);
+      font-style: italic; margin-bottom: 16px;
+    }
+    .testimonial-highlight { color: var(--gold); font-style: normal; font-weight: 600; }
+    .testimonial-author {
+      font-size: 13px; font-weight: 600; color: var(--faint);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 700px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; padding: 20px 24px;
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 600; color: var(--text);
+      transition: color 180ms ease;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-chevron {
+      flex-shrink: 0; width: 18px; height: 18px;
+      transition: transform 300ms ease;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 400ms ease; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 15px; line-height: 1.7; color: var(--muted);
+    }
+
+    /* Pricing comparison */
+    .pricing-mini {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+      max-width: 600px; margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+    }
+    .pricing-mini-header {
+      padding: 14px 16px;
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--gold);
+      background: rgba(230,197,102,0.06);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-mini-cell {
+      padding: 12px 16px;
+      font-size: 14px; color: var(--text);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .pricing-mini-cell:nth-child(3n) { background: rgba(230,197,102,0.04); }
+
+    /* CTA section */
+    .cta-section {
+      text-align: center;
+      padding: 80px 32px;
+      background: var(--bg-alt);
+    }
+    .cta-section h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px; color: var(--text); font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 16px; color: var(--muted); margin-bottom: 28px;
+      max-width: 540px; margin-left: auto; margin-right: auto;
+    }
+
+    /* Callout */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px auto;
+      max-width: 720px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 56px 20px 48px; }
+      .section { padding: 56px 20px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .comparison-table th, .comparison-table td { padding: 12px 14px; font-size: 13px; }
+    }
+  </style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0blshjqav");
+</script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">RangeIQ vs GTO Solvers</div>
+    <h1>A Practical <span class="gold">Exploit-Training Workflow</span> for Live Cash Players</h1>
+    <p class="subtitle">If you have ever stared at a solver output and thought "but my opponent would never do that," RangeIQ might be what you are looking for.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free &rarr;</a>
+  </header>
+
+  <!-- THE HONEST COMPARISON -->
+  <section class="section">
+    <h2 class="section-title">GTO Solvers Are Powerful. They Are Also Solving a Different Problem.</h2>
+    <div class="prose">
+      <p>GTO Wizard and similar solver-based tools are excellent products. They compute game-theory-optimal strategies &mdash; the mathematically unexploitable approach to poker. For high-stakes online players facing tough, balanced opponents, GTO study is essential.</p>
+      <p>But if you play live $1/$3 or $2/$5 cash games, you face a different reality:</p>
+      <ul>
+        <li><strong>Your opponents are not balanced.</strong> The <a href="calling-station-poker-strategy.html" style="color:var(--gold)">calling station</a> in Seat 4 is not going to start 3-betting light because a solver says he should.</li>
+        <li><strong>Stack depths are not standard.</strong> You regularly play 200&ndash;300BB deep. Most solver solutions assume 100BB.</li>
+        <li><strong>Pots go multiway.</strong> Three or four players see the flop regularly. Solver solutions are overwhelmingly heads-up.</li>
+        <li><strong>Bet sizes are in dollars.</strong> When the solver says "33% pot," you need to convert that into a chip amount &mdash; and whether 33% is even correct depends on who you are playing against.</li>
+      </ul>
+      <p><strong>GTO strategy tells you what to do against a perfect opponent. Exploit strategy tells you what to do against the opponent who is actually sitting across from you.</strong></p>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="section section-alt">
+    <h2 class="section-title">Side-by-Side Comparison</h2>
+    <p class="section-lead">A fair look at where each approach fits.</p>
+    <div class="comparison-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>GTO-Based Solvers</th>
+            <th class="highlight-col">RangeIQ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Strategy type</td>
+            <td>Game-theory optimal (balanced)</td>
+            <td class="highlight-col">Exploitative (opponent-specific)</td>
+          </tr>
+          <tr>
+            <td>Target player</td>
+            <td>Online grinders, high stakes</td>
+            <td class="highlight-col">Live cash, $1/$2 to $5/$10</td>
+          </tr>
+          <tr>
+            <td>Opponent modeling</td>
+            <td>Assumes balanced opponent</td>
+            <td class="highlight-col">9 distinct opponent archetypes</td>
+          </tr>
+          <tr>
+            <td>Bet sizing format</td>
+            <td>Percentage of pot or BB</td>
+            <td class="highlight-col">Exact dollar amounts</td>
+          </tr>
+          <tr>
+            <td>Explanations</td>
+            <td>Range frequencies, EV calculations</td>
+            <td class="highlight-col">Plain-English IQ Reasoning</td>
+          </tr>
+          <tr>
+            <td>Learning curve</td>
+            <td>Steep &mdash; requires solver literacy</td>
+            <td class="highlight-col">Minimal &mdash; enter hand, get answer</td>
+          </tr>
+          <tr>
+            <td>Multiway awareness</td>
+            <td>Limited</td>
+            <td class="highlight-col">Built into archetype behavior</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>$49&ndash;$99/month</td>
+            <td class="highlight-col">$14.99/month or $119/year</td>
+          </tr>
+          <tr>
+            <td>Free tier</td>
+            <td>Limited</td>
+            <td class="highlight-col">Yes, no credit card required</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WHEN GTO MAKES SENSE -->
+  <section class="section">
+    <h2 class="section-title">We Are Not Saying GTO Is Wrong</h2>
+    <div class="prose">
+      <p>GTO study has real value, even for live players:</p>
+      <ul>
+        <li>It builds a baseline understanding of hand strength and position</li>
+        <li>It teaches you to think about ranges rather than specific hands</li>
+        <li>It helps you identify when your own play deviates from sound fundamentals</li>
+      </ul>
+      <p>If you play $5/$10 or higher, or if you play online where opponents are more balanced, a GTO tool may be exactly what you need. RangeIQ is not trying to replace that.</p>
+    </div>
+    <div class="callout">
+      <strong>The bottom line:</strong> If your primary game is live $1/$2 or $1/$3, and you want to study how to adjust against the specific player types at your table, RangeIQ is purpose-built for that.
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section section-alt">
+    <h2 class="section-title">The Features That Matter for Live Study</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <h3>9 Opponent Archetypes</h3>
+        <p>Calling Station, Nit, TAG, LAG, Loose Passive, Maniac, and more. Select the type that matches your opponent.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Dollar-Based Sizing</h3>
+        <p>"Raise to $45" instead of "Raise to 3.2x." Every number corresponds to a real dollar amount at your stake level.</p>
+      </div>
+      <div class="feature-item">
+        <h3>IQ Reasoning</h3>
+        <p>Plain-English explanations, not "EV +2.3BB at 67% frequency." Understand why every recommendation works against this specific opponent.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Daily Drills</h3>
+        <p>Practice the exact spots you face at <a href="live-1-3-poker-tool.html" style="color:var(--gold)">$1/$3</a> &mdash; not solver-generated scenarios from $25/$50 online games.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Range Storyline</h3>
+        <p>See how your opponent's likely range changes from street to street. Understand why a turn card changes the situation.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Hand Vault</h3>
+        <p>Save hands you want to revisit. Build a library of your most common spots and review your decisions over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section">
+    <h2 class="section-title">What Live Players Are Saying</h2>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"A lot of poker software seems designed for people playing online against solid regulars. That's not the game I'm in. RangeIQ gets you thinking about adjustments: value betting bigger against someone who calls too much, choosing a sizing that makes sense in real dollars. <span class="testimonial-highlight">As a study tool for live poker, it's probably the most practical one I've used.</span>"</div>
+      <div class="testimonial-author">Live $2/$5 player</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <h2 class="section-title">Questions Solver Users Ask About RangeIQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          Is exploitative play just guessing?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Exploitative play is mathematically grounded &mdash; it adjusts optimal frequencies based on known opponent tendencies. If a player folds to river bets 70% of the time, the maximally profitable adjustment is to bluff more rivers. That is not guessing; it is applied math against a known deviation.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Will I develop bad habits if I do not study GTO?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">RangeIQ's recommendations are grounded in sound fundamentals. The engine does not recommend plays that are exploitable by competent opponents &mdash; it recommends adjustments against opponents who are themselves unbalanced. Studying exploitative play against weak opponents does not make you weaker against strong ones.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          I already have a solver subscription. Do I need both?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">That depends on your game. If you play mixed stakes (some online, some live), keeping your solver for online study and adding RangeIQ for live session review could make sense. If you play exclusively live $1/$3 or $2/$5, RangeIQ alone covers your study needs at a fraction of the cost. <a href="pricing.html" style="color:var(--gold)">See pricing &rarr;</a></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Can RangeIQ help me at $5/$10 and above?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">RangeIQ supports stakes up to $5/$10. At higher stakes where opponents are more balanced, GTO-based study becomes more relevant. RangeIQ is strongest where your opponents have the most exploitable tendencies &mdash; which is $1/$2 through $5/$5 at most live rooms.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <h2>See What <span style="color:var(--gold)">Exploitative Study</span> Looks Like</h2>
+    <p>Pick a hand from your last session. Enter it into RangeIQ. Select the opponent type you were facing. In 30 seconds, you will have an answer with a plain-English explanation.</p>
+    <p style="margin-bottom:28px; font-size:15px; color:var(--muted);">No credit card. No solver PhD required.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free &rarr;</a>
+    <p style="margin-top:20px; font-size:14px;"><a href="live-1-3-poker-tool.html" style="color:var(--gold); text-decoration:none;">See what RangeIQ does &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/strategy.html">Strategy</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

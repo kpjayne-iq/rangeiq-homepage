@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+    gtag('config', 'G-WVG2PWLN8F');
+  </script>
+
+  <title>Live Poker Hand Analysis Tool | RangeIQ Poker</title>
+  <meta name="description" content="Study your $1/$3 hands with exact dollar sizing, 9 opponent types, and plain-English explanations. Free to try, no credit card required.">
+  <meta property="og:title" content="Live Poker Hand Analysis Tool | RangeIQ Poker">
+  <meta property="og:description" content="Study your $1/$3 hands with exact dollar sizing, 9 opponent types, and plain-English explanations. Free to try, no credit card required.">
+  <meta property="og:url" content="https://rangeiqpoker.com/live-1-3-poker-tool.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta property="og:site_name" content="RangeIQ Poker">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Live Poker Hand Analysis Tool | RangeIQ Poker">
+  <meta name="twitter:description" content="Study your $1/$3 hands with exact dollar sizing, 9 opponent types, and plain-English explanations.">
+  <meta name="twitter:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/live-1-3-poker-tool.html">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Live Poker Hand Analysis Tool",
+        "description": "Study your $1/$3 hands with exact dollar sizing, 9 opponent types, and plain-English explanations.",
+        "url": "https://rangeiqpoker.com/live-1-3-poker-tool.html",
+        "publisher": {
+          "@type": "Organization",
+          "name": "RangeIQ Poker",
+          "url": "https://rangeiqpoker.com"
+        },
+        "about": {
+          "@type": "WebApplication",
+          "name": "RangeIQ Poker",
+          "url": "https://app.rangeiqpoker.com",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "All",
+          "offers": [
+            { "@type": "Offer", "name": "Free Tier", "price": "0", "priceCurrency": "USD" },
+            { "@type": "Offer", "name": "RangeIQ Pro", "price": "14.99", "priceCurrency": "USD" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is RangeIQ a solver?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Solvers compute game-theory-optimal strategies assuming balanced opponents. RangeIQ computes exploitative strategies against specific opponent types. If your opponent is a calling station who never folds, GTO and exploit are very different answers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use RangeIQ at the table during a live session?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RangeIQ is designed as a study tool for use between sessions. Using any analysis tool during live play would violate the rules of most cardrooms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What stakes does RangeIQ support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RangeIQ is calibrated for live cash games from $1/$2 through $5/$10. All bet sizing recommendations use exact dollar amounts for your stake level."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to know GTO to use RangeIQ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. RangeIQ gives you plain-English explanations with every recommendation. You do not need any background in solver theory."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 20px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 32px 64px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.1;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 .gold { color: var(--gold); }
+    .hero .subtitle {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: none;
+      margin-left: 16px;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-1px); }
+    .hero-ctas { margin-bottom: 16px; }
+    .hero-trust {
+      font-size: 13px; color: var(--faint); margin-top: 16px;
+    }
+
+    /* Section common */
+    .section { padding: 80px 32px; }
+    .section-alt { background: var(--bg-alt); }
+    .section-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(26px, 4vw, 38px);
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .section-lead {
+      font-size: 17px; color: var(--muted); text-align: center;
+      max-width: 640px; margin: 0 auto 48px; line-height: 1.6;
+    }
+
+    /* Feature bullets */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .feature-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .feature-item h3 {
+      font-size: 16px; font-weight: 700; color: var(--gold); margin-bottom: 8px;
+    }
+    .feature-item p {
+      font-size: 15px; line-height: 1.65; color: var(--muted);
+    }
+
+    /* How it works */
+    .how-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .how-step { text-align: center; }
+    .how-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 48px; color: rgba(230,197,102,0.15); line-height: 1;
+      margin-bottom: 16px;
+    }
+    .how-step h3 {
+      font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 10px;
+    }
+    .how-step p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+    /* Testimonial */
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial-quote {
+      font-size: 16px; line-height: 1.7; color: var(--muted);
+      font-style: italic; margin-bottom: 16px;
+    }
+    .testimonial-highlight { color: var(--gold); font-style: normal; font-weight: 600; }
+    .testimonial-author {
+      font-size: 13px; font-weight: 600; color: var(--faint);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    /* Pricing comparison */
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+      max-width: 700px; margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      text-align: center;
+    }
+    .pricing-card.pro { border-color: rgba(230,197,102,0.3); }
+    .pricing-card h3 {
+      font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px;
+    }
+    .pricing-card .price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px; color: var(--gold); margin-bottom: 20px;
+    }
+    .pricing-card .price span { font-size: 16px; color: var(--muted); }
+    .pricing-card ul {
+      list-style: none; text-align: left; padding: 0;
+    }
+    .pricing-card li {
+      font-size: 14px; color: var(--muted); padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      padding-left: 20px; position: relative;
+    }
+    .pricing-card li::before {
+      content: ''; position: absolute; left: 0; top: 14px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 700px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; padding: 20px 24px;
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 600; color: var(--text);
+      transition: color 180ms ease;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-chevron {
+      flex-shrink: 0; width: 18px; height: 18px;
+      transition: transform 300ms ease;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 400ms ease; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 15px; line-height: 1.7; color: var(--muted);
+    }
+
+    /* CTA section */
+    .cta-section {
+      text-align: center;
+      padding: 80px 32px;
+      background: var(--bg-alt);
+    }
+    .cta-section h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px; color: var(--text); font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 16px; color: var(--muted); margin-bottom: 28px;
+      max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 56px 20px 48px; }
+      .section { padding: 56px 20px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; gap: 40px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .hero-ctas .btn { display: block; width: 100%; margin: 0 0 12px; }
+      .btn-secondary { margin-left: 0; }
+    }
+  </style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0blshjqav");
+</script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Stop Guessing at the <span class="gold">$1/$3 Table</span>. Start Studying with Exact Answers.</h1>
+    <p class="subtitle">RangeIQ analyzes your live cash game hands against 9 real opponent types and tells you exactly what to do &mdash; in dollars, not solver speak.</p>
+    <div class="hero-ctas">
+      <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Analyze a Live Hand Free &rarr;</a>
+      <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+    </div>
+    <p class="hero-trust">No credit card required &middot; Works on any device &middot; Free tier available</p>
+  </header>
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <h2 class="section-title">You Already Know Something Is Off</h2>
+    <p class="section-lead">You play 2&ndash;3 sessions a week. You read the forums. You watch the vlogs. But when you face a $45 bet on a wet flop against the guy who never folds, you are not sure if you should call, raise to $140, or let it go. Solvers were not built for this moment.</p>
+    <div class="features-grid">
+      <div class="feature-item">
+        <h3>9 Opponent Archetypes</h3>
+        <p>Calling Station, Nit, TAG, LAG, Loose Passive, Maniac, and more. Each archetype changes how the engine evaluates your hand.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Dollar Amounts, Not BB</h3>
+        <p>Every recommendation uses real dollar sizes. "Raise to $45" means something at the table. "Raise to 15BB" does not.</p>
+      </div>
+      <div class="feature-item">
+        <h3>IQ Reasoning Explanations</h3>
+        <p>Every recommendation comes with a plain-English breakdown of why it is correct. No solver jargon, no unexplained numbers.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Preflop Through River</h3>
+        <p>Analyze any street. See how ranges shift as the board develops. Watch your opponent's range narrow across each street.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Daily Drills</h3>
+        <p>Practice spots you will actually face at the table. Get scored, get feedback, improve between sessions.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Free Tier &mdash; No Credit Card</h3>
+        <p>Full preflop analysis, 2 postflop analyses per day, and 5 daily drill questions. Start studying immediately.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-alt" id="how-it-works">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-lead">Enter a hand, pick an opponent, get an answer. It takes about 30 seconds.</p>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-number">1</div>
+        <h3>Enter Your Hand</h3>
+        <p>Pick your cards, position, and the action so far. Takes about 15 seconds.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-number">2</div>
+        <h3>Select Your Opponent</h3>
+        <p>Choose from 9 archetypes &mdash; Calling Station, Nit, TAG, LAG, and more. Each one represents a real player at live tables.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-number">3</div>
+        <h3>Get Your Answer</h3>
+        <p>RangeIQ returns the recommended action with exact dollar sizing, confidence level, and a plain-English explanation of why.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section">
+    <h2 class="section-title">What Live Players Are Saying</h2>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"I've tried some of the solver stuff and honestly it just never clicked for me. RangeIQ makes a lot more sense for the games I play. Being able to look at a hand based on the type of player I was against has been really helpful. <span class="testimonial-highlight">It's made me think more about the player and less about trying to find some perfect textbook answer.</span>"</div>
+      <div class="testimonial-author">Live $1/$3 player</div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section section-alt">
+    <h2 class="section-title">Free to Start. No Credit Card.</h2>
+    <p class="section-lead">Start studying your live hands today. Upgrade to Pro when you are ready for unlimited analysis.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Free</h3>
+        <div class="price">$0<span>/forever</span></div>
+        <ul>
+          <li>Full preflop analysis</li>
+          <li>2 postflop analyses per day</li>
+          <li>5 daily drill questions</li>
+          <li>3 opponent archetypes</li>
+          <li>Works on any device</li>
+        </ul>
+      </div>
+      <div class="pricing-card pro">
+        <h3>Pro</h3>
+        <div class="price">$14.99<span>/month</span></div>
+        <ul>
+          <li>Unlimited postflop analysis</li>
+          <li>All 9 opponent archetypes</li>
+          <li>Unlimited daily drills</li>
+          <li>IQ Reasoning AI explanations</li>
+          <li>Hand vault with unlimited saves</li>
+          <li>Full Range Builder access</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:24px; font-size:14px; color:var(--muted);">Annual plan: $119/year (save 34%) &middot; <a href="pricing.html" style="color:var(--gold); text-decoration:none;">See full pricing details &rarr;</a></p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          Is RangeIQ a solver?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Solvers compute game-theory-optimal strategies assuming balanced opponents. RangeIQ computes exploitative strategies against specific opponent types. If your opponent is a <a href="calling-station-poker-strategy.html" style="color:var(--gold)">calling station</a> who never folds, GTO and exploit are very different answers.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I use RangeIQ at the table?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">RangeIQ is designed as a study tool for use between sessions. Using any analysis tool during live play would violate the rules of most cardrooms.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What stakes does RangeIQ support?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">RangeIQ is calibrated for live cash games from $1/$2 through $5/$10. All bet sizing recommendations use exact dollar amounts for your stake level.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need to know GTO to use RangeIQ?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. RangeIQ gives you plain-English explanations with every recommendation. You do not need any background in solver theory. If you are curious about the difference, see our <a href="gto-wizard-alternative-live-poker.html" style="color:var(--gold)">GTO comparison page</a>.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <h2>Start Studying Your <span style="color:var(--gold)">Live Hands</span> Today</h2>
+    <p>Enter a hand, pick an opponent, get an answer. It takes 30 seconds and no credit card.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free &rarr;</a>
+    <p style="margin-top:20px; font-size:14px;"><a href="strategy.html" style="color:var(--gold); text-decoration:none;">Read our strategy guides &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/strategy.html">Strategy</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
