@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  gtag('config', 'G-WVG2PWLN8F');
+  </script>
+
+  <title>How Much to Raise Limpers in Live $1/$3 Poker | RangeIQ</title>
+  <meta name="description" content="The right raise size over limpers in live $1/$3 poker depends on the table. Learn exact dollar amounts, not formulas, for common limped pot scenarios.">
+  <meta name="keywords" content="raise limpers live poker, preflop sizing $1/$3, how much to raise over limpers, live poker raise size, limped pot strategy">
+  <meta property="og:title" content="How Much to Raise Limpers in Live $1/$3 Poker">
+  <meta property="og:description" content="The right raise size over limpers in live $1/$3 poker depends on the table. Learn exact dollar amounts, not formulas, for common limped pot scenarios.">
+  <meta property="og:url" content="https://rangeiqpoker.com/raise-limpers-live-poker.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How Much to Raise Limpers in Live $1/$3 Poker">
+  <meta name="twitter:description" content="The right raise size over limpers in live $1/$3 poker depends on the table. Learn exact dollar amounts, not formulas, for common limped pot scenarios.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/raise-limpers-live-poker.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Much to Raise Limpers in Live $1/$3 Poker",
+    "description": "The right raise size over limpers in live $1/$3 poker depends on the table. Learn exact dollar amounts, not formulas, for common limped pot scenarios.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-06-01",
+    "url": "https://rangeiqpoker.com/raise-limpers-live-poker.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["raise limpers live poker", "preflop sizing $1/$3", "how much to raise over limpers", "live poker raise size", "limped pot strategy"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 20px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+    .article-body ul, .article-body ol {
+      margin: 0 0 18px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body li { margin-bottom: 6px; }
+
+    /* Hand example card */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+
+    /* Callout box */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .hand-example { padding: 20px; }
+      .hand-example .decision-line { font-size: 18px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0blshjqav");
+</script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>How Much Should You <span class="gold">Raise Limpers</span> in Live $1/$3 Poker</h1>
+    <p class="subtitle">Forget the 3x+1 formula. The right raise size over limpers in live $1/$3 depends on who limped, how many, and what your table actually responds to.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; June 2026 &middot; 8 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>You're sitting in a $1/$3 game. Two players limp in front of you. You look down at A&spades; K&diams;. You want to raise. But how much?</p>
+
+    <p>If you've read any poker book published in the last fifteen years, you probably know the "formula": raise to 3x the big blind plus one big blind per limper. In a $1/$3 game with two limpers, that's $9 + $3 + $3 = $15.</p>
+
+    <p>Here's the thing: that formula was designed for online poker in the mid-2000s. It works reasonably well in that context. But live $1/$3 poker in 2026 is a completely different animal, and the $15 raise into a pot with two limpers is often leaving money on the table &mdash; or worse, failing to accomplish its purpose entirely.</p>
+
+    <h2>The Goal of Raising Limpers</h2>
+
+    <p>Before we talk about sizing, let's talk about <em>why</em> you're raising limpers in the first place. You have three objectives:</p>
+
+    <ol>
+      <li><strong>Thin the field.</strong> You want fewer opponents postflop. Your premium hands play better against one or two players, not five.</li>
+      <li><strong>Build the pot with a positional advantage.</strong> When you raise in position, you want a bigger pot because you'll have more information on every street.</li>
+      <li><strong>Charge draws and weak hands.</strong> Limpers often have speculative hands &mdash; suited connectors, small pairs, suited aces. You want to make them pay a premium to see a flop.</li>
+    </ol>
+
+    <p>The right raise size is the one that accomplishes all three of these goals against the specific players at your table. And at a typical live $1/$3 game, that size is almost always larger than the formula suggests.</p>
+
+    <h2>Why $15 Doesn't Cut It</h2>
+
+    <p>At most $1/$3 tables, a $15 raise into two limpers gets called by everyone. You end up in a $60+ pot, four ways, with ace-king &mdash; which is not where you want to be. Ace-king wants to play for stacks preflop or heads-up postflop. Four-way, you're going to miss the flop two-thirds of the time, and when you do flop an ace, you have three opponents who might have two pair or better.</p>
+
+    <p>The problem is straightforward: $15 is cheap. The limpers already put in $3. They're being asked to put in $12 more to win a pot that will be at least $30 and probably more. That's 2.5-to-1 or better, which is a price most recreational players will happily pay with almost any two cards.</p>
+
+    <h2>The Right Sizing: Dollars, Not Multiples</h2>
+
+    <p>At a typical $1/$3 game, effective raise sizes against limpers look something like this:</p>
+
+    <ul>
+      <li><strong>One limper, tight table:</strong> $12 to $15</li>
+      <li><strong>One limper, loose table:</strong> $15 to $20</li>
+      <li><strong>Two limpers, any table:</strong> $20 to $25</li>
+      <li><strong>Three or more limpers, any table:</strong> $25 to $35</li>
+      <li><strong>Straddled pot with limpers:</strong> Add $10 to $15 to all of the above</li>
+    </ul>
+
+    <p>These aren't arbitrary numbers. They're calibrated to the price elasticity of live $1/$3 players. Most recreational players have a psychological threshold &mdash; a number that makes them think twice about calling. At $1/$3, that threshold is usually somewhere around $20 to $25. Below that number, they call with anything. Above it, they start to tighten up.</p>
+
+    <h3>Hand Example: Sizing That Actually Works</h3>
+
+    <p>You're in a $1/$3 game with $300 effective stacks. A loose-passive player limps from under the gun. Another loose player limps from middle position. You're in the cutoff with K&spades; K&hearts;.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">PREFLOP</span>
+        <span class="spot-info">K&spades; K&hearts; in CO &middot; 2 limpers &middot; $1/$3 &middot; $300 eff</span>
+      </div>
+      <div class="opponent-label">Bad Sizing vs Good Sizing</div>
+      <div class="decision-line">Raise to $25 &mdash; Isolate and Build the Pot</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> A $15 raise gets called by both limpers plus the big blind. You see the flop four-way with pocket kings &mdash; a recipe for cooler situations on ace-high boards. A $25 raise folds out one or both limpers, leaving you heads-up with position and a bigger pot. The extra $10 preflop completely changes the trajectory of the hand: fewer opponents means more clarity, more control, and fewer spots where you're guessing whether an ace on the flop hit someone.
+      </div>
+    </div>
+
+    <p><strong>Bad sizing:</strong> You raise to $15. Both limpers call, plus the big blind. Four players see the flop. Pot: $61.</p>
+
+    <p>The flop comes A&hearts; 7&clubs; 4&diams;. The big blind checks, UTG checks, MP checks. You bet $35, one player calls. The turn is a Q&spades;. Opponent checks, you check back nervously. River is a 3&clubs;. Opponent bets $50. Do they have an ace? Did they call preflop with A-8 suited? You don't know, and now you're in a marginal spot with an overpair in a bloated, multiway pot.</p>
+
+    <p><strong>Good sizing:</strong> You raise to $25. One limper calls, everyone else folds. Two players see the flop. Pot: $56.</p>
+
+    <p>The flop comes A&hearts; 7&clubs; 4&diams;. One opponent to worry about. You make a smaller c-bet of $30. Opponent folds their 9&spades; 8&spades;. You take down the pot without drama.</p>
+
+    <p>The extra $10 preflop completely changed the trajectory of the hand. Fewer opponents means more clarity, more control, and fewer cooler situations.</p>
+
+    <h2>Adjusting for Opponent Type</h2>
+
+    <p>The optimal raise size also depends on who's doing the limping.</p>
+
+    <div class="callout">
+      <strong>Against a <a href="/exploit-calling-stations-live-poker.html" style="color:var(--gold);">calling station</a> limper:</strong> Go bigger &mdash; $25 to $30 even with one limper. They're calling anyway, but you're building a pot where your value hands will print money. You want a big pot when you have position and a premium hand.
+    </div>
+
+    <p><strong>Against a nit limper:</strong> This is unusual &mdash; nits don't limp often. When they do, it's usually a hand like small pairs or suited aces. A standard $15 to $18 raise often isolates them, and they'll fold to a c-bet on most flops they miss.</p>
+
+    <p><strong>Against a loose-passive limper:</strong> These players call a wide range preflop but play passively postflop. Raise to $20 to $25 and plan to value bet every street when you connect. Their passive postflop tendencies make them ideal opponents in heads-up pots.</p>
+
+    <p><strong>Against a maniac limper:</strong> Maniacs sometimes limp with strong hands to trap. A raise to $20 is fine, but be prepared for a big re-raise. If a known maniac limp-raises, respect it &mdash; this is one of the rare situations where a recreational player's unusual action means exactly what it looks like.</p>
+
+    <h2>The Straddle Adjustment</h2>
+
+    <p>Straddle pots are common in live poker and they change the math significantly. In a $1/$3 game with a $6 straddle, the effective big blind is now $6, not $3. Your raise sizes need to adjust accordingly.</p>
+
+    <p>With a straddle and two limpers, a raise to $30 to $40 is not unreasonable. It sounds like a lot, but remember &mdash; the pot already has $18 to $24 in it from the straddle and limpers. You're raising to about 5x the straddle, which is proportionally the same as raising to $15 in a non-straddled pot.</p>
+
+    <p>Don't be afraid of big numbers. Your opponents aren't thinking in terms of multiples. They're thinking, "Is $35 too much to call with jack-ten suited?" For most recreational players, the answer is yes &mdash; and that's exactly the outcome you want.</p>
+
+    <h2>Common Mistakes With Limper Raises</h2>
+
+    <p><strong>Using the same size every time.</strong> If you always raise to $15, your opponents learn that $15 is "just what you do" and they stop giving it credit. Varying between $15 and $30 based on the situation keeps opponents guessing and ensures you're sizing appropriately for each spot.</p>
+
+    <p><strong>Raising too small because you're worried about being "pot committed."</strong> At $300 effective stacks, a $25 preflop raise is 8% of your stack. You're nowhere close to committed. You can still fold to a three-bet or abandon the hand postflop if the board is terrible.</p>
+
+    <p><strong>Not raising at all because "everyone calls anyway."</strong> Even if everyone calls, you've built a bigger pot with a range advantage. But more importantly, this mentality is often wrong &mdash; players <em>do</em> fold to larger raises. You just haven't tried large enough.</p>
+
+    <h2>Practice Your Preflop Sizing</h2>
+
+    <p>Preflop decisions set the tone for the entire hand. Getting the raise size right against limpers is one of the highest-impact adjustments a live $1/$3 player can make, and it's a skill that benefits from deliberate study.</p>
+
+    <p>RangeIQ Poker gives you exact dollar recommendations for preflop raises against each opponent archetype. You can set up a limped pot scenario &mdash; two limpers, specific positions, specific stacks &mdash; and see whether $15, $20, or $25 is the right play. The IQ Reasoning explains why, connecting the sizing to the specific tendencies of the archetype you're facing.</p>
+
+    <p>No credit card required. Set up a limped pot scenario from your last session and compare your sizing to the engine's recommendation.</p>
+
+    <p><em>Related reading: <a href="/exploit-calling-stations-live-poker.html">How to Exploit Calling Stations</a> &middot; <a href="/strategy">Strategy Guide</a> &middot; <a href="/live-1-3-poker-tool.html">Live $1/$3 Poker Tool</a></em></p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Get Your Sizing <span style="color:var(--gold)">Right</span></h2>
+    <p>Set up a limped pot in RangeIQ, pick the opponent archetypes at your table, and see the exact dollar raise size with IQ Reasoning explaining every decision.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Analyze Your Limped Pot Free &rarr;</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">See all RangeIQ resources &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>

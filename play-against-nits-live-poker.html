@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  gtag('config', 'G-WVG2PWLN8F');
+  </script>
+
+  <title>How to Play Against Nits in Live Cash Games | RangeIQ</title>
+  <meta name="description" content="Nits are the tightest players at your table. Learn when to steal, when to fold, and how to stop paying them off in live $1/$3 and $2/$5 poker.">
+  <meta name="keywords" content="play against nits poker, nit poker strategy, tight player exploit, live poker nit, how to beat nits">
+  <meta property="og:title" content="How to Play Against Nits in Live Cash Games">
+  <meta property="og:description" content="Nits are the tightest players at your table. Learn when to steal, when to fold, and how to stop paying them off in live $1/$3 and $2/$5 poker.">
+  <meta property="og:url" content="https://rangeiqpoker.com/play-against-nits-live-poker.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Play Against Nits in Live Cash Games">
+  <meta name="twitter:description" content="Nits are the tightest players at your table. Learn when to steal, when to fold, and how to stop paying them off in live $1/$3 and $2/$5 poker.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/play-against-nits-live-poker.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Play Against Nits in Live Cash Games",
+    "description": "Nits are the tightest players at your table. Learn when to steal, when to fold, and how to stop paying them off in live $1/$3 and $2/$5 poker.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-06-01",
+    "url": "https://rangeiqpoker.com/play-against-nits-live-poker.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["play against nits poker", "nit poker strategy", "tight player exploit", "live poker nit", "how to beat nits"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 20px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+    .article-body ul, .article-body ol {
+      margin: 0 0 18px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body li { margin-bottom: 6px; }
+
+    /* Hand example card */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+
+    /* Callout box */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .hand-example { padding: 20px; }
+      .hand-example .decision-line { font-size: 18px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0blshjqav");
+</script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>How to Play Against <span class="gold">Nits</span> in Live Cash Games</h1>
+    <p class="subtitle">The tightest player at your table is bleeding money every orbit &mdash; and most players still pay them off when they finally bet. Here's how to stop.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; June 2026 &middot; 7 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>Every live cash game has at least one. They sit quietly, fold hand after hand, and then suddenly wake up with a raise that sends the entire table scrambling to fold. They haven't voluntarily put money in the pot in forty-five minutes, but when they do, everyone knows it means business.</p>
+
+    <p>This is the Nit &mdash; the tight-passive player who only plays premium hands and rarely bluffs. And while nits might seem like the least dangerous opponent at your table, they're often the most misplayed. Not because they're tricky, but because most players don't adjust enough.</p>
+
+    <h2>Understanding the Nit's Leak</h2>
+
+    <p>A nit's fundamental leak is that they fold too much. Way too much. A typical nit at a $1/$3 game plays maybe 8% to 12% of their hands &mdash; aces, kings, queens, ace-king, and occasionally jacks or tens from late position. Compare this to a reasonable opening range of 20% to 25%, and you can see the problem: a nit is giving up equity in 85%+ of hands they're dealt.</p>
+
+    <p>This means the nit is bleeding money through the blinds. In a standard 9-handed $1/$3 game, a nit posts $4 in blinds per orbit (nine hands). Over a four-hour session of roughly 120 hands, that's about $53 in blinds alone. If they're playing 10% of hands, they need to make an average of $5.30 per hand they play just to break even on blinds. That's a massive tax, and it's one you can exploit by making their folding even more expensive.</p>
+
+    <h2>Stealing From Nits: Free Money on the Table</h2>
+
+    <p>The simplest and most effective exploit against nits is relentless blind stealing. When a nit is in the big blind, raise from late position with a much wider range than you normally would. They're going to fold 85%+ of the time, which means your raise shows an immediate profit regardless of what you're holding.</p>
+
+    <p>Here's the math. You raise to $10 from the button when the nit is in the big blind. The small blind folds (assume they fold 80% of the time). The nit folds 85% of the time. That means you pick up the blinds ($4) about 68% of the time without seeing a flop. The 32% of the time someone calls, you have position and can make a decision on the flop.</p>
+
+    <p>At $1/$3, this might only be $3 or $4 per steal attempt. But you get this opportunity every orbit, and over a session, it adds up to $30 to $50 in pure profit from a player who never adjusts.</p>
+
+    <h2>When the Nit Bets: Believe Them</h2>
+
+    <p>This is the most important adjustment and the one that saves you the most money: <strong>when a nit puts in a significant raise or re-raise, they have the goods.</strong> Full stop.</p>
+
+    <p>The biggest mistake players make against nits is not believing them. You raise with ace-queen, the nit three-bets to $35, and you think, "Maybe they're finally mixing it up." They're not. They have aces or kings. Maybe ace-king if you're lucky. Fold and move on.</p>
+
+    <h3>Hand Example: The Expensive Lesson</h3>
+
+    <p>You're playing $1/$3 with $350 effective stacks. You open to $12 from the hijack with A&spades; Q&spades;. The nit in the small blind, who has raised preflop twice in two hours (both times with pocket aces), three-bets to $40.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">PREFLOP</span>
+        <span class="spot-info">A&spades; Q&spades; vs Nit 3-bet &middot; HJ vs SB &middot; $1/$3 &middot; $350 effective</span>
+      </div>
+      <div class="opponent-label">vs Nit</div>
+      <div class="decision-line">Fold &mdash; Save $338</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> This specific player has only raised preflop twice in two hours &mdash; both times with pocket aces. Their three-bet range is AA, KK, and maybe AK. Against that range, your AQs is dominated and roughly a 30% underdog. Calling costs you an average of $338 when the hand plays out. Folding costs $12. The exploit is simple: believe the nit and move on to the next hand where the <a href="/exploit-calling-stations-live-poker.html" style="color:var(--gold);">calling station</a> limps from under the gun.
+      </div>
+    </div>
+
+    <p><strong>Losing play:</strong> You call because ace-queen suited is "too good to fold." The flop comes A&hearts; 8&clubs; 5&diams;. The nit bets $55 into the $83 pot. You call because "you hit your ace." The turn is a 3&spades;. The nit bets $100. You tank-call because you're "pot committed." The river is a 2&diams;. The nit shoves for $155. You make a crying call.</p>
+
+    <p>The nit shows A&diams; A&clubs;. You just lost $350 in a hand you should have folded preflop for $12.</p>
+
+    <p><strong>Winning play:</strong> The nit three-bets to $40. You fold. You lose $12. You move on to the next hand, where the calling station limps from under the gun and you get to value bet three streets with top pair.</p>
+
+    <div class="callout">
+      <strong>The fold saves you $338.</strong> Over a year of weekly play, making this fold correctly every time it comes up is worth thousands of dollars.
+    </div>
+
+    <h2>Postflop Play Against Nits</h2>
+
+    <p>When you do end up in a pot against a nit &mdash; either because you called their raise with a speculative hand or because they limped and you raised &mdash; the postflop rules are simple:</p>
+
+    <p><strong>C-bet aggressively on most boards.</strong> Nits who call preflop and check to you on the flop usually have a marginal hand like jacks on a queen-high board. A standard c-bet of $15 to $25 into a $30 to $40 pot takes it down a large percentage of the time.</p>
+
+    <p><strong>Shut down when they raise.</strong> If you c-bet $20 on the flop and a nit raises to $60, you are almost always behind. This is not a "creative" play from a tight player. This is top set, an overpair, or at minimum top pair with a premium kicker. Unless you have a very strong hand yourself, fold immediately.</p>
+
+    <p><strong>Don't value bet thin.</strong> Against <a href="/exploit-calling-stations-live-poker.html">calling stations</a>, you'd bet top pair for three streets of value. Against nits, top pair is often one street of value at best. If a nit calls your flop bet and then calls your turn bet, they very likely have you beaten. Proceed with extreme caution.</p>
+
+    <h2>The Trap Awareness Principle</h2>
+
+    <p>Nits are one of the few recreational player types who occasionally set traps. A nit might limp with pocket aces from early position, hoping someone raises so they can re-raise. Or they might just call a preflop raise with kings, planning to check-raise the flop.</p>
+
+    <p>The tell is usually in the deviation from their normal pattern. If a nit who always raises premium hands suddenly just calls, ask yourself why. The answer is almost always: they have a monster and they're trying to be sneaky.</p>
+
+    <p>The counter is simple: when a nit does something unusual, give them more credit, not less. A nit limping from early position should raise a red flag. A nit calling a three-bet cold should set off alarm bells. These actions are so rare from tight players that they're almost always exactly what they look like.</p>
+
+    <h2>Five Quick Tips for Nit Exploitation</h2>
+
+    <ol>
+      <li><strong>Raise their blinds relentlessly.</strong> Any two cards from late position when a nit is in the big blind.</li>
+      <li><strong>Fold to their three-bets.</strong> Even with jacks and ace-queen. The math supports it.</li>
+      <li><strong>C-bet and give up.</strong> One c-bet on the flop. If they call, slow down. If they raise, fold.</li>
+      <li><strong>Don't try to trap them back.</strong> Nits don't put in money without strong hands, so trapping only works if you have the nuts.</li>
+      <li><strong>Don't take it personally.</strong> Nits aren't targeting you. They're playing scared poker against everyone. Your job is to collect their blinds.</li>
+    </ol>
+
+    <h2>Build Your Nit-Exploiting Instincts</h2>
+
+    <p>Knowing these concepts is the first step. Internalizing them &mdash; so that you automatically fold ace-queen to a nit's three-bet without agonizing &mdash; takes practice.</p>
+
+    <p>RangeIQ Poker includes a Nit archetype that behaves exactly like the tight players at your table. You can set up common scenarios &mdash; facing a nit's preflop raise, defending your blind against a nit, playing postflop in a heads-up pot against a tight range &mdash; and see the exact dollar-amount recommendations for each situation. The IQ Reasoning walks you through the logic so you understand when folding a strong hand is the most profitable play.</p>
+
+    <p>No credit card required. Set up a hand against the Nit archetype and see how your instincts compare to the exploit engine's recommendations.</p>
+
+    <p><em>Related reading: <a href="/exploit-calling-stations-live-poker.html">How to Exploit Calling Stations</a> &middot; <a href="/gto-vs-exploit-training-live-poker.html">GTO vs. Exploit Training</a> &middot; <a href="/strategy">Strategy Guide</a> &middot; <a href="/live-1-3-poker-tool.html">Live $1/$3 Poker Tool</a></em></p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Put It Into Practice <span style="color:var(--gold)">Right Now</span></h2>
+    <p>Load the Nit archetype in RangeIQ, enter any hand you played, and see the optimal play with IQ Reasoning explaining every decision.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Practice Against a Nit Free &rarr;</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">See all RangeIQ resources &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
