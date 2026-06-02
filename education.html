@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>Poker Education &amp; Training — Learn Exploitative Strategy for Live Cash Games | RangeIQ</title>
+  <meta name="description" content="Free poker education hub for live cash game players. Learn exploitative strategy, opponent profiling, bet sizing, IQ Reasoning, and how to study poker effectively between sessions. Training tools, articles, and hand examples included.">
+  <meta property="og:title" content="Poker Education & Training — Learn Exploitative Strategy for Live Cash Games">
+  <meta property="og:description" content="Free poker education hub. Learn exploitative strategy, opponent profiling, bet sizing, and how to study poker effectively between sessions.">
+  <meta property="og:url" content="https://rangeiqpoker.com/education.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Poker Education & Training — RangeIQ">
+  <meta name="twitter:description" content="Free poker education for live cash players. Exploitative strategy, opponent profiling, and training tools.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/education.html">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Poker Education & Training — Learn Exploitative Strategy for Live Cash Games",
+    "description": "Free poker education hub for live cash game players. Learn exploitative strategy, opponent profiling, bet sizing, IQ Reasoning, and how to study poker effectively between sessions.",
+    "url": "https://rangeiqpoker.com/education.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "GameApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "mainEntity": {
+      "@type": "EducationalOrganization",
+      "name": "RangeIQ Poker",
+      "description": "Poker education platform teaching exploitative strategy for live cash games through interactive training tools, opponent profiling, and IQ Reasoning explanations.",
+      "url": "https://rangeiqpoker.com",
+      "educationalCredentialAwarded": "none",
+      "teaches": ["Exploitative poker strategy", "Opponent profiling", "Bet sizing for live cash games", "Preflop range construction", "Postflop decision making", "Node-locking simplified"]
+    },
+    "keywords": ["poker education", "poker training", "learn poker strategy", "exploitative poker", "live cash game training", "poker study tools", "how to study poker", "poker coaching alternative", "opponent profiling poker"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 20px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Hero */
+    .edu-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .edu-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.08;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .edu-hero h1 .gold { color: var(--gold); }
+    .edu-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Content body */
+    .edu-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 32px 40px;
+    }
+    .edu-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .edu-body h2:first-child { margin-top: 0; }
+    .edu-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 32px 0 12px;
+    }
+    .edu-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .edu-body strong { color: var(--text); font-weight: 600; }
+    .edu-body em { color: var(--muted); }
+    .edu-body ul, .edu-body ol {
+      margin: 0 0 18px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .edu-body li { margin-bottom: 8px; }
+
+    /* Ad slot placeholder — replace with AdSense code after approval */
+    .ad-slot {
+      max-width: 728px;
+      margin: 32px auto;
+      padding: 0;
+      text-align: center;
+      min-height: 90px;
+    }
+
+    /* Topic cards */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+    .topic-card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-decoration: none;
+      transition: border-color 200ms ease, transform 200ms ease;
+    }
+    .topic-card:hover {
+      border-color: var(--border-hi);
+      transform: translateY(-2px);
+    }
+    .topic-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .topic-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .topic-card .link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* Opponent type list */
+    .type-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 18px 0 24px;
+      list-style: none;
+      padding: 0;
+    }
+    .type-list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 14px;
+    }
+    .type-list li strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .type-list li span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Callout */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
+    /* CTA section */
+    .edu-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .edu-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .edu-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 700px) {
+      .edu-hero { padding: 48px 20px 36px; }
+      .edu-body { padding: 32px 20px 32px; }
+      .edu-body h2 { font-size: 24px; }
+      .topic-grid { grid-template-columns: 1fr; }
+      .type-list { grid-template-columns: 1fr 1fr; }
+      .edu-cta { padding: 48px 20px; }
+      .edu-cta h2 { font-size: 26px; }
+    }
+    @media (max-width: 480px) {
+      .type-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="strategy.html">Strategy</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="education.html" class="active">Education</a></li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="edu-hero">
+    <h1>Poker <span class="gold">Education</span> &amp; Training</h1>
+    <p class="subtitle">Learn exploitative poker strategy for live cash games. Free articles, hand examples, and interactive training tools &mdash; all built around how real opponents actually play.</p>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <article class="edu-body">
+
+    <h2>What RangeIQ Teaches</h2>
+
+    <p>Most poker education focuses on game-theory-optimal play &mdash; the strategy designed to be unexploitable against perfect opponents. That makes sense in high-stakes online play where your opponents study the same solvers you do. At a live $1/$3 or $2/$5 table, the situation is fundamentally different. Your opponents have consistent, repeatable tendencies that a balanced strategy deliberately ignores. RangeIQ is built around the opposite approach: identify what each opponent does wrong, then calculate the most profitable way to punish it.</p>
+
+    <p>This is called <strong>exploitative poker strategy</strong>, and it produces significantly higher win rates in live cash games than pure GTO play. The reason is straightforward: when your opponent folds too much, bluffing more is profitable. When they call too much, value betting larger is profitable. When they bluff too often, calling down wider is profitable. GTO ignores these tendencies by design. Exploitative play targets them directly.</p>
+
+    <!-- Ad slot 1 — top of content -->
+    <div class="ad-slot" id="ad-top">
+      <!-- AdSense ad unit code goes here after approval -->
+    </div>
+
+    <h2>The 9 Opponent Types</h2>
+
+    <p>RangeIQ organizes live opponents into nine distinct profiles, each with specific tendencies the engine exploits. Learning to recognize these types is the foundation of profitable live play.</p>
+
+    <ul class="type-list">
+      <li><strong>Nit</strong><span>Premium hands only. Folds to almost any pressure.</span></li>
+      <li><strong>TAG</strong><span>Tight, balanced, respects strong lines.</span></li>
+      <li><strong>LAG</strong><span>Wide range, high bluff frequency.</span></li>
+      <li><strong>Young Aggro</strong><span>3-bets relentlessly. Barrels all three streets.</span></li>
+      <li><strong>Loose Passive</strong><span>Calls wide passively. Rarely raises.</span></li>
+      <li><strong>Calling Station</strong><span>Calls everything. Never folds to reasonable bets.</span></li>
+      <li><strong>Maniac</strong><span>Aggression off the charts. Bluffs constantly.</span></li>
+      <li><strong>Recreational</strong><span>Unpredictable. Wide passive with random aggression.</span></li>
+      <li><strong>Unknown</strong><span>Population average until you have a read.</span></li>
+    </ul>
+
+    <p>Each opponent type carries a complete behavioral profile inside the engine: VPIP, aggression frequency, fold-to-bet rates on every street, and bluff frequency. When you select an opponent type, the engine calculates the mathematically optimal counter-strategy for that exact set of tendencies. You get a specific dollar-amount recommendation, a confidence score, and an IQ Reasoning explanation of why that play is correct.</p>
+
+    <h2>How the Training Works</h2>
+
+    <p>RangeIQ is a study and training tool designed for use between poker sessions. You bring in the hands that mattered from your last session, pick the opponent type you were facing, and get the engine&rsquo;s recommendation in exact dollars with a full explanation of the logic. Over time, this builds durable poker intuition &mdash; the kind that transfers to new spots you have never specifically studied.</p>
+
+    <h3>Exploit Analyzer</h3>
+
+    <p>The core tool. Enter any hand &mdash; your cards, the board, positions, pot size, and what the opponent did &mdash; then select the opponent type. The engine returns the highest-EV action in dollars, not abstract frequencies. A $1/$3 player sees &ldquo;Bet $18&rdquo; instead of &ldquo;bet 60% pot at 0.73 frequency.&rdquo; Every recommendation includes IQ Reasoning &mdash; a plain-English explanation locked to the engine math that tells you <em>why</em> the play is correct against this specific opponent type.</p>
+
+    <h3>Daily Exploit Drills</h3>
+
+    <p>Five-minute focused training sessions. Each drill presents a realistic hand scenario against a specific opponent type and asks you to choose the best action. After answering, you see the engine&rsquo;s recommendation, the IQ Reasoning, and how your answer compares. Drills cover preflop through river decisions across all nine opponent types, building pattern recognition through repetition.</p>
+
+    <h3>Range Builder</h3>
+
+    <p>Build preflop ranges that adapt to position, game situation, and opponent type. The range builder shows which hands to open, which to 3-bet, and which to fold &mdash; adjusted for whether you are facing a Nit who folds to pressure or a Maniac who 3-bets everything. Each range comes with a text summary explaining the strategic reasoning.</p>
+
+    <!-- Ad slot 2 — mid-content -->
+    <div class="ad-slot" id="ad-mid">
+      <!-- AdSense ad unit code goes here after approval -->
+    </div>
+
+    <h2>IQ Reasoning: The Teaching Engine</h2>
+
+    <p>Most training tools tell you what to do. RangeIQ also explains why. IQ Reasoning is a proprietary coaching layer that translates every engine recommendation into plain-English exploit logic. The math locks the answer. IQ Reasoning explains it.</p>
+
+    <p>This distinction matters for learning. Memorizing a chart tells you what to do in one specific spot. Understanding the reasoning tells you what to do in every similar spot. After reviewing fifty hands with IQ Reasoning, you stop thinking in numbers and start thinking in patterns: <em>Calling Station on a dry board means size up for value. Nit on a scary board means a small bet prints fold equity. Maniac in position means bet your strong hands and let them pay you off.</em></p>
+
+    <div class="callout">
+      <strong>How IQ Reasoning works:</strong> The engine calculates the mathematically optimal play using deterministic math &mdash; the same inputs always produce the same output. IQ Reasoning then explains the result in language a live player can internalize. It cannot override or contradict the underlying calculation. The AI explains the math; it does not replace it.
+    </div>
+
+    <h2>What You Will Learn</h2>
+
+    <p>RangeIQ&rsquo;s education library covers the full spectrum of live cash game strategy. Each topic is taught through interactive tools, worked hand examples, and strategy articles.</p>
+
+    <div class="topic-grid">
+      <a href="strategy.html" class="topic-card">
+        <h4>Bet Sizing Strategy</h4>
+        <p>How to size bets against each opponent type for maximum profit. When to go big, when to go small, and why standard sizing leaves money on the table.</p>
+        <span class="link">Browse strategy articles &rarr;</span>
+      </a>
+      <a href="demystifying-node-locking.html" class="topic-card">
+        <h4>Node-Locking Simplified</h4>
+        <p>The most powerful concept in modern poker study, made accessible. Pin down what your opponent does wrong, then calculate how to punish it.</p>
+        <span class="link">Read the explainer &rarr;</span>
+      </a>
+      <a href="beyond-memorization.html" class="topic-card">
+        <h4>Building Poker Intuition</h4>
+        <p>Why memorizing solver outputs fails at live tables, and how explanation-based learning builds durable decision-making that works under pressure.</p>
+        <span class="link">Read about IQ Reasoning &rarr;</span>
+      </a>
+      <a href="live-poker-blueprint.html" class="topic-card">
+        <h4>Live Cash Game Blueprint</h4>
+        <p>Why pure GTO fails at $1/$2 and $2/$5 tables. Real opponent tendencies mapped to the exploit adjustments that capture the most money.</p>
+        <span class="link">Read the blueprint &rarr;</span>
+      </a>
+      <a href="crushing-three-player-types.html" class="topic-card">
+        <h4>Exploiting Player Types</h4>
+        <p>Step-by-step case studies showing how to exploit Calling Stations, Nits, and Maniacs with side-by-side GTO vs exploit comparisons.</p>
+        <span class="link">Read the case studies &rarr;</span>
+      </a>
+      <a href="library.html" class="topic-card">
+        <h4>25 Real Hand Examples</h4>
+        <p>Full hand breakdowns with IQ Reasoning explanations. Browse by opponent type: flop, turn, and river decisions against every profile.</p>
+        <span class="link">Browse the Exploit Library &rarr;</span>
+      </a>
+    </div>
+
+    <h2>Who This Is For</h2>
+
+    <p>RangeIQ is designed for live cash game players at $1/$2, $1/$3, $2/$5, and $5/$10 stakes who want to improve between sessions. The typical user plays two to four sessions per week, reviews hands afterward, and wants a faster path to improvement than traditional solver study or coaching.</p>
+
+    <p>If you are:</p>
+
+    <ul>
+      <li>A live cash player who knows your opponents have leaks but is not sure how to exploit them systematically</li>
+      <li>Someone who tried GTO solvers and found them too complex or abstract for live table decisions</li>
+      <li>A winning player who wants to increase their win rate by targeting specific opponent tendencies</li>
+      <li>A recreational player ready to transition from intuition-based to data-informed decisions</li>
+    </ul>
+
+    <p>Then this education platform and these training tools are built specifically for you.</p>
+
+    <!-- Ad slot 3 — bottom of content -->
+    <div class="ad-slot" id="ad-bottom">
+      <!-- AdSense ad unit code goes here after approval -->
+    </div>
+
+    <h2>How to Get Started</h2>
+
+    <p>RangeIQ offers a free tier that includes unlimited preflop analysis across all nine opponent types with IQ Reasoning explanations. No credit card is required. The free tier is designed to let you experience the training methodology and see how exploitative analysis differs from GTO-based tools before deciding whether to upgrade.</p>
+
+    <p>The Pro tier ($14.99/month or $119/year) unlocks full postflop analysis, unlimited daily drills, the complete range builder, the study vault for saving analyzed hands, and the leak hunter for identifying patterns in your decision-making over time.</p>
+
+    <p>Start with one hand from your last session. Pick the opponent you were facing. Read the recommendation and the reasoning. If the logic clicks &mdash; if you find yourself understanding <em>why</em> that sizing against that opponent type makes mathematical sense &mdash; you have found your study method.</p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="edu-cta">
+    <h2>Start <span style="color:var(--gold)">Learning</span> for Free</h2>
+    <p>Pick any opponent type. Enter any hand. Get the exploit in seconds &mdash; with IQ Reasoning explaining why.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">Browse all strategy resources &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="strategy.html" style="color:var(--gold); text-decoration:none;">Read the Strategy Q&A library &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a>
+  </footer>
+
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
