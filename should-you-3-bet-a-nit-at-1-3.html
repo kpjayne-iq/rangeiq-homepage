@@ -14,15 +14,15 @@
   </script>
 
   <title>Should You 3-Bet a Nit at $1/$3 | RangeIQ</title>
-  <meta name="description" content="Learn when 3-betting a Nit at $1/$3 is profitable and when it just steals blinds. Specific hand ranges, stack depths, and position reads for live cash.">
+  <meta name="description" content="Learn when to 3-bet a nit at $1/$3 and when flatting is correct. Exploit high fold equity with position using RangeIQ's live cash game training engine.">
   <meta property="og:title" content="Should You 3-Bet a Nit at $1/$3">
-  <meta property="og:description" content="Know when 3-betting a Nit at $1/$3 makes money vs. when you're just winning a pot that was already yours.">
+  <meta property="og:description" content="When 3-betting a nit at $1/$3 is profitable — and when to just call. Live poker strategy for cash game players.">
   <meta property="og:url" content="https://rangeiqpoker.com/should-you-3-bet-a-nit-at-1-3.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Should You 3-Bet a Nit at $1/$3">
-  <meta name="twitter:description" content="Nits fold to 3-bets—so why not do it every time they open? The real answer depends on position, stack depth, and what they do when they flat call.">
+  <meta name="twitter:description" content="Most players default to calling a nit. Here's when 3-betting is actually the higher EV play at $1/$3 — and when the math says fold equity isn't enough.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -36,7 +36,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Should You 3-Bet a Nit at $1/$3",
-    "description": "Learn when 3-betting a Nit at $1/$3 is profitable and when it just steals blinds. Specific hand ranges, stack depths, and position reads for live cash.",
+    "description": "Learn when to 3-bet a nit at $1/$3 and when flatting is correct. Exploit high fold equity with position using RangeIQ's live cash game training engine.",
     "author": {
       "@type": "Organization",
       "name": "RangeIQ Poker",
@@ -46,7 +46,7 @@
       "@type": "Organization",
       "name": "IQ Digital Holdings LLC"
     },
-    "datePublished": "2026-06-09",
+    "datePublished": "2026-06-11",
     "url": "https://rangeiqpoker.com/should-you-3-bet-a-nit-at-1-3.html",
     "about": {
       "@type": "WebApplication",
@@ -55,7 +55,7 @@
       "applicationCategory": "GameApplication",
       "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
     },
-    "keywords": ["3-bet nit strategy", "exploit tight player poker", "live poker 3-bet range", "should you 3-bet nit", "nit poker strategy live cash", "3-betting tight players live poker", "preflop 3-bet live cash game"]
+    "keywords": ["3-bet nit strategy", "exploit tight player poker", "live poker 3-bet range", "fold equity poker", "live cash game 3-bet", "nit poker opponent type", "preflop 3-betting live poker"]
   }
   </script>
 
@@ -238,7 +238,7 @@
     }
     .article-body li { margin-bottom: 6px; }
 
-    /* Hand example card (optional — use for IQ Reasoning examples) */
+    /* Hand example card */
     .hand-example {
       background: var(--card);
       border: 1px solid var(--border);
@@ -280,7 +280,7 @@
     }
     .hand-example .iq-reasoning strong { color: var(--gold); }
 
-    /* Callout box (optional — use for key takeaways or spot descriptions) */
+    /* Callout box */
     .callout {
       background: rgba(230,197,102,0.06);
       border: 1px solid rgba(230,197,102,0.2);
@@ -383,53 +383,55 @@
   <!-- ARTICLE HERO -->
   <header class="article-hero">
     <h1>Should You 3-Bet a Nit at $1/$3</h1>
-    <p class="subtitle">The answer depends on your position, the effective stack, and how a Nit behaves when they actually call.</p>
+    <p class="subtitle">Most $1/$3 players default to calling a nit — here is when 3-betting is the higher-EV play and when it is not.</p>
     <div class="article-meta">By RangeIQ Poker &middot; June 2026 &middot; 5 min read</div>
   </header>
 
   <!-- ARTICLE BODY -->
   <article class="article-body">
 
-    <p>Most $1/$3 Nits fold to 3-bets. That makes the decision feel automatic — just re-raise, take the pot, move on. But whether 3-betting a Nit is the highest-EV play depends on your position, the effective stack, and what you're holding. Done without those filters, you end up winning small pots while leaving bigger edges on the table postflop.</p>
+    <p>Most players at $1/$3 treat a nit's open raise as a signal to either fold or call. 3-betting gets dismissed because nits "only play the nuts." That's a misread — and one that costs you equity every orbit. The real question when deciding whether to 3-bet a nit isn't whether they are strong. It's whether they fold enough of their opening range to make the 3-bet profitable from position.</p>
 
-    <h2>What a Nit's Range Looks Like When They Call</h2>
+    <h2>What a Nit's 3-Bet Fold Rate Actually Is</h2>
 
-    <p>A <em>Nit</em> at a typical $1/$3 table opens around 10-12% of hands — TT+, AJs+, AQo+ from early position, with a modest expansion in late position. When you 3-bet, they fold roughly 65-75% of the time. The problem is what they hold in that 25-35% they continue with: <strong>QQ+, AK, and sometimes JJ or AQs</strong> depending on position. That calling range is heavily weighted toward premium holdings that either dominate your bluffs or run close-to-even against your value hands.</p>
+    <p>A <em>Nit</em> at a $1/$3 live game opens roughly 10&ndash;15% of hands from early position. That range includes hands like A-J, K-Q, J-J, T-T, 9-9, and sometimes A-10 suited. The critical insight is that when facing a 3-bet, most live Nits fold the bottom half of that range immediately. They've already decided a 3-bet "means aces or kings." That belief, however incorrect, creates genuine <strong>fold equity</strong>.</p>
 
-    <p>Stack depth changes the math significantly. At 100BB effective ($300 stacks), the stack-to-pot ratio after a 3-bet-call still gives you room to maneuver postflop. At 60BB ($180), a 3-bet-call creates a near-committed pot and the Nit is never folding QQ+ for their remaining chips on any reasonable flop. Before you 3-bet, know whether you're building a playable pot or just shoving in preflop.</p>
+    <p>RangeIQ's Nit opponent type profile models a 3-bet fold rate between 55% and 70% in the EP-open-versus-BTN-3-bet scenario. At 60% fold frequency, a 3-bet to $36 over a $12 open in a $16 pot risks $36 to pick up $28 before reaching the flop — before you even count your equity when called by the remaining 40% of their range.</p>
 
     <div class="hand-example">
       <div class="spot-line">
         <span class="spot-badge">PREFLOP</span>
-        <span class="spot-info">A&spades;K&diams; &middot; BTN vs. Nit UTG open $12 &middot; $1/$3 &middot; $300 effective</span>
+        <span class="spot-info">A&spades;J&spades; on BTN &middot; UTG raises to $12 &middot; $1/$3 &middot; $300 effective stacks</span>
       </div>
-      <div class="opponent-label">vs Nit</div>
-      <div class="decision-line">3-Bet to $36 &mdash; 94% Confidence</div>
+      <div class="opponent-label">vs Nit (UTG)</div>
+      <div class="decision-line">3-Bet to $36 &mdash; 88% Confidence</div>
       <div class="iq-reasoning">
-        <strong>IQ Reasoning:</strong> A&spades;K&diams; has 47-49% equity against the Nit's continuing range (QQ+, AK) — near-even against the hands they call with, while being a decisive favorite against the 65%+ of their range that folds preflop. Sizing to $36 (3x the open) isolates cleanly against the blinds and puts a meaningful decision on the Nit. The resulting SPR of roughly 3.5 keeps commitment math straightforward — you can get it in comfortably on most flop textures with top pair or better. Flatting IP is valid with speculative hands, but AK is too strong to keep in a single-raised pot against a range this narrow.
+        <strong>IQ Reasoning:</strong> Against a Nit opening UTG, the engine models villain's 3-bet-fold rate at approximately 65% based on the tight-passive opponent profile. A&spades;J&spades; blocks key nit-calling hands (A-K, A-A) while retaining strong equity when called by Q-Q or worse. The $36 3-bet risks $36 to win the $28 already in the pot. At 65% fold frequency, the immediate equity on folds alone is +$18.20 before accounting for the 35% of hands the Nit continues with. Flatting preserves the Nit's range advantage on every post-flop street — 3-betting strips it away preflop.
       </div>
     </div>
 
-    <h2>The Positions Where a 3-Bet Has Real Edge</h2>
+    <h2>When the Math Favors 3-Betting</h2>
 
-    <p>Position is the clearest filter. When a Nit opens from UTG or UTG+1 and you're on the BTN or CO, a 3-bet collects the pot outright roughly 70% of the time <em>and</em> puts you in position for the times they call. That combination — high fold equity plus positional advantage when called — is where the real profit lives.</p>
+    <p>Position is the critical variable. From the button or cutoff, 3-betting a Nit is correct with a linear value range: A-J+, K-Q suited, T-T+, and any hand that benefits from taking initiative in a heads-up pot. You are not trying to bluff the Nit off aces — you are charging them to play and setting up a significant fold advantage on most flop textures when they do continue.</p>
 
-    <p>The spots to be careful with: the Nit opens CO or BTN and you're in the blinds. You'll still get folds at a similar frequency, but the times they call, you're playing a bloated pot out of position against a range that is almost entirely strong aces and big pairs. OOP 3-bets against a Nit are worth restricting to AA, KK, and AK — hands that can absorb an uncomfortable spot. Bluff 3-bets from OOP against a Nit are close to neutral EV at best and costly at worst when they elect to go with their hand.</p>
+    <p><strong>Stack depth matters.</strong> At 100 big blinds effective ($300), a 3-bet pot is manageable. At 60 big blinds, the SPR compresses quickly and position becomes less powerful — consider whether you want to commit a large portion of your stack with A-J facing a potential 4-bet shove from A-A or K-K. The deeper the stacks, the more the 3-bet makes sense.</p>
 
-    <h2>When Flatting Beats the 3-Bet</h2>
+    <p>Out of position, the calculus flips. A 3-bet from the small blind into a Nit's button open invites a 4-bet from exactly the hands that dominate you. Calling or folding from out of position is usually correct unless you hold absolute premiums (A-A, K-K, A-K).</p>
 
-    <p>For hands that don't need fold equity to be profitable — pocket pairs from TT down to 66, suited connectors, suited aces — flatting a Nit's open in position extracts more value than 3-betting. You keep your hand disguised, you allow weaker hands behind you to make mistakes, and you get to see a flop against someone whose postflop tendencies are highly readable: they bet strong, check weak, and rarely bluff.</p>
+    <h2>When Flatting Is the Higher-EV Play</h2>
 
-    <p>When you flop a set against a Nit, the 3-bet preflop would have ended the hand before it started. Flatting builds pots on boards where you hold a large equity edge, and a Nit's willingness to pay off top pair or better postflop means there is real money to extract — it just comes on the flop, turn, and river rather than preflop.</p>
+    <p>Small pocket pairs (2-2 through 8-8) and suited connectors play better as calls than 3-bets against a Nit. You want a cheap flop and the ability to set-mine or hit a strong draw. 3-betting these hands bloats the pot, reduces implied odds, and turns the Nit's fold equity into a liability — they fold the hands you dominate and call with the hands that crush you.</p>
 
-    <p>The practical takeaway: 3-bet AA, KK, and AK against a Nit when you're in position or when stacks are under 70BB. For everything else — TT, JJ, AQo, suited connectors — flatting IP and exploiting their predictable postflop behavior is usually the higher-EV path. Review these spots between sessions using RangeIQ's Nit-specific nodes to see exactly where your decisions diverge from the engine's recommendations and tighten your range accordingly.</p>
+    <p>If you have observed that a specific Nit almost never folds to 3-bets — some live players call "nit" but will not release their hand once committed — adjust immediately. A Nit with a 25% or higher 3-bet-call rate changes the fold equity math entirely. Against that player, flatting A-J in position and playing postflop is often the cleaner line.</p>
+
+    <p>Between sessions, load the exact spot into RangeIQ: your stack depth, position, and the Nit opponent type. The engine shows you the EV delta between 3-betting and calling for the specific hand, with the IQ Reasoning explaining exactly why one line outperforms the other at that stack depth. That analysis is what you bring back to the table the next time the spot comes up.</p>
 
   </article>
 
   <!-- CTA -->
   <section class="article-cta">
-    <h2>Practice Nit Spots Before Your <span style="color:var(--gold)">Next Session</span></h2>
-    <p>Load Nit-specific 3-bet and flat scenarios in RangeIQ and see the engine's reasoning before you sit down.</p>
+    <h2>Train Your 3-Bet Range Against Every <span style="color:var(--gold)">Opponent Type</span></h2>
+    <p>Load any spot into RangeIQ between sessions — see whether to 3-bet or call against a Nit at your exact stack depth, and get the IQ Reasoning behind every decision.</p>
     <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
     <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
     <p style="margin-top:8px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">See all RangeIQ resources &rarr;</a></p>
