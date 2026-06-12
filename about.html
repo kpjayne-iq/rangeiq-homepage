@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  gtag('config', 'G-WVG2PWLN8F');
+  </script>
+
+  <title>About RangeIQ — Who Built This and Why | RangeIQ Poker</title>
+  <meta name="description" content="RangeIQ was built by the team behind Between the Cards. We built the exploit training tool we wished existed for live $1/$2 and $1/$3 cash games.">
+  <meta property="og:title" content="About RangeIQ — Who Built This and Why">
+  <meta property="og:description" content="Built by the team behind Between the Cards. The exploit training tool we wished existed for live cash games.">
+  <meta property="og:url" content="https://rangeiqpoker.com/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About RangeIQ — Who Built This and Why">
+  <meta name="twitter:description" content="Built by the team behind Between the Cards. The exploit training tool we wished existed for live cash games.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/about.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About RangeIQ Poker",
+    "description": "RangeIQ was built by the team behind Between the Cards — the exploit training tool we wished existed for live cash games.",
+    "url": "https://rangeiqpoker.com/about.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC",
+      "url": "https://rangeiqpoker.com"
+    },
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "EducationalApplication"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 20px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      cursor: pointer; display: flex; align-items: center; gap: 4px;
+      font-size: 13px; font-weight: 500; color: var(--muted, #9CA3AF);
+      text-decoration: none; user-select: none;
+    }
+    .nav-dropdown-trigger:hover { color: var(--text, #E5E7EB); }
+    .dropdown-arrow { font-size: 10px; transition: transform 180ms ease; }
+    .nav-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 8px); left: -12px;
+      background: var(--card, #111827); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 6px 0; min-width: 180px; z-index: 100;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a {
+      display: block; padding: 10px 18px; font-size: 13px; font-weight: 500;
+      color: var(--muted, #9CA3AF); text-decoration: none; white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { color: var(--text, #E5E7EB); background: rgba(255,255,255,0.04); }
+    .nav-dropdown-menu a.active { color: var(--gold, #E6C566); }
+
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start {
+        display: block; padding: 14px 24px; font-size: 17px; font-weight: 500;
+        text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .nav-dropdown { position: static; }
+      .nav-dropdown-trigger { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-dropdown-menu {
+        position: static; background: transparent; border: none;
+        box-shadow: none; border-radius: 0; padding: 0; min-width: 0;
+      }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+      .nav-dropdown-menu a { padding: 12px 24px 12px 44px; font-size: 16px; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    .hero {
+      text-align: center; padding: 80px 0 48px;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 48px; font-weight: 400; line-height: 1.15; margin-bottom: 16px;
+    }
+    .hero h1 .gold { color: var(--gold); }
+    .hero .subtitle {
+      font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 560px; margin: 0 auto;
+    }
+
+    .section {
+      padding: 48px 0; border-top: 1px solid var(--border);
+    }
+    .section h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px; font-weight: 400; line-height: 1.3; margin-bottom: 20px;
+    }
+    .section h2 .gold { color: var(--gold); }
+    .section p {
+      font-size: 15px; line-height: 1.8; color: var(--muted); margin-bottom: 16px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+    .section a { color: var(--gold); text-decoration: none; }
+    .section a:hover { text-decoration: underline; }
+
+    .method-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px;
+    }
+    .method-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px;
+    }
+    .method-card h3 {
+      font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px;
+    }
+    .method-card p {
+      font-size: 13px; color: var(--faint); margin-bottom: 0; line-height: 1.6;
+    }
+
+    .contact-band {
+      text-align: center; padding: 56px 0;
+      border-top: 1px solid var(--border);
+    }
+    .contact-band h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px; font-weight: 400; margin-bottom: 12px;
+    }
+    .contact-band p {
+      font-size: 15px; color: var(--muted); margin-bottom: 24px;
+    }
+    .contact-band a.cta {
+      display: inline-flex; align-items: center; height: 44px; padding: 0 24px;
+      border-radius: 8px; font-size: 14px; font-weight: 600;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); text-decoration: none;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .contact-band a.cta:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .contact-links {
+      margin-top: 16px; font-size: 13px; color: var(--faint);
+    }
+    .contact-links a { color: var(--gold); text-decoration: none; }
+    .contact-links a:hover { text-decoration: underline; }
+
+    footer { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--faint); padding-bottom: 40px; }
+    footer strong { color: var(--text); font-weight: 700; letter-spacing: 0.02em; }
+    footer a { color: var(--gold); text-decoration: none; margin: 0 8px; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 36px; }
+      .hero { padding: 48px 0 32px; }
+      .method-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Learn <span class="dropdown-arrow">&#9662;</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="strategy.html">Strategy Q&amp;A</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="education.html">Education Hub</a></li>
+          </ul>
+        </li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training Free</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="hero">
+      <h1>Built by <span class="gold">players,</span> for players.</h1>
+      <p class="subtitle">RangeIQ was built by the team behind Between the Cards. We spent years watching live cash players study solver outputs they couldn&rsquo;t use against opponents who limp four ways and call everything. So we built the tool we wanted.</p>
+    </div>
+
+    <div class="section">
+      <h2>The <span class="gold">problem</span></h2>
+      <p>Solver-based training tools are built for online grinders who face balanced opponents. But most live $1/$2 and $1/$3 cash games don&rsquo;t look like that. Your opponents limp too much, call too wide, and fold in predictable spots. GTO outputs don&rsquo;t adapt to that &mdash; you do, but your study tools don&rsquo;t.</p>
+      <p>We built RangeIQ because no tool on the market trained players the way live games actually play. Pick the opponent type, set the hand, and get the answer in dollars &mdash; with the reasoning in plain English. No solver degree required.</p>
+    </div>
+
+    <div class="section">
+      <h2>How it <span class="gold">works</span></h2>
+      <p>RangeIQ uses a deterministic exploit engine &mdash; not a solver, not a neural net, not a language model guessing. The engine maps opponent tendencies (fold frequency, calling range, aggression) to mathematically optimal adjustments. Every recommendation comes with the dollar-amount sizing and the reasoning behind it.</p>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <h3>Opponent-specific</h3>
+          <p>Nine archetypes modeled from real live cash game tendencies. Pick the player type you&rsquo;re facing &mdash; not a generic &ldquo;population average.&rdquo;</p>
+        </div>
+        <div class="method-card">
+          <h3>Dollar sizing</h3>
+          <p>Every recommendation is in real dollar amounts for the stakes you play. No converting from BB &mdash; just the number you need.</p>
+        </div>
+        <div class="method-card">
+          <h3>Plain-English reasoning</h3>
+          <p>IQ Reasoning explains the why behind every adjustment. Read the logic, not just the output.</p>
+        </div>
+        <div class="method-card">
+          <h3>Study tool, not a crutch</h3>
+          <p>Designed for between sessions. Replay hands, drill spots, and build intuition you take to the table.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Between the <span class="gold">Cards</span></h2>
+      <p>RangeIQ is a product of the team behind <a href="https://www.betweenthecards.co" target="_blank" rel="noopener">Between the Cards</a>, a YouTube show that breaks down real poker spots using the same exploit-based framework the app is built on. The show started as a way to test whether this approach resonated with live cash players. It did.</p>
+      <p>Every concept in the app &mdash; opponent profiling, exploit adjustments, dollar-amount sizing &mdash; was tested on the channel first. The show and the tool share the same engine and the same philosophy: train for the games you actually play.</p>
+      <p><a href="https://www.youtube.com/@Between_the_Cards" target="_blank" rel="noopener">Watch on YouTube &rarr;</a></p>
+    </div>
+
+    <div class="contact-band">
+      <h2>Questions?</h2>
+      <p>We read every message. Whether it&rsquo;s a feature request, a hand question, or a bug report &mdash; reach out.</p>
+      <a href="mailto:support@rangeiqpoker.com" class="cta">Email Us</a>
+      <div class="contact-links">
+        <a href="mailto:support@rangeiqpoker.com">support@rangeiqpoker.com</a> &middot;
+        <a href="mailto:partners@rangeiqpoker.com">partners@rangeiqpoker.com</a>
+      </div>
+    </div>
+
+    <footer>
+      <strong>RangeIQ Poker</strong><br>
+      A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+      <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a>
+
+      <div style="margin-top:10px; font-size:11px;"><a href="https://www.youtube.com/@Between_the_Cards" target="_blank" rel="noopener">YouTube</a> &middot; <a href="https://www.betweenthecards.co" target="_blank" rel="noopener">Between the Cards</a> &middot; <a href="javascript:void(0)" onclick="riqCookieSettings()">Cookie Settings</a></div>
+
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;line-height:1.7;color:#7A7972;text-align:center;max-width:640px;margin-left:auto;margin-right:auto;">RangeIQ is a poker education and training tool for studying between sessions. No real-money play, wagering, or betting occurs on this platform. Not designed for use during live play. Poker involves variance and no training tool can guarantee results. For users 18+.</div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        var dd = trigger.closest('.nav-dropdown');
+        dd.classList.toggle('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+      }
+    });
+
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+<script src="/consent.js" defer></script>
+</body>
+</html>

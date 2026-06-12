@@ -105,7 +105,7 @@ const html = `<!DOCTYPE html>
       "@type": "WebApplication",
       "name": "RangeIQ Poker",
       "url": "https://app.rangeiqpoker.com",
-      "applicationCategory": "GameApplication",
+      "applicationCategory": "EducationalApplication",
       "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
     },
     "keywords": ["TODO: add 5-8 target keywords"]
