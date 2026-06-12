@@ -9,6 +9,13 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
     gtag('js', new Date());
 
     gtag('config', 'AW-18142420946');
@@ -269,14 +276,6 @@
       h2 { font-size: 20px; }
     }
   </style>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "x0blshjqav");
-</script>
 </head>
 <body>
   <div class="container">
@@ -359,21 +358,24 @@
 
     <section>
       <h2>Cookies and Tracking Technologies</h2>
-      <p>We use a small number of cookies and similar technologies. We do not use cookies for cross-site behavioral advertising.</p>
+      <p>We use cookies and similar technologies, grouped into essential cookies (always active) and non-essential analytics and advertising-measurement tools (loaded only with your consent). We do not sell your personal information or use it for cross-site behavioral advertising profiles.</p>
 
-      <p><strong>Essential cookies.</strong> Required for the Service to function. These include:</p>
+      <p><strong>Essential cookies.</strong> Required for the Service to function. These do not require consent and include:</p>
       <ul>
         <li><strong>Authentication cookies</strong> set by Supabase, which keep you signed in across pages and sessions</li>
         <li><strong>Session and security cookies</strong> used to prevent cross-site request forgery and similar attacks</li>
+        <li><strong>Affiliate attribution.</strong> If you arrive via an affiliate link, our partner Tolt sets a first-party cookie (typical duration: 90 days) to attribute any subsequent subscription to that affiliate. Disabling it only affects affiliate attribution, not your use of the Service.</li>
       </ul>
 
-      <p><strong>Analytics.</strong> We use Vercel Analytics to understand aggregate usage patterns. Vercel Analytics is designed to be privacy-friendly and does not use cookies for cross-site tracking.</p>
+      <p><strong>Non-essential analytics and advertising measurement.</strong> With your consent, we use the following to understand aggregate usage and measure our marketing. These are loaded only after you select &ldquo;Accept all&rdquo; in our cookie banner, and remain disabled if you decline:</p>
+      <ul>
+        <li><strong>Google Analytics 4</strong> &mdash; aggregate traffic and usage analytics</li>
+        <li><strong>Google Ads</strong> &mdash; conversion measurement and remarketing for our advertising</li>
+        <li><strong>Microsoft Clarity</strong> &mdash; aggregate session analytics and heatmaps used to improve usability</li>
+      </ul>
+      <p>We also use <strong>Vercel Analytics</strong>, a privacy-friendly, cookieless analytics tool that does not track you across sites and runs regardless of your consent choice.</p>
 
-      <p><strong>Affiliate attribution.</strong> If you arrive at the Service via an affiliate link, our affiliate partner Tolt sets a first-party cookie (typical duration: 90 days) to attribute any subsequent subscription to that affiliate. Disabling this cookie has no effect on your ability to use the Service; it only affects affiliate attribution.</p>
-
-      <p>You can disable or delete cookies through your browser settings. If you disable essential cookies, parts of the Service may stop working, including your ability to remain signed in.</p>
-
-      <p>We currently do not display a cookie consent banner. If you are located in the European Economic Area or the United Kingdom and wish to withdraw consent for non-essential cookies, you may do so by clearing cookies in your browser, by configuring your browser to block them, or by contacting us at <a href="mailto:privacy@rangeiqpoker.com" class="inline">privacy@rangeiqpoker.com</a>.</p>
+      <p><strong>Consent management.</strong> We display a cookie consent banner and use Google Consent Mode v2. Until you choose &ldquo;Accept all,&rdquo; the analytics and advertising tools above are held in a consent-denied state and do not store cookies or identifiers on your device. You can change your choice at any time by clearing this site&rsquo;s storage in your browser, or by contacting us at <a href="mailto:privacy@rangeiqpoker.com" class="inline">privacy@rangeiqpoker.com</a>. You can also disable or delete cookies through your browser settings; if you disable essential cookies, parts of the Service may stop working, including your ability to remain signed in.</p>
     </section>
 
     <section>
@@ -400,6 +402,14 @@
         <div class="processor-row">
           <div class="processor-name">Google (Sign in with Google)</div>
           <div class="processor-desc">Optional federated sign-in. If you choose to sign in with Google, Google provides us with your name, email address, and Google account identifier. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Google Analytics &amp; Google Ads</div>
+          <div class="processor-desc">Consent-gated. Aggregate website analytics (Google Analytics 4) and advertising conversion measurement and remarketing (Google Ads). Loaded only after you accept non-essential cookies; held in a consent-denied state otherwise via Google Consent Mode v2. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy policy</a></div>
+        </div>
+        <div class="processor-row">
+          <div class="processor-name">Microsoft Clarity</div>
+          <div class="processor-desc">Consent-gated. Aggregate session analytics and heatmaps used to improve site usability. Loaded only after you accept non-essential cookies. <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Privacy policy</a></div>
         </div>
         <div class="processor-row">
           <div class="processor-name">Anthropic</div>
@@ -538,5 +548,6 @@
       <a href="/">Home</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="pricing.html">Pricing</a>
     </footer>
   </div>
+<script src="/consent.js" defer></script>
 </body>
 </html>

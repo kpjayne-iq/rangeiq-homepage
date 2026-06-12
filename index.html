@@ -9,6 +9,13 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
   gtag('js', new Date());
 
   gtag('config', 'AW-18142420946');
@@ -154,7 +161,7 @@
           "name": "Is my training data saved?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Your drill history, decision consistency data, and progress metrics are stored locally in your browser. Your training activity stays on your device — it isn't collected or shared."
+            "text": "Yes. While you're signed out, your drill history and progress are kept locally in your browser. When you create an account, your saved hands, drill responses, and Study Vault sync to your account so they're available across devices — see our Privacy Policy for exactly what's stored and how. We never sell your data."
           }
         },
         {
@@ -350,14 +357,6 @@ a:hover{text-decoration:underline}
 @media(max-width:768px){.h1{font-size:34px}.h2{font-size:30px}.h3{font-size:20px}.cta-panel .h2{font-size:36px}:root{--section-pad:72px;--pad:20px}.nav-links{display:none;position:fixed;top:84px;left:0;right:0;background:var(--bg-main);flex-direction:column;align-items:stretch;gap:0;padding:16px 0;border-bottom:1px solid var(--border-subtle);box-shadow:0 12px 24px rgba(0,0,0,0.3)}.nav-links.open{display:flex}.nav-links li{list-style:none}.nav-links a{display:block;padding:14px 24px;font-size:17px}.nav-cta .sign-in{display:none}.nav-links.open .mobile-signin{display:block;padding:14px 24px;font-size:17px;font-weight:500;color:var(--text-secondary);text-decoration:none;border-top:1px solid var(--border-subtle);margin-top:8px}.mobile-signin{display:none}.mobile-toggle{display:block}.mobile-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.mobile-toggle.open span:nth-child(2){opacity:0}.mobile-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.mobile-toggle span{transition:all 200ms ease}.hero-ctas{flex-direction:column;align-items:stretch}.hero-ctas .btn-primary,.hero-ctas .btn-secondary{width:100%;justify-content:center}.features-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr;gap:40px}.stats-grid{grid-template-columns:1fr 1fr}.cta-panel{padding:40px 24px}.cta-buttons{flex-direction:column;align-items:stretch}.cta-buttons .btn-primary,.cta-buttons .btn-secondary{width:100%;justify-content:center}.email-capture-form{flex-direction:column}.footer-inner{flex-direction:column;gap:24px;text-align:center}.footer-links{justify-content:center}}
 @media(max-width:480px){.stats-grid{grid-template-columns:1fr}}
 </style>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "x0blshjqav");
-</script>
 </head>
 <body>
 
@@ -554,7 +553,7 @@ a:hover{text-decoration:underline}
       <div class="faq-item"><button class="faq-question">I already use GTO Wizard. Is RangeIQ a replacement?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No &mdash; it's a complement. GTO Wizard teaches you balanced ranges and equilibrium theory. RangeIQ trains you to exploit the specific opponents actually sitting across from you. The two are stronger together: study with GTO, decide with RangeIQ. <a href="vs-gto-wizard.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);">See the full comparison &rarr;</a> &nbsp; <a href="gto-wizard-vs-rangeiq.html" style="color:var(--muted);text-decoration:none;border-bottom:1px solid var(--faint);">Read the deep dive &rarr;</a></div></div></div>
       <div class="faq-item"><button class="faq-question">Do I need to install anything?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No. RangeIQ runs entirely in your browser — no downloads, no plugins, and no setup required. Just open the app, enter a spot, and start training immediately.</div></div></div>
       <div class="faq-item"><button class="faq-question">What formats and table sizes does RangeIQ cover?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is built for No-Limit Hold'em cash games and tournaments. The position system covers all major strategic seats — from UTG through BB — and adapts naturally across different table sizes, from short-handed to full-ring.</div></div></div>
-      <div class="faq-item"><button class="faq-question">Is my training data saved?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes. Your drill history, decision consistency data, and progress metrics are stored locally in your browser. Your training activity stays on your device — it isn't collected or shared.</div></div></div>
+      <div class="faq-item"><button class="faq-question">Is my training data saved?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Yes. While you're signed out, your drill history and progress are kept locally in your browser. When you create an account, your saved hands, drill responses, and Study Vault sync to your account so they're available across devices — see our Privacy Policy for exactly what's stored and how. We never sell your data.</div></div></div>
       <div class="faq-item"><button class="faq-question">What's the connection to Between the Cards?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is the interactive training platform built by the team behind Between the Cards. BTC delivers the strategic frameworks through content — RangeIQ lets you apply and train them hands-on. Same philosophy, different medium.</div></div></div>
     </div>
   </div>
@@ -648,6 +647,7 @@ const mobileToggle=document.querySelector('.mobile-toggle');
 const navLinks=document.querySelector('.nav-links');
 if(mobileToggle&&navLinks){mobileToggle.addEventListener('click',()=>{navLinks.classList.toggle('open');mobileToggle.classList.toggle('open');});navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');mobileToggle.classList.remove('open');}));}
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>
 
