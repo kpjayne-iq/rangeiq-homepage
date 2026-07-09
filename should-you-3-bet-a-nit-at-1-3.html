@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+  </script>
+
+  <title>Should You 3-Bet a Nit at $1/$3 | RangeIQ</title>
+  <meta name="description" content="3-betting a nit at $1/$3 is often a mistake. Learn why their narrow calling range limits your edge, and when QQ and AK justify the pot-building risk.">
+  <meta property="og:title" content="Should You 3-Bet a Nit at $1/$3">
+  <meta property="og:description" content="Most $1/$3 nits call 3-bets only with JJ+/AK — making bluffs expensive and value thinner than you think.">
+  <meta property="og:url" content="https://rangeiqpoker.com/should-you-3-bet-a-nit-at-1-3.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Should You 3-Bet a Nit at $1/$3">
+  <meta name="twitter:description" content="Before you 3-bet the nit at your $1/$3 table, know what they're actually calling with. It's narrower than you think, and it changes the math completely.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://rangeiqpoker.com/should-you-3-bet-a-nit-at-1-3.html">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Should You 3-Bet a Nit at $1/$3",
+    "description": "3-betting a nit at $1/$3 is often a mistake. Learn why their narrow calling range limits your edge, and when QQ and AK justify the pot-building risk.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-07-09",
+    "url": "https://rangeiqpoker.com/should-you-3-bet-a-nit-at-1-3.html",
+    "about": {
+      "@type": "WebApplication",
+      "name": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "EducationalApplication",
+      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+    },
+    "keywords": ["3-bet nit strategy", "exploit tight player poker", "live poker 3-bet range", "nit poker strategy", "preflop 3-bet live poker", "tight player exploitation", "live cash game preflop strategy"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      cursor: pointer; display: flex; align-items: center; gap: 4px;
+      font-size: 13px; font-weight: 500; color: var(--muted, #9CA3AF);
+      text-decoration: none; user-select: none;
+    }
+    .nav-dropdown-trigger:hover { color: var(--text, #E5E7EB); }
+    .dropdown-arrow { font-size: 10px; transition: transform 180ms ease; }
+    .nav-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 8px); left: -12px;
+      background: var(--card, #111827); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 6px 0; min-width: 180px; z-index: 100;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a {
+      display: block; padding: 10px 18px; font-size: 13px; font-weight: 500;
+      color: var(--muted, #9CA3AF); text-decoration: none; white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { color: var(--text, #E5E7EB); background: rgba(255,255,255,0.04); }
+    .nav-dropdown-menu a.active { color: var(--gold, #E6C566); }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .nav-dropdown { position: static; }
+      .nav-dropdown-trigger { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-dropdown-menu {
+        position: static; background: transparent; border: none;
+        box-shadow: none; border-radius: 0; padding: 0; min-width: 0;
+      }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+      .nav-dropdown-menu a { padding: 12px 24px 12px 44px; font-size: 16px; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+    .article-body ul, .article-body ol {
+      margin: 0 0 18px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body li { margin-bottom: 6px; }
+
+    /* Hand example card (optional — use for IQ Reasoning examples) */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+
+    /* Callout box (optional — use for key takeaways or spot descriptions) */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .hand-example { padding: 20px; }
+      .hand-example .decision-line { font-size: 18px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li class="nav-dropdown">
+          <a class="nav-dropdown-trigger" style="color:var(--gold, #E6C566)">Learn <span class="dropdown-arrow">&#9662;</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="strategy.html">Strategy Q&amp;A</a></li>
+            <li><a href="resources.html" class="active">Resources</a></li>
+            <li><a href="education.html">Education Hub</a></li>
+          </ul>
+        </li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>Should You 3-Bet a Nit at $1/$3</h1>
+    <p class="subtitle">Most nits have a calling range so narrow that your 3-bet accomplishes less than you expect — here's how to read the situation correctly.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; July 2026 &middot; 5 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>The question of whether to 3-bet a nit at $1/$3 comes up constantly — and most players default to "3-bet for value" with any premium hand. That reasoning ignores the one thing that makes <em>Nits</em> different from every other opponent type: their calling range when facing a 3-bet is already so narrow that your move accomplishes less than you think, and your bluffs cost more than you realize.</p>
+
+    <h2>What a Nit Is Actually Calling With</h2>
+
+    <p>A <em>Nit</em> at a $1/$3 table opens roughly 10-14% of hands from early position and only slightly wider from the cutoff or button. That's already tight. But their <strong>calling range when facing a 3-bet</strong> is dramatically narrower — expect JJ+, AK, and occasionally AQs from players who know they're a nit and have started adjusting. Everything else — TT, AQo, KQs — they'll fold or muck, especially out of position.</p>
+
+    <p>This asymmetry is the core problem with reflexive 3-betting. When you put in a raise, you aren't getting action from the bottom half of their opening range. You're getting called by the very top — and your equity against that top-of-range calling set is not as strong as it looks against their full open.</p>
+
+    <p>Against a UTG nit who opens to $12, consider what they're actually calling a $38 3-bet with from the BTN: AA, KK, QQ, JJ, AKs, AKo. Maybe AQs. That's it. If you're holding AK, you're up against a range that crushes you (AA/KK/QQ) and a range that you crush (JJ) or are roughly flipping with (AQs). Your bluffs into this calling set are burning money every time.</p>
+
+    <h2>When 3-Betting for Value Is Correct</h2>
+
+    <p>3-betting a nit for value is correct with AA and KK — full stop. With these hands you're ahead of their entire realistic calling range, including the JJ and AK portions that will pay you off. With QQ, the math is tighter: you're flipping or slightly ahead against JJ (which they may fold anyway) and behind AA/KK. The expected value is still positive, but the edge is thin enough that position and read matter.</p>
+
+    <p>The spot where QQ and AK become cleaner 3-bets is when a nit is opening from late position — CO or BTN — where their range naturally expands to include TT-JJ and AQs. In these spots their calling range to a 3-bet is slightly wider, which improves your relative equity and makes the 3-bet more comfortable.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">PREFLOP</span>
+        <span class="spot-info">Q&spades;Q&hearts; &middot; BTN vs UTG open &middot; $1/$3 &middot; $12 open, $13.50 pot</span>
+      </div>
+      <div class="opponent-label">vs Nit (UTG Open)</div>
+      <div class="decision-line">3-Bet to $38 &mdash; 74% Confidence</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> The nit's UTG opening range is approximately 11% of hands. Against a 3-bet, their calling range collapses to roughly AA-JJ and AK — about 5% of all hands. QQ is ahead of JJ and AK but behind AA and KK. Engine calculates a +EV 3-bet because of dead money from the blinds and the fold equity generated against the nit's TT and lower portion of their opening range, which they'll fold here. The 3-bet is not primarily targeting the call — it's capturing folds from the hands that can't continue profitably.
+      </div>
+    </div>
+
+    <h2>The 3-Bet Bluff Trap</h2>
+
+    <p>3-bet bluffing a nit is one of the most expensive mistakes you can make at $1/$3. A nit who opens UTG and faces a 3-bet will not fold JJ. They will not fold AK. By definition, they open so few hands that when they do open, they are committed to their holding. Their opening range does not include 87s, KQo out of position, or any of the hands that would fold to a 3-bet. They open, you 3-bet, and they're calling with exactly the range that beats or ties your bluffing hand.</p>
+
+    <p>The more productive exploit against a <em>Nit</em> is to flat their opens in position with hands that play well on connected boards — JTs, TT, 99, small pairs with implied odds. These hands crush the weak overpairs and top-pair hands nits will bet three streets with on dry boards. You're not trying to deny them equity preflop — you're setting up a situation where you get maximum value when you hit and can get away cheaply when you don't.</p>
+
+    <div class="callout">
+      <strong>Key takeaway:</strong> Against a nit, build the pot preflop only with hands that are ahead of their calling range — AA and KK comfortably, QQ and AK situationally — and flat everything else to exploit their postflop rigidity.
+    </div>
+
+    <p>When you review these spots between sessions using RangeIQ, you can node-lock a nit's 3-bet calling range to their actual tendencies — collapsing it to JJ+/AK — and watch how the exploitative strategy shifts across every hand in your range. That's the difference between guessing at preflop adjustments and understanding the math that drives them.</p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Train Your Preflop Reads on <span style="color:var(--gold)">Every Opponent Type</span></h2>
+    <p>Load any opponent type in RangeIQ and run preflop scenarios between sessions to lock in the right 3-bet frequencies before your next session.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">See all RangeIQ resources &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/about.html">About</a>
+
+    <div style="margin-top:10px; font-size:11px;"><a href="https://www.youtube.com/@Between_the_Cards" target="_blank" rel="noopener">YouTube</a> &middot; <a href="https://www.betweenthecards.co" target="_blank" rel="noopener">Between the Cards</a> &middot; <a href="javascript:void(0)" onclick="riqCookieSettings()">Cookie Settings</a></div>
+
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;line-height:1.7;color:#7A7972;text-align:center;max-width:640px;margin-left:auto;margin-right:auto;">RangeIQ is a poker education and training tool for studying between sessions. No real-money play, wagering, or betting occurs on this platform. Not designed for use during live play. Poker involves variance and no training tool can guarantee results. For users 18+.</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        var dd = trigger.closest('.nav-dropdown');
+        dd.classList.toggle('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+      }
+    });
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+</body>
+</html>
