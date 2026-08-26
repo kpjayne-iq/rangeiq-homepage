@@ -62,19 +62,31 @@
       "@id": "https://rangeiqpoker.com/#app",
       "url": "https://app.rangeiqpoker.com",
       "name": "RangeIQ",
+      "alternateName": "RangeIQ Poker",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires HTML5 compatible browser. No installation required.",
-      "description": "RangeIQ is a browser-based poker exploit trainer and simplified node-locking engine that calculates maximally profitable counter-strategies against specific human player archetypes at live cash games.",
+      "publisher": { "@id": "https://rangeiqpoker.com/#org" },
+      "description": "RangeIQ is a poker education and training tool for live cash games from $1/$2 to $5/$10. You study spots between sessions against 9 opponent types using a simplified node-locking engine, plain-English IQ Reasoning, and bet sizing in real dollars — educational use only, not for use during live play.",
       "featureList": [
-        "Simplified node-locking decision engine for 9 opponent archetypes",
-        "IQ Reasoning plain-language exploit explanations locked to engine math",
+        "Simplified node-locking engine for exploit-based study",
+        "9 opponent types: Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, Unknown/Mixed",
+        "IQ Reasoning — plain-English explanations locked to deterministic engine math",
+        "Bet sizing in real dollars for live $1/$2 through $5/$10 cash games",
         "Preflop range builder for live table dynamics",
         "Daily exploit drills with EV scoring",
-        "Opponent profiling: Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, Unknown",
-        "Exact dollar sizing for $1/$2, $1/$3, $2/$5, and $5/$10 cash games",
         "Study Vault for saving and replaying analyzed spots",
         "Leak Hunter for identifying systematic strategy errors"
+      ],
+      "keywords": [
+        "poker training tool",
+        "exploitative poker strategy",
+        "live cash game poker study",
+        "simplified node-locking",
+        "poker opponent types",
+        "bet sizing in dollars",
+        "poker study between sessions",
+        "poker education"
       ],
       "offers": [
         {
@@ -82,14 +94,21 @@
           "name": "Free Tier",
           "price": "0",
           "priceCurrency": "USD",
-          "description": "Unlimited preflop analysis, 2 postflop spots a day, default villain training, IQ Reasoning included"
+          "description": "Unlimited preflop analysis, 2 postflop spots per day, limited opponent types, 1 drill per day, 3-spot Study Vault"
         },
         {
           "@type": "Offer",
-          "name": "RangeIQ Pro",
+          "name": "RangeIQ Pro — Monthly",
           "price": "14.99",
           "priceCurrency": "USD",
-          "description": "Full postflop analysis, unlimited drills, range builder, study vault, leak hunter"
+          "description": "All 9 opponent types, unlimited postflop analysis, full drills, range builder, unlimited Study Vault, Leak Hunter — billed monthly"
+        },
+        {
+          "@type": "Offer",
+          "name": "RangeIQ Pro — Annual",
+          "price": "119",
+          "priceCurrency": "USD",
+          "description": "Everything in Pro, billed yearly — about 34% less than paying monthly"
         }
       ]
     },
@@ -99,6 +118,10 @@
       "name": "RangeIQ Poker",
       "url": "https://rangeiqpoker.com",
       "logo": "https://rangeiqpoker.com/favicon-180.png",
+      "sameAs": [
+        "https://app.rangeiqpoker.com",
+        "https://www.youtube.com/@Between_the_Cards"
+      ],
       "description": "Creator of RangeIQ, a poker education and training tool built around simplified node-locking for live cash game counter-strategies. A Between the Cards product by IQ Digital Holdings LLC.",
       "parentOrganization": {
         "@type": "Organization",
@@ -153,7 +176,7 @@
           "name": "What games does RangeIQ cover?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No-Limit Hold'em, with live cash games at $1/$2 through $2/$5 as the home turf — every example in our library is a real live-stakes spot. The engine covers every seat from UTG through the big blind, short-handed through full-ring, and works for tournament players too."
+            "text": "No-Limit Hold'em, with live cash games at $1/$2 through $2/$5 as the home turf — every example in our library is a real live-stakes spot. The engine covers every seat from UTG through the big blind, short-handed through full-ring."
           }
         },
         {
@@ -604,7 +627,7 @@ a:hover{text-decoration:underline}
 <section class="section-stats">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat-item animate-in"><div class="stat-value">9</div><div class="stat-label">Opponent Archetypes</div></div>
+      <div class="stat-item animate-in"><div class="stat-value">9</div><div class="stat-label">Opponent Types</div></div>
       <div class="stat-item animate-in"><div class="stat-value"><span class="accent">6</span></div><div class="stat-label">Training Engines</div></div>
       <div class="stat-item animate-in"><div class="stat-value">5<span style="font-size:28px;color:var(--text-muted);">min</span></div><div class="stat-label">Daily Drill Sessions</div></div>
       <div class="stat-item animate-in"><div class="stat-value">1M<span class="accent">+</span></div><div class="stat-label">Possible Scenarios</div></div>
@@ -625,7 +648,7 @@ a:hover{text-decoration:underline}
       <div class="faq-item"><button class="faq-question">What is IQ Reasoning?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Every recommendation RangeIQ makes comes from deterministic engine math &mdash; the same spot always produces the same answer. IQ Reasoning is the coaching layer on top: it turns that answer into plain English. Why this size, against this player, on this board. It's structurally locked to the engine, so the explanation can never contradict the math. You get the answer and the why, every time.</div></div></div>
       <div class="faq-item"><button class="faq-question">I already use GTO Wizard. Is RangeIQ a replacement?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No &mdash; it's a complement. GTO Wizard teaches balanced ranges and equilibrium theory. RangeIQ trains you to exploit the specific player types sitting across from you at a live table. Plenty of our users run both: theory there, live-game training here. <a href="vs-gto-wizard.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);">See the full comparison &rarr;</a> &nbsp; <a href="gto-wizard-vs-rangeiq.html" style="color:var(--text-muted);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);">Read the deep dive &rarr;</a></div></div></div>
       <div class="faq-item"><button class="faq-question">Do I need to install anything?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No. RangeIQ runs entirely in your browser &mdash; no downloads, no plugins, and no setup required. Just open the app, enter a spot, and start training immediately. Phone, tablet, or laptop &mdash; if it has a browser, you can train on it.</div></div></div>
-      <div class="faq-item"><button class="faq-question">What games does RangeIQ cover?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No-Limit Hold'em, with live cash games at $1/$2 through $2/$5 as the home turf &mdash; every example in our library is a real live-stakes spot. The engine covers every seat from UTG through the big blind, short-handed through full-ring, and works for tournament players too.</div></div></div>
+      <div class="faq-item"><button class="faq-question">What games does RangeIQ cover?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No-Limit Hold'em, with live cash games at $1/$2 through $2/$5 as the home turf &mdash; every example in our library is a real live-stakes spot. The engine covers every seat from UTG through the big blind, short-handed through full-ring.</div></div></div>
       <div class="faq-item"><button class="faq-question">Is my training data saved? Who can see it?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">Your drills, saved hands, and progress are saved to your account so your study history follows you across devices. We don't sell or share your personal data &mdash; ever. When IQ Reasoning explains a spot, only the hand details (cards, board, position, opponent type, sizing) are processed to generate the explanation &mdash; never your name or email &mdash; and that data is never used to train AI models. Full details are in our <a href="privacy.html" style="color:var(--gold);">Privacy Policy</a>.</div></div></div>
       <div class="faq-item"><button class="faq-question">What's the connection to Between the Cards?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">RangeIQ is the interactive training platform built by the team behind Between the Cards. BTC delivers the strategic frameworks through content &mdash; RangeIQ lets you apply and train them hands-on. Same philosophy, different medium. <a href="https://www.betweenthecards.co" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Visit Between the Cards &rarr;</a> &nbsp; <a href="https://www.youtube.com/@Between_the_Cards" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:none;">YouTube &rarr;</a></div></div></div>
       <div class="faq-item"><button class="faq-question">Is RangeIQ a gambling product?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="#6F7D8A" stroke-width="1.5"><path d="M5 7.5L10 12.5L15 7.5"/></svg></button><div class="faq-answer"><div class="faq-answer-inner">No. RangeIQ is a poker education and training tool &mdash; think chess training software, but for live No-Limit Hold'em. No real money is wagered, no games are played, and no betting happens anywhere on the platform. You study and drill between sessions; what you do at the table is your game, played on your own. RangeIQ is for users 18 and over.</div></div></div>
