@@ -62,8 +62,16 @@ const html = `<!DOCTYPE html>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
     gtag('js', new Date());
     gtag('config', 'AW-18142420946');
+    gtag('config', 'G-WVG2PWLN8F');
   </script>
 
   <title>${title} | RangeIQ</title>
@@ -73,9 +81,11 @@ const html = `<!DOCTYPE html>
   <meta property="og:url" content="${url}">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta property="og:site_name" content="RangeIQ Poker">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="TODO: Twitter description (under 200 chars).">
+  <meta name="twitter:image" content="https://rangeiqpoker.com/app-screenshot.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -103,10 +113,12 @@ const html = `<!DOCTYPE html>
     "url": "${url}",
     "about": {
       "@type": "WebApplication",
-      "name": "RangeIQ Poker",
+      "@id": "https://rangeiqpoker.com/#app",
+      "name": "RangeIQ",
+      "alternateName": "RangeIQ Poker",
       "url": "https://app.rangeiqpoker.com",
       "applicationCategory": "EducationalApplication",
-      "description": "Browser-based poker exploit trainer and simplified node-locking engine for live cash games"
+      "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in real dollars. For study between sessions."
     },
     "keywords": ["TODO: add 5-8 target keywords"]
   }
@@ -573,7 +585,7 @@ console.log(`\n  ✓ Created ${filename}`);
 // ── Update sitemap.xml ──────────────────────────────────────────
 const sitemapPath = path.join(ROOT, "sitemap.xml");
 const sitemap = fs.readFileSync(sitemapPath, "utf8");
-const sitemapEntry = `  <url><loc>${url}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`;
+const sitemapEntry = `  <url><loc>${url}</loc><lastmod>${dateStr}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`;
 
 if (!sitemap.includes(url)) {
   const updated = sitemap.replace(

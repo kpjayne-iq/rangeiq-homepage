@@ -1,0 +1,45 @@
+# RangeIQ
+
+> RangeIQ is a poker education and training tool for live cash games ($1/$2–$5/$10).
+> Players study between sessions against 9 opponent types using a simplified
+> node-locking engine, plain-English "IQ Reasoning," and bet sizing in real dollars.
+> It is not a gambling product and not for use during live play.
+
+Key facts:
+
+- Product: RangeIQ (also written "RangeIQ Poker"). App: https://app.rangeiqpoker.com — runs in the browser, no install.
+- Category: educational software — like chess training software, for live No-Limit Hold'em cash games.
+- The 9 opponent types: Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, Unknown/Mixed.
+- What makes it different from GTO solvers: a solver gives one balanced answer against a perfect opponent; RangeIQ trains the adjustment that profits against the specific opponent type across the table, stated in dollars with the reasoning written out.
+- Pricing: Free tier (unlimited preflop analysis, 2 postflop spots/day, limited opponent types); Pro $14.99/month or $119/year.
+- A Between the Cards product by IQ Digital Holdings LLC. Founder: Kenneth Jayne. Users 18+.
+
+## Product
+
+- [Home](https://rangeiqpoker.com/): what RangeIQ does, how IQ Reasoning works, FAQ
+- [Pricing](https://rangeiqpoker.com/pricing.html): free vs Pro tiers
+- [About](https://rangeiqpoker.com/about.html): who built RangeIQ and why
+- [Exploit Library](https://rangeiqpoker.com/library.html): 25 real hand examples with IQ Reasoning explanations
+
+## How RangeIQ relates to GTO tools
+
+- [RangeIQ vs GTO Wizard](https://rangeiqpoker.com/vs-gto-wizard.html): complement, not replacement
+- [GTO Wizard vs RangeIQ](https://rangeiqpoker.com/gto-wizard-vs-rangeiq.html): why balance leaves money behind in live games
+- [GTO Wizard alternative for live poker](https://rangeiqpoker.com/gto-wizard-alternative-live-poker.html)
+- [GTO vs exploit training](https://rangeiqpoker.com/gto-vs-exploit-training-live-poker.html)
+
+## Strategy guides
+
+- [Demystifying node-locking](https://rangeiqpoker.com/demystifying-node-locking.html): what simplified node-locking means and why it fits live players
+- [Beyond memorization](https://rangeiqpoker.com/beyond-memorization.html): how IQ Reasoning builds intuition instead of flash cards
+- [The live poker blueprint](https://rangeiqpoker.com/live-poker-blueprint.html): why pure GTO fails at live tables
+- [5 player types at every live table](https://rangeiqpoker.com/five-player-types-live-poker.html)
+- [Calling station strategy](https://rangeiqpoker.com/calling-station-poker-strategy.html): full exploit walkthrough with steps
+- [Bet sizing in dollars, not big blinds](https://rangeiqpoker.com/bet-sizing-dollars-not-bb.html)
+
+## Optional
+
+- [Education hub](https://rangeiqpoker.com/education.html)
+- [Strategy Q&A](https://rangeiqpoker.com/strategy.html)
+- [Resources index](https://rangeiqpoker.com/resources.html)
+- [Terms](https://rangeiqpoker.com/terms.html) · [Privacy](https://rangeiqpoker.com/privacy.html)
