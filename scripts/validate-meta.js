@@ -174,6 +174,15 @@ for (const file of files) {
     }
   }
 
+  // 2b. "archetype" is banned in the ENTIRE page, prose included — the term is
+  // customer-facing everywhere on this site. (Other bans stay scoped to
+  // head/schema/headings: an article may legitimately discuss e.g. what
+  // "real-time" tools do; nothing legitimately says "archetype".)
+  // The 2026-08 sweep cleared 21 prose instances; this keeps them cleared.
+  if (/archetype/i.test(html)) {
+    problems.push(`${file} [body]: banned term "archetype" in page content — customer-facing copy says "opponent types"`);
+  }
+
   // 3. WebApplication naming/category rules
   for (const parsed of parsedBlocks) {
     for (const node of webApplicationNodes(parsed)) {
