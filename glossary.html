@@ -21,153 +21,155 @@
     gtag('config', 'G-WVG2PWLN8F');
   </script>
 
-  <title>What Is RangeIQ? Exploit-Based Poker Study Tool | RangeIQ</title>
-  <meta name="description" content="RangeIQ Poker is a browser-based poker study tool for live cash games at $1/$2 to $5/$10 - nine opponent types, bet sizing in real dollars, plain-English reasoning.">
-  <meta property="og:title" content="What Is RangeIQ?">
-  <meta property="og:description" content="A browser-based poker study tool for live cash games: nine opponent types and bet sizing in real dollars.">
-  <meta property="og:url" content="https://www.rangeiqpoker.com/what-is-rangeiq">
+  <title>Poker Glossary: Exploit-Based Live Cash Terms | RangeIQ</title>
+  <meta name="description" content="Plain-English definitions of exploit-based poker terms for live cash games: node-locking, capped ranges, bluff-catchers, fold equity, pot odds and more.">
+  <meta property="og:title" content="Poker Glossary: Exploit-Based Live Cash Terms">
+  <meta property="og:description" content="Definitions of the exploit-based concepts behind live cash game study, in plain English.">
+  <meta property="og:url" content="https://www.rangeiqpoker.com/glossary">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
   <meta property="og:site_name" content="RangeIQ Poker">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="What Is RangeIQ?">
-  <meta name="twitter:description" content="A browser-based poker study tool for live cash games at $1/$2 to $5/$10: nine opponent types, bet sizing in real dollars, and the reasoning behind every recommendation.">
+  <meta name="twitter:title" content="Poker Glossary: Exploit-Based Live Cash Terms">
+  <meta name="twitter:description" content="Plain-English definitions of exploit-based poker terms for live cash games: node-locking, capped ranges, bluff-catchers, fold equity and more.">
   <meta name="twitter:image" content="https://rangeiqpoker.com/app-screenshot.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="canonical" href="https://www.rangeiqpoker.com/what-is-rangeiq">
+  <link rel="canonical" href="https://www.rangeiqpoker.com/glossary">
 
-  <!-- Structured Data: canonical product entity. WebApplication is a subclass of
-       SoftwareApplication - one entity, @id shared with index.html and the app repo. -->
+  <!-- Structured Data: DefinedTermSet (12 terms) + the shared product entity -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebApplication",
-        "@id": "https://rangeiqpoker.com/#app",
-        "url": "https://app.rangeiqpoker.com",
-        "name": "RangeIQ",
-        "alternateName": "RangeIQ Poker",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "All",
-        "browserRequirements": "Requires HTML5 compatible browser. No installation required.",
-        "publisher": {
-          "@id": "https://rangeiqpoker.com/#org"
-        },
-        "description": "RangeIQ is a poker education and training tool for live cash games from $1/$2 to $5/$10. You study spots between sessions against 9 opponent types using a simplified node-locking engine, plain-English IQ Reasoning, and bet sizing in real dollars — educational use only, not for use during live play.",
-        "featureList": [
-          "Simplified node-locking engine for exploit-based study",
-          "9 opponent types: Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, Unknown/Mixed",
-          "IQ Reasoning — plain-English explanations locked to deterministic engine math",
-          "Bet sizing in real dollars for live $1/$2 through $5/$10 cash games",
-          "Preflop range builder for live table dynamics",
-          "Daily exploit drills with EV scoring",
-          "Study Vault for saving and replaying analyzed spots",
-          "Leak Hunter for identifying systematic strategy errors"
-        ],
-        "keywords": [
-          "poker training tool",
-          "exploitative poker strategy",
-          "live cash game poker study",
-          "simplified node-locking",
-          "poker opponent types",
-          "bet sizing in dollars",
-          "poker study between sessions",
-          "poker education"
-        ],
-        "offers": [
+        "@type": "DefinedTermSet",
+        "@id": "https://www.rangeiqpoker.com/glossary#set",
+        "name": "RangeIQ Poker Glossary",
+        "url": "https://www.rangeiqpoker.com/glossary",
+        "description": "Definitions of exploit-based poker concepts used in live cash game study, from node-locking and capped ranges to fold equity and population tendencies.",
+        "hasDefinedTerm": [
           {
-            "@type": "Offer",
-            "name": "Free Tier",
-            "price": "0",
-            "priceCurrency": "USD",
-            "description": "Unlimited preflop analysis, 2 postflop spots per day, limited opponent types, 1 drill per day, 3-spot Study Vault"
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#exploitative-play",
+            "name": "Exploitative play",
+            "description": "Exploitative play means choosing the action that profits most against a specific opponent's actual tendencies, rather than the action that is safest against a perfect one. It accepts being counter-exploitable in theory, on the reasoning that the player across the table is not looking for the leak. It is the basis of most live cash edges.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
           },
           {
-            "@type": "Offer",
-            "name": "RangeIQ Pro — Monthly",
-            "price": "14.99",
-            "priceCurrency": "USD",
-            "description": "All 9 opponent types, unlimited postflop analysis, full drills, range builder, unlimited Study Vault, Leak Hunter — billed monthly"
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#node-locking",
+            "name": "Node-locking",
+            "description": "Node-locking means fixing an opponent's strategy at a decision point, telling the engine how that player actually behaves, and then working out the best response to that fixed behaviour. RangeIQ applies a simplified version: you select an opponent type instead of hand-editing frequencies, and the recommendation adjusts to that profile.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
           },
           {
-            "@type": "Offer",
-            "name": "RangeIQ Pro — Annual",
-            "price": "119",
-            "priceCurrency": "USD",
-            "description": "Everything in Pro, billed yearly — about 34% less than paying monthly"
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#opponent-type",
+            "name": "Opponent type",
+            "description": "An opponent type is a repeatable behavioural profile: how often a player enters pots, how much they bet, what they call with, and whether they bluff. RangeIQ models nine, from Nit and TAG through Calling Station and Maniac. The same hand can call for a different action against each one.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#capped-range",
+            "name": "Capped range",
+            "description": "A range is capped when the line a player has taken rules out their strongest hands. Someone who only calls on the flop and turn, never raising, rarely holds a set or a straight by the river. Recognising a cap is what makes a large river bet credible rather than reckless.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#bluff-catcher",
+            "name": "Bluff-catcher",
+            "description": "A bluff-catcher is a hand strong enough to beat an opponent's bluffs but too weak to beat anything they would bet for value. Calling with one is a wager on how often that opponent bluffs, not on the strength of your own hand, which is why their profile decides the spot.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#overbet",
+            "name": "Overbet",
+            "description": "An overbet is a bet larger than the current pot. It works when an opponent's range is capped and their continuing hands are all roughly equal in strength, because it charges the maximum for a decision they cannot get right. Against players who rarely fold, it becomes a value tool rather than pressure.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#fold-equity",
+            "name": "Fold equity",
+            "description": "Fold equity is the share of a hand's value that comes from an opponent folding rather than from winning at showdown. It depends entirely on how often that particular player folds. Against an opponent who calls nearly everything, fold equity approaches zero and bluffing hands lose most of their reason to bet.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#pot-odds",
+            "name": "Pot odds",
+            "description": "Pot odds are the price a call is getting: the amount you must put in, compared with the amount already in the pot. In a $50 pot facing a $25 bet, you risk $25 to win $75. Whether that price is good depends on how often you are actually ahead.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#value-bet",
+            "name": "Value bet",
+            "description": "A value bet is a bet made expecting to be called by a worse hand. The size should follow what the opponent will actually pay, not what a balanced strategy would charge. Against a station who calls with any pair, the correct value size is often far larger than theory suggests.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#population-tendency",
+            "name": "Population tendency",
+            "description": "A population tendency is a mistake most players in a given pool make in a given spot. It is not a read on one individual but a default that is right more often than not. At live low stakes, under-bluffing rivers and over-folding to large bets are two of the most reliable.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#game-theory-optimal",
+            "name": "Game theory optimal (GTO)",
+            "description": "A game theory optimal strategy is one that cannot be exploited, whatever the opponent does. It is a defensive baseline rather than a maximum: against players who make consistent mistakes it deliberately leaves money on the table, because it never adjusts. Solvers compute it; exploit-based study departs from it on purpose.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
+          },
+          {
+            "@type": "DefinedTerm",
+            "@id": "https://www.rangeiqpoker.com/glossary#board-texture",
+            "name": "Board texture",
+            "description": "Board texture describes how the community cards interact: whether they are connected, suited, paired, or high-card heavy. Texture decides which ranges improve and which stay weak, so the same hand can be a clear bet on one board and a check on another. It is the first thing to read after the flop.",
+            "inDefinedTermSet": {
+              "@id": "https://www.rangeiqpoker.com/glossary#set"
+            }
           }
         ]
-      }
-    ]
-  }
-  </script>
-
-  <!-- Structured Data: FAQPage - text matches the visible FAQ verbatim -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much does RangeIQ cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "RangeIQ has a free tier and a Pro tier. Pro is $14.99 per month or $119 per year. The free tier includes unlimited preflop analysis, two postflop spots and one drill per day, and a three-spot Study Vault."
-        }
       },
       {
-        "@type": "Question",
-        "name": "What do I need to run RangeIQ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A modern web browser is the only requirement. There is no desktop client and nothing to keep updated, and it runs on Windows, macOS, iOS, and Android through the browser. Because your work is saved to your account, you can start a review on a laptop and finish it on a phone."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is a simplified node-locking engine?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Node-locking means telling the engine how a particular opponent actually plays instead of assuming perfect play. RangeIQ applies that idea in a simplified form: you choose an opponent type, and the engine adjusts its recommendation to that player's tendencies. The result is a specific action and bet size rather than a table of frequencies."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which opponent types can RangeIQ model?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Nine: Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, and Unknown/Mixed. Each one changes the recommendation for the same hand, because each one calls, folds, and raises with a different range. The free tier covers Unknown/Mixed; Pro opens all nine."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does RangeIQ tell me what to do while I am playing?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. RangeIQ is built for study between sessions and is not designed for use during live play. You review hands afterwards, learn the pattern, and carry that understanding back to the table yourself."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is RangeIQ different from a poker course or a hand-history tracker?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A course teaches a fixed curriculum, and a tracker reports what already happened. RangeIQ is interactive: you enter a specific spot against a specific opponent type and get the adjustment for that spot, with the reasoning written out. It is a place to work through decisions, not a video library or a database of past hands."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use RangeIQ if I have never used a solver?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Recommendations are stated as an action and a dollar amount, and IQ Reasoning explains the thinking in plain English, so no background in ranges or frequencies is needed. If you do study equilibrium theory elsewhere, the two fit together: solvers for the balanced baseline, RangeIQ for the player in front of you."
-        }
+        "@type": "WebApplication",
+        "@id": "https://rangeiqpoker.com/#app",
+        "name": "RangeIQ",
+        "alternateName": "RangeIQ Poker",
+        "url": "https://app.rangeiqpoker.com",
+        "applicationCategory": "EducationalApplication",
+        "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in real dollars. For study between sessions."
       }
     ]
   }
@@ -496,17 +498,7 @@
       .article-cta { padding: 48px 20px; }
       .article-cta h2 { font-size: 26px; }
     }
-
-    /* GEO module: key-facts list + comparison table */
-    .article-body .facts { margin: 22px 0 30px; border-top: 1px solid var(--border); }
-    .article-body .facts dt { color: var(--gold); font-weight: 600; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin-top: 16px; }
-    .article-body .facts dd { margin: 6px 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--border); color: var(--text); }
-    .table-wrap { overflow-x: auto; margin: 22px 0 30px; }
-    .article-body table.compare { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 15px; }
-    .article-body table.compare caption { caption-side: top; text-align: left; color: var(--muted); font-size: 13px; padding-bottom: 10px; }
-    .article-body table.compare th, .article-body table.compare td { border: 1px solid var(--border); padding: 12px 14px; text-align: left; vertical-align: top; }
-    .article-body table.compare thead th { background: var(--card); color: var(--gold); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
-    .article-body table.compare th[scope="row"] { background: var(--card-muted); color: var(--text); font-weight: 600; width: 20%; }
+    .article-body h3[id] { scroll-margin-top: 90px; }
   </style>
 </head>
 <body>
@@ -545,124 +537,60 @@
 
   <!-- ARTICLE HERO -->
   <header class="article-hero">
-    <h1>What Is <span class="gold">RangeIQ</span>?</h1>
-    <p class="subtitle">A browser-based poker study tool for live cash games: nine opponent types, bet sizing in real dollars, and the reasoning behind every recommendation.</p>
+    <h1>Poker <span class="gold">Glossary</span></h1>
+    <p class="subtitle">The exploit-based concepts behind live cash game study, defined in plain English and in real dollars.</p>
     <div class="article-meta">RangeIQ Poker &middot; Reference &middot; Updated September 2026</div>
   </header>
   <!-- ARTICLE BODY -->
   <article class="article-body">
 
-    <p>RangeIQ Poker is a browser-based poker training and study tool for live cash game players at $1/$2 through $5/$10. It uses a simplified node-locking engine to show how to adjust against nine specific opponent types, with bet sizing in real dollars. IQ Reasoning explains every recommendation in plain English. It is built for study between sessions, not for use during live play.</p>
+    <p>These are the terms that come up when you study live cash games by opponent type rather than by equilibrium. Each definition stands on its own, so you can read one and stop. Where a concept changes depending on who you are playing, the definition says so, because that dependency is the whole point of exploit-based study.</p>
 
-    <h2>Key facts</h2>
+    <h3 id="exploitative-play">Exploitative play</h3>
+    <p>Exploitative play means choosing the action that profits most against a specific opponent's actual tendencies, rather than the action that is safest against a perfect one. It accepts being counter-exploitable in theory, on the reasoning that the player across the table is not looking for the leak. It is the basis of most live cash edges.</p>
 
-    <dl class="facts">
-      <dt>Category</dt>
-      <dd>Poker education and training software</dd>
-      <dt>Use case</dt>
-      <dd>Studying hands and opponent tendencies between live sessions</dd>
-      <dt>Platform</dt>
-      <dd>Runs in a web browser on desktop, tablet, or phone. No download and no desktop client.</dd>
-      <dt>Pricing</dt>
-      <dd>Free tier available. Pro is $14.99 per month or $119 per year.</dd>
-      <dt>Operator</dt>
-      <dd>IQ Digital Holdings LLC, a Between the Cards product</dd>
-      <dt>Website</dt>
-      <dd>rangeiqpoker.com, with the application at app.rangeiqpoker.com</dd>
-    </dl>
+    <h3 id="node-locking">Node-locking</h3>
+    <p>Node-locking means fixing an opponent's strategy at a decision point, telling the engine how that player actually behaves, and then working out the best response to that fixed behaviour. RangeIQ applies a simplified version: you select an opponent type instead of hand-editing frequencies, and the recommendation adjusts to that profile.</p>
 
-    <h2>RangeIQ compared with GTO solvers</h2>
+    <h3 id="opponent-type">Opponent type</h3>
+    <p>An opponent type is a repeatable behavioural profile: how often a player enters pots, how much they bet, what they call with, and whether they bluff. RangeIQ models nine, from Nit and TAG through Calling Station and Maniac. The same hand can call for a different action against each one.</p>
 
-    <p>Solvers and RangeIQ answer different questions. A solver asks which strategy cannot be exploited. RangeIQ asks which adjustment profits against the particular opponent sitting across from you. Both are legitimate, and which one helps depends on the question being asked.</p>
+    <h3 id="capped-range">Capped range</h3>
+    <p>A range is capped when the line a player has taken rules out their strongest hands. Someone who only calls on the flop and turn, never raising, rarely holds a set or a straight by the river. Recognising a cap is what makes a large river bet credible rather than reckless.</p>
 
-    <div class="table-wrap">
-      <table class="compare">
-        <caption>RangeIQ compared with traditional GTO solvers</caption>
-        <thead>
-          <tr>
-            <th scope="col">Parameter</th>
-            <th scope="col">RangeIQ</th>
-            <th scope="col">Traditional GTO solvers</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Core focus</th>
-            <td>The adjustment that profits against a specific opponent type.</td>
-            <td>The balanced strategy that cannot be exploited.</td>
-          </tr>
-          <tr>
-            <th scope="row">Best for</th>
-            <td>Live cash players deciding how to play against the person across the table.</td>
-            <td>Building a theoretically sound baseline and studying equilibrium.</td>
-          </tr>
-          <tr>
-            <th scope="row">Starting assumption</th>
-            <td>Your opponent has consistent, identifiable tendencies.</td>
-            <td>Your opponent plays perfectly.</td>
-          </tr>
-          <tr>
-            <th scope="row">Workflow</th>
-            <td>Choose the opponent type, enter the spot, read the action and the reasoning.</td>
-            <td>Configure ranges and board subsets, run a solve, interpret the frequency output.</td>
-          </tr>
-          <tr>
-            <th scope="row">Learning curve</th>
-            <td>Plain English and dollar amounts; no solver background needed.</td>
-            <td>Comfort with ranges, frequencies, and configuration is expected.</td>
-          </tr>
-          <tr>
-            <th scope="row">Access</th>
-            <td>Runs in the browser, nothing to install.</td>
-            <td>Desktop software or a cloud service, depending on the tool.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h3 id="bluff-catcher">Bluff-catcher</h3>
+    <p>A bluff-catcher is a hand strong enough to beat an opponent's bluffs but too weak to beat anything they would bet for value. Calling with one is a wager on how often that opponent bluffs, not on the strength of your own hand, which is why their profile decides the spot.</p>
 
-    <p>A solver is the right tool for building a balanced baseline and understanding why equilibrium strategies look the way they do. RangeIQ is narrower on purpose: it starts from a described opponent and works out the adjustment against that specific set of tendencies. Many players use both. For a fuller side-by-side, see <a href="vs-gto-wizard.html">RangeIQ vs GTO Wizard</a>.</p>
+    <h3 id="overbet">Overbet</h3>
+    <p>An overbet is a bet larger than the current pot. It works when an opponent's range is capped and their continuing hands are all roughly equal in strength, because it charges the maximum for a decision they cannot get right. Against players who rarely fold, it becomes a value tool rather than pressure.</p>
 
-    <h2>How IQ Reasoning works</h2>
+    <h3 id="fold-equity">Fold equity</h3>
+    <p>Fold equity is the share of a hand's value that comes from an opponent folding rather than from winning at showdown. It depends entirely on how often that particular player folds. Against an opponent who calls nearly everything, fold equity approaches zero and bluffing hands lose most of their reason to bet.</p>
 
-    <p>Every recommendation comes from the engine's math, and the same inputs always produce the same output. IQ Reasoning is the explanation layer on top: why this size, against this opponent type, on this board. It is tied to the engine's output, so the explanation cannot contradict the recommendation it is describing.</p>
+    <h3 id="pot-odds">Pot odds</h3>
+    <p>Pot odds are the price a call is getting: the amount you must put in, compared with the amount already in the pot. In a $50 pot facing a $25 bet, you risk $25 to win $75. Whether that price is good depends on how often you are actually ahead.</p>
 
-    <div class="callout">
-      <strong>The engine locks the answer. IQ Reasoning explains it.</strong>
-    </div>
+    <h3 id="value-bet">Value bet</h3>
+    <p>A value bet is a bet made expecting to be called by a worse hand. The size should follow what the opponent will actually pay, not what a balanced strategy would charge. Against a station who calls with any pair, the correct value size is often far larger than theory suggests.</p>
 
-    <p>For the mechanics behind that, <a href="demystifying-node-locking.html">Demystifying Node-Locking</a> covers what simplified node-locking means in practice, and <a href="beyond-memorization.html">Beyond Memorization</a> covers how the explanations build intuition instead of memorized charts. The <a href="glossary">poker glossary</a> defines the terms used throughout.</p>
+    <h3 id="population-tendency">Population tendency</h3>
+    <p>A population tendency is a mistake most players in a given pool make in a given spot. It is not a read on one individual but a default that is right more often than not. At live low stakes, under-bluffing rivers and over-folding to large bets are two of the most reliable.</p>
 
-    <h2>Frequently asked questions</h2>
+    <h3 id="game-theory-optimal">Game theory optimal (GTO)</h3>
+    <p>A game theory optimal strategy is one that cannot be exploited, whatever the opponent does. It is a defensive baseline rather than a maximum: against players who make consistent mistakes it deliberately leaves money on the table, because it never adjusts. Solvers compute it; exploit-based study departs from it on purpose.</p>
 
-    <h3>How much does RangeIQ cost?</h3>
-    <p>RangeIQ has a free tier and a Pro tier. Pro is $14.99 per month or $119 per year. The free tier includes unlimited preflop analysis, two postflop spots and one drill per day, and a three-spot Study Vault.</p>
+    <h3 id="board-texture">Board texture</h3>
+    <p>Board texture describes how the community cards interact: whether they are connected, suited, paired, or high-card heavy. Texture decides which ranges improve and which stay weak, so the same hand can be a clear bet on one board and a check on another. It is the first thing to read after the flop.</p>
 
-    <h3>What do I need to run RangeIQ?</h3>
-    <p>A modern web browser is the only requirement. There is no desktop client and nothing to keep updated, and it runs on Windows, macOS, iOS, and Android through the browser. Because your work is saved to your account, you can start a review on a laptop and finish it on a phone.</p>
-
-    <h3>What is a simplified node-locking engine?</h3>
-    <p>Node-locking means telling the engine how a particular opponent actually plays instead of assuming perfect play. RangeIQ applies that idea in a simplified form: you choose an opponent type, and the engine adjusts its recommendation to that player's tendencies. The result is a specific action and bet size rather than a table of frequencies.</p>
-
-    <h3>Which opponent types can RangeIQ model?</h3>
-    <p>Nine: Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, and Unknown/Mixed. Each one changes the recommendation for the same hand, because each one calls, folds, and raises with a different range. The free tier covers Unknown/Mixed; Pro opens all nine.</p>
-
-    <h3>Does RangeIQ tell me what to do while I am playing?</h3>
-    <p>No. RangeIQ is built for study between sessions and is not designed for use during live play. You review hands afterwards, learn the pattern, and carry that understanding back to the table yourself.</p>
-
-    <h3>How is RangeIQ different from a poker course or a hand-history tracker?</h3>
-    <p>A course teaches a fixed curriculum, and a tracker reports what already happened. RangeIQ is interactive: you enter a specific spot against a specific opponent type and get the adjustment for that spot, with the reasoning written out. It is a place to work through decisions, not a video library or a database of past hands.</p>
-
-    <h3>Can I use RangeIQ if I have never used a solver?</h3>
-    <p>Yes. Recommendations are stated as an action and a dollar amount, and IQ Reasoning explains the thinking in plain English, so no background in ranges or frequencies is needed. If you do study equilibrium theory elsewhere, the two fit together: solvers for the balanced baseline, RangeIQ for the player in front of you.</p>
+    <p>For how these fit together in practice, see <a href="what-is-rangeiq">What Is RangeIQ?</a> for the short version, <a href="demystifying-node-locking">Demystifying Node-Locking</a> for the mechanics, and the <a href="library">Exploit Library</a> for 25 worked hands.</p>
 
   </article>
   <!-- CTA -->
   <section class="article-cta">
-    <h2>See it on a <span style="color:var(--gold)">real spot</span></h2>
-    <p>Pick an opponent type, enter the hand, and read the adjustment in dollars with the reasoning written out.</p>
+    <h2>Put a term to <span style="color:var(--gold)">work</span></h2>
+    <p>Pick an opponent type, enter a spot, and see the reasoning use these concepts on a real hand.</p>
     <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
-    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
-    <p style="margin-top:8px; font-size:14px;"><a href="pricing.html" style="color:var(--gold); text-decoration:none;">Compare the free and Pro tiers &rarr;</a></p>
+    <p style="margin-top:24px; font-size:14px;"><a href="library" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
   </section>
   <footer>
     <strong>RangeIQ Poker</strong><br>

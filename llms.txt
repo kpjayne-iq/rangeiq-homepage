@@ -16,6 +16,7 @@ Key facts:
 
 ## Product
 
+- [Poker glossary](https://www.rangeiqpoker.com/glossary): 12 exploit-based concepts defined in plain English — node-locking, capped ranges, bluff-catchers, fold equity, population tendencies
 - [What is RangeIQ](https://www.rangeiqpoker.com/what-is-rangeiq): definition, key facts, comparison with GTO solvers, and FAQ — start here
 - [Home](https://www.rangeiqpoker.com/): what RangeIQ does, how IQ Reasoning works, FAQ
 - [Pricing](https://www.rangeiqpoker.com/pricing): free vs Pro tiers
