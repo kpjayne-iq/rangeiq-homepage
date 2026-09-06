@@ -30,6 +30,13 @@ Key facts:
 - [GTO Wizard alternative for live poker](https://www.rangeiqpoker.com/gto-wizard-alternative-live-poker)
 - [GTO vs exploit training](https://www.rangeiqpoker.com/gto-vs-exploit-training-live-poker)
 
+## By stake
+
+- [$1/$2 live cash strategy](https://www.rangeiqpoker.com/live-1-2-poker-strategy): widest-calling, least-bluffing pool; value bet and size up
+- [$1/$3 live poker tool](https://www.rangeiqpoker.com/live-1-3-poker-tool): hand analysis for the most common live stake
+- [$2/$5 live cash strategy](https://www.rangeiqpoker.com/live-2-5-poker-strategy): structured pool; value-only stops being enough
+- [$5/$10 live cash strategy](https://www.rangeiqpoker.com/live-5-10-poker-strategy): most balanced pool; individual reads over population reads
+
 ## Strategy guides
 
 - [Demystifying node-locking](https://www.rangeiqpoker.com/demystifying-node-locking): what simplified node-locking means and why it fits live players
