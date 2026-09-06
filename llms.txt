@@ -16,31 +16,31 @@ Key facts:
 
 ## Product
 
-- [What is RangeIQ](https://rangeiqpoker.com/what-is-rangeiq.html): definition, key facts, comparison with GTO solvers, and FAQ — start here
-- [Home](https://rangeiqpoker.com/): what RangeIQ does, how IQ Reasoning works, FAQ
-- [Pricing](https://rangeiqpoker.com/pricing.html): free vs Pro tiers
-- [About](https://rangeiqpoker.com/about.html): who built RangeIQ and why
-- [Exploit Library](https://rangeiqpoker.com/library.html): 25 real hand examples with IQ Reasoning explanations
+- [What is RangeIQ](https://www.rangeiqpoker.com/what-is-rangeiq): definition, key facts, comparison with GTO solvers, and FAQ — start here
+- [Home](https://www.rangeiqpoker.com/): what RangeIQ does, how IQ Reasoning works, FAQ
+- [Pricing](https://www.rangeiqpoker.com/pricing): free vs Pro tiers
+- [About](https://www.rangeiqpoker.com/about): who built RangeIQ and why
+- [Exploit Library](https://www.rangeiqpoker.com/library): 25 real hand examples with IQ Reasoning explanations
 
 ## How RangeIQ relates to GTO tools
 
-- [RangeIQ vs GTO Wizard](https://rangeiqpoker.com/vs-gto-wizard.html): complement, not replacement
-- [GTO Wizard vs RangeIQ](https://rangeiqpoker.com/gto-wizard-vs-rangeiq.html): why balance leaves money behind in live games
-- [GTO Wizard alternative for live poker](https://rangeiqpoker.com/gto-wizard-alternative-live-poker.html)
-- [GTO vs exploit training](https://rangeiqpoker.com/gto-vs-exploit-training-live-poker.html)
+- [RangeIQ vs GTO Wizard](https://www.rangeiqpoker.com/vs-gto-wizard): complement, not replacement
+- [GTO Wizard vs RangeIQ](https://www.rangeiqpoker.com/gto-wizard-vs-rangeiq): why balance leaves money behind in live games
+- [GTO Wizard alternative for live poker](https://www.rangeiqpoker.com/gto-wizard-alternative-live-poker)
+- [GTO vs exploit training](https://www.rangeiqpoker.com/gto-vs-exploit-training-live-poker)
 
 ## Strategy guides
 
-- [Demystifying node-locking](https://rangeiqpoker.com/demystifying-node-locking.html): what simplified node-locking means and why it fits live players
-- [Beyond memorization](https://rangeiqpoker.com/beyond-memorization.html): how IQ Reasoning builds intuition instead of flash cards
-- [The live poker blueprint](https://rangeiqpoker.com/live-poker-blueprint.html): why pure GTO fails at live tables
-- [5 player types at every live table](https://rangeiqpoker.com/five-player-types-live-poker.html)
-- [Calling station strategy](https://rangeiqpoker.com/calling-station-poker-strategy.html): full exploit walkthrough with steps
-- [Bet sizing in dollars, not big blinds](https://rangeiqpoker.com/bet-sizing-dollars-not-bb.html)
+- [Demystifying node-locking](https://www.rangeiqpoker.com/demystifying-node-locking): what simplified node-locking means and why it fits live players
+- [Beyond memorization](https://www.rangeiqpoker.com/beyond-memorization): how IQ Reasoning builds intuition instead of flash cards
+- [The live poker blueprint](https://www.rangeiqpoker.com/live-poker-blueprint): why pure GTO fails at live tables
+- [5 player types at every live table](https://www.rangeiqpoker.com/five-player-types-live-poker)
+- [Calling station strategy](https://www.rangeiqpoker.com/calling-station-poker-strategy): full exploit walkthrough with steps
+- [Bet sizing in dollars, not big blinds](https://www.rangeiqpoker.com/bet-sizing-dollars-not-bb)
 
 ## Optional
 
-- [Education hub](https://rangeiqpoker.com/education.html)
-- [Strategy Q&A](https://rangeiqpoker.com/strategy.html)
-- [Resources index](https://rangeiqpoker.com/resources.html)
-- [Terms](https://rangeiqpoker.com/terms.html) · [Privacy](https://rangeiqpoker.com/privacy.html)
+- [Education hub](https://www.rangeiqpoker.com/education)
+- [Strategy Q&A](https://www.rangeiqpoker.com/strategy)
+- [Resources index](https://www.rangeiqpoker.com/resources)
+- [Terms](https://www.rangeiqpoker.com/terms) · [Privacy](https://www.rangeiqpoker.com/privacy)

@@ -37,7 +37,7 @@ const slug = title
   .replace(/^-+|-+$/g, "");
 const filename = slug + ".html";
 const filepath = path.join(ROOT, filename);
-const url = `https://rangeiqpoker.com/${filename}`;
+const url = `https://www.rangeiqpoker.com/${slug}`;
 
 if (fs.existsSync(filepath)) {
   console.error(`\n  ✗ File already exists: ${filename}\n`);

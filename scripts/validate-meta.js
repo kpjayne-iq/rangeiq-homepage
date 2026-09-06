@@ -249,8 +249,27 @@ for (const file of files) {
   }
 
   // 5. Canonical link + title convention
-  if (!/<link\s+rel="canonical"/i.test(head)) {
+  //
+  // The canonical must name the URL that actually returns 200. Vercel serves this
+  // site at www with cleanUrls, so apex/page.html 307s to www/page.html which 308s
+  // to www/page. A canonical pointing at either redirect never resolves, and a
+  // search engine that cannot resolve your canonical picks its own.
+  const CANON_HOST = "https://www.rangeiqpoker.com/";
+  const canonMatch = head.match(/<link\s+rel="canonical"\s+href="([^"]*)"/i);
+  if (!canonMatch) {
     problems.push(`${file}: missing <link rel="canonical">`);
+  } else {
+    const href = canonMatch[1];
+    if (!href.startsWith(CANON_HOST)) {
+      problems.push(`${file}: canonical "${href}" must start with ${CANON_HOST} — apex 307s to www, so an apex canonical never returns 200`);
+    }
+    if (href.endsWith(".html")) {
+      problems.push(`${file}: canonical "${href}" ends in .html — cleanUrls 308s that to the extensionless URL, so the canonical points at a redirect`);
+    }
+  }
+  const ogUrl = head.match(/<meta\s+property="og:url"\s+content="([^"]*)"/i);
+  if (ogUrl && (!ogUrl[1].startsWith(CANON_HOST) || ogUrl[1].endsWith(".html"))) {
+    problems.push(`${file}: og:url "${ogUrl[1]}" must match the canonical form (${CANON_HOST}…, no .html)`);
   }
   const t = head.match(/<title>([\s\S]*?)<\/title>/i);
   if (!t) problems.push(`${file}: missing <title>`);

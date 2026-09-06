@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://rangeiqpoker.com/sitemap.xml
+Sitemap: https://www.rangeiqpoker.com/sitemap.xml
