@@ -58,15 +58,58 @@
         "about": {
           "@type": "WebApplication",
           "@id": "https://rangeiqpoker.com/#app",
+          "url": "https://app.rangeiqpoker.com",
           "name": "RangeIQ",
           "alternateName": "RangeIQ Poker",
-          "url": "https://app.rangeiqpoker.com",
           "applicationCategory": "EducationalApplication",
-          "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in real dollars. For study between sessions.",
           "operatingSystem": "All",
+          "browserRequirements": "Requires HTML5 compatible browser. No installation required.",
+          "publisher": {
+            "@id": "https://rangeiqpoker.com/#org"
+          },
+          "description": "RangeIQ is a poker education and training tool for live cash games from $1/$2 to $5/$10. You study spots between sessions against 9 opponent types using a simplified node-locking engine, plain-English IQ Reasoning, and bet sizing in real dollars — educational use only, not for use during live play.",
+          "featureList": [
+            "Simplified node-locking engine for exploit-based study",
+            "9 opponent types: Nit, TAG, LAG, Young Aggro, Loose Passive, Calling Station, Maniac, Recreational, Unknown/Mixed",
+            "IQ Reasoning — plain-English explanations locked to deterministic engine math",
+            "Bet sizing in real dollars for live $1/$2 through $5/$10 cash games",
+            "Preflop range builder for live table dynamics",
+            "Daily exploit drills with EV scoring",
+            "Study Vault for saving and replaying analyzed spots",
+            "Leak Hunter for identifying systematic strategy errors"
+          ],
+          "keywords": [
+            "poker training tool",
+            "exploitative poker strategy",
+            "live cash game poker study",
+            "simplified node-locking",
+            "poker opponent types",
+            "bet sizing in dollars",
+            "poker study between sessions",
+            "poker education"
+          ],
           "offers": [
-            { "@type": "Offer", "name": "Free Tier", "price": "0", "priceCurrency": "USD" },
-            { "@type": "Offer", "name": "RangeIQ Pro", "price": "14.99", "priceCurrency": "USD" }
+            {
+              "@type": "Offer",
+              "name": "Free Tier",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "Unlimited preflop analysis, 2 postflop spots per day, limited opponent types, 1 drill per day, 3-spot Study Vault"
+            },
+            {
+              "@type": "Offer",
+              "name": "RangeIQ Pro — Monthly",
+              "price": "14.99",
+              "priceCurrency": "USD",
+              "description": "All 9 opponent types, unlimited postflop analysis, full drills, range builder, unlimited Study Vault, Leak Hunter — billed monthly"
+            },
+            {
+              "@type": "Offer",
+              "name": "RangeIQ Pro — Annual",
+              "price": "119",
+              "priceCurrency": "USD",
+              "description": "Everything in Pro, billed yearly — about 34% less than paying monthly"
+            }
           ]
         }
       },

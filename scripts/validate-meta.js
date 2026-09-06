@@ -115,7 +115,7 @@ const TITLE_ALLOWLIST = new Set([
 // CANONICAL_ENTITY — not just the short inline "about" mini-node. These are the
 // definitional pages an LLM crawler lifts the product description from, so they
 // are the ones that must never drift.
-const ENTITY_PAGES = new Set(["index.html", "what-is-rangeiq.html"]);
+const ENTITY_PAGES = new Set(["index.html", "what-is-rangeiq.html", "live-1-3-poker-tool.html"]);
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function stableStringify(x) {
