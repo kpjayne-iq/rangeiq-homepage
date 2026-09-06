@@ -16,6 +16,7 @@ Key facts:
 
 ## Product
 
+- [What is RangeIQ](https://rangeiqpoker.com/what-is-rangeiq.html): definition, key facts, comparison with GTO solvers, and FAQ — start here
 - [Home](https://rangeiqpoker.com/): what RangeIQ does, how IQ Reasoning works, FAQ
 - [Pricing](https://rangeiqpoker.com/pricing.html): free vs Pro tiers
 - [About](https://rangeiqpoker.com/about.html): who built RangeIQ and why

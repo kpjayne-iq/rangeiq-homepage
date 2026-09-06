@@ -575,6 +575,7 @@ const html = `<!DOCTYPE html>
     }
   </script>
 
+<script src="/consent.js" defer></script>
 </body>
 </html>`;
 

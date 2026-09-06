@@ -98,6 +98,9 @@ const BANNED = [
   [/save \$\d/i, "no dollar-outcome / profit-promise claims"],
   [/maximally profitable/i, "pre-compliance wording, scrubbed June 2026"],
   [/TODO:/, "unfilled template placeholder"],
+  [/aggregateRating/i, "no rating schema until real, verifiable reviews exist"],
+  [/ratingValue/i, "no rating schema until real, verifiable reviews exist"],
+  [/"@type"\s*:\s*"Review"/, "no review schema until real, verifiable reviews exist"],
 ];
 
 // Pages whose <title> need not end in "| RangeIQ".
@@ -107,6 +110,12 @@ const TITLE_ALLOWLIST = new Set([
   "gto-wizard-vs-rangeiq.html", // brand mid-title, already 90+ chars
   "about.html",              // brand-leading title
 ]);
+
+// Pages that must carry the FULL canonical entity node, deep-equal to
+// CANONICAL_ENTITY — not just the short inline "about" mini-node. These are the
+// definitional pages an LLM crawler lifts the product description from, so they
+// are the ones that must never drift.
+const ENTITY_PAGES = new Set(["index.html", "what-is-rangeiq.html"]);
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function stableStringify(x) {
@@ -130,6 +139,17 @@ function* webApplicationNodes(parsed) {
     if (Array.isArray(node)) { for (const x of node) yield* walk(x); return; }
     if (node && typeof node === "object") {
       if (node["@type"] === "WebApplication") yield node;
+      for (const v of Object.values(node)) yield* walk(v);
+    }
+  };
+  yield* walk(parsed);
+}
+
+function* allNodes(parsed) {
+  const walk = function* (node) {
+    if (Array.isArray(node)) { for (const x of node) yield* walk(x); return; }
+    if (node && typeof node === "object") {
+      yield node;
       for (const v of Object.values(node)) yield* walk(v);
     }
   };
@@ -183,6 +203,16 @@ for (const file of files) {
     problems.push(`${file} [body]: banned term "archetype" in page content — customer-facing copy says "opponent types"`);
   }
 
+  // 2c. IQ Reasoning must never be branded as AI in customer-facing copy.
+  // Deliberately narrow: the site legitimately says things like "the engine is
+  // not AI guesswork" and "never used to train AI models", so only the
+  // IQ-Reasoning-is-AI adjacency is banned, and it is banned in body prose too
+  // (the one real violation was a pricing bullet, not a heading).
+  for (const re of [/IQ Reasoning AI/i, /AI[-\s]powered IQ Reasoning/i]) {
+    const m = html.match(re);
+    if (m) problems.push(`${file} [body]: "${m[0]}" brands IQ Reasoning as AI — it is an explanation layer`);
+  }
+
   // 3. WebApplication naming/category rules
   for (const parsed of parsedBlocks) {
     for (const node of webApplicationNodes(parsed)) {
@@ -195,15 +225,26 @@ for (const file of files) {
         problems.push(`${file}: WebApplication applicationCategory "${node.applicationCategory}" — must be EducationalApplication`);
       }
     }
+    // RangeIQ must never be declared as SoftwareApplication. The canonical entity
+    // is WebApplication (a subclass of it), and every rule above only inspects
+    // WebApplication nodes — so a RangeIQ SoftwareApplication node would slip past
+    // the naming and category guards entirely. SoftwareApplication stays reserved
+    // for competitor mentions such as GTO Wizard.
+    for (const node of allNodes(parsed)) {
+      if (node["@type"] !== "SoftwareApplication") continue;
+      if (node.name === "RangeIQ" || node["@id"] === "https://rangeiqpoker.com/#app") {
+        problems.push(`${file}: RangeIQ declared as SoftwareApplication — use the canonical WebApplication #app node; SoftwareApplication is reserved for competitors`);
+      }
+    }
   }
 
-  // 4. index.html entity node must equal the canonical constant
-  if (file === "index.html") {
+  // 4. Definitional pages must carry the canonical entity node verbatim
+  if (ENTITY_PAGES.has(file)) {
     let entity = null;
     for (const parsed of parsedBlocks) entity = entity || findEntityNode(parsed);
-    if (!entity) problems.push("index.html: canonical #app WebApplication node not found");
+    if (!entity) problems.push(`${file}: canonical #app WebApplication node not found`);
     else if (stableStringify(entity) !== stableStringify(CANONICAL_ENTITY)) {
-      problems.push("index.html: #app entity node differs from CANONICAL_ENTITY in scripts/validate-meta.js — the two must be edited together");
+      problems.push(`${file}: #app entity node differs from CANONICAL_ENTITY in scripts/validate-meta.js — the two must be edited together`);
     }
   }
 
