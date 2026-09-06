@@ -44,19 +44,60 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "RangeIQ Pricing",
-    "url": "https://rangeiqpoker.com/pricing.html",
-    "description": "Free forever tier and Full IQ Pro at $14.99/month or $119/year for live cash game poker training.",
-    "about": {
-      "@type": "WebApplication",
-      "@id": "https://rangeiqpoker.com/#app",
-      "name": "RangeIQ",
-      "alternateName": "RangeIQ Poker",
-      "url": "https://app.rangeiqpoker.com",
-      "applicationCategory": "EducationalApplication",
-      "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in real dollars. For study between sessions."
-    }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "RangeIQ Pricing",
+        "url": "https://rangeiqpoker.com/pricing.html",
+        "description": "Free forever tier and Full IQ Pro at $14.99/month or $119/year for live cash game poker training.",
+        "about": {
+          "@type": "WebApplication",
+          "@id": "https://rangeiqpoker.com/#app",
+          "name": "RangeIQ",
+          "alternateName": "RangeIQ Poker",
+          "url": "https://app.rangeiqpoker.com",
+          "applicationCategory": "EducationalApplication",
+          "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in real dollars. For study between sessions."
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I cancel anytime?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can cancel your subscription at any time from your account settings. You'll keep access to Pro features until the end of your current billing period."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What payment methods do you accept?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All major credit and debit cards through our secure payment processor. Subscriptions are billed in USD."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer refunds?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The free tier never expires, so you can evaluate everything RangeIQ does at no cost for as long as you like before upgrading. Once subscribed, you can cancel anytime from your account settings to stop future charges. See our Terms of Service for full details on billing and cancellation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long can I use the free tier?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "As long as you want. The free tier never expires and doesn't require a credit card — unlimited preflop training, 2 postflop spots per day, 1 daily drill, and 3 saved vault hands. When you're ready for unlimited training and all 9 opponent types, upgrade to Pro for $14.99/month or $119/year."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="shortcut icon" href="/favicon.ico">
