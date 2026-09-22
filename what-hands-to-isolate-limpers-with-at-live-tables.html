@@ -22,16 +22,16 @@
   </script>
 
   <title>What Hands to Isolate Limpers With at Live Tables | RangeIQ</title>
-  <meta name="description" content="Learn which hands to iso-raise limpers with at $1/$3 and $2/$5, how to size your raise by opponent type, and when position changes the decision.">
+  <meta name="description" content="Which hands are worth iso-raising limpers at $1/$3 and $2/$5, how to adjust your range by opponent type, and the right sizing to keep the pot heads-up.">
   <meta property="og:title" content="What Hands to Isolate Limpers With at Live Tables">
-  <meta property="og:description" content="Build your iso-raising range at live cash games by position and opponent type. Dollar sizing for every limper count.">
+  <meta property="og:description" content="Iso-raise ranges for live cash: which hands qualify, how opponent type changes the math, and sizing in dollars.">
   <meta property="og:url" content="https://www.rangeiqpoker.com/what-hands-to-isolate-limpers-with-at-live-tables">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
   <meta property="og:site_name" content="RangeIQ Poker">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="What Hands to Isolate Limpers With at Live Tables">
-  <meta name="twitter:description" content="Not every limper deserves the same treatment. Which hands to iso-raise, how much to size up, and how opponent type changes the math at $1/$3 and $2/$5.">
+  <meta name="twitter:description" content="Which hands to iso-raise limpers with at $1/$3 and $2/$5, how opponent type changes your range, and the sizing that keeps pots heads-up.">
   <meta name="twitter:image" content="https://rangeiqpoker.com/app-screenshot.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -46,7 +46,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "What Hands to Isolate Limpers With at Live Tables",
-    "description": "Learn which hands to iso-raise limpers with at $1/$3 and $2/$5, how to size your raise by opponent type, and when position changes the decision.",
+    "description": "Which hands are worth iso-raising limpers at $1/$3 and $2/$5, how to adjust your range by opponent type, and the right sizing to keep the pot heads-up.",
     "author": {
       "@type": "Organization",
       "name": "RangeIQ Poker",
@@ -56,7 +56,7 @@
       "@type": "Organization",
       "name": "IQ Digital Holdings LLC"
     },
-    "datePublished": "2026-09-17",
+    "datePublished": "2026-09-22",
     "url": "https://www.rangeiqpoker.com/what-hands-to-isolate-limpers-with-at-live-tables",
     "about": {
       "@type": "WebApplication",
@@ -67,7 +67,7 @@
       "applicationCategory": "EducationalApplication",
       "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in real dollars. For study between sessions."
     },
-    "keywords": ["isolate limpers poker", "iso raise live poker", "preflop strategy live cash", "bet sizing live poker", "exploit limpers poker", "preflop raise size", "opponent types poker"]
+    "keywords": ["isolate limpers poker", "iso raise live poker", "preflop strategy live cash", "iso raise sizing $1/$3", "which hands to iso raise", "live poker preflop range", "exploit limpers poker"]
   }
   </script>
 
@@ -323,6 +323,19 @@
     }
     .hand-example .iq-reasoning strong { color: var(--gold); }
 
+    /* Callout box */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
     /* CTA section */
     .article-cta {
       text-align: center;
@@ -420,57 +433,63 @@
   <!-- ARTICLE HERO -->
   <header class="article-hero">
     <h1>What Hands to Isolate Limpers With at Live Tables</h1>
-    <p class="subtitle">A position-by-position breakdown of which hands earn an iso-raise, how much to size it, and which opponent types widen or tighten your range.</p>
+    <p class="subtitle">The exact hands worth raising, the sizing that punishes limpers, and how opponent type changes both.</p>
     <div class="article-meta">By RangeIQ Poker &middot; September 2026 &middot; 5 min read</div>
   </header>
 
   <!-- ARTICLE BODY -->
   <article class="article-body">
 
-    <p>At a live $1/$3 game, there's almost always a limper. The question isn't whether to isolate — it's <strong>which hands, how much, and against which opponent type</strong>. A Calling Station limper and a Nit limper require completely different responses, and what works from the cutoff becomes a mistake from the small blind.</p>
+    <p>At most $1/$3 and $2/$5 tables, limping is endemic. Two or three players see the flop for $3 before the action reaches you, and you have to decide whether to raise, call, or fold. The question isn't whether isolating limpers is correct in principle &mdash; it almost always is from late position &mdash; but which hands are actually worth building a pot with, and how much to charge.</p>
 
-    <h2>Why You Isolate — and What You're Actually Buying</h2>
+    <h2>The Core ISO Range: Hands That Always Qualify</h2>
 
-    <p>Isolation raising does two things: it narrows the field so you play a heads-up pot with a range advantage, and it builds a pot you intend to win across three streets. Neither goal works if your hand can't withstand a call and a multi-street fight in position.</p>
+    <p>The baseline iso-raise range from the BTN or CO against a single limper is wider than most players expect. Any hand you'd open from HJ or CO in a normal full-ring game belongs here: <strong>TT+, AJs+, AQo+, KQs</strong>. These hands have strong equity against a single caller and play well heads-up on most board textures.</p>
 
-    <p>The hands that earn a raise are ones with strong equity against a defined, weak range — <strong>top pair potential with a good kicker, suited broadways, and pairs that can stack weaker pairs</strong>. Against a <em>Loose Passive</em> or <em>Calling Station</em> limper, showdown value matters most. Against a <em>Nit</em> who open-limps instead of folding, your iso range tightens — they call with a stronger range and hit harder when they connect.</p>
+    <p>Below that tier, the decision depends on how many limpers are in and where you're sitting. <strong>88-99, ATs-AJs, KJs+</strong> are clean iso-raises with one or two passive limpers from late position. Suited connectors like <strong>76s, 87s, T9s</strong> are profitable from the BTN against a single limper because they have the multiway equity to pay off when they connect and the fold equity on dry boards when they don't. Offsuit broadways &mdash; KJo, QJo &mdash; weaken fast as limpers multiply; you make second-best hands too often in five-way pots.</p>
 
-    <p>From the hijack or cutoff against a single <em>Loose Passive</em> limper, a reasonable iso range covers all pocket pairs (22+), broadway combinations down to KTo and QJo, suited broadways, and suited aces down to A5s — roughly 18-20% of hands. Behind two or more limpers, tighten to pairs 77+, suited connectors 87s and above, and top broadway hands only. Each additional limper increases the chance you're running into a real holding.</p>
+    <p>A practical tier breakdown for BTN vs 1-2 limpers at $1/$3:</p>
+    <ul>
+      <li><strong>Always raise:</strong> TT+, AJs+, AQo+, KQs</li>
+      <li><strong>Raise with 1-2 passive limpers:</strong> 88-99, ATs, KJs, QJs, JTs, T9s</li>
+      <li><strong>Raise with 1 limper only:</strong> 76s-98s, 65s, A9o-ATo in position</li>
+      <li><strong>Fold vs multiple limpers:</strong> KJo, QJo, offsuit Ax below ATo</li>
+    </ul>
 
-    <h2>Sizing by Opponent Type and Limper Count</h2>
+    <h2>How Opponent Type Reshapes Your Range</h2>
 
-    <p>Flat sizing rules don't survive contact with live poker. Against a <em>Calling Station</em> at $1/$3 with one limper, raise to $15-$18. They call $15 with the same frequency they call $10 — don't leave dead money behind. Against a <em>Recreational</em> player who folds weak hands to pressure, $12 may accomplish the same goal; $18 can keep them in when you'd rather play heads-up.</p>
+    <p>The tiers above assume a generic limper. At a live table, you almost always know more. Opponent type is the biggest input after hand strength &mdash; and it shifts which hands cross the profitability threshold.</p>
 
-    <p>With multiple limpers, add one big blind per additional limper: one limper means raise to $14-$15, two limpers means $17-$20, three means $21-$24. This keeps your sizing proportional to the dead money in the pot — you're building a pot, not making a mistake-sized raise into a crowd.</p>
+    <p>Against a <em>Loose Passive</em> or <em>Calling Station</em>, widen your value range and tighten speculative hands. A9o becomes a strong iso-raise because you'll often hold the best hand at showdown. Suited connectors like 65s drop in value &mdash; this opponent calls flop and turn bets mechanically, so you need actual showdown equity rather than fold equity to realize your edge.</p>
 
-    <p>From the button, add $3-$5 to whatever the table baseline is. You're playing every postflop street with position. That extra amount captures additional dead money from the blinds and discourages overcalls from players who haven't acted yet.</p>
+    <p>Against a <em>Nit</em>, the math flips. Nits limp their weaker Ax hands and small pocket pairs; their limp range is capped. Iso-raising with 76s or T9s in position is excellent because when a Nit continuation bets a dry board, you can float or raise with credibility. Value-bet thin on J-high boards &mdash; Nits rarely bluff-catch.</p>
 
     <div class="hand-example">
       <div class="spot-line">
         <span class="spot-badge">PREFLOP</span>
-        <span class="spot-info">A&hearts;J&clubs; &middot; CO vs MP1 limper &middot; $1/$3 &middot; $6 dead money</span>
+        <span class="spot-info">A&hearts;9&diams; &middot; BTN vs UTG limp &middot; $1/$3 &middot; $6 pot</span>
       </div>
-      <div class="opponent-label">vs Calling Station</div>
-      <div class="decision-line">Raise to $17 &mdash; 88% Confidence</div>
+      <div class="opponent-label">vs Loose Passive</div>
+      <div class="decision-line">Raise to $14 &mdash; 86% Confidence</div>
       <div class="iq-reasoning">
-        <strong>IQ Reasoning:</strong> Against a <em>Calling Station</em>, AJo from the cutoff earns a large iso-raise because the opponent's calling range is wide and weak — pairs below tens, suited gappers, any ace. At $17, you take in the $6 limper dead money while charging a price the station pays with dominated hands. The raise size is above table standard specifically because Calling Stations don't fold to pressure — a smaller raise doesn't reduce calls but does reduce pot size when you're a 65-70% equity favorite against their range. You play this hand in position on every street.
+        <strong>IQ Reasoning:</strong> A9o has strong top-pair equity against a Loose Passive's wide limp range, which includes hands like K7, Q8, and small pairs &mdash; all of which you dominate or have significant equity against. Raising $14 builds a heads-up pot where your A-high is a clear favorite. RangeIQ's node-locking engine locks this opponent type's call frequency at 71% of their limp range, which means you're building value on the vast majority of runouts. Limping behind surrenders the initiative and risks a five-way pot where A9o loses most of its edge; checking back is even worse since it caps your range and lets marginal hands realize free equity against you.
       </div>
     </div>
 
-    <h2>When Position Changes the Decision Entirely</h2>
+    <h2>Sizing the Iso-Raise: Dollars Over Ratios</h2>
 
-    <p>From early position — UTG or UTG+1 — isolating a limper is almost always a mistake with anything below AJo or TT. You're playing out of position against the full table, and a raise rarely isolates: it typically collects two or three callers, defeating the purpose. Save speculative iso-raises for the hijack, cutoff, and button.</p>
+    <p>At $1/$3 with one limper, the standard iso-raise is <strong>$12-$15</strong> &mdash; add $3 per additional limper. That's a 4-5x raise. This is larger than what balanced frameworks suggest because live cash players call too wide; the price needs to be big enough to keep the pot heads-up against most of your table.</p>
 
-    <p>From the small blind, the problem compounds. Against a single <em>Calling Station</em> limper, a raise to $15 with pocket sevens rarely produces a clean heads-up pot — the big blind calls at high frequency, and you're now three-handed out of position holding a marginal hand. In most live $1/$3 games, completing or flatting in the SB against a weak limper and playing a multiway pot is the lower-variance line.</p>
+    <p>Never size down to 2.5x or 3x at a loose table. You end up multiway with a hand that doesn't want to be there. The extra $3-$5 in raise size isn't about fold equity alone &mdash; it controls the stack-to-pot ratio so you're comfortable betting three streets if you connect. At $2/$5, the same structure applies in larger numbers: $20-$25 with one limper, add $5 per extra caller. At $5/$10, $40+ is standard.</p>
 
-    <p>Between sessions, reviewing iso-raise spots in RangeIQ by position and opponent type shows exactly which hands earned positive expectation from each seat. The engine breaks down whether the value came from fold equity, showdown equity, or a combination — so you understand why a hand belongs in the range, not just that it does.</p>
+    <p>Review these spots in RangeIQ between sessions against each opponent type. The analysis shows exactly which hand/sizing combinations are profitable against each of the 9 opponent types, with the reasoning that explains why &mdash; so when you sit down at a $1/$3 table, you already know the answer before the action reaches you.</p>
 
   </article>
 
   <!-- CTA -->
   <section class="article-cta">
-    <h2>Build Your Iso Range <span style="color:var(--gold)">Before Your Next Session</span></h2>
-    <p>Load any preflop spot in RangeIQ, filter by opponent type, and see exactly which hands earn an iso-raise and at what size.</p>
+    <h2>Drill Your Preflop <span style="color:var(--gold)">ISO Range</span></h2>
+    <p>RangeIQ runs preflop analysis against all 9 opponent types, shows exact sizing in dollars, and explains the math behind every decision &mdash; ready to review between sessions.</p>
     <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
     <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
     <p style="margin-top:8px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">See all RangeIQ resources &rarr;</a></p>
