@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18142420946"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+    gtag('config', 'AW-18142420946');
+    gtag('config', 'G-WVG2PWLN8F');
+  </script>
+
+  <title>What Hands to Isolate Limpers With at Live Tables | RangeIQ</title>
+  <meta name="description" content="Learn which hands to isolation raise at live $1/$3 and $2/$5. Position, opponent type, and stack depth all determine your optimal iso range.">
+  <meta property="og:title" content="What Hands to Isolate Limpers With at Live Tables">
+  <meta property="og:description" content="Which hands should you iso raise at live $1/$3 and $2/$5? Position and opponent type drive the correct range.">
+  <meta property="og:url" content="https://www.rangeiqpoker.com/what-hands-to-isolate-limpers-with-at-live-tables">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <meta property="og:site_name" content="RangeIQ Poker">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Hands to Isolate Limpers With at Live Tables">
+  <meta name="twitter:description" content="Isolation raising is about more than hand strength. Position, opponent type, and stack depth all determine which hands to iso at live $1/$3 and $2/$5.">
+  <meta name="twitter:image" content="https://rangeiqpoker.com/app-screenshot.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="https://www.rangeiqpoker.com/what-hands-to-isolate-limpers-with-at-live-tables">
+
+  <!-- Structured Data: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Hands to Isolate Limpers With at Live Tables",
+    "description": "Learn which hands to isolation raise at live $1/$3 and $2/$5. Position, opponent type, and stack depth all determine your optimal iso range.",
+    "author": {
+      "@type": "Organization",
+      "name": "RangeIQ Poker",
+      "url": "https://rangeiqpoker.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IQ Digital Holdings LLC"
+    },
+    "datePublished": "2026-10-13",
+    "url": "https://www.rangeiqpoker.com/what-hands-to-isolate-limpers-with-at-live-tables",
+    "about": {
+      "@type": "WebApplication",
+      "@id": "https://rangeiqpoker.com/#app",
+      "name": "RangeIQ",
+      "alternateName": "RangeIQ Poker",
+      "url": "https://app.rangeiqpoker.com",
+      "applicationCategory": "EducationalApplication",
+      "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in real dollars. For study between sessions."
+    },
+    "keywords": ["isolate limpers poker", "iso raise live poker", "preflop strategy live cash", "isolation raise range", "live poker preflop", "exploit limpers poker", "poker position strategy"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F14;
+      --bg-alt: #0F1620;
+      --card: #111827;
+      --card-muted: #0D131B;
+      --surface: #1F2937;
+      --border: rgba(255,255,255,0.08);
+      --border-hi: rgba(230,197,102,0.4);
+      --text: #E5E7EB;
+      --muted: #9CA3AF;
+      --faint: #6B7280;
+      --gold: #E6C566;
+      --gold-dim: #8A7438;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding-top: 72px;
+    }
+
+    /* Top Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 72px;
+      display: flex; align-items: center; z-index: 1000;
+      background: rgba(11,15,20,0.82);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo .logo-grid {
+      width: 26px; height: 26px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .nav-logo .logo-grid span { border-radius: 2px; background: var(--gold); }
+    .nav-logo .logo-grid span:nth-child(4),
+    .nav-logo .logo-grid span:nth-child(5),
+    .nav-logo .logo-grid span:nth-child(7) { background: rgba(255,255,255,0.15); }
+    .nav-logo .logo-grid span:nth-child(8),
+    .nav-logo .logo-grid span:nth-child(9) { background: rgba(255,255,255,0.08); }
+    .nav-logo .logo-iq { color: var(--gold); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-cta .sign-in {
+      font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none;
+    }
+    .nav-cta .sign-in:hover { color: var(--text); }
+    .nav-cta .nav-btn-primary {
+      height: 40px; padding: 0 18px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(230,197,102,0.2);
+    }
+    .nav-cta .nav-btn-primary:hover {
+      transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,197,102,0.3);
+    }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger {
+      cursor: pointer; display: flex; align-items: center; gap: 4px;
+      font-size: 13px; font-weight: 500; color: var(--muted, #9CA3AF);
+      text-decoration: none; user-select: none;
+    }
+    .nav-dropdown-trigger:hover { color: var(--text, #E5E7EB); }
+    .dropdown-arrow { font-size: 10px; transition: transform 180ms ease; }
+    .nav-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 8px); left: -12px;
+      background: var(--card, #111827); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 6px 0; min-width: 180px; z-index: 100;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu li { list-style: none; }
+    .nav-dropdown-menu a {
+      display: block; padding: 10px 18px; font-size: 13px; font-weight: 500;
+      color: var(--muted, #9CA3AF); text-decoration: none; white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { color: var(--text, #E5E7EB); background: rgba(255,255,255,0.04); }
+    .nav-dropdown-menu a.active { color: var(--gold, #E6C566); }
+    .mobile-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .mobile-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      margin: 5px 0; border-radius: 1px;
+    }
+    .mobile-signin, .mobile-start { display: none; }
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none; position: fixed; top: 72px; left: 0; right: 0;
+        background: var(--bg); flex-direction: column; align-items: stretch;
+        gap: 0; padding: 16px 0; margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3); list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-cta { display: none; }
+      .nav-links.open .mobile-signin,
+      .nav-links.open .mobile-start { display: block; padding: 14px 24px; font-size: 17px; font-weight: 500; text-decoration: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .nav-links.open .mobile-signin { color: rgba(255,255,255,0.7); }
+      .nav-links.open .mobile-start { color: var(--gold); font-weight: 600; }
+      .nav-dropdown { position: static; }
+      .nav-dropdown-trigger { display: block; padding: 14px 24px; font-size: 17px; }
+      .nav-dropdown-menu {
+        position: static; background: transparent; border: none;
+        box-shadow: none; border-radius: 0; padding: 0; min-width: 0;
+      }
+      .nav-dropdown.open .nav-dropdown-menu { display: block; }
+      .nav-dropdown-menu a { padding: 12px 24px 12px 44px; font-size: 16px; }
+      .mobile-signin, .mobile-start { display: none; }
+      .mobile-toggle { display: block; }
+      .mobile-toggle span { transition: all 200ms ease; }
+      .mobile-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .mobile-toggle.open span:nth-child(2) { opacity: 0; }
+      .mobile-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Article styles */
+    .article-hero {
+      padding: 64px 32px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(28,16,64,0.3) 0%, var(--bg) 100%);
+    }
+    .article-hero h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.12;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .article-hero h1 .gold { color: var(--gold); }
+    .article-hero .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .article-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--faint);
+    }
+
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article-body h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 28px;
+      color: var(--text);
+      font-weight: 400;
+      margin: 48px 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 36px 0 12px;
+    }
+    .article-body p {
+      margin-bottom: 18px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .article-body em { color: var(--muted); }
+    .article-body ul, .article-body ol {
+      margin: 0 0 18px 24px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body li { margin-bottom: 6px; }
+
+    /* Hand example card */
+    .hand-example {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .hand-example .spot-line {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hand-example .spot-badge {
+      background: rgba(230,197,102,0.15);
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .hand-example .spot-info {
+      font-size: 14px; color: var(--muted);
+    }
+    .hand-example .opponent-label {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .hand-example .decision-line {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hand-example .iq-reasoning {
+      background: rgba(230,197,102,0.04);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .hand-example .iq-reasoning strong { color: var(--gold); }
+
+    /* Callout box */
+    .callout {
+      background: rgba(230,197,102,0.06);
+      border: 1px solid rgba(230,197,102,0.2);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .callout strong { color: var(--gold); }
+
+    /* CTA section */
+    .article-cta {
+      text-align: center;
+      padding: 64px 32px;
+      background: var(--bg-alt);
+    }
+    .article-cta h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 32px;
+      color: var(--text);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .article-cta p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 36px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      color: var(--bg);
+      box-shadow: 0 6px 24px rgba(230,197,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(230,197,102,0.35); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 36px 20px 28px;
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer strong { color: var(--muted); font-weight: 600; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .article-hero { padding: 48px 20px 36px; }
+      .article-body { padding: 32px 20px 64px; }
+      .article-body h2 { font-size: 24px; }
+      .hand-example { padding: 20px; }
+      .hand-example .decision-line { font-size: 18px; }
+      .article-cta { padding: 48px 20px; }
+      .article-cta h2 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        Range<span class="logo-iq">IQ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="vs-gto-wizard.html">For GTO Players</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li class="nav-dropdown">
+          <a class="nav-dropdown-trigger" style="color:var(--gold, #E6C566)">Learn <span class="dropdown-arrow">&#9662;</span></a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="strategy.html">Strategy Q&amp;A</a></li>
+            <li><a href="resources.html" class="active">Resources</a></li>
+            <li><a href="education.html">Education Hub</a></li>
+          </ul>
+        </li>
+        <li><a href="https://app.rangeiqpoker.com/?signin=1" class="mobile-signin">Sign In</a></li>
+        <li><a href="https://app.rangeiqpoker.com" class="mobile-start">Start Training</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://app.rangeiqpoker.com/?signin=1" class="sign-in">Sign In</a>
+        <a href="https://app.rangeiqpoker.com" class="nav-btn-primary">Start Training</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <header class="article-hero">
+    <h1>What Hands to Isolate Limpers With at Live Tables</h1>
+    <p class="subtitle">Your iso range at a live cash game is not fixed — it shifts based on position, stack depth, and the opponent type you're targeting.</p>
+    <div class="article-meta">By RangeIQ Poker &middot; October 2026 &middot; 5 min read</div>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <p>Isolation raising is one of the highest-leverage preflop tools in live cash — but most players apply a fixed range regardless of position, stack depth, or who they're targeting. The right iso range at a live $1/$3 or $2/$5 table is not a static hand list. It shifts based on three variables: where you're sitting relative to the limper, the opponent type, and effective stack depth.</p>
+
+    <h2>Opponent Type Determines Whether You Isolate at All</h2>
+
+    <p>Not every limper is worth building a pot against. The purpose of an isolation raise is to manufacture a heads-up situation against a player whose post-flop tendencies you can exploit — and that calculus changes completely based on who you're targeting.</p>
+
+    <p><em>Calling Stations</em> and <em>Loose Passive</em> players are the ideal iso targets. Their limp ranges are wide, they call raises with speculative holdings, and they will pay off strong hands through the river. Against these players, your iso range from the button or cutoff widens considerably: Axs, medium pocket pairs, suited connectors 65s and above, any broadway combination. You're not looking for premium hands. You're looking for hands that build strong pairs, sets, and draws on a variety of flop textures, knowing your opponent will call you down.</p>
+
+    <p><em>Nits</em> are a different story. A Nit who limps often holds a small pair or a suited connector they planned to limp-call — their limp range is stronger than average, not weaker. Isolating a Nit with AJo at $1/$3 doesn't exploit weakness; it builds a pot against someone who has real equity on many textures. Against Nits, iso ranges should be tight: <strong>AQ+, TT+, KQs in position</strong>. Anything less and the edges are too thin.</p>
+
+    <p><em>Young Aggro</em> and <em>LAG</em> players who limp frequently are setting up limp-reraises. A single limp from a known aggro at $2/$5 may be designed to trap you into a pot they built for themselves.</p>
+
+    <div class="hand-example">
+      <div class="spot-line">
+        <span class="spot-badge">PREFLOP</span>
+        <span class="spot-info">A&clubs;6&clubs; &middot; BTN isolating CO limp &middot; $1/$3 &middot; $340 effective</span>
+      </div>
+      <div class="opponent-label">vs Calling Station</div>
+      <div class="decision-line">Raise to $12 &mdash; 86% Confidence</div>
+      <div class="iq-reasoning">
+        <strong>IQ Reasoning:</strong> A&clubs;6&clubs; in position against a Calling Station is a profitable isolation. The Calling Station's limp range includes any Ax, most suited hands, and broadway combinations — all of which you dominate when you hit top pair. A&clubs;6&clubs; adds backdoor flush equity and a nut flush draw on any club board. With $340 effective stacks, implied odds favor the investment: top pair on dry boards pays off with two to three streets of value, and two-pair or better stacks off comfortably. Raise to $12 — a 4x raise that prices out trash while Calling Stations consistently call. Avoid raising to $18; it makes the pot unwieldy without the corresponding hand strength.
+      </div>
+    </div>
+
+    <h2>Position Contracts Your Range Out of the Blinds</h2>
+
+    <p>The second filter is position. From the button or cutoff, you'll have post-flop position on any heads-up pot you create — which means you can profitably iso with a wider range because you'll control pot size and extract value over multiple streets.</p>
+
+    <p>From the small blind, you're immediately out of position against both the limper and a potential BB caller. Your iso range from the SB should contract significantly: <strong>AJ+, KQs, 99+</strong>. You want hands with strong inherent equity that can withstand a multi-way pot if the BB comes along. Speculative hands — 76s, A5s — lose the majority of their value when you're acting first on every post-flop street.</p>
+
+    <div class="callout">
+      <strong>Key takeaway:</strong> The same hand that's a profitable iso from the button against a Calling Station can be a clear fold from the small blind against the same player.
+    </div>
+
+    <h2>Stack Depth Governs Speculative Iso Hands</h2>
+
+    <p>Effective stack depth is the third variable. At $1/$3 with 100bb ($300) effective, hands like 76s or A5s can profitably iso from position against a Calling Station — the implied odds are large enough to justify the preflop investment. If you connect with a flush draw, two pair, or a set, there's enough money behind to extract over multiple streets.</p>
+
+    <p>At $2/$5 with 60bb ($300) effective, those same hands lose their value. You need at least 80–100bb behind to play small suited connectors profitably as isolation hands. When stacks are shallower, weight your range toward higher-equity hands: <strong>AJ+, KQ, 99+</strong>.</p>
+
+    <p>The general rule: the deeper the effective stacks relative to your iso raise size, the wider you can profitably isolate. But this always pairs with position — deep stacks out of position against an aggressive player is not a license to iso wider. It's a reason to play tighter, clearer hands.</p>
+
+    <p>Reviewing isolation spots in RangeIQ between sessions — filtered by opponent type, position, and stack depth — shows you exactly how equity shifts as these variables change. The tool's preflop analysis covers all nine opponent types and displays decisions in dollar amounts, so you can map the logic directly to your $1/$3 or $2/$5 table without any mental translation.</p>
+
+  </article>
+
+  <!-- CTA -->
+  <section class="article-cta">
+    <h2>Build Your Iso Range With <span style="color:var(--gold)">RangeIQ</span></h2>
+    <p>Analyze isolation spots by opponent type and position between sessions — so every preflop decision at the table is already worked out.</p>
+    <a href="https://app.rangeiqpoker.com" class="btn btn-primary">Try RangeIQ Free</a>
+    <p style="margin-top:24px; font-size:14px;"><a href="library.html" style="color:var(--gold); text-decoration:none;">Browse 25 hand examples in the Exploit Library &rarr;</a></p>
+    <p style="margin-top:8px; font-size:14px;"><a href="resources.html" style="color:var(--gold); text-decoration:none;">See all RangeIQ resources &rarr;</a></p>
+  </section>
+
+  <footer>
+    <strong>RangeIQ Poker</strong><br>
+    A Between the Cards product &middot; &copy; 2026 IQ Digital Holdings LLC<br>
+    <a href="/">Home</a> &middot; <a href="/pricing.html">Pricing</a> &middot; <a href="/library.html">Exploit Library</a> &middot; <a href="/partners.html">Partners</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/about.html">About</a>
+
+    <div style="margin-top:10px; font-size:11px;"><a href="https://www.youtube.com/@Between_the_Cards" target="_blank" rel="noopener">YouTube</a> &middot; <a href="https://www.betweenthecards.co" target="_blank" rel="noopener">Between the Cards</a> &middot; <a href="javascript:void(0)" onclick="riqCookieSettings()">Cookie Settings</a></div>
+
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;line-height:1.7;color:#7A7972;text-align:center;max-width:640px;margin-left:auto;margin-right:auto;">RangeIQ is a poker education and training tool for studying between sessions. No real-money play, wagering, or betting occurs on this platform. Not designed for use during live play. Poker involves variance and no training tool can guarantee results. For users 18+.</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        var dd = trigger.closest('.nav-dropdown');
+        dd.classList.toggle('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
+      }
+    });
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle && navLinks) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileToggle.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('open');
+      }));
+    }
+  </script>
+
+<script src="/consent.js" defer></script>
+</body>
+</html>
