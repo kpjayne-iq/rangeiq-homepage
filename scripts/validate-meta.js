@@ -103,6 +103,47 @@ const BANNED = [
   [/"@type"\s*:\s*"Review"/, "no review schema until real, verifiable reviews exist"],
 ];
 
+// Profit-promise / guaranteed-outcome language.
+//
+// THIS IS THE CLASS THAT COST RANGEIQ ITS PAYMENT PROCESSOR. On 2026-10-14
+// Paddle closed the account under its AUP "Gambling (Gambling Adjacent
+// Product)" clause, quoting "get paid", "long-run edge" and "exact bet sizing"
+// as evidence of a "direct connection to users' off-platform wagering
+// activity". The brand rule has banned this language since launch; nothing
+// enforced it, so it drifted back in — including a guaranteed-money claim that
+// shipped inside HowTo JSON-LD, where an automated screen reads it first.
+//
+// Scanned over the WHOLE page, not just head/schema/headings, because the worst
+// instance was body prose. Deliberately NOT banned:
+//   - "bet sizing" on its own: core product vocabulary, not a promise.
+//   - The 35-page footer "no training tool can guarantee results" — that line
+//     is the defence, so the patterns below require a money verb after "you".
+//   - GTO's mathematical property ("guarantees you break even against a perfect
+//     opponent") — a fact about game theory, not a claim about RangeIQ.
+const PROFIT_PROMISE = [
+  [/guarantees?\s+(?:you|that\s+you|they)\s+(?:will\s+)?(?:get|gets|make|makes|win|wins|earn|earns|profit)/i,
+    "guaranteed-outcome claim about the reader's results"],
+  [/\b(?:gets?|getting)\s+paid\b/i,
+    "ties the product to the reader's winnings"],
+  [/\b(?:make|makes|making)\s+money\b/i, "profit promise"],
+  [/\bwins?\s+more\b/i, "profit promise"],
+  [/\blong[-\s]run\s+edge\b/i, "profit promise (quoted by Paddle in the termination notice)"],
+];
+
+// Places a PROFIT_PROMISE pattern is legitimately present. These exact strings
+// are REMOVED before scanning, so a NEW violation in the same file still fails.
+const PROFIT_PROMISE_ALLOW = new Map([
+  // Affiliate programme: commission paid to partners. Nothing to do with poker
+  // results — a naive sweep of this class would break the partner page.
+  ["partners.html", [
+    "Get paid every month for every active referral",
+    "When and how do I get paid?",
+  ]],
+  // An italicised list of the questions a live player asks at the table,
+  // describing how players think — not a claim about the reader's results.
+  ["beyond-memorization.html", ["will this sizing get paid"]],
+]);
+
 // Pages whose <title> need not end in "| RangeIQ".
 const TITLE_ALLOWLIST = new Set([
   "index.html",              // brand-leading title
@@ -211,6 +252,22 @@ for (const file of files) {
   for (const re of [/IQ Reasoning AI/i, /AI[-\s]powered IQ Reasoning/i]) {
     const m = html.match(re);
     if (m) problems.push(`${file} [body]: "${m[0]}" brands IQ Reasoning as AI — it is an explanation layer`);
+  }
+
+  // 2d. Profit-promise / guaranteed-outcome language (see PROFIT_PROMISE above).
+  {
+    let scan = html;
+    for (const allowed of PROFIT_PROMISE_ALLOW.get(file) || []) {
+      if (!scan.includes(allowed)) {
+        problems.push(`${file}: stale profit-promise allowlist entry "${allowed}" — the copy it excused is gone, so drop the entry`);
+        continue;
+      }
+      scan = scan.split(allowed).join("");
+    }
+    for (const [re, reason] of PROFIT_PROMISE) {
+      const m = scan.match(re);
+      if (m) problems.push(`${file} [body]: profit-promise language "${m[0]}" — ${reason}`);
+    }
   }
 
   // 3. WebApplication naming/category rules
