@@ -128,6 +128,13 @@ const PROFIT_PROMISE = [
   [/\b(?:make|makes|making)\s+money\b/i, "profit promise"],
   [/\bwins?\s+more\b/i, "profit promise"],
   [/\blong[-\s]run\s+edge\b/i, "profit promise (quoted by Paddle in the termination notice)"],
+  // Not a profit promise, but Paddle quoted it as a wagering signal. The units
+  // rule is "dollars, not big blinds" — "real" is what reads as real-money play.
+  // Matches the hyphenated and singular forms too: the 2026-10-14 sweep used
+  // /real dollars/i and so missed "real-dollar bet sizing" (x3 in the app's meta
+  // descriptions) and "a real dollar amount" (x5 across both repos). The residual
+  // check reused the same narrow pattern, so it confirmed its own blind spot.
+  [/\breal[-\s]?dollars?\b/i, 'say "dollars, not big blinds" — "real dollars" reads as real-money play'],
 ];
 
 // Places a PROFIT_PROMISE pattern is legitimately present. These exact strings
