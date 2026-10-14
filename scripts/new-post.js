@@ -118,7 +118,7 @@ const html = `<!DOCTYPE html>
       "alternateName": "RangeIQ Poker",
       "url": "https://app.rangeiqpoker.com",
       "applicationCategory": "EducationalApplication",
-      "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in real dollars. For study between sessions."
+      "description": "Poker education and training tool for live cash games — simplified node-locking engine, 9 opponent types, bet sizing in dollars, not big blinds. For study between sessions."
     },
     "keywords": ["TODO: add 5-8 target keywords"]
   }

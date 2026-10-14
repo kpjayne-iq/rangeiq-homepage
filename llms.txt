@@ -2,7 +2,7 @@
 
 > RangeIQ is a poker education and training tool for live cash games ($1/$2–$5/$10).
 > Players study between sessions against 9 opponent types using a simplified
-> node-locking engine, plain-English "IQ Reasoning," and bet sizing in real dollars.
+> node-locking engine, plain-English "IQ Reasoning," and bet sizing in dollars, not big blinds.
 > It is not a gambling product and not for use during live play.
 
 Key facts:
